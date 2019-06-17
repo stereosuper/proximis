@@ -192,15 +192,51 @@ sup {
   line-height: 0;
   vertical-align: baseline; }
 
+@font-face {
+  font-family: 'recoleta';
+  src: url(/wp-content/themes/proximis/fonts/Recoleta-Regular.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/Recoleta-Regular.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'recoleta_bold';
+  src: url(/wp-content/themes/proximis/fonts/Recoleta-Bold.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/Recoleta-Bold.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ibmplex_italic';
+  src: url(/wp-content/themes/proximis/fonts/ibmplexsans-italic-webfont.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/ibmplexsans-italic-webfont.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ibmplex';
+  src: url(/wp-content/themes/proximis/fonts/ibmplexsans-regular-webfont.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/ibmplexsans-regular-webfont.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ibmplex_semibold';
+  src: url(/wp-content/themes/proximis/fonts/ibmplexsans-semibold-webfont.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/ibmplexsans-semibold-webfont.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ibmplex_semibolditalic';
+  src: url(/wp-content/themes/proximis/fonts/ibmplexsans-semibolditalic-webfont.woff2) format("woff2"), url(/wp-content/themes/proximis/fonts/ibmplexsans-semibolditalic-webfont.woff) format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
 /******* GÉNÉRAL *******/
 ::-moz-selection {
-  background: black;
-  color: white;
+  background: #55C4DA;
+  color: #fff;
   text-shadow: none; }
 
 ::selection {
-  background: black;
-  color: white;
+  background: #55C4DA;
+  color: #fff;
   text-shadow: none; }
 
 html {
@@ -208,72 +244,101 @@ html {
   /* sets the base font to 10px for easier math */ }
 
 body {
-  font: 1.6em / 1.2 sans-serif;
+  font: 1.6em/1.55 "ibmplex", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  background: #F8F5F1;
+  color: #18162B; }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 400; }
+
+h1, h2, h3 {
+  font-family: "recoleta_bold", "ibmplex", sans-serif; }
+
+h4, h5, h6 {
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+  margin: 1.9em 0 1.5em; }
 
 h1 {
-  font-size: 5rem;
-  margin: 0.67em 0; }
+  font-size: 4.3rem;
+  margin: 0.6em 0 1.4em; }
 
 h2 {
-  font-size: 3rem;
-  margin: 0.83em 0; }
+  font-size: 2.2rem;
+  margin: 1.75em 0 1.25em; }
 
 h3 {
-  font-size: 2.4rem;
-  margin: 1em 0; }
+  font-size: 2rem;
+  margin: 1.25em 0;
+  color: #55C4DA; }
 
 h4 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin: 1.33em 0; }
 
 h5 {
-  font-size: 2rem;
-  margin: 1.67em 0; }
+  font-size: 2rem; }
 
 h6 {
-  font-size: 1.8rem;
-  margin: 2.33em 0; }
+  font-size: 1.8rem; }
 
 p {
-  margin: 1em 0; }
+  margin: 2em 0; }
+
+b, strong {
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
+  b i, b em, strong i, strong em {
+    font-family: "ibmplex_semibolditalic", "ibmplex", sans-serif; }
+
+i, em {
+  font-family: "ibmplex_italic", "ibmplex", sans-serif; }
+  i b, i strong, em b, em strong {
+    font-family: "ibmplex_semibolditalic", "ibmplex", sans-serif; }
 
 blockquote {
-  margin: 1em 40px; }
+  margin: 2em 20px;
+  font-family: "recoleta", "ibmplex", sans-serif;
+  font-size: 2.4rem;
+  color: #5C6370; }
+  blockquote > p:before {
+    content: '“';
+    color: #55C4DA; }
+  blockquote > p:after {
+    content: '”';
+    color: #55C4DA; }
 
 ol, ul {
   padding: 0;
-  margin: 1em 0; }
-
-ul ul {
-  padding: 0 0 0 25px;
-  margin: 1em 0; }
+  margin: 2em 0;
+  list-style: none; }
+  ol ol, ol ul, ul ol, ul ul {
+    padding: 0 0 0 25px;
+    margin: 1em 0; }
 
 ol {
   counter-reset: ol-counter; }
   ol > li {
     counter-increment: ol-counter; }
     ol > li:before {
-      content: counter(ol-counter) "."; }
-  ol ol {
-    padding: 0 0 0 25px;
-    margin: 1em 0; }
+      content: counter(ol-counter) ".";
+      color: #55C4DA; }
 
-dt, dd {
-  display: inline;
-  margin: 0; }
+ul > li:before {
+  width: 8px;
+  height: 8px;
+  background: #55C4DA;
+  border-radius: 50%; }
 
-dt:after {
-  content: ': '; }
-
-dd + dt:before {
-  content: '\A';
-  white-space: pre; }
-
-dd + dd:before {
-  content: ', ';
-  margin: 0 0 0 -0.25em; }
+li {
+  padding: 0 0 0 40px;
+  position: relative; }
+  li:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 20px; }
 
 img {
   max-width: 100%;
@@ -290,12 +355,12 @@ hr {
   max-width: 250px;
   border: 0;
   margin: 3em auto 5em;
-  background: black; }
+  background: #000; }
 
 /******* LIENS / BOUTONS *******/
 a {
-  color: inherit;
-  text-decoration: none;
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+  color: #55C4DA;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out; }
   a:focus {
@@ -323,9 +388,6 @@ a {
   display: table;
   clear: both; }
 
-.pos-relative {
-  position: relative; }
-
 .align-center {
   text-align: center; }
 
@@ -335,36 +397,76 @@ a {
 .align-right {
   text-align: right; }
 
-.inline-b {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateY(-0.1em);
-          transform: translateY(-0.1em); }
-
-.full-width {
-  width: 100%; }
-
 .icon {
   width: 1.2em;
   height: 1.2em;
   fill: currentColor; }
 
-.img-fit.compat-object-fit {
-  background-size: cover;
-  background-position: 50% 50%; }
-  .img-fit.compat-object-fit img {
-    opacity: 0; }
-
 .no-transition {
   -webkit-transition: none !important;
   transition: none !important; }
 
+.has-medium-font-size {
+  font-size: 2rem;
+  margin-bottom: 4.2em; }
+
+.has-drop-cap {
+  position: relative;
+  z-index: 1; }
+  .has-drop-cap:before {
+    content: '';
+    height: 160px;
+    position: absolute;
+    top: -35px;
+    left: -50vw;
+    right: 50%;
+    z-index: -1;
+    background: #fff; }
+  .has-drop-cap:not(:focus):first-letter {
+    margin: 0.3em 20px 0 0;
+    font-size: 9.7rem;
+    line-height: 0.5;
+    font-family: "recoleta_bold", "ibmplex", sans-serif;
+    color: #55C4DA; }
+
+@media (min-width: 400px) {
+  .has-drop-cap:before {
+    right: 65%; } }
+
+@media (min-width: 580px) {
+  .has-drop-cap:before {
+    right: 75%; } }
+
+@media (min-width: 780px) {
+  body {
+    font-size: 1.8em; }
+  h1 {
+    font-size: 5.4rem; }
+  h2 {
+    font-size: 2.8rem; }
+  h3 {
+    font-size: 2.4rem; }
+  .has-drop-cap:before {
+    right: 80%; } }
+
+@media (min-width: 960px) {
+  .has-drop-cap:before {
+    right: 86%; } }
+
 /* Placeholders */
 /* Grid */
 .container {
-  max-width: 1200px;
-  padding: 0 20px;
+  max-width: 1350px;
+  padding: 0 40px;
   margin: 0 auto; }
+
+@media (min-width: 960px) {
+  .container-small {
+    margin: 0 8.33333%; } }
+
+@media (min-width: 1100px) {
+  .container-small {
+    margin: 0 25% 0 8.33333%; } }
 
 /* Forms */
 input, textarea, select, button {

@@ -1,12 +1,12 @@
 /******* GÉNÉRAL *******/
 
 ::-moz-selection{
-    background: $black;
+    background: $primary;
     color: $white;
     text-shadow: none;
 }
 ::selection{
-    background: $black;
+    background: $primary;
     color: $white;
     text-shadow: none;
 }
@@ -16,63 +16,96 @@ html{
 }
 
 body{
-    font: 1.6em / 1.2 sans-serif;
+    font: 1.6em / 1.55 $ibm;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: $bg;
+    color: $text;
+}
+
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+h1, h2, h3{
+    font-family: $recoleta-bold;
+}
+
+h4, h5, h6{
+    font-family: $ibm-bold;
+    margin: 1.9em 0 1.5em;
 }
 
 h1{
-    font-size: 5rem;
-    margin: 0.67em 0;
+    font-size: 4.3rem;
+    margin: 0.6em 0 1.4em;
 }
 
 h2{
-    font-size: 3rem;
-    margin: 0.83em 0;
+    font-size: 2.2rem;
+    margin: 1.75em 0 1.25em;
 }
 
 h3{
-    font-size: 2.4rem;
-    margin: 1em 0;
+    font-size: 2rem;
+    margin: 1.25em 0;
+    color: $primary;
 }
 
 h4{
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin: 1.33em 0;
 }
 
 h5{
     font-size: 2rem;
-    margin: 1.67em 0;
 }
 
 h6{
     font-size: 1.8rem;
-    margin: 2.33em 0;
 }
 
 p{
-    margin: 1em 0;
+    margin: 2em 0;
 }
 
 b, strong{
-
+    font-family: $ibm-bold;
+    i, em{
+        font-family: $ibm-it-bold;
+    }
 }
 
 i, em{
-
+    font-family: $ibm-it;
+    b, strong{
+        font-family: $ibm-it-bold;
+    }
 }
 
 blockquote{
-    margin: 1em 40px;
+    margin: 2em $gutter;
+    font-family: $recoleta;
+    font-size: 2.4rem;
+    color: $grey;
+    > p{
+        &:before{
+            content: '“';
+            color: $primary;
+        }
+        &:after{
+            content: '”';
+            color: $primary;
+        }
+    }
 }
 
 ol, ul{
     padding: 0;
-    margin: 1em 0;
-}
-ul{
-    ul{
+    margin: 2em 0;
+    list-style: none;
+    ol, ul{
         padding: 0 0 0 25px;
         margin: 1em 0;
     }
@@ -83,35 +116,28 @@ ol{
         counter-increment: ol-counter;
         &:before{
             content: counter(ol-counter)'.';
+            color: $primary;
         }
     }
-    ol{
-        padding: 0 0 0 25px;
-        margin: 1em 0;
-    }
 }
-
-dt, dd{
-    display: inline;
-    margin: 0;
-}
-dt{
-    &:after{
-        content: ': ';
-    }
-}
-dd{
-    + dt{
+ul{
+    > li{
         &:before{
-            content: '\A';
-            white-space: pre;
+            width: 8px;
+            height: 8px;
+            background: $primary;
+            border-radius: 50%;
         }
     }
-    + dd{
-        &:before{
-            content: ', ';
-            margin: 0 0 0 -0.25em;
-        }
+}
+li{
+    padding: 0 0 0 $gutter*2;
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: $gutter;
     }
 }
 
@@ -139,8 +165,8 @@ hr{
 /******* LIENS / BOUTONS *******/
 
 a{
-    color: inherit;
-    text-decoration: none;
+    font-family: $ibm-bold;
+    color: $primary;
     transition: $transition;
     &:focus, &:hover{
     }
@@ -173,10 +199,6 @@ a{
     @include clearfix;
 }
 
-.pos-relative{
-    position: relative;
-}
-
 .align-center{
     text-align: center;
 }
@@ -187,32 +209,88 @@ a{
     text-align: right;
 }
 
-.inline-b{
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateY(-0.1em);
-}
-
-.full-width{
-    width: 100%;
-}
-
 .icon{
     width: 1.2em;
     height: 1.2em;
     fill: currentColor;
 }
 
-.img-fit{
-    &.compat-object-fit{
-        background-size: cover;
-        background-position: 50% 50%;
-        img{ // hide image if object fit is not supported - opacity to 0 for the link area
-            opacity: 0;
+.no-transition{
+    transition: none!important;
+}
+
+.has-medium-font-size{
+    font-size: 2rem;
+    margin-bottom: 4.2em;
+}
+.has-drop-cap{
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        height: 160px;
+        position: absolute;
+        top: -35px;
+        left: -50vw;
+        right: 50%;
+        z-index: -1;
+        background: #fff;
+
+    }
+    &:not(:focus):first-letter{
+        margin: 0.3em $gutter 0 0;
+        font-size: 9.7rem;
+        line-height: 0.5;
+        font-family: $recoleta-bold;
+        color: $primary;
+    }
+}
+
+
+@media (min-width: $phone-small){
+    .has-drop-cap{
+        &:before{
+            right: 65%;
         }
     }
 }
 
-.no-transition{
-    transition: none!important;
+@media (min-width: $phone){
+    .has-drop-cap{
+        &:before{
+            right: 75%;
+        }
+    }
+}
+
+@media (min-width: $tablet){
+    body{
+        font-size: 1.8em;
+    }
+
+    h1{
+        font-size: 5.4rem;
+    }
+
+    h2{
+        font-size: 2.8rem;
+    }
+
+    h3{
+        font-size: 2.4rem;
+    }
+
+    .has-drop-cap{
+        &:before{
+            right: 80%;
+        }
+    }
+}
+
+@media (min-width: $desktop-small){
+    .has-drop-cap{
+        &:before{
+            right: 86%;
+        }
+    }
 }

@@ -1,7 +1,20 @@
 /* Grid */
 
 .container{
-    max-width: 1200px;
+    max-width: 1350px;
     padding: 0 $gutter*2;
     margin: 0 auto;
+}
+
+
+@media (min-width: $desktop-small){
+    .container-small{
+        margin: 0 $col;
+    }
+}
+
+@media (min-width: $desktop){
+    .container-small{
+        margin: 0 $col*3 0 $col;
+    }
 }
