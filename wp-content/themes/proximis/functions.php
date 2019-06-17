@@ -68,8 +68,8 @@ add_filter( 'login_errors', 'proximis_login_errors' );
 /*-----------------------------------------------------------------------------------*/
 // Remove some useless admin stuff
 function proximis_remove_submenus() {
-  $page = remove_submenu_page( 'themes.php', 'themes.php' );
-  remove_menu_page( 'edit-comments.php' );
+    $page = remove_submenu_page( 'themes.php', 'themes.php' );
+    //remove_menu_page( 'edit-comments.php' );
 }
 add_action( 'admin_menu', 'proximis_remove_submenus', 999 );
 function proximis_remove_top_menus( $wp_admin_bar ){
@@ -251,50 +251,56 @@ add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 /*-----------------------------------------------------------------------------------*/
 /* TGMPA
 /*-----------------------------------------------------------------------------------*/
-// function proximis_register_required_plugins(){
-// 	$plugins = array(
-//         array(
-//             'name'        => 'Advanced Custom Fields PRO',
-//             'slug'        => 'advanced-custom-fields-pro',
-//             'source'     => get_template_directory_uri() . '/plugins/advanced-custom-fields-pro.zip',
-//             'required'    => true,
-//             'force_activation' => false
-//         ),
-//         array(
-//             'name'        => 'SecuPress Free — Sécurité WordPress 1.3.3',
-//             'slug'        => 'secupress',
-//             'required'    => false,
-//             'force_activation' => false
-//         ),
-//         array(
-//             'name'        => 'EWWW Image Optimizer',
-//             'slug'        => 'ewww-image-optimizer',
-//             'required'    => false,
-//             'force_activation' => false
-//         ),
-//         array(
-//             'name'        => 'Clean Image Filenames',
-//             'slug'        => 'clean-image-filenames',
-//             'required'    => false,
-//             'force_activation' => false
-//         ),
-//     );
+function proximis_register_required_plugins(){
+	$plugins = array(
+        array(
+            'name'        => 'Advanced Custom Fields PRO',
+            'slug'        => 'advanced-custom-fields-pro',
+            'source'     => get_template_directory_uri() . '/plugins/advanced-custom-fields-pro.zip',
+            'required'    => true,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'SecuPress Free — Sécurité WordPress',
+            'slug'        => 'secupress',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'EWWW Image Optimizer',
+            'slug'        => 'ewww-image-optimizer',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Clean Image Filenames',
+            'slug'        => 'clean-image-filenames',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Yoast SEO',
+            'slug'        => 'wordpress-seo',
+            'required'    => false,
+            'force_activation' => false
+        ),
+    );
     
-// 	$config = array(
-// 		'id'           => 'proximis',
-// 		'default_path' => '', 
-// 		'menu'         => 'tgmpa-install-plugins',
-// 		'parent_slug'  => 'themes.php',
-// 		'capability'   => 'edit_theme_options', 
-// 		'has_notices'  => true,
-// 		'dismissable'  => true,
-// 		'dismiss_msg'  => '',
-// 		'is_automatic' => false,
-// 		'message'      => ''
-//     );
+	$config = array(
+		'id'           => 'proximis',
+		'default_path' => '', 
+		'menu'         => 'tgmpa-install-plugins',
+		'parent_slug'  => 'themes.php',
+		'capability'   => 'edit_theme_options', 
+		'has_notices'  => true,
+		'dismissable'  => true,
+		'dismiss_msg'  => '',
+		'is_automatic' => false,
+		'message'      => ''
+    );
     
-// 	tgmpa( $plugins, $config );
-// }
-// add_action( 'tgmpa_register', 'proximis_register_required_plugins' );
+	tgmpa( $plugins, $config );
+}
+add_action( 'tgmpa_register', 'proximis_register_required_plugins' );
 
 ?>
