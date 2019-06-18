@@ -13,6 +13,7 @@
 
 html{
     font-size: 62.5%; /* sets the base font to 10px for easier math */
+    
 }
 
 body{
@@ -21,6 +22,9 @@ body{
     -moz-osx-font-smoothing: grayscale;
     background: $bg;
     color: $text;
+    &.menu-open{
+        overflow-y: hidden;
+    }
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -243,6 +247,36 @@ a{
         line-height: 0.5;
         font-family: $recoleta-bold;
         color: $primary;
+    }
+}
+
+.breadcrumbs{
+    position: relative;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-family: $ibm;
+    &:before{
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 10px;
+        left: -50vw;
+        right: 100%;
+        margin: 0 8px 0 0;
+        background: $primary;
+    }
+    a{
+        display: inline-flex;
+        align-items: center;
+        font-family: inherit;
+        &:after{
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            margin: 4px 4px 0 6px;
+            background: $primary;
+        }
     }
 }
 

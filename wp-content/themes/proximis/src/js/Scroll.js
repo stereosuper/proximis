@@ -1,55 +1,78 @@
-const $ = require('jquery-slim');
+import { requestAnimFrame } from '.';
 
-const win = require('./Window');
-const requestAnimFrame = require('./requestAnimFrame.js');
-const throttle = require('./throttle.js');
-
-const Scroll = function ScrollClass() {
-    this.scrollTop = $(window).scrollTop() || window.scrollY;
+function Scroll() {
+    this.scrollTop = null;
     this.event = null;
+    this.timeoutScroll = null;
+    this.scrollEnd = true;
     this.scrollFunctions = [];
     this.endFunctions = [];
-    this.timeout = null;
+}
 
-    this.scrollHandler = () => {
-        this.scrollTop = $(window).scrollTop() || window.scrollY;
-        clearTimeout( this.timeout );
+Scroll.prototype.scrollHandler = function scrollHandler() {
+    this.scrollTop = window.pageYOffset || window.scrollY;
 
-        this.timeout = setTimeout(() => {
-            this.onScrollEnd();
-        }, 66);
-
-        this.scrollFunctions.forEach((f) => {
-            f();
-        });
-    };
-
-    this.addScrollFunction = (f, onEnd = false) => {
-        this.scrollFunctions.push(f);
-        if(onEnd) this.endFunctions.push(f);
-    };
-
-    this.addEndFunction = (f) => {
-        this.endFunctions.push(f);
-    };
-
-
-    this.init = () => {
-        this.scrollHandler();
-        $(window).on(
-            'scroll',
-            throttle((e) => {
-                this.event = e;
-                requestAnimFrame(this.scrollHandler);
-            })
-        );
-    };
-
-    this.onScrollEnd = () => {
-        this.endFunctions.forEach((f) => {
-            f();
-        });
+    if (this.scrollEnd) {
+        this.scrollEnd = false;
     }
+
+    clearTimeout(this.timeoutScroll);
+
+    this.timeoutScroll = setTimeout(() => {
+        this.onScrollEnd();
+    }, 66);
+
+    this.scrollFunctions.forEach(f => {
+        f();
+    });
 };
 
-module.exports = new Scroll();
+Scroll.prototype.launchScroll = function launchScroll(e) {
+    this.event = e;
+
+    requestAnimFrame(() => {
+        this.scrollHandler();
+    });
+};
+
+Scroll.prototype.init = function initScroll() {
+    this.scrollHandler();
+    window.addEventListener(
+        'scroll',
+        () => {
+            this.launchScroll();
+        },
+        false
+    );
+};
+
+Scroll.prototype.destroyScroll = function destroyScroll() {
+    window.removeEventListener(
+        'scroll',
+        () => {
+            this.launchScroll();
+        },
+        false
+    );
+};
+
+Scroll.prototype.onScrollEnd = function onScrollEnd() {
+    this.scrollEnd = true;
+    this.endFunctions.forEach(f => {
+        f();
+    });
+};
+
+Scroll.prototype.addScrollFunction = function addScrollFunction(
+    f,
+    onEnd = false
+) {
+    this.scrollFunctions.push(f);
+    if (onEnd) this.endFunctions.push(f);
+};
+
+Scroll.prototype.addEndFunction = function addEndFunction(f) {
+    this.endFunctions.push(f);
+};
+
+export default new Scroll();

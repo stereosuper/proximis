@@ -4,7 +4,7 @@
 
 	<?php if ( have_posts() ) : the_post(); ?>
 
-		<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs">','</p>' ); } ?>
+		<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
 
 		<h1><?php the_title(); ?></h1>
 

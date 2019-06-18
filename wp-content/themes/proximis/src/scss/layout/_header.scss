@@ -1,1 +1,157 @@
 /* Header */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 130px;
+    font-size: 1.6rem;
+}
+
+.logo{
+    margin: 0 60px 0 0;
+}
+
+.burger{
+    width: 22px;
+    height: 14px;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+.burger-icon, .burger-icon:before, .burger-icon:after{
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: $text;
+}
+.burger-icon{
+    top: 0;
+    &:before, &:after{
+        content: '';
+    }
+    &:before{
+        top: 6px;
+    }
+    &:after{
+        top: 12px;
+    }
+}
+
+.nav{
+    display: none;
+    width: 95%;
+    padding: $gutter*2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow-y: auto;
+    text-align: center;
+    background: #fff;
+    box-shadow: -20px 10px 40px rgba(#000, 0.1);
+    .menu-open &{
+        display: block;
+    }
+    .btn{
+        min-width: 200px;
+    }
+}
+
+.close-menu{
+    width: 24px;
+    height: 22px;
+    position: absolute;
+    top: $gutter*2;
+    right: $gutter*2;
+    &:before, &:after{
+        content: '';
+        width: 2px;
+        height: 22px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: $text;
+        transform-origin: 50% 50%;
+    }
+    &:before{
+        transform: rotate(45deg);
+    }
+    &:after{
+        transform: rotate(-45deg);
+    }
+}
+
+.menu-main{
+    margin: 5vh 0;
+    > li{
+        padding: 0;
+        &:before{
+            content: none;
+        }
+        &:last-child{
+            a{
+                border: 0;
+            }
+        }
+    }
+    a{
+        display: inline-block;
+        min-width: 200px;
+        padding: $gutter;
+        border-bottom: 1px solid rgba($grey, 0.15);
+        font-family: $ibm;
+        color: $text;
+        text-decoration: none;
+        &:hover, &:focus{
+            text-decoration: underline;
+        }
+    }
+}
+
+
+@media (min-width: $desktop){
+    .header{
+        margin-top: 50px;
+    }
+
+    .burger, .logo-menu, .close-menu{
+        display: none;
+    }
+
+    .nav{
+        display: flex;
+        width: 100%;
+        padding: 0;
+        position: static;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        background: none;
+        box-shadow: none;
+        .btn{
+            min-width: 0;
+        }
+    }
+
+    .menu-main{
+        display: flex;
+        align-items: center;
+        margin: 0;
+        a{
+            min-width: 0;
+            border: 0;
+        }
+    }
+}

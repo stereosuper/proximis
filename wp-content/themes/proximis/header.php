@@ -15,13 +15,28 @@
 
 	<body <?php body_class(); ?>>
 
-		<header role='banner'>
+		<header role='banner' class='header container'>
 
-			<nav role='navigation'>
+			<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo'><?php bloginfo( 'name' ); ?></a>
+
+			<button type='button' class='burger' id='burger'>
+				<span class='visually-hidden'>Menu</span>
+				<div class='burger-icon'></div>
+			</button>
+
+			<nav role='navigation' class='nav'>
+				<button type='button' class='close-menu' id='close-menu'>
+					<span class='visually-hidden'><?php _e('Close menu', 'proximis'); ?></span>
+				</button>
+
+				<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo-menu'><?php bloginfo( 'name' ); ?></a>
+
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
-			</nav>
 
-			<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home'><?php bloginfo( 'name' ); ?></a>
+				<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
+					<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
+				<?php endif; ?>
+			</nav>
 
 		</header>
 

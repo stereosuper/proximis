@@ -158,6 +158,16 @@ function proximis_menu_order( $menu_ord ){
 add_filter( 'custom_menu_order', 'proximis_menu_order' );
 add_filter( 'menu_order', 'proximis_menu_order' );
 
+// Option page
+if(function_exists('acf_add_options_page')){
+    acf_add_options_page(array(
+        'position'   => 2,
+        'page_title' => 'Theme Options',
+        'menu_title' => 'Theme Options',
+        'redirect'   => false
+    ));
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Menus

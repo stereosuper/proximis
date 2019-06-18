@@ -1,28 +1,40 @@
 import '../scss/main.scss';
 
+//import { TweenLite, TimelineLite } from 'gsap';
 
-import { TweenLite, TimelineLite } from 'gsap';
+//import win from './Window.js';
+//import io from './io.js';
+//import scroll from './Scroll.js';
+//import fallback from './fallback.js';
+//import $ from 'jquery-slim';
 
-
-import win from './Window.js';
-import io from './io.js';
-import scroll from './Scroll.js';
-import fallback from './fallback.js';
-import $ from 'jquery-slim';
-
-const html = $('html');
-const body = $('body');
 
 const loadHandler = () => {
-    scroll.init();
-    win.noTransitionElts = $('.element-without-transition-on-resize');
-    win.init();
-    io.init();
-    fallback(body, html);
-}
+    //scroll.init();
+    // const noTransitionElts = [].slice.call(
+    //     document.getElementsByClassName('element-without-transition-on-resize')
+    // );
+    // win.setNoTransitionElts(noTransitionElts);
+    //io.init();
+    //fallback.init();
 
-if (document.readyState === 'complete') {
-   loadHandler();
+    
+    const body = document.getElementsByTagName('body')[0];
+
+    const burger = document.getElementById('burger');
+    burger.addEventListener('click', () => {
+        body.classList.add('menu-open');
+    });
+
+    const close = document.getElementById('close-menu');
+    close.addEventListener('click', () => {
+        body.classList.remove('menu-open');
+    });
+};
+
+
+if( document.readyState === 'complete' ){
+    loadHandler();
 } else {
-   $(window).on('load', loadHandler);
+    window.addEventListener('load', loadHandler, false);
 }
