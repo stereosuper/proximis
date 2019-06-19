@@ -461,6 +461,25 @@ a {
       margin: 4px 4px 0 6px;
       background: #55C4DA; }
 
+.highlighted {
+  padding: 40px;
+  position: relative;
+  font-family: "recoleta", "ibmplex", sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #5C6370;
+  background: #fff; }
+  .highlighted:before {
+    content: '';
+    width: 45px;
+    height: 1px;
+    position: absolute;
+    top: 52px;
+    left: -22px;
+    background: #55C4DA; }
+  .highlighted > p {
+    margin: 0; }
+
 @media (min-width: 400px) {
   .has-drop-cap:before {
     right: 65%; } }
@@ -484,6 +503,22 @@ a {
 @media (min-width: 960px) {
   .has-drop-cap:before {
     right: 86%; } }
+
+@media (min-width: 1100px) {
+  .highlighted {
+    width: 240px;
+    position: absolute;
+    right: 0;
+    margin: -38px 0 0; } }
+
+@media (min-width: 1400px) {
+  .highlighted {
+    width: 330px;
+    padding: 60px 100px 60px 40px;
+    margin-top: -60px;
+    font-size: 2.4rem; }
+    .highlighted:before {
+      top: 72px; } }
 
 /* Placeholders */
 /* Grid */
@@ -636,6 +671,22 @@ button {
     text-decoration: none; }
     .menu-main a:hover, .menu-main a:focus {
       text-decoration: underline; }
+  .menu-main .current-menu-item:before, .menu-main .current-menu-item:after, .menu-main .current_page_parent:before, .menu-main .current_page_parent:after {
+    content: '';
+    width: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #55C4DA; }
+  .menu-main .current-menu-item:before, .menu-main .current_page_parent:before {
+    height: 60px;
+    top: -50px; }
+  .menu-main .current-menu-item:after, .menu-main .current_page_parent:after {
+    height: 25px;
+    bottom: -15px; }
+  .menu-main .current-menu-item > a, .menu-main .current_page_parent > a {
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
 
 @media (min-width: 1100px) {
   .header {
@@ -655,6 +706,7 @@ button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    overflow-y: visible;
     text-align: left;
     background: none;
     -webkit-box-shadow: none;

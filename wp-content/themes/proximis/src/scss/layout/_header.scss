@@ -118,6 +118,28 @@
             text-decoration: underline;
         }
     }
+    .current-menu-item, .current_page_parent{
+        &:before, &:after{
+            content: '';
+            width: 1px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: $primary;
+        }
+        &:before{
+            height: 60px;
+            top: -50px;
+        }
+        &:after{
+            height: 25px;
+            bottom: -15px;
+        }
+        > a{
+            font-family: $ibm-bold;
+        }
+    }
 }
 
 
@@ -137,6 +159,7 @@
         position: static;
         justify-content: space-between;
         align-items: center;
+        overflow-y: visible;
         text-align: left;
         background: none;
         box-shadow: none;

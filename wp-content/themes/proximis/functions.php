@@ -159,13 +159,29 @@ add_filter( 'custom_menu_order', 'proximis_menu_order' );
 add_filter( 'menu_order', 'proximis_menu_order' );
 
 // Option page
-if(function_exists('acf_add_options_page')){
+if( function_exists('acf_add_options_page') ){
     acf_add_options_page(array(
         'position'   => 2,
         'page_title' => 'Theme Options',
         'menu_title' => 'Theme Options',
         'redirect'   => false
     ));
+}
+
+// ACF block
+function register_acf_block_types() {
+    acf_register_block_type(array(
+        'name'              => 'highlighted',
+        'title'             => __('Texte mis en avant'),
+        'description'       => __('Un texte mis en avant.'),
+        'render_template'   => 'blocks/highlighted.php',
+        'category'          => 'formatting',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'highlighted' ),
+    ));
+}
+if( function_exists('acf_register_block_type') ) {
+    add_action('acf/init', 'register_acf_block_types');
 }
 
 
