@@ -179,6 +179,16 @@ function register_acf_block_types() {
         'icon'              => 'admin-comments',
         'keywords'          => array( 'highlighted' ),
     ));
+
+    acf_register_block_type(array(
+        'name'              => 'img-shape',
+        'title'             => __('Image découpant le texte'),
+        'description'       => __('Une image, le texte autour va prendre sa forme.'),
+        'render_template'   => 'blocks/img-shape.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-image',
+        'keywords'          => array( 'img-shape' ),
+    ));
 }
 if( function_exists('acf_register_block_type') ) {
     add_action('acf/init', 'register_acf_block_types');

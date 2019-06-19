@@ -83,6 +83,7 @@ b, strong{
 
 i, em{
     font-family: $ibm-it;
+    font-style: normal;
     b, strong{
         font-family: $ibm-it-bold;
     }
@@ -203,16 +204,6 @@ a{
     @include clearfix;
 }
 
-.align-center{
-    text-align: center;
-}
-.align-left{
-    text-align: left;
-}
-.align-right{
-    text-align: right;
-}
-
 .icon{
     width: 1.2em;
     height: 1.2em;
@@ -239,14 +230,18 @@ a{
         right: 50%;
         z-index: -1;
         background: #fff;
-
     }
-    &:not(:focus):first-letter{
-        margin: 0.3em $gutter 0 0;
-        font-size: 9.7rem;
-        line-height: 0.5;
-        font-family: $recoleta-bold;
-        color: $primary;
+    &:not(:focus){
+        &:after{
+            content: none;
+        }
+        &:first-letter{
+            margin: 0.3em $gutter 0 0;
+            font-size: 9.7rem;
+            line-height: 0.5;
+            font-family: $recoleta-bold;
+            color: $primary;
+        }
     }
 }
 
@@ -302,6 +297,17 @@ a{
     }
 }
 
+.img-shape{
+    display: none;
+}
+
+.wp-block-image{
+    .alignright, .alignleft{
+        float: none;
+        margin: 0;
+    }
+}
+
 
 @media (min-width: $phone-small){
     .has-drop-cap{
@@ -349,6 +355,30 @@ a{
             right: 86%;
         }
     }
+
+    .img-shape{
+        display: block;
+        margin: 35px 0 0;
+        shape-margin: 15px;
+    }
+    .alignright{
+        float: right;
+        margin-right: -25%;
+    }
+    .alignleft{
+        float: left;
+    }
+    .wp-block-image{
+        .alignright{
+            float: right;
+            margin-right: -25%;
+            margin-left: 1em;
+        }
+        .alignleft{
+            float: left;
+            margin-right: 1em;
+        }
+    }
 }
 
 @media (min-width: $desktop){
@@ -357,6 +387,15 @@ a{
         position: absolute;
         right: 0;
         margin: -38px 0 0;
+    }
+
+    .alignright{
+        margin-right: -45%;
+    }
+    .wp-block-image{
+        .alignright{
+            margin-right: -45%;
+        }
     }
 }
 

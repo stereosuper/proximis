@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Highlighted Block Template.
+ * Img shape Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -10,24 +10,23 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'highlighted-' . $block['id'];
-if( !empty($block['anchor']) ) {
+$id = 'img-shape-' . $block['id'];
+if( !empty($block['anchor']) ){
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'highlighted';
-if( !empty($block['className']) ) {
+$className = 'img-shape';
+if( !empty($block['className']) ){
     $className .= ' ' . $block['className'];
 }
-// if( !empty($block['align']) ) {
-//     $className .= ' align' . $block['align'];
-// }
+if( !empty($block['align']) ){
+    $className .= ' align' . $block['align'];
+}
 
 // Load values and assing defaults.
-$text = get_field('highlighted') ?: 'Votre texte mis en avant...';
+$img = get_field('img');
+
+echo wp_get_attachment_image($img, 'full', '', array('class' => $className, 'style' => "shape-outside: url('" . wp_get_attachment_image_src($img, 'full')[0] . "')"));
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <p><?php echo $text; ?></p>
-</div>

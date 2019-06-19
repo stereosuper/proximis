@@ -295,7 +295,8 @@ b, strong {
     font-family: "ibmplex_semibolditalic", "ibmplex", sans-serif; }
 
 i, em {
-  font-family: "ibmplex_italic", "ibmplex", sans-serif; }
+  font-family: "ibmplex_italic", "ibmplex", sans-serif;
+  font-style: normal; }
   i b, i strong, em b, em strong {
     font-family: "ibmplex_semibolditalic", "ibmplex", sans-serif; }
 
@@ -390,15 +391,6 @@ a {
   display: table;
   clear: both; }
 
-.align-center {
-  text-align: center; }
-
-.align-left {
-  text-align: left; }
-
-.align-right {
-  text-align: right; }
-
 .icon {
   width: 1.2em;
   height: 1.2em;
@@ -424,6 +416,8 @@ a {
     right: 50%;
     z-index: -1;
     background: #fff; }
+  .has-drop-cap:not(:focus):after {
+    content: none; }
   .has-drop-cap:not(:focus):first-letter {
     margin: 0.3em 20px 0 0;
     font-size: 9.7rem;
@@ -480,6 +474,13 @@ a {
   .highlighted > p {
     margin: 0; }
 
+.img-shape {
+  display: none; }
+
+.wp-block-image .alignright, .wp-block-image .alignleft {
+  float: none;
+  margin: 0; }
+
 @media (min-width: 400px) {
   .has-drop-cap:before {
     right: 65%; } }
@@ -502,14 +503,34 @@ a {
 
 @media (min-width: 960px) {
   .has-drop-cap:before {
-    right: 86%; } }
+    right: 86%; }
+  .img-shape {
+    display: block;
+    margin: 35px 0 0;
+    shape-margin: 15px; }
+  .alignright {
+    float: right;
+    margin-right: -25%; }
+  .alignleft {
+    float: left; }
+  .wp-block-image .alignright {
+    float: right;
+    margin-right: -25%;
+    margin-left: 1em; }
+  .wp-block-image .alignleft {
+    float: left;
+    margin-right: 1em; } }
 
 @media (min-width: 1100px) {
   .highlighted {
     width: 240px;
     position: absolute;
     right: 0;
-    margin: -38px 0 0; } }
+    margin: -38px 0 0; }
+  .alignright {
+    margin-right: -45%; }
+  .wp-block-image .alignright {
+    margin-right: -45%; } }
 
 @media (min-width: 1400px) {
   .highlighted {
@@ -522,6 +543,9 @@ a {
 
 /* Placeholders */
 /* Grid */
+.main {
+  overflow: hidden; }
+
 .container {
   max-width: 1350px;
   padding: 0 20px;
