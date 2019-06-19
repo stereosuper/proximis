@@ -674,6 +674,105 @@ button {
       border: 0; } }
 
 /* Footer */
+.footer {
+  padding: 25px 0 50px;
+  margin: 100px 0 0;
+  font-size: 1.4rem;
+  background: #18162B;
+  color: #F8F5F1; }
+  .footer > .container {
+    position: relative; }
+    .footer > .container:before {
+      content: '';
+      width: 1px;
+      height: 52px;
+      position: absolute;
+      top: -78px;
+      left: 15%;
+      background: #55C4DA; }
+
+.footer-title {
+  display: block;
+  font-family: "recoleta_bold", "ibmplex", sans-serif;
+  font-size: 2.2rem; }
+  .footer-title + .link {
+    font-size: 1.6rem; }
+
+.footer-big > p {
+  margin-bottom: 4em; }
+
+.footer-small {
+  font-size: 1.1rem; }
+
+.footer-menu, .footer-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .footer-menu > li:before, .footer-social > li:before {
+    content: none; }
+  .footer-menu a, .footer-social a {
+    color: #F8F5F1; }
+
+.footer-social {
+  margin: 0 0 3.5em; }
+  .footer-social > li {
+    padding: 0 30px 0 0; }
+    .footer-social > li:last-child {
+      padding: 0; }
+  .footer-social .icon {
+    width: 16px;
+    height: 16px; }
+  .footer-social + p {
+    margin: 10px 0; }
+
+.footer-menu {
+  margin: 0; }
+  .footer-menu > li {
+    padding: 0 5px 0 0;
+    margin: 0 4px 0 0; }
+    .footer-menu > li:after {
+      content: '';
+      width: 1px;
+      position: absolute;
+      top: 5px;
+      bottom: 2px;
+      right: 0;
+      background: currentColor; }
+    .footer-menu > li:last-child {
+      padding: 0;
+      margin: 0; }
+      .footer-menu > li:last-child:after {
+        content: none; }
+  .footer-menu a {
+    font-family: "ibmplex", sans-serif; }
+
+@media (min-width: 960px) {
+  .footer > .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    .footer > .container:before {
+      top: -51px; }
+  .footer-big > p:last-child {
+    margin-bottom: 0; }
+  .footer-title {
+    font-size: 2.8rem; }
+    .footer-title + .link {
+      font-size: 1.8rem; }
+  .footer-small {
+    font-size: 1.2rem;
+    text-align: right; }
+  .footer-social, .footer-menu {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; } }
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -683,6 +782,11 @@ button {
   background: #55C4DA;
   color: #fff;
   text-decoration: none; }
+
+.link .icon {
+  width: 0.7em;
+  height: 0.7em;
+  margin: 0 0 0 5px; }
 
 /* Home specific style */
 /******* PRINT *******/

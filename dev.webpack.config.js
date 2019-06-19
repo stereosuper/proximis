@@ -39,7 +39,7 @@ let config = (env, options) => {
                         options: {
                             plugins: (loader) => [
                                 require('autoprefixer')({
-                                    browsers: ['last 2 versions']
+                                    overrideBrowserslist: ['> 1%', 'last 2 versions']
                                 })
                             ]
                         }
