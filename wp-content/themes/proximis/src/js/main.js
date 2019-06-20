@@ -8,6 +8,8 @@ import '../scss/main.scss';
 //import fallback from './fallback.js';
 //import $ from 'jquery-slim';
 
+import lottie from 'lottie-web';
+
 
 const loadHandler = () => {
     //scroll.init();
@@ -29,6 +31,16 @@ const loadHandler = () => {
     const close = document.getElementById('close-menu');
     close.addEventListener('click', () => {
         body.classList.remove('menu-open');
+    });
+
+    [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {
+        lottie.loadAnimation({
+            container: elt,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: elt.getAttribute('data-path')
+        });
     });
 };
 

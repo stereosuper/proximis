@@ -246,16 +246,17 @@ add_action( 'widgets_init', 'proximis_unregister_default_widgets' );
 /*-----------------------------------------------------------------------------------*/
 /* Post types
 /*-----------------------------------------------------------------------------------*/
-// function proximis_post_type(){
-//     register_post_type( 'resource', array(
-//         'label' => 'Resources',
-//         'singular_label' => 'Resource',
-//         'public' => true,
-//         'menu_icon' => 'dashicons-portfolio',
-//         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
-//     ));
-// }
-// add_action( 'init', 'proximis_post_type' );
+function proximis_post_type(){
+    register_post_type( 'reference', array(
+        'label' => 'Références',
+        'singular_label' => 'Référence',
+        'public' => true,
+        'menu_icon' => 'dashicons-portfolio',
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+    ));
+}
+add_action( 'init', 'proximis_post_type' );
 
 // function proximis_taxonomies(){
 //     register_taxonomy( 'resource_cat', array('resource'), array(

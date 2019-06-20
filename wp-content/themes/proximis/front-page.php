@@ -35,13 +35,16 @@
 						<ul>
 							<?php while( have_rows('benefits') ) : the_row(); ?>
 								<li>
-									<h3><?php the_sub_field('title'); ?></h3>
-									<p><?php the_sub_field('text'); ?></p>
+									<div class='js-benefit anim' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
+									<div>
+										<h3><?php the_sub_field('title'); ?></h3>
+										<p><?php the_sub_field('text'); ?></p>
+									</div>
 								</li>
 							<?php endwhile; ?>
 						</ul>
 					<?php endif; ?>
-				</div>
+				</div<h3>
 			<?php endwhile; endif; ?>
 		</div>
 	</section>
@@ -51,6 +54,19 @@
 			<?php if( have_rows('section3') ) : while( have_rows('section3') ) : the_row(); ?>
 				<h2><?php the_sub_field('title'); ?></h2>
 				<?php the_sub_field('text'); ?>
+
+				<?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => 10)); if( $refQuery->have_posts() ) : ?>
+					<ul class='home-ref-list'>
+						<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); ?>
+							<li>
+								<a href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+									<?php echo wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
+								</a>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php wp_reset_postdata(); endif; ?>
+
 				<?php $link = get_sub_field('link'); if( $link ) : ?>
 					<a href='<?php echo $link['url'] ?>' class='link'>
 						<?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
