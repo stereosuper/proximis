@@ -263,12 +263,16 @@ h4, h5, h6 {
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   margin: 1.9em 0 1.5em; }
 
+h1, .home h1, .home h2 {
+  font-size: 4.3rem; }
+
 h1 {
-  font-size: 4.3rem;
   margin: 0.6em 0 1.4em; }
 
+h2, .home h3 {
+  font-size: 2.2rem; }
+
 h2 {
-  font-size: 2.2rem;
   margin: 1.75em 0 1.25em; }
 
 h3 {
@@ -492,9 +496,9 @@ a {
 @media (min-width: 780px) {
   body {
     font-size: 1.8em; }
-  h1 {
+  h1, .home h1, .home h2 {
     font-size: 5.4rem; }
-  h2 {
+  h2, .home h3 {
     font-size: 2.8rem; }
   h3 {
     font-size: 2.4rem; }
@@ -865,6 +869,151 @@ button {
   margin: 0 0 0 5px; }
 
 /* Home specific style */
+.home h2 {
+  margin: 0; }
+
+.home h3 {
+  margin: 0;
+  color: #18162B; }
+
+.home section {
+  padding: 100px 0; }
+
+.home-united > .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
+.home-united .anim {
+  width: 55%; }
+
+.home-united .text {
+  width: 35%; }
+
+.home-united h1 {
+  margin: 0; }
+
+.home-united p {
+  margin-left: 27%; }
+  .home-united p:first-child {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+.anim-united {
+  width: 460px;
+  height: 460px;
+  position: relative;
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 27px 15px rgba(0, 0, 0, 0.02);
+          box-shadow: 0 27px 15px rgba(0, 0, 0, 0.02);
+  background: rgba(249, 246, 242, 0.7); }
+  .anim-united:before, .anim-united:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 27px 15px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 27px 15px rgba(0, 0, 0, 0.02); }
+  .anim-united:before {
+    width: 300px;
+    height: 300px;
+    background: #FBFAF8; }
+  .anim-united:after {
+    width: 120px;
+    height: 120px;
+    background: #FBFAF8; }
+  .anim-united .keyword {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 130px;
+    height: 130px;
+    padding: 25px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    border-radius: 50%; }
+    .anim-united .keyword:first-of-type, .anim-united .keyword:last-of-type {
+      color: #fff;
+      background: #5C6370; }
+    .anim-united .keyword:nth-of-type(2), .anim-united .keyword:nth-of-type(3) {
+      background: #CFD155; }
+    .anim-united .keyword:nth-of-type(4), .anim-united .keyword:nth-of-type(7) {
+      background: #55C4DA; }
+    .anim-united .keyword:nth-of-type(5), .anim-united .keyword:nth-of-type(6) {
+      background: #FF737B; }
+    .anim-united .keyword:first-of-type {
+      top: -175px;
+      left: -155px; }
+    .anim-united .keyword:nth-of-type(2) {
+      top: -95px;
+      left: 45%; }
+    .anim-united .keyword:nth-of-type(3) {
+      top: 40%;
+      left: -300px; }
+    .anim-united .keyword:nth-of-type(4) {
+      top: 155px;
+      left: -75px; }
+    .anim-united .keyword:nth-of-type(5) {
+      top: 230px;
+      right: -100px; }
+    .anim-united .keyword:nth-of-type(6) {
+      top: 90%;
+      left: -190px; }
+    .anim-united .keyword:nth-of-type(7) {
+      top: 100%;
+      left: 90%; }
+    .anim-united .keyword:nth-of-type(8) {
+      top: 110%;
+      left: 35%; }
+
+.home-solution {
+  background: #fff; }
+  .home-solution > .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .home-solution .text {
+    width: 36%; }
+  .home-solution p {
+    margin: 0; }
+
+.benefits {
+  width: 38.5%;
+  margin: 0 5% 0 0; }
+  .benefits ul {
+    margin: 0; }
+  .benefits li {
+    padding: 0;
+    margin: 0 0 2.8em; }
+    .benefits li:before {
+      content: none; }
+    .benefits li:last-child {
+      margin: 0; }
+
+.home-refs {
+  text-align: center; }
+
 /******* PRINT *******/
 @media print {
   *, *:before {
