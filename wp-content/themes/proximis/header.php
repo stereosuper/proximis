@@ -15,29 +15,31 @@
 
 	<body <?php body_class(); ?>>
 
-		<header role='banner' class='header container'>
+		<div class='wrapper'>
 
-			<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo'><?php bloginfo( 'name' ); ?></a>
+			<header role='banner' class='header container'>
 
-			<button type='button' class='burger' id='burger'>
-				<span class='visually-hidden'>Menu</span>
-				<div class='burger-icon'></div>
-			</button>
+				<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo'><?php bloginfo( 'name' ); ?></a>
 
-			<nav role='navigation' class='nav'>
-				<button type='button' class='close-menu' id='close-menu'>
-					<span class='visually-hidden'><?php _e('Close menu', 'proximis'); ?></span>
+				<button type='button' class='burger' id='burger'>
+					<span class='visually-hidden'>Menu</span>
+					<div class='burger-icon'></div>
 				</button>
 
-				<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo-menu'><?php bloginfo( 'name' ); ?></a>
+				<nav role='navigation' class='nav'>
+					<button type='button' class='close-menu' id='close-menu'>
+						<span class='visually-hidden'><?php _e('Close menu', 'proximis'); ?></span>
+					</button>
 
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
+					<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo-menu'><?php bloginfo( 'name' ); ?></a>
 
-				<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
-					<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
-				<?php endif; ?>
-			</nav>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
 
-		</header>
+					<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
+						<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
+					<?php endif; ?>
+				</nav>
 
-		<main role='main' class='main'>
+			</header>
+
+			<main role='main' class='main'>

@@ -1,55 +1,56 @@
-        </main>
+            </main>
 
-        <footer role='contentinfo' class='footer'>
-            <div class='container'>
-                <div class='footer-big'>
-                    <p>
-                        <span class='footer-title'><?php the_field('footerTitle', 'options'); ?></span>
-                        <?php $link = get_field('footerLink', 'options'); if( $link ) : ?>
-                            <a href='<?php echo $link['url'] ?>' class='link'>
-                                <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
-                            </a>
-                        <?php endif; ?>
-                    </p>
+            <footer role='contentinfo' class='footer'>
+                <div class='container'>
+                    <div class='footer-big'>
+                        <p>
+                            <span class='footer-title'><?php the_field('footerTitle', 'options'); ?></span>
+                            <?php $link = get_field('footerLink', 'options'); if( $link ) : ?>
+                                <a href='<?php echo $link['url'] ?>' class='link'>
+                                    <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
+                                </a>
+                            <?php endif; ?>
+                        </p>
 
-                    <p>
-                        <?php the_field('footerTextSmall', 'options'); ?>
-                        <?php $link = get_field('footerLinkSmall', 'options'); if( $link ) : ?>
-                            <a href='<?php echo $link['url'] ?>' class='link'>
-                                <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
-                            </a>
-                        <?php endif; ?>
-                    </p>
-                </div>
+                        <p>
+                            <?php the_field('footerTextSmall', 'options'); ?>
+                            <?php $link = get_field('footerLinkSmall', 'options'); if( $link ) : ?>
+                                <a href='<?php echo $link['url'] ?>' class='link'>
+                                    <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
+                                </a>
+                            <?php endif; ?>
+                        </p>
+                    </div>
 
-                <div class='footer-small'>
-                    <?php if( have_rows('networks', 'options') ) : ?>
-                        <ul class='footer-social'>
-                            <?php while( have_rows('networks', 'options') ) : the_row(); ?>
-                                <li>
-                                    <a href='<?php the_sub_field('link'); ?>' target='_blank' rel='noreferrer noopener'>
-                                        <span class='visually-hidden'><?php the_sub_field('name'); ?></span>
-                                        <svg class='icon'><use xlink:href='#icon-<?php the_sub_field('icon'); ?>'></use></svg>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
-                    <?php endif; ?>
-                    <p><?php the_field('footerTextSmall2', 'options'); ?></p>
-                    <?php if( have_rows('footerLinks', 'options') ) : ?>
-                        <ul class='footer-menu'>
-                            <?php while( have_rows('footerLinks', 'options') ) : the_row(); ?>
-                                <?php $link = get_sub_field('link'); if( $link ) : ?>
+                    <div class='footer-small'>
+                        <?php if( have_rows('networks', 'options') ) : ?>
+                            <ul class='footer-social'>
+                                <?php while( have_rows('networks', 'options') ) : the_row(); ?>
                                     <li>
-                                        <a href='<?php echo $link['url'] ?>' class='link'><?php echo $link['title']; ?></a>
+                                        <a href='<?php the_sub_field('link'); ?>' target='_blank' rel='noreferrer noopener'>
+                                            <span class='visually-hidden'><?php the_sub_field('name'); ?></span>
+                                            <svg class='icon'><use xlink:href='#icon-<?php the_sub_field('icon'); ?>'></use></svg>
+                                        </a>
                                     </li>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
-                        </ul>
-                    <?php endif; ?>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <p><?php the_field('footerTextSmall2', 'options'); ?></p>
+                        <?php if( have_rows('footerLinks', 'options') ) : ?>
+                            <ul class='footer-menu'>
+                                <?php while( have_rows('footerLinks', 'options') ) : the_row(); ?>
+                                    <?php $link = get_sub_field('link'); if( $link ) : ?>
+                                        <li>
+                                            <a href='<?php echo $link['url'] ?>' class='link'><?php echo $link['title']; ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
 
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>

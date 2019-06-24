@@ -1,9 +1,17 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : the_post(); ?>
-	<header>
-
-	</header>
+	<?php if( have_rows('slides', 'options') ) : ?>
+		<header class='carousel'>	
+			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
+				<div class='slide <?php the_sub_field('color'); ?>'>
+					<div class='container'>
+						<div class='text'><?php the_sub_field('text'); ?></div>
+					</div>
+				</div>
+			<?php endwhile; ?>
+		</header>
+	<?php endif ;?>
 
 	<section class='home-united'>
 		<div class='container'>

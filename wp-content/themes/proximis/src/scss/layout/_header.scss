@@ -165,6 +165,10 @@
         box-shadow: none;
         .btn{
             min-width: 0;
+            .home &{
+                background: #fff;
+                color: $text;
+            }
         }
     }
 
