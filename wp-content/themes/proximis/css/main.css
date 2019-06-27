@@ -366,10 +366,18 @@ hr {
 
 /******* LIENS / BOUTONS *******/
 a {
+  position: relative;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   color: #55C4DA;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out; }
+  a:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px; }
   a:focus {
     outline: 0; }
   a:active {
