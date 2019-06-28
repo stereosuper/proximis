@@ -76,14 +76,18 @@
 						<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
 							
 							<li>
-								<a href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+								<a class='ref' href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
 									<?php echo wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
 								</a>
 							</li>
 							<?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
 								<li class='ref-nb'>
-									<?php echo $numbers[$countNb][1]; ?>
-									<?php echo $numbers[$countNb][2]; ?>
+									<div class='ref number'>
+										<div>
+											<span><?php echo $numbers[$countNb][1]; ?></span>
+											<span class='nb'><?php echo $numbers[$countNb][2]; ?></span>
+										</div>
+									</div>
 								</li>
 							<?php $countNb++; endif; ?>
 						<?php endwhile; ?>
