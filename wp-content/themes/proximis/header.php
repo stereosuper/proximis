@@ -38,6 +38,8 @@
 					<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
 						<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
 					<?php endif; ?>
+
+					<?php mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => true, 'sort' => 'blogid', 'show_current_blog' => TRUE ) ); ?>
 				</nav>
 
 			</header>
