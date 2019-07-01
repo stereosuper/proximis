@@ -4,9 +4,17 @@
 	<?php if( have_rows('slides', 'options') ) : ?>
 		<header class='carousel'>	
 			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
-				<div class='slide <?php the_sub_field('color'); ?>'>
+				<div class='slide'>
 					<div class='container'>
-						<div class='text'><?php the_sub_field('text'); ?></div>
+						<div class='text'>
+							<h2 class='title'>
+								<span><?php the_sub_field('title1'); ?></span>
+								<span><?php the_sub_field('title2'); ?></span>
+								<span><?php the_sub_field('title3'); ?></span>
+							</h2>
+							<?php the_sub_field('text'); ?>
+						</div>
+						<div class='img'><?php echo wp_get_attachment_image(get_sub_field('img'), 'full'); ?></div>
 					</div>
 				</div>
 			<?php endwhile; ?>

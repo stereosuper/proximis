@@ -298,8 +298,8 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
-            'name'        => 'SecuPress Free — Sécurité WordPress',
-            'slug'        => 'secupress',
+            'name'        => 'Clean Image Filenames',
+            'slug'        => 'clean-image-filenames',
             'required'    => false,
             'force_activation' => false
         ),
@@ -310,8 +310,14 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
-            'name'        => 'Clean Image Filenames',
-            'slug'        => 'clean-image-filenames',
+            'name'        => 'MultilingualPress',
+            'slug'        => 'multilingual-press',
+            'required'    => true,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'SecuPress Free — Sécurité WordPress',
+            'slug'        => 'secupress',
             'required'    => false,
             'force_activation' => false
         ),

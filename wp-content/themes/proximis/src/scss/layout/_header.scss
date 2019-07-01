@@ -13,6 +13,11 @@
     margin: 0 60px 0 0;
 }
 
+.logo-menu{
+    display: inline-block;
+    margin: 0 0 30px;
+}
+
 .burger{
     width: 22px;
     height: 14px;
@@ -64,6 +69,7 @@
     }
     .btn{
         min-width: 200px;
+        margin: 30px 0 0;
     }
 }
 
@@ -111,14 +117,10 @@
         min-width: 200px;
         padding: $gutter;
         border-bottom: 1px solid rgba($grey, 0.15);
+        position: relative;
         font-family: $ibm;
         color: $text;
         text-decoration: none;
-        &:hover, &:focus{
-            text-decoration: underline;
-        }
-    }
-    .current-menu-item, .current_page_parent{
         &:before, &:after{
             content: '';
             width: 1px;
@@ -127,18 +129,66 @@
             right: 0;
             margin: auto;
             background: $primary;
+            transform-origin: 0 0;
+            transform: scaleY(0);
+            transition: $transition;
+            .home &{
+                background: #fff;
+            }
         }
         &:before{
             height: 60px;
-            top: -50px;
+            top: -115px;
         }
         &:after{
             height: 25px;
             bottom: -15px;
         }
+        &:hover, &:focus{
+            &:before{
+                transform: scaleY(1);
+            }
+        }
+    }
+    .current-menu-item, .current_page_parent{
         > a{
             font-family: $ibm-bold;
+            &:before, &:after{
+                transform: scaleY(1);
+            }
         }
+    }
+}
+
+.mlp-language-box{
+    ul{
+        margin: 35px 0 0;
+    }
+    li{
+        display: inline;
+        padding: 0;
+        &:before{
+            content: none;
+        }
+        &:after{
+            content: ' / ';
+        }
+        &:last-child{
+            &:after{
+                content: none;
+            }
+        }
+    }
+    a{
+        font-family: $recoleta;
+        color: $text;
+        text-decoration: none;
+        &:hover, &:focus{
+            text-decoration: underline;
+        }
+    }
+    .current-language-item{
+        font-family: $recoleta-bold;
     }
 }
 
@@ -165,9 +215,12 @@
         box-shadow: none;
         .btn{
             min-width: 0;
+            margin: 0 60px 0 auto;
             .home &{
-                background: #fff;
                 color: $text;
+                &:after{
+                    background: #fff;
+                }
             }
         }
     }
@@ -179,6 +232,12 @@
         a{
             min-width: 0;
             border: 0;
+        }
+    }
+
+    .mlp-language-box{
+        ul{
+            margin: 0;
         }
     }
 }

@@ -3,11 +3,28 @@
 .btn{
     display: inline-block;
     padding: 15px 25px;
+    z-index: 1;
     line-height: 1;
-    border-radius: 4px;
-    background: $primary;
     color: #fff;
     text-decoration: none;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 4px;
+        background: $primary;
+        transform-origin: 50% 50%;
+        transition: $transition;
+    }
+    &:hover, &:focus{
+        &:after{
+            transform: scale(0.95);
+        }
+    }
 }
 
 .link{
