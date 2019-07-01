@@ -707,27 +707,40 @@ button {
     min-width: 200px;
     padding: 20px;
     border-bottom: 1px solid rgba(92, 99, 112, 0.15);
+    position: relative;
     font-family: "ibmplex", sans-serif;
     color: #18162B;
     text-decoration: none; }
-    .menu-main a:hover, .menu-main a:focus {
-      text-decoration: underline; }
-  .menu-main .current-menu-item:before, .menu-main .current-menu-item:after, .menu-main .current_page_parent:before, .menu-main .current_page_parent:after {
-    content: '';
-    width: 1px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background: #55C4DA; }
-  .menu-main .current-menu-item:before, .menu-main .current_page_parent:before {
-    height: 60px;
-    top: -50px; }
-  .menu-main .current-menu-item:after, .menu-main .current_page_parent:after {
-    height: 25px;
-    bottom: -15px; }
+    .menu-main a:before, .menu-main a:after {
+      content: '';
+      width: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: #55C4DA;
+      -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+      -webkit-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out; }
+      .home .menu-main a:before, .home .menu-main a:after {
+        background: #fff; }
+    .menu-main a:before {
+      height: 60px;
+      top: -115px; }
+    .menu-main a:after {
+      height: 25px;
+      bottom: -15px; }
+    .menu-main a:hover:before, .menu-main a:focus:before {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1); }
   .menu-main .current-menu-item > a, .menu-main .current_page_parent > a {
     font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
+    .menu-main .current-menu-item > a:before, .menu-main .current-menu-item > a:after, .menu-main .current_page_parent > a:before, .menu-main .current_page_parent > a:after {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1); }
 
 .mlp-language-box ul {
   margin: 35px 0 0; }
@@ -744,7 +757,10 @@ button {
 
 .mlp-language-box a {
   font-family: "recoleta", "ibmplex", sans-serif;
-  color: #18162B; }
+  color: #18162B;
+  text-decoration: none; }
+  .mlp-language-box a:hover, .mlp-language-box a:focus {
+    text-decoration: underline; }
 
 .mlp-language-box .current-language-item {
   font-family: "recoleta_bold", "ibmplex", sans-serif; }
