@@ -3,10 +3,10 @@
 .btn{
     display: inline-block;
     padding: 15px 25px;
+    border: 0;
     z-index: 1;
     line-height: 1;
     color: #fff;
-    text-decoration: none;
     &:after{
         content: '';
         position: absolute;
@@ -28,9 +28,67 @@
 }
 
 .link{
+    display: inline-flex;
+    align-items: flex-end;
+    text-align: left;
     .icon{
         width: 0.7em;
         height: 0.7em;
-        margin: 0 0 0 5px;
+        margin: 0 0 3px 6px;
+    }
+    > i{
+        width: 25px;
+        min-width: 25px;
+        height: 10px;
+        position: relative;
+        margin: 0 0 6px 6px;
+        transform: scale(0.8);
+        transition: $transition;
+        transition-delay: 0s;
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+        }
+        &:before{
+            width: 20px;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: $primary;
+            transform-origin: 100% 0;
+            transition: $transition;
+            transition-delay: 0s;
+        }
+        &:after{
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 0 5px 7px;
+            border-color: transparent transparent transparent $primary;
+            right: 0;
+        }
+    }
+    &:hover, &:focus{
+        > i{
+            transition-delay: 0.1s;
+            transform: scale(0.8) translate3d(-10px, 0, 0);
+            &:before{
+                transition-delay: 0.15s;
+                transform: scaleX(0.7);
+            }
+        }
+    }
+    &.small{
+        > i{
+            margin-bottom: 4px;
+            transform: scale(0.6);
+        }
+        &:hover, &:focus{
+            > i{
+                transform: scale(0.6) translate3d(-10px, 0, 0);
+            }
+        }
     }
 }

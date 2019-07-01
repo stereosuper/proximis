@@ -104,7 +104,7 @@
 
 				<?php $link = get_sub_field('link'); if( $link ) : ?>
 					<a href='<?php echo $link['url'] ?>' class='link'>
-						<?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
+						<span><?php echo $link['title']; ?></span><!--<svg class='icon'><use xlink:href='#icon-arrow'></use></svg>--><i></i>
 					</a>
 				<?php endif; ?>
 			<?php endwhile; endif; ?>

@@ -7,7 +7,7 @@
                             <span class='footer-title'><?php the_field('footerTitle', 'options'); ?></span>
                             <?php $link = get_field('footerLink', 'options'); if( $link ) : ?>
                                 <a href='<?php echo $link['url'] ?>' class='link'>
-                                    <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
+                                    <span><?php echo $link['title']; ?></span><i></i><!--<svg class='icon'><use xlink:href='#icon-arrow'></use></svg>-->
                                 </a>
                             <?php endif; ?>
                         </p>
@@ -15,8 +15,8 @@
                         <p>
                             <?php the_field('footerTextSmall', 'options'); ?>
                             <?php $link = get_field('footerLinkSmall', 'options'); if( $link ) : ?>
-                                <a href='<?php echo $link['url'] ?>' class='link'>
-                                    <?php echo $link['title']; ?><svg class='icon'><use xlink:href='#icon-arrow'></use></svg>
+                                <a href='<?php echo $link['url'] ?>' class='link small'>
+                                    <span><?php echo $link['title']; ?></span><i></i><!--<svg class='icon'><use xlink:href='#icon-arrow'></use></svg>-->
                                 </a>
                             <?php endif; ?>
                         </p>

@@ -120,7 +120,6 @@
         position: relative;
         font-family: $ibm;
         color: $text;
-        text-decoration: none;
         &:before, &:after{
             content: '';
             width: 1px;
@@ -161,6 +160,7 @@
 }
 
 .mlp-language-box{
+    line-height: 1.2;
     ul{
         margin: 35px 0 0;
     }
@@ -180,11 +180,11 @@
         }
     }
     a{
+        border-bottom: 1px solid transparent;
         font-family: $recoleta;
         color: $text;
-        text-decoration: none;
         &:hover, &:focus{
-            text-decoration: underline;
+            border-color: currentColor;
         }
     }
     .current-language-item{
