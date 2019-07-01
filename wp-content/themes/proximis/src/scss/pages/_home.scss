@@ -12,20 +12,21 @@
 
 .carousel{
     margin: -245px 0 0;
+    background: $primary;
     .slide{
         padding: 220px 0 0;
     }
-    .primary{
-        background: $primary;
-    }
-    .secondary{
-        background: $secondary;
-    }
-    .tertiary{
-        background: $tertiary;
-    }
     .container{
         display: flex;
+        align-items: flex-end;
+    }
+    .title{
+        span{
+            display: block;
+            &:first-of-type{
+                color: #fff;
+            }
+        }
     }
     .text{
         width: calc(50% + #{$gutter*2});

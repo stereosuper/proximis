@@ -949,19 +949,21 @@ button {
   color: #18162B; }
 
 .carousel {
-  margin: -245px 0 0; }
+  margin: -245px 0 0;
+  background: #55C4DA; }
   .carousel .slide {
     padding: 220px 0 0; }
-  .carousel .primary {
-    background: #55C4DA; }
-  .carousel .secondary {
-    background: #FF737B; }
-  .carousel .tertiary {
-    background: #CFD155; }
   .carousel .container {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+  .carousel .title span {
+    display: block; }
+    .carousel .title span:first-of-type {
+      color: #fff; }
   .carousel .text {
     width: calc(50% + 40px);
     padding: 0 0 140px; }
