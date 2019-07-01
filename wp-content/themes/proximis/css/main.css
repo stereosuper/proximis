@@ -792,8 +792,9 @@ button {
       min-width: 0;
       margin: 0 60px 0 auto; }
       .home .nav .btn {
-        background: #fff;
         color: #18162B; }
+        .home .nav .btn:after {
+          background: #fff; }
   .menu-main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -912,11 +913,27 @@ button {
 .btn {
   display: inline-block;
   padding: 15px 25px;
+  z-index: 1;
   line-height: 1;
-  border-radius: 4px;
-  background: #55C4DA;
   color: #fff;
   text-decoration: none; }
+  .btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 4px;
+    background: #55C4DA;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out; }
+  .btn:hover:after, .btn:focus:after {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95); }
 
 .link .icon {
   width: 0.7em;
