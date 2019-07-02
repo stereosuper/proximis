@@ -278,6 +278,7 @@ a{
     }
     a{
         display: inline-flex;
+        border: 0;
         align-items: center;
         font-family: inherit;
         &:after{
