@@ -7,8 +7,11 @@ import '../scss/main.scss';
 //import scroll from './Scroll.js';
 //import fallback from './fallback.js';
 //import $ from 'jquery-slim';
-
+import {
+    query
+} from './utils.js';
 import lottie from 'lottie-web';
+import Slider from './Slider.js';
 
 
 const loadHandler = () => {
@@ -19,8 +22,9 @@ const loadHandler = () => {
     // win.setNoTransitionElts(noTransitionElts);
     //io.init();
     //fallback.init();
+    const [wrapperSlider] = query('#slider');
+    const slider = new Slider(wrapperSlider);
 
-    
     const body = document.getElementsByTagName('body')[0];
 
     const burger = document.getElementById('burger');
@@ -42,10 +46,12 @@ const loadHandler = () => {
             path: elt.getAttribute('data-path')
         });
     });
+
+    slider.play();
 };
 
 
-if( document.readyState === 'complete' ){
+if (document.readyState === 'complete') {
     loadHandler();
 } else {
     window.addEventListener('load', loadHandler, false);

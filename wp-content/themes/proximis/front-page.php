@@ -2,7 +2,7 @@
 
 <?php if ( have_posts() ) : the_post(); ?>
 	<?php if( have_rows('slides', 'options') ) : ?>
-		<header class='carousel'>	
+		<header class='carousel' id='slider'>	
 			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
 				<div class='slide'>
 					<div class='container'>

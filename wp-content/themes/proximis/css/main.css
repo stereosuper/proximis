@@ -1033,10 +1033,24 @@ button {
   color: #18162B; }
 
 .carousel {
-  margin: -245px 0 0;
-  background: #55C4DA; }
+  position: relative;
+  min-height: 100vh;
+  margin: -245px 0 0; }
   .carousel .slide {
-    padding: 220px 0 0; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+    padding: 220px 0 0;
+    background: #55C4DA;
+    -webkit-clip-path: circle(150% at 75% 75%);
+            clip-path: circle(150% at 75% 75%); }
+    .carousel .slide:first-child {
+      z-index: 2; }
+    .carousel .slide:nth-child(2) {
+      z-index: 1;
+      background: #FF737B; }
   .carousel .container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1052,7 +1066,9 @@ button {
     width: calc(50% + 40px);
     padding: 0 0 140px; }
 
-.home-united, .home-solution, .home-refs {
+.home-united,
+.home-solution,
+.home-refs {
   padding: 60px 0; }
 
 .home-united .anim {
@@ -1144,9 +1160,12 @@ button {
     max-width: 80%; }
 
 @media (min-width: 780px) {
-  .home h1, .home h2 {
+  .home h1,
+  .home h2 {
     font-size: 5rem; }
-  .home-united, .home-solution, .home-refs {
+  .home-united,
+  .home-solution,
+  .home-refs {
     padding: 110px 0; } }
 
 @media (min-width: 960px) {
@@ -1274,7 +1293,8 @@ button {
               justify-content: space-between; } }
 
 @media (min-width: 1400px) {
-  .home h1, .home h2 {
+  .home h1,
+  .home h2 {
     font-size: 5.4rem; }
   .home-united .text {
     width: 35%;
