@@ -10,10 +10,6 @@
 
 		<div class='container-small'><?php the_content(); ?></div>
 		
-	<?php else : ?>
-				 
-		<h1>404</h1>
-
 	<?php endif; ?>
 
 </div>

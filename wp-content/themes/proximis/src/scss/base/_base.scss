@@ -174,7 +174,7 @@ hr{
 /******* LIENS / BOUTONS *******/
 
 a{
-    display: inline-block;
+    border-bottom: 1px solid;
     position: relative;
     font-family: $ibm-bold;
     color: $primary;
@@ -188,26 +188,8 @@ a{
         right: -10px;
         bottom: -10px;
     }
-    > span{
-        position: relative;
-        &:after{
-            content: '';
-            height: 1px;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: currentColor;
-            transform-origin: 50% 50%;
-            transition: $transition;
-        }
-    }
     &:hover, &:focus{
-        > span{
-            &:after{
-                transform: scaleX(0.9);
-            }
-        }
+        border-color: transparent;
     }
     &:focus{
         outline: 0;
@@ -296,6 +278,7 @@ a{
     }
     a{
         display: inline-flex;
+        border: 0;
         align-items: center;
         font-family: inherit;
         &:after{
