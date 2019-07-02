@@ -41,7 +41,7 @@
                                 <?php while( have_rows('footerLinks', 'options') ) : the_row(); ?>
                                     <?php $link = get_sub_field('link'); if( $link ) : ?>
                                         <li>
-                                            <a href='<?php echo $link['url'] ?>' class='link'><?php echo $link['title']; ?></a>
+                                            <a href='<?php echo $link['url'] ?>'><?php echo $link['title']; ?></a>
                                         </li>
                                     <?php endif; ?>
                                 <?php endwhile; ?>

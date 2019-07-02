@@ -116,46 +116,10 @@
         display: inline-block;
         min-width: 200px;
         padding: $gutter;
-        border-bottom: 1px solid rgba($grey, 0.15);
+        border-color: rgba($grey, 0.15);
         position: relative;
         font-family: $ibm;
         color: $text;
-        &:before, &:after{
-            content: '';
-            width: 1px;
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: auto;
-            background: $primary;
-            transform-origin: 0 0;
-            transform: scaleY(0);
-            transition: $transition;
-            .home &{
-                background: #fff;
-            }
-        }
-        &:before{
-            height: 60px;
-            top: -115px;
-        }
-        &:after{
-            height: 25px;
-            bottom: -15px;
-        }
-        &:hover, &:focus{
-            &:before{
-                transform: scaleY(1);
-            }
-        }
-    }
-    .current-menu-item, .current_page_parent{
-        > a{
-            font-family: $ibm-bold;
-            &:before, &:after{
-                transform: scaleY(1);
-            }
-        }
     }
 }
 
@@ -232,6 +196,42 @@
         a{
             min-width: 0;
             border: 0;
+            &:before, &:after{
+                content: '';
+                width: 1px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                background: $primary;
+                transform-origin: 0 0;
+                transform: scaleY(0);
+                transition: $transition;
+                .home &{
+                    background: #fff;
+                }
+            }
+            &:before{
+                height: 60px;
+                top: -115px;
+            }
+            &:after{
+                height: 25px;
+                bottom: -15px;
+            }
+            &:hover, &:focus{
+                &:before{
+                    transform: scaleY(1);
+                }
+            }
+        }
+        .current-menu-item, .current_page_parent{
+            > a{
+                font-family: $ibm-bold;
+                &:before, &:after{
+                    transform: scaleY(1);
+                }
+            }
         }
     }
 

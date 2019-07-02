@@ -29,6 +29,7 @@
 
 .link{
     display: inline-flex;
+    border: 0;
     align-items: flex-end;
     text-align: left;
     .icon{
@@ -70,6 +71,20 @@
             right: 0;
         }
     }
+    > span{
+        position: relative;
+        &:after{
+            content: '';
+            height: 1px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: currentColor;
+            transform-origin: 50% 50%;
+            transition: $transition;
+        }
+    }
     &:hover, &:focus{
         > i{
             transition-delay: 0.1s;
@@ -77,6 +92,11 @@
             &:before{
                 transition-delay: 0.15s;
                 transform: scaleX(0.7);
+            }
+        }
+        > span{
+            &:after{
+                transform: scaleX(0.9);
             }
         }
     }
