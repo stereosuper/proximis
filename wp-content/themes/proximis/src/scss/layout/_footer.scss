@@ -67,6 +67,7 @@
         margin: 10px 0;
     }
     a{
+        display: block;
         border: 0;
         &:hover, &:focus{
             transform: scale(0.9);

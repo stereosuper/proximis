@@ -1,0 +1,52 @@
+.ref{
+    display: inline-flex;
+    width: 165px;
+    height: 165px;
+    border: 0;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    line-height: 1.2;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 50%;
+        background: #fff;
+        transition: $transition;
+    }
+    &.number{
+        padding: 20px;
+        font-family: $ibm-bold;
+        &:after{
+            background: $primary;
+        }
+    }
+    .nb{
+        display: block;
+        font-family: $recoleta-bold;
+        font-size: 3.6rem;
+        color: #fff;
+    }
+    img{
+        max-width: 80%;
+        transition: $transition;
+    }
+}
+a{
+    &.ref{
+        &:hover, &:focus{
+            &:after{
+                transform: scale(0.9);
+            }
+            img{
+                transform: scale(0.97);
+            }
+        }
+    }
+}

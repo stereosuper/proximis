@@ -82,22 +82,28 @@
 				<?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => 10)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
 					<ul class='home-ref-list'>
 						<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
-							
 							<li>
 								<a class='ref' href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
 									<?php echo wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
 								</a>
 							</li>
+
 							<?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
-								<li class='ref-nb'>
+								<li>
 									<div class='ref number'>
 										<div>
-											<span><?php echo $numbers[$countNb][1]; ?></span>
+											<?php if( $numbers[$countNb][0] ) : ?>
+												<span><?php echo $numbers[$countNb][1]; ?></span>
+											<?php endif; ?>
 											<span class='nb'><?php echo $numbers[$countNb][2]; ?></span>
+											<?php if( !$numbers[$countNb][0] ) : ?>
+												<span><?php echo $numbers[$countNb][1]; ?></span>
+											<?php endif; ?>
 										</div>
 									</div>
 								</li>
 							<?php $countNb++; endif; ?>
+							
 						<?php endwhile; ?>
 					</ul>
 				<?php wp_reset_postdata(); endif; ?>

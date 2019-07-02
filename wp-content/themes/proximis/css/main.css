@@ -863,6 +863,7 @@ button {
   .footer-social + p {
     margin: 10px 0; }
   .footer-social a {
+    display: block;
     border: 0; }
     .footer-social a:hover, .footer-social a:focus {
       -webkit-transform: scale(0.9);
@@ -1029,6 +1030,57 @@ button {
     -webkit-transform: scale(0.6) translate3d(-10px, 0, 0);
             transform: scale(0.6) translate3d(-10px, 0, 0); }
 
+.ref {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 165px;
+  height: 165px;
+  border: 0;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  line-height: 1.2; }
+  .ref:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out; }
+  .ref.number {
+    padding: 20px;
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
+    .ref.number:after {
+      background: #55C4DA; }
+  .ref .nb {
+    display: block;
+    font-family: "recoleta_bold", "ibmplex", sans-serif;
+    font-size: 3.6rem;
+    color: #fff; }
+  .ref img {
+    max-width: 80%;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out; }
+
+a.ref:hover:after, a.ref:focus:after {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9); }
+
+a.ref:hover img, a.ref:focus img {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97); }
+
 /* Home specific style */
 .home h2 {
   margin: 0; }
@@ -1121,33 +1173,6 @@ button {
     padding: 0 0 10px; }
     .home-ref-list > li:before {
       content: none; }
-  .home-ref-list .ref {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 165px;
-    height: 165px;
-    border: 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    line-height: 1.2;
-    border-radius: 50%;
-    background: #fff; }
-  .home-ref-list .number {
-    padding: 20px;
-    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
-    background: #55C4DA; }
-  .home-ref-list .nb {
-    display: block;
-    font-family: "recoleta_bold", "ibmplex", sans-serif;
-    font-size: 3.6rem;
-    color: #fff; }
-  .home-ref-list img {
-    max-width: 80%; }
 
 @media (min-width: 780px) {
   .home h1, .home h2 {
