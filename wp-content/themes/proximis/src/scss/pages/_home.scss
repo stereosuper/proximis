@@ -91,16 +91,19 @@
 .home-refs{
     padding-bottom: 0;
     text-align: center;
+    h2 + p{
+        margin-top: 0;
+    }
 }
 
 .home-ref-list{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 3em 0;
     flex-wrap: wrap;
     > li{
         width: 14%;
-        min-width: 165px;
+        min-width: 180px;
         padding: 0 0 10px;
         &:before{
             content: none;
@@ -232,6 +235,11 @@
             }
         }
     }
+
+    .home-ref-list{
+        margin-left: -2*$gutter;
+        margin-right: -2*$gutter;
+    }
 }
 
 @media (min-width: $desktop){
@@ -284,5 +292,10 @@
 
     .benefits{
         margin: 0 1% 0 0;
+    }
+
+    .home-ref-list{
+        margin-left: -70px;
+        margin-right: -70px;
     }
 }

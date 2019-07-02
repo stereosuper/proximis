@@ -69,7 +69,7 @@
 		<div class='container'>
 			<?php if( have_rows('section3') ) : while( have_rows('section3') ) : the_row(); ?>
 				<h2><?php the_sub_field('title'); ?></h2>
-				<?php the_sub_field('text'); ?>
+				<p><?php the_sub_field('text'); ?></p>
 
 				<?php
 					if( have_rows('numbers', 'options') ) : $numbers = [];
@@ -103,7 +103,7 @@
 									</div>
 								</li>
 							<?php $countNb++; endif; ?>
-							
+
 						<?php endwhile; ?>
 					</ul>
 				<?php wp_reset_postdata(); endif; ?>
