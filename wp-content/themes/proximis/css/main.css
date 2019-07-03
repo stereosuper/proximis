@@ -1128,7 +1128,7 @@ a.ref:hover img, a.ref:focus img {
 
 .carousel {
   position: relative;
-  min-height: calc(100vh + 245px);
+  min-height: calc(90vh + 245px);
   margin: -245px 0 0; }
   .carousel .slide {
     position: absolute;
@@ -1139,7 +1139,7 @@ a.ref:hover img, a.ref:focus img {
     -webkit-clip-path: circle(150% at 75% 75%);
             clip-path: circle(150% at 75% 75%); }
     .carousel .slide .container {
-      min-height: 100vh;
+      min-height: 90vh;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;

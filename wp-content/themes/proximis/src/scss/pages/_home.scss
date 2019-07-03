@@ -13,7 +13,7 @@
 
 .carousel {
     position: relative;
-    min-height: calc(100vh + 245px);
+    min-height: calc(90vh + 245px);
     margin: -245px 0 0;
 
     .slide {
@@ -27,7 +27,7 @@
         clip-path: circle(150% at 75% 75%);
 
         .container {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: flex-start;
             padding: 215px 0 0;
