@@ -90,9 +90,17 @@
 					<ul class='home-ref-list'>
 						<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
 							<li>
-								<a class='ref' href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
-									<?php echo wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
-								</a>
+								<?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
+
+								<?php if( get_field('studycase') ) : ?>
+									<a class='ref' href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+										<?php echo $img; ?>
+									</a>
+								<?php else : ?>
+									<div class='ref'>
+										<?php echo $img; ?>
+									</div>
+								<?php endif; ?>
 							</li>
 
 							<?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
