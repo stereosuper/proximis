@@ -12,7 +12,7 @@ function Slider(
 ) {
     this.wrapper = wrapper;
     this.slides = query('.slide', this.wrapper);
-    console.log('this.slides : ', this.slides);
+    this.dots = query('.dot', this.wrapper);
     this.activeSlide = 0;
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
@@ -28,7 +28,7 @@ function Slider(
 }
 
 Slider.prototype.play = function play() {
-    TweenMax.delayedCall(5, () => {
+    TweenMax.delayedCall(20, () => {
         this.next();
     });
 };
@@ -44,19 +44,29 @@ Slider.prototype.next = function next() {
     }
 
     TweenMax.set(this.slides[this.nextSlide], {
-        "zIndex": "3"
+        zIndex: 3
     });
     TweenMax.set(this.slides[this.activeSlide], {
-        "zIndex": "4"
+        zIndex: 4
     });
     TweenMax.to(this.slides[this.activeSlide], 1, {
         webkitClipPath: 'circle(0% at 75% 75%)',
         onComplete: function () {
+            TweenMax.set(self.dots[self.activeSlide], {
+                css: {
+                    className: '-=active'
+                }
+            });
+            TweenMax.set(self.dots[self.nextSlide], {
+                css: {
+                    className: '+=active'
+                }
+            });
             TweenMax.set(self.slides[self.nextSlide], {
-                "zIndex": "4"
+                zIndex: 4
             });
             TweenMax.set(self.slides[self.activeSlide], {
-                "zIndex": "2",
+                zIndex: 2,
                 webkitClipPath: 'circle(150% at 75% 75%)'
             });
             self.activeSlide = self.nextSlide;

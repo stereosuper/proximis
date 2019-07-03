@@ -1,137 +1,169 @@
 /******* GÉNÉRAL *******/
 
-::-moz-selection{
-    background: $primary;
-    color: $white;
-    text-shadow: none;
-}
-::selection{
+::-moz-selection {
     background: $primary;
     color: $white;
     text-shadow: none;
 }
 
-html{
-    font-size: 62.5%; /* sets the base font to 10px for easier math */
-    
+::selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
 }
 
-body{
+html {
+    font-size: 62.5%;
+    /* sets the base font to 10px for easier math */
+
+}
+
+body {
     font: 1.6em / 1.55 $ibm;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: $bg;
     color: $text;
-    &.menu-open{
+
+    &.menu-open {
         overflow-y: hidden;
     }
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: 1.2;
     font-weight: 400;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
     font-family: $recoleta-bold;
 }
 
-h4, h5, h6{
+h4,
+h5,
+h6 {
     font-family: $ibm-bold;
     margin: 1.9em 0 1.5em;
 }
 
-h1, .home h1, .home h2{
+h1,
+.home h1,
+.home h2 {
     font-size: 4.3rem;
 }
-h1{
+
+h1 {
     margin: 0.6em 0 1.4em;
 }
 
-h2, .home h3{
+h2,
+.home h3 {
     font-size: 2.2rem;
 }
-h2{
+
+h2 {
     margin: 1.75em 0 1.25em;
 }
 
-h3{
+h3 {
     font-size: 2rem;
     margin: 1.25em 0;
     color: $primary;
 }
 
-h4{
+h4 {
     font-size: 2rem;
     margin: 1.33em 0;
 }
 
-h5{
+h5 {
     font-size: 2rem;
 }
 
-h6{
+h6 {
     font-size: 1.8rem;
 }
 
-p{
+p {
     margin: 2em 0;
 }
 
-b, strong{
+b,
+strong {
     font-family: $ibm-bold;
-    i, em{
+
+    i,
+    em {
         font-family: $ibm-it-bold;
     }
 }
 
-i, em{
+i,
+em {
     font-family: $ibm-it;
     font-style: normal;
-    b, strong{
+
+    b,
+    strong {
         font-family: $ibm-it-bold;
     }
 }
 
-blockquote{
+blockquote {
     margin: 2em $gutter;
     font-family: $recoleta;
     font-size: 2.4rem;
     color: $grey;
-    > p{
-        &:before{
+
+    >p {
+        &:before {
             content: '“';
             color: $primary;
         }
-        &:after{
+
+        &:after {
             content: '”';
             color: $primary;
         }
     }
 }
 
-ol, ul{
+ol,
+ul {
     padding: 0;
     margin: 2em 0;
     list-style: none;
-    ol, ul{
+
+    ol,
+    ul {
         padding: 0 0 0 25px;
         margin: 1em 0;
     }
 }
-ol{
+
+ol {
     counter-reset: ol-counter;
-    > li{
+
+    >li {
         counter-increment: ol-counter;
-        &:before{
+
+        &:before {
             content: counter(ol-counter)'.';
             color: $primary;
         }
     }
 }
-ul{
-    > li{
-        &:before{
+
+ul {
+    >li {
+        &:before {
             width: 8px;
             height: 8px;
             background: $primary;
@@ -139,10 +171,12 @@ ul{
         }
     }
 }
-li{
+
+li {
     padding: 0 0 0 $gutter*2;
     position: relative;
-    &:before{
+
+    &:before {
         content: '';
         position: absolute;
         top: 10px;
@@ -150,19 +184,20 @@ li{
     }
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
 }
 
-code, pre{
+code,
+pre {
     display: block;
     padding: 10px 15px;
     margin: 1em 0;
     background: grey;
 }
 
-hr{
+hr {
     height: 1px;
     max-width: 250px;
     border: 0;
@@ -173,14 +208,15 @@ hr{
 
 /******* LIENS / BOUTONS *******/
 
-a{
+a {
     border-bottom: 1px solid;
     position: relative;
     font-family: $ibm-bold;
     color: $primary;
     text-decoration: none;
     transition: $transition;
-    &:before{
+
+    &:before {
         content: '';
         position: absolute;
         top: -10px;
@@ -188,13 +224,17 @@ a{
         right: -10px;
         bottom: -10px;
     }
-    &:hover, &:focus{
+
+    &:hover,
+    &:focus {
         border-color: transparent;
     }
-    &:focus{
+
+    &:focus {
         outline: 0;
     }
-    &:active{
+
+    &:active {
         filter: saturate(200%);
     }
 }
@@ -202,10 +242,11 @@ a{
 
 /******* CLASSES GENERALES  *******/
 
-.hidden{
+.hidden {
     display: none !important;
 }
-.visually-hidden{
+
+.visually-hidden {
     width: 1px;
     height: 1px;
     padding: 0;
@@ -216,28 +257,30 @@ a{
     overflow: hidden;
 }
 
-.clearfix{
+.clearfix {
     @include clearfix;
 }
 
-.icon{
+.icon {
     width: 1.2em;
     height: 1.2em;
     fill: currentColor;
 }
 
-.no-transition{
-    transition: none!important;
+.no-transition {
+    transition: none !important;
 }
 
-.has-medium-font-size{
+.has-medium-font-size {
     font-size: 2rem;
     margin-bottom: 4.2em;
 }
-.has-drop-cap{
+
+.has-drop-cap {
     position: relative;
     z-index: 1;
-    &:before{
+
+    &:before {
         content: '';
         height: 160px;
         position: absolute;
@@ -247,11 +290,13 @@ a{
         z-index: -1;
         background: #fff;
     }
-    &:not(:focus){
-        &:after{
+
+    &:not(:focus) {
+        &:after {
             content: none;
         }
-        &:first-letter{
+
+        &:first-letter {
             margin: 0.3em $gutter 0 0;
             font-size: 9.7rem;
             line-height: 0.5;
@@ -261,12 +306,13 @@ a{
     }
 }
 
-.breadcrumbs{
+.breadcrumbs {
     position: relative;
     font-size: 1.4rem;
     line-height: 1;
     font-family: $ibm;
-    &:before{
+
+    &:before {
         content: '';
         height: 1px;
         position: absolute;
@@ -276,12 +322,14 @@ a{
         margin: 0 8px 0 0;
         background: $primary;
     }
-    a{
+
+    a {
         display: inline-flex;
         border: 0;
         align-items: center;
         font-family: inherit;
-        &:after{
+
+        &:after {
             content: '';
             display: block;
             width: 30px;
@@ -292,7 +340,7 @@ a{
     }
 }
 
-.highlighted{
+.highlighted {
     padding: 40px;
     position: relative;
     font-family: $recoleta;
@@ -300,7 +348,8 @@ a{
     line-height: 1.2;
     color: $grey;
     background: #fff;
-    &:before{
+
+    &:before {
         content: '';
         width: 45px;
         height: 1px;
@@ -309,120 +358,133 @@ a{
         left: -22px;
         background: $primary;
     }
-    > p{
+
+    >p {
         margin: 0;
     }
 }
 
-.img-shape{
+.img-shape {
     display: none;
 }
 
-.wp-block-image{
-    .alignright, .alignleft{
+.wp-block-image {
+
+    .alignright,
+    .alignleft {
         float: none;
         margin: 0;
     }
 }
 
 
-@media (min-width: $phone-small){
-    .has-drop-cap{
-        &:before{
+
+@media (min-width: $phone-small) {
+    .has-drop-cap {
+        &:before {
             right: 65%;
         }
     }
 }
 
-@media (min-width: $phone){
-    .has-drop-cap{
-        &:before{
+@media (min-width: $phone) {
+    .has-drop-cap {
+        &:before {
             right: 75%;
         }
     }
 }
 
-@media (min-width: $tablet){
-    body{
+@media (min-width: $tablet) {
+    body {
         font-size: 1.8em;
     }
 
-    h1, .home h1, .home h2{
+    h1,
+    .home h1,
+    .home h2 {
         font-size: 5.4rem;
     }
 
-    h2, .home h3{
+    h2,
+    .home h3 {
         font-size: 2.8rem;
     }
 
-    h3{
+    h3 {
         font-size: 2.4rem;
     }
 
-    .has-drop-cap{
-        &:before{
+    .has-drop-cap {
+        &:before {
             right: 80%;
         }
     }
 }
 
-@media (min-width: $desktop-small){
-    .has-drop-cap{
-        &:before{
+@media (min-width: $desktop-small) {
+    .has-drop-cap {
+        &:before {
             right: 86%;
         }
     }
 
-    .img-shape{
+    .img-shape {
         display: block;
         margin: 35px 0 0;
         shape-margin: 15px;
     }
-    .alignright{
+
+    .alignright {
         float: right;
         margin-right: -25%;
     }
-    .alignleft{
+
+    .alignleft {
         float: left;
     }
-    .wp-block-image{
-        .alignright{
+
+    .wp-block-image {
+        .alignright {
             float: right;
             margin-right: -25%;
             margin-left: 1em;
         }
-        .alignleft{
+
+        .alignleft {
             float: left;
             margin-right: 1em;
         }
     }
 }
 
-@media (min-width: $desktop){
-    .highlighted{
+@media (min-width: $desktop) {
+    .highlighted {
         width: 240px;
         position: absolute;
         right: 0;
         margin: -38px 0 0;
     }
 
-    .alignright{
+    .alignright {
         margin-right: -45%;
     }
-    .wp-block-image{
-        .alignright{
+
+    .wp-block-image {
+        .alignright {
             margin-right: -45%;
         }
     }
 }
 
-@media (min-width: $desktop-big){
-    .highlighted{
+@media (min-width: $desktop-big) {
+    .highlighted {
         width: 330px;
         padding: 60px 100px 60px 40px;
         margin-top: -60px;
         font-size: 2.4rem;
-        &:before{
+
+        &:before {
             top: 72px;
         }
     }

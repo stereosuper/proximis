@@ -23162,7 +23162,7 @@ function Slider(wrapper) {
 
   this.wrapper = wrapper;
   this.slides = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["query"])('.slide', this.wrapper);
-  console.log('this.slides : ', this.slides);
+  this.dots = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["query"])('.dot', this.wrapper);
   this.activeSlide = 0;
   this.nextSlide = 1;
   this.nbSlides = this.slides.length;
@@ -23179,7 +23179,7 @@ function Slider(wrapper) {
 Slider.prototype.play = function play() {
   var _this2 = this;
 
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(5, function () {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(20, function () {
     _this2.next();
   });
 };
@@ -23196,19 +23196,29 @@ Slider.prototype.next = function next() {
   }
 
   gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(this.slides[this.nextSlide], {
-    "zIndex": "3"
+    zIndex: 3
   });
   gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(this.slides[this.activeSlide], {
-    "zIndex": "4"
+    zIndex: 4
   });
   gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.slides[this.activeSlide], 1, {
     webkitClipPath: 'circle(0% at 75% 75%)',
     onComplete: function onComplete() {
+      gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.activeSlide], {
+        css: {
+          className: '-=active'
+        }
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.nextSlide], {
+        css: {
+          className: '+=active'
+        }
+      });
       gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.slides[self.nextSlide], {
-        "zIndex": "4"
+        zIndex: 4
       });
       gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.slides[self.activeSlide], {
-        "zIndex": "2",
+        zIndex: 2,
         webkitClipPath: 'circle(150% at 75% 75%)'
       });
       self.activeSlide = self.nextSlide;

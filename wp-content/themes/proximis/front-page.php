@@ -2,7 +2,7 @@
 
 <?php if ( have_posts() ) : the_post(); ?>
 	<?php if( have_rows('slides', 'options') ) : ?>
-		<header class='carousel' id='slider'>	
+		<header class='carousel' id='slider'>
 			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
 				<div class='slide'>
 					<div class='container'>
@@ -18,6 +18,13 @@
 					</div>
 				</div>
 			<?php endwhile; ?>
+			<div class='carousel-nav'>
+				<?php 
+				$i = 0;
+				while( have_rows('slides', 'options') ) : the_row(); ?>
+					<div class='<?php echo $i == 0 ? "dot active" : "dot"; ?>'></div>
+				<?php $i++; endwhile; ?>
+			</div>
 		</header>
 	<?php endif ;?>
 
