@@ -23167,6 +23167,15 @@ function Slider(wrapper) {
   this.nextSlide = 1;
   this.nbSlides = this.slides.length;
   this.maxHeight = 0;
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.dots, function (dot, dotIndex) {
+    dot.addEventListener('click', function () {
+      if (!gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].isTweening(_this.slides) && _this.activeSlide != dotIndex) {
+        _this.kill();
+
+        _this.nextIndex(_this, dotIndex);
+      }
+    });
+  });
   this.slides.forEach(function (el) {
     _this.itemHeight = el.offsetHeight;
     _this.maxHeight = Math.max(_this.maxHeight, _this.itemHeight);
@@ -23177,43 +23186,46 @@ function Slider(wrapper) {
 }
 
 Slider.prototype.play = function play() {
-  var _this2 = this;
-
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(20, function () {
-    _this2.next();
-  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(20, this.next, [this]);
 };
 
 Slider.prototype.pause = function pause() {};
 
-Slider.prototype.next = function next() {
-  var self = this;
-
-  if (this.activeSlide + 1 < this.nbSlides) {
-    this.nextSlide = this.activeSlide + 1;
+Slider.prototype.next = function next(self) {
+  if (self.activeSlide + 1 < self.nbSlides) {
+    self.nextSlide = self.activeSlide + 1;
   } else {
-    this.nextSlide = 0;
+    self.nextSlide = 0;
   }
 
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(this.slides[this.nextSlide], {
+  self.animate(self);
+};
+
+Slider.prototype.nextIndex = function nextIndex(self, index) {
+  self.nextSlide = index;
+  self.animate(self);
+};
+
+Slider.prototype.animate = function animate(self) {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.slides[self.nextSlide], {
     zIndex: 3
   });
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(this.slides[this.activeSlide], {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.slides[self.activeSlide], {
     zIndex: 4
   });
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.slides[this.activeSlide], 1, {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.activeSlide], {
+    css: {
+      className: '-=active'
+    }
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.nextSlide], {
+    css: {
+      className: '+=active'
+    }
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(self.slides[self.activeSlide], 1, {
     webkitClipPath: 'circle(0% at 75% 75%)',
     onComplete: function onComplete() {
-      gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.activeSlide], {
-        css: {
-          className: '-=active'
-        }
-      });
-      gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.dots[self.nextSlide], {
-        css: {
-          className: '+=active'
-        }
-      });
       gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.slides[self.nextSlide], {
         zIndex: 4
       });
@@ -23224,7 +23236,11 @@ Slider.prototype.next = function next() {
       self.activeSlide = self.nextSlide;
     }
   });
-  this.play();
+  self.play();
+};
+
+Slider.prototype.kill = function kill() {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].killTweensOf(this.next);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Slider);
@@ -23311,12 +23327,13 @@ if (document.readyState === 'complete') {
 /*!****************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/utils.js ***!
   \****************************************************/
-/*! exports provided: query */
+/*! exports provided: query, forEach */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query", function() { return query; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -23349,6 +23366,15 @@ var query = function query(selector, context) {
 
 
   return _toConsumableArray(context.querySelectorAll(selector));
+};
+var forEach = function forEach(arr, callback) {
+  var i = 0;
+  var length = arr.length;
+
+  while (i < length) {
+    callback(arr[i], i);
+    i += 1;
+  }
 };
 
 /***/ }),

@@ -1,9 +1,9 @@
 import {
-    query
+    query,
+    forEach
 } from './utils.js';
 
 import {
-    TimelineMax,
     TweenMax
 } from 'gsap';
 
@@ -17,6 +17,16 @@ function Slider(
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
     this.maxHeight = 0;
+    forEach(this.dots, (dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            if (
+                !TweenMax.isTweening(this.slides) && this.activeSlide != dotIndex
+            ) {
+                this.kill();
+                this.nextIndex(this, dotIndex);
+            }
+        });
+    });
 
     this.slides.forEach((el) => {
         this.itemHeight = el.offsetHeight;
@@ -28,40 +38,45 @@ function Slider(
 }
 
 Slider.prototype.play = function play() {
-    TweenMax.delayedCall(20, () => {
-        this.next();
-    });
+    TweenMax.delayedCall(20, this.next, [this]);
 };
 
 Slider.prototype.pause = function pause() {};
 
-Slider.prototype.next = function next() {
-    const self = this;
-    if (this.activeSlide + 1 < this.nbSlides) {
-        this.nextSlide = this.activeSlide + 1;
+Slider.prototype.next = function next(self) {
+    if (self.activeSlide + 1 < self.nbSlides) {
+        self.nextSlide = self.activeSlide + 1;
     } else {
-        this.nextSlide = 0;
+        self.nextSlide = 0;
     }
+    self.animate(self);
+};
 
-    TweenMax.set(this.slides[this.nextSlide], {
+Slider.prototype.nextIndex = function nextIndex(self, index) {
+    self.nextSlide = index;
+    self.animate(self);
+};
+
+Slider.prototype.animate = function animate(self) {
+    TweenMax.set(self.slides[self.nextSlide], {
         zIndex: 3
     });
-    TweenMax.set(this.slides[this.activeSlide], {
+    TweenMax.set(self.slides[self.activeSlide], {
         zIndex: 4
     });
-    TweenMax.to(this.slides[this.activeSlide], 1, {
+    TweenMax.set(self.dots[self.activeSlide], {
+        css: {
+            className: '-=active'
+        }
+    });
+    TweenMax.set(self.dots[self.nextSlide], {
+        css: {
+            className: '+=active'
+        }
+    });
+    TweenMax.to(self.slides[self.activeSlide], 1, {
         webkitClipPath: 'circle(0% at 75% 75%)',
-        onComplete: function () {
-            TweenMax.set(self.dots[self.activeSlide], {
-                css: {
-                    className: '-=active'
-                }
-            });
-            TweenMax.set(self.dots[self.nextSlide], {
-                css: {
-                    className: '+=active'
-                }
-            });
+        onComplete: () => {
             TweenMax.set(self.slides[self.nextSlide], {
                 zIndex: 4
             });
@@ -72,7 +87,11 @@ Slider.prototype.next = function next() {
             self.activeSlide = self.nextSlide;
         }
     });
-    this.play();
+    self.play();
+}
+
+Slider.prototype.kill = function kill() {
+    TweenMax.killTweensOf(this.next);
 };
 
 export default Slider;
