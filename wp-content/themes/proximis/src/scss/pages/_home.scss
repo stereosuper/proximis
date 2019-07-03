@@ -199,34 +199,6 @@
             content: none;
         }
     }
-
-    .ref {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 165px;
-        height: 165px;
-        line-height: 1.2;
-        border-radius: 50%;
-        background: #fff;
-    }
-
-    .number {
-        padding: 20px;
-        font-family: $ibm-bold;
-        background: $primary;
-    }
-
-    .nb {
-        display: block;
-        font-family: $recoleta-bold;
-        font-size: 3.6rem;
-        color: #fff;
-    }
-
-    img {
-        max-width: 80%;
-    }
 }
 
 
