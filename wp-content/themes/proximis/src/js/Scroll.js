@@ -1,4 +1,4 @@
-import { requestAnimFrame } from '.';
+import requestAnimFrame from './requestAnimFrame.js';
 
 function Scroll() {
     this.scrollTop = null;

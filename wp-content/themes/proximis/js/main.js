@@ -23143,6 +23143,93 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./wp-content/themes/proximis/src/js/Scroll.js":
+/*!*****************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/Scroll.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./requestAnimFrame.js */ "./wp-content/themes/proximis/src/js/requestAnimFrame.js");
+/* harmony import */ var _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Scroll() {
+  this.scrollTop = null;
+  this.event = null;
+  this.timeoutScroll = null;
+  this.scrollEnd = true;
+  this.scrollFunctions = [];
+  this.endFunctions = [];
+}
+
+Scroll.prototype.scrollHandler = function scrollHandler() {
+  var _this = this;
+
+  this.scrollTop = window.pageYOffset || window.scrollY;
+
+  if (this.scrollEnd) {
+    this.scrollEnd = false;
+  }
+
+  clearTimeout(this.timeoutScroll);
+  this.timeoutScroll = setTimeout(function () {
+    _this.onScrollEnd();
+  }, 66);
+  this.scrollFunctions.forEach(function (f) {
+    f();
+  });
+};
+
+Scroll.prototype.launchScroll = function launchScroll(e) {
+  var _this2 = this;
+
+  this.event = e;
+  _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+    _this2.scrollHandler();
+  });
+};
+
+Scroll.prototype.init = function initScroll() {
+  var _this3 = this;
+
+  this.scrollHandler();
+  window.addEventListener('scroll', function () {
+    _this3.launchScroll();
+  }, false);
+};
+
+Scroll.prototype.destroyScroll = function destroyScroll() {
+  var _this4 = this;
+
+  window.removeEventListener('scroll', function () {
+    _this4.launchScroll();
+  }, false);
+};
+
+Scroll.prototype.onScrollEnd = function onScrollEnd() {
+  this.scrollEnd = true;
+  this.endFunctions.forEach(function (f) {
+    f();
+  });
+};
+
+Scroll.prototype.addScrollFunction = function addScrollFunction(f) {
+  var onEnd = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  this.scrollFunctions.push(f);
+  if (onEnd) this.endFunctions.push(f);
+};
+
+Scroll.prototype.addEndFunction = function addEndFunction(f) {
+  this.endFunctions.push(f);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (new Scroll());
+
+/***/ }),
+
 /***/ "./wp-content/themes/proximis/src/js/Slider.js":
 /*!*****************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/Slider.js ***!
@@ -23258,10 +23345,12 @@ Slider.prototype.kill = function kill() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./wp-content/themes/proximis/src/scss/main.scss");
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_main_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
+/* harmony import */ var _Scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Scroll.js */ "./wp-content/themes/proximis/src/js/Scroll.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
+/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -23273,27 +23362,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  //import { TweenLite, TimelineLite } from 'gsap';
 //import win from './Window.js';
 //import io from './io.js';
-//import scroll from './Scroll.js';
-//import fallback from './fallback.js';
+
+ //import fallback from './fallback.js';
 //import $ from 'jquery-slim';
 
 
 
 
 
+
 var loadHandler = function loadHandler() {
-  //scroll.init();
-  // const noTransitionElts = [].slice.call(
+  _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].init(); // const noTransitionElts = [].slice.call(
   //     document.getElementsByClassName('element-without-transition-on-resize')
   // );
   // win.setNoTransitionElts(noTransitionElts);
   //io.init();
   //fallback.init();
-  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["query"])('#slider'),
+
+  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["query"])('#slider'),
       _query2 = _slicedToArray(_query, 1),
       wrapperSlider = _query2[0];
 
-  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_3__["default"](wrapperSlider);
+  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_4__["default"](wrapperSlider);
   var body = document.getElementsByTagName('body')[0];
   var burger = document.getElementById('burger');
   burger.addEventListener('click', function () {
@@ -23304,7 +23394,7 @@ var loadHandler = function loadHandler() {
     body.classList.remove('menu-open');
   });
   [].slice.call(document.getElementsByClassName('js-benefit')).forEach(function (elt) {
-    lottie_web__WEBPACK_IMPORTED_MODULE_2___default.a.loadAnimation({
+    lottie_web__WEBPACK_IMPORTED_MODULE_3___default.a.loadAnimation({
       container: elt,
       renderer: 'svg',
       loop: true,
@@ -23313,6 +23403,7 @@ var loadHandler = function loadHandler() {
     });
   });
   slider.play();
+  Object(_united_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 };
 
 if (document.readyState === 'complete') {
@@ -23320,6 +23411,80 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', loadHandler, false);
 }
+
+/***/ }),
+
+/***/ "./wp-content/themes/proximis/src/js/requestAnimFrame.js":
+/*!***************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/requestAnimFrame.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+}();
+
+/***/ }),
+
+/***/ "./wp-content/themes/proximis/src/js/united.js":
+/*!*****************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/united.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _Scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Scroll.js */ "./wp-content/themes/proximis/src/js/Scroll.js");
+
+
+
+var unitedAnimHandler = function unitedAnimHandler() {
+  var united = document.getElementById('united');
+  var words = united.querySelectorAll('.js-word');
+  if (!united) return; // Constants used to create the intersection observer threshold array
+
+  var samplesNumber = 10;
+  var thresholdSamples = [];
+  var index = 0;
+  var observer = null;
+  var animLaunched = false;
+
+  var init = function init() {
+    animLaunched = true;
+    gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
+      x: 0,
+      y: 0
+    });
+    _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].addScrollFunction(function () {
+      console.log(_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop);
+    });
+  };
+
+  var intersectionCallback = function intersectionCallback(entries) {
+    entries.forEach(function (entry) {
+      if (entry.intersectionRatio < 0.5 || animLaunched) return;
+      init();
+    });
+  };
+
+  for (index; index <= samplesNumber; index++) {
+    thresholdSamples[index] = index / samplesNumber;
+  }
+
+  observer = new IntersectionObserver(intersectionCallback, {
+    root: null,
+    rootMargin: '0px',
+    threshold: thresholdSamples
+  });
+  observer.observe(united);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (unitedAnimHandler);
 
 /***/ }),
 

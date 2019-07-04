@@ -278,7 +278,7 @@
         &:after {
             width: 120px;
             height: 120px;
-            background: #FBFAF8;
+            background: #fff;
         }
 
         .keyword {
@@ -286,11 +286,19 @@
             width: 130px;
             height: 130px;
             padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 10;
             align-items: center;
             justify-content: center;
-            position: absolute;
             border-radius: 50%;
             box-shadow: 0 10px 15px rgba(#000, 0.05);
+            transform-origin: 50% 50%;
+            mix-blend-mode: multiply;
 
             &:first-of-type,
             &:last-of-type {
@@ -314,43 +322,35 @@
             }
 
             &:first-of-type {
-                top: -175px;
-                left: -155px;
+                transform: translate3d(-335px, -345px, 0);
             }
 
             &:nth-of-type(2) {
-                top: -95px;
-                left: 45%;
+                transform: translate3d(-15px, -260px, 0);
             }
 
             &:nth-of-type(3) {
-                top: 20%;
-                left: -300px;
+                transform: translate3d(-480px, -45px, 0);
             }
 
             &:nth-of-type(4) {
-                top: 155px;
-                left: -75px;
+                transform: translate3d(-250px, -10px, 0);
             }
 
             &:nth-of-type(5) {
-                top: 230px;
-                right: -100px;
+                transform: translate3d(260px, 60px, 0);
             }
 
             &:nth-of-type(6) {
-                top: 90%;
-                left: -190px;
+                transform: translate3d(-370px, 215px, 0);
             }
 
             &:nth-of-type(7) {
-                top: 97%;
-                left: 90%;
+                transform: translate3d(200px, 285px, 0);
             }
 
             &:nth-of-type(8) {
-                top: 110%;
-                left: 35%;
+                transform: translate3d(-45px, 355px, 0);
             }
         }
     }

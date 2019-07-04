@@ -4,7 +4,7 @@ import '../scss/main.scss';
 
 //import win from './Window.js';
 //import io from './io.js';
-//import scroll from './Scroll.js';
+import scroll from './Scroll.js';
 //import fallback from './fallback.js';
 //import $ from 'jquery-slim';
 import {
@@ -12,10 +12,11 @@ import {
 } from './utils.js';
 import lottie from 'lottie-web';
 import Slider from './Slider.js';
+import united from './united.js';
 
 
 const loadHandler = () => {
-    //scroll.init();
+    scroll.init();
     // const noTransitionElts = [].slice.call(
     //     document.getElementsByClassName('element-without-transition-on-resize')
     // );
@@ -48,6 +49,7 @@ const loadHandler = () => {
     });
 
     slider.play();
+    united();
 };
 
 

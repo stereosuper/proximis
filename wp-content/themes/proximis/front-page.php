@@ -28,13 +28,13 @@
 		</header>
 	<?php endif ;?>
 
-	<section class='home-united'>
+	<section class='home-united' id='united'>
 		<div class='container'>
 			<?php if( have_rows('section1') ) : while( have_rows('section1') ) : the_row(); ?>
 				<div class='anim'>
 					<div class='anim-united'>
 						<?php if( have_rows('keywords') ) : while( have_rows('keywords') ) : the_row(); ?>
-							<span class='keyword'><?php the_sub_field('word'); ?></span>
+							<span class='keyword js-word'><?php the_sub_field('word'); ?></span>
 						<?php endwhile; endif; ?>
 					</div>
 				</div>
