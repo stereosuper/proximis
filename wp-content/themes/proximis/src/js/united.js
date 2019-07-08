@@ -8,7 +8,7 @@ const unitedAnimHandler = () => {
 
     if( !united ) return;
 
-    const unitedHeight = united.offsetHeight;
+    let windowHeight = window.innerHeight*0.65;
 
     // Constants used to create the intersection observer threshold array
     const samplesNumber = 100;
@@ -24,9 +24,10 @@ const unitedAnimHandler = () => {
         let progress = 0;
 
         animLaunched = true;
+        windowHeight += oScrollTop;
 
         scroll.addScrollFunction(() => {
-            progress = (scroll.scrollTop-oScrollTop) / (unitedHeight+oScrollTop);
+            progress = (scroll.scrollTop-oScrollTop) / windowHeight;
             if( progress >= 0 ) tween.progress(progress);
         });
     };

@@ -23447,7 +23447,7 @@ var unitedAnimHandler = function unitedAnimHandler() {
   var united = document.getElementById('united');
   var words = united.querySelectorAll('.js-word');
   if (!united) return;
-  var unitedHeight = united.offsetHeight; // Constants used to create the intersection observer threshold array
+  var windowHeight = window.innerHeight * 0.65; // Constants used to create the intersection observer threshold array
 
   var samplesNumber = 100;
   var thresholdSamples = [];
@@ -23465,8 +23465,9 @@ var unitedAnimHandler = function unitedAnimHandler() {
     });
     var progress = 0;
     animLaunched = true;
+    windowHeight += oScrollTop;
     _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].addScrollFunction(function () {
-      progress = (_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop - oScrollTop) / (unitedHeight + oScrollTop);
+      progress = (_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop - oScrollTop) / windowHeight;
       if (progress >= 0) tween.progress(progress);
     });
   };
