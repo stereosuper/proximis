@@ -23446,28 +23446,35 @@ __webpack_require__.r(__webpack_exports__);
 var unitedAnimHandler = function unitedAnimHandler() {
   var united = document.getElementById('united');
   var words = united.querySelectorAll('.js-word');
-  if (!united) return; // Constants used to create the intersection observer threshold array
+  if (!united) return;
+  var unitedHeight = united.offsetHeight; // Constants used to create the intersection observer threshold array
 
-  var samplesNumber = 10;
+  var samplesNumber = 100;
   var thresholdSamples = [];
   var index = 0;
   var observer = null;
-  var animLaunched = false;
+  var animLaunched = false,
+      oScrollTop = 0;
 
   var init = function init() {
-    animLaunched = true;
-    gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
+    var tween = gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
       x: 0,
-      y: 0
+      y: 0,
+      paused: true,
+      ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
     });
+    var progress = 0;
+    animLaunched = true;
     _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].addScrollFunction(function () {
-      console.log(_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop);
+      progress = (_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop - oScrollTop) / (unitedHeight + oScrollTop);
+      tween.progress(progress);
     });
   };
 
   var intersectionCallback = function intersectionCallback(entries) {
     entries.forEach(function (entry) {
-      if (entry.intersectionRatio < 0.5 || animLaunched) return;
+      if (entry.intersectionRatio < 0.2 || animLaunched) return;
+      oScrollTop = window.pageYOffset || window.scrollY;
       init();
     });
   };

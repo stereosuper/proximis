@@ -1128,7 +1128,7 @@ a.ref:hover img, a.ref:focus img {
 
 .carousel {
   position: relative;
-  min-height: calc(90vh + 245px);
+  min-height: 90vh;
   margin: -245px 0 0; }
   .carousel .slide {
     position: absolute;
