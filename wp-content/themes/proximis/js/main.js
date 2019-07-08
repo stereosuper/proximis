@@ -23467,14 +23467,14 @@ var unitedAnimHandler = function unitedAnimHandler() {
     animLaunched = true;
     _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].addScrollFunction(function () {
       progress = (_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop - oScrollTop) / (unitedHeight + oScrollTop);
-      tween.progress(progress);
+      if (progress >= 0) tween.progress(progress);
     });
   };
 
   var intersectionCallback = function intersectionCallback(entries) {
     entries.forEach(function (entry) {
       if (entry.intersectionRatio < 0.2 || animLaunched) return;
-      oScrollTop = window.pageYOffset || window.scrollY;
+      oScrollTop = _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop;
       init();
     });
   };

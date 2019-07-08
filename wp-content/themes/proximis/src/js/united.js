@@ -1,4 +1,4 @@
-import { TweenLite, TimelineLite, Linear } from 'gsap';
+import { TweenLite, Linear } from 'gsap';
 import scroll from './Scroll.js';
 
 const unitedAnimHandler = () => {
@@ -26,21 +26,21 @@ const unitedAnimHandler = () => {
         animLaunched = true;
 
         scroll.addScrollFunction(() => {
-            progress = (scroll.scrollTop-oScrollTop)/(unitedHeight+oScrollTop);
-            tween.progress(progress);
+            progress = (scroll.scrollTop-oScrollTop) / (unitedHeight+oScrollTop);
+            if( progress >= 0 ) tween.progress(progress);
         });
     };
 
     const intersectionCallback = entries => {
         entries.forEach(entry => {
             if( entry.intersectionRatio < 0.2 || animLaunched ) return;
-            oScrollTop = window.pageYOffset || window.scrollY;
+            oScrollTop = scroll.scrollTop;
             init();
         });
     };
 
 
-    for (index; index <= samplesNumber; index++) {
+    for( index; index <= samplesNumber; index++ ){
         thresholdSamples[index] = index / samplesNumber;
     }
 
