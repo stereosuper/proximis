@@ -8,9 +8,9 @@
 					<div class='container'>
 						<div class='text'>
 							<h2 class='title'>
-								<span><?php the_sub_field('title1'); ?></span>
-								<span><?php the_sub_field('title2'); ?></span>
-								<span><?php the_sub_field('title3'); ?></span>
+								<?php if( get_sub_field('title1') ){ ?><span><?php the_sub_field('title1'); ?></span><?php } ?>
+								<?php if( get_sub_field('title2') ){ ?><span><?php the_sub_field('title2'); ?></span><?php } ?>
+								<?php if( get_sub_field('title3') ){ ?><q><?php the_sub_field('title3'); ?></q><?php } ?>
 							</h2>
 							<?php the_sub_field('text'); ?>
 						</div>

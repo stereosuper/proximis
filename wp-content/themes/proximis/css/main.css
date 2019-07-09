@@ -336,6 +336,18 @@ blockquote {
     content: '”';
     color: #55C4DA; }
 
+q {
+  position: relative; }
+  q:before {
+    position: absolute;
+    top: 0.1em;
+    left: 0;
+    -webkit-transform: translateX(calc(-100% - 5px));
+            transform: translateX(calc(-100% - 5px));
+    content: '“'; }
+  q:after {
+    content: '”'; }
+
 ol,
 ul {
   padding: 0;
@@ -1175,6 +1187,8 @@ a.ref:hover img, a.ref:focus img {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
+    .carousel .img > img {
+      max-width: calc(100% - 20px); }
 
 .carousel-nav {
   position: absolute;

@@ -135,6 +135,22 @@ blockquote {
     }
 }
 
+q {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        top: 0.1em;
+        left: 0;
+        transform: translateX(calc(-100% - 5px));
+        content: '“';
+    }
+
+    &:after {
+        content: '”';
+    }
+}
+
 ol,
 ul {
     padding: 0;
