@@ -2,7 +2,7 @@ import '../scss/main.scss';
 
 //import { TweenLite, TimelineLite } from 'gsap';
 
-//import win from './Window.js';
+import win from './Window.js';
 //import io from './io.js';
 import scroll from './Scroll.js';
 //import fallback from './fallback.js';
@@ -23,6 +23,7 @@ const loadHandler = () => {
     // win.setNoTransitionElts(noTransitionElts);
     //io.init();
     //fallback.init();
+    win.init();
     const [wrapperSlider] = query('#slider');
     const slider = new Slider(wrapperSlider);
 

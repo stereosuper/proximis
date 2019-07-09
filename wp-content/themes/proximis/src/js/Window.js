@@ -1,14 +1,19 @@
-import { requestAnimFrame, forEach } from '.';
+import {
+    requestAnimFrame,
+    forEach
+} from './utils.js';
 
-if (!Object.entries){ // IE 11
-    Object.entries = function( obj ){
-        var ownProps = Object.keys( obj ), i = ownProps.length, resArray = new Array(i);
-        
+if (!Object.entries) { // IE 11
+    Object.entries = function (obj) {
+        var ownProps = Object.keys(obj),
+            i = ownProps.length,
+            resArray = new Array(i);
+
         while (i--) resArray[i] = [ownProps[i], obj[ownProps[i]]];
         return resArray;
     };
 }
-  
+
 
 function Window() {
     this.w = null;

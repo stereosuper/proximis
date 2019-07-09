@@ -1,3 +1,91 @@
+export const forEach = (arr, callback) => {
+    let i = 0;
+    const {
+        length
+    } = arr;
+    while (i < length) {
+        callback(arr[i], i);
+        i += 1;
+    }
+};
+
+export const roundNumbers = (number, decimalNumber) => {
+    const decimalsFactor = 10 ** decimalNumber;
+    return Math.round(number * decimalsFactor) / decimalsFactor;
+};
+
+export const reverseString = str =>
+    str
+    .split('')
+    .reverse()
+    .join('');
+
+let newEvent;
+if (typeof window.CustomEvent === 'function') {
+    newEvent = eventName => {
+        let e = new Event(eventName);
+        if (typeof Event !== 'function') {
+            e = document.createEvent('Event');
+            e.initEvent(eventName, true, true);
+        }
+        return e;
+    };
+} else {
+    // ie 11
+    newEvent = (event, params) => {
+        params = params || {
+            bubbles: false,
+            cancelable: false,
+            detail: undefined,
+        };
+        const evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(
+            event,
+            params.bubbles,
+            params.cancelable,
+            params.detail
+        );
+        return evt;
+    };
+
+    newEvent.prototype = window.Event.prototype;
+    window.CustomEvent = newEvent;
+}
+export const createNewEvent = newEvent;
+
+export const requestAnimFrame = cb => {
+    const anim =
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame;
+    return anim(cb);
+};
+
+export const throttle = (callback, delay) => {
+    let last;
+    let timer;
+
+    return function throttleFunction(...args) {
+        const now = +new Date();
+
+        const reset = () => {
+            last = now;
+            callback.apply(this, args);
+        };
+
+        if (last && now < last + delay) {
+            // le délai n'est pas écoulé on reset le timer
+            clearTimeout(timer);
+
+            timer = setTimeout(reset, delay);
+        } else {
+            reset();
+        }
+    };
+};
+
 export const query = (selector, context) => {
     context = context || document;
     // Redirect simple selectors to the more performant function
@@ -21,13 +109,19 @@ export const query = (selector, context) => {
     return [...context.querySelectorAll(selector)];
 }
 
-export const forEach = (arr, callback) => {
-    let i = 0;
-    const {
-        length
-    } = arr;
-    while (i < length) {
-        callback(arr[i], i);
-        i += 1;
-    }
+/**
+ * @description get display state of one element
+ */
+export const isDisplayed = element =>
+    getComputedStyle(element).display !== 'none';
+
+export default {
+    roundNumbers,
+    forEach,
+    reverseString,
+    createNewEvent,
+    requestAnimFrame,
+    throttle,
+    query,
+    isDisplayed,
 };

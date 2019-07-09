@@ -23152,8 +23152,7 @@ module.exports = function(originalModule) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./requestAnimFrame.js */ "./wp-content/themes/proximis/src/js/requestAnimFrame.js");
-/* harmony import */ var _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
 
 
 function Scroll() {
@@ -23187,7 +23186,7 @@ Scroll.prototype.launchScroll = function launchScroll(e) {
   var _this2 = this;
 
   this.event = e;
-  _requestAnimFrame_js__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(function () {
     _this2.scrollHandler();
   });
 };
@@ -23241,6 +23240,8 @@ Scroll.prototype.addEndFunction = function addEndFunction(f) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _Window_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Window.js */ "./wp-content/themes/proximis/src/js/Window.js");
+
 
 
 
@@ -23253,7 +23254,6 @@ function Slider(wrapper) {
   this.activeSlide = 0;
   this.nextSlide = 1;
   this.nbSlides = this.slides.length;
-  this.maxHeight = 0;
   Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.dots, function (dot, dotIndex) {
     dot.addEventListener('click', function () {
       if (!gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].isTweening(_this.slides) && _this.activeSlide != dotIndex) {
@@ -23263,19 +23263,33 @@ function Slider(wrapper) {
       }
     });
   });
-  this.slides.forEach(function (el) {
-    _this.itemHeight = el.clientHeight;
-    _this.maxHeight = Math.max(_this.maxHeight, _this.itemHeight);
-  });
-  this.slides.forEach(function (el) {
-    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(el, {
-      height: _this.maxHeight
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(_this.wrapper, {
-      height: _this.maxHeight
-    });
+  this.calculHeight(this);
+  _Window_js__WEBPACK_IMPORTED_MODULE_2__["default"].addResizeFunction(function () {
+    return _this.calculHeight(_this);
   });
 }
+
+Slider.prototype.calculHeight = function calculHeight(self) {
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.wrapper, {
+    height: 'auto'
+  });
+  self.maxHeight = 0;
+  self.slides.forEach(function (el) {
+    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(el, {
+      height: 'auto'
+    });
+    self.itemHeight = el.clientHeight;
+    self.maxHeight = Math.max(self.maxHeight, self.itemHeight);
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(self.wrapper, {
+    height: self.maxHeight
+  });
+  self.slides.forEach(function (el) {
+    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(el, {
+      height: self.maxHeight
+    });
+  });
+};
 
 Slider.prototype.play = function play() {
   if (this.nbSlides > 1) {
@@ -23341,6 +23355,202 @@ Slider.prototype.kill = function kill() {
 
 /***/ }),
 
+/***/ "./wp-content/themes/proximis/src/js/Window.js":
+/*!*****************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/Window.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+
+
+if (!Object.entries) {
+  // IE 11
+  Object.entries = function (obj) {
+    var ownProps = Object.keys(obj),
+        i = ownProps.length,
+        resArray = new Array(i);
+
+    while (i--) {
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+    }
+
+    return resArray;
+  };
+}
+
+function Window() {
+  this.w = null;
+  this.h = null;
+  this.resizeFunctions = [];
+  this.rtime = null;
+  this.timeoutWindow = false;
+  this.delta = 200;
+  this.noTransitionElts = [];
+  this.breakpoints = {
+    xs: 0,
+    s: 400,
+    m: 580,
+    l: 780,
+    xl: 960,
+    xxl: 1100
+  };
+  this.currentBreakpoint = '';
+}
+
+Window.prototype.setNoTransitionElts = function setNoTransitionElts(elements) {
+  this.noTransitionElts = elements;
+};
+
+Window.prototype.resizeend = function resizeend() {
+  var _this = this;
+
+  if (new Date() - this.rtime < this.delta) {
+    setTimeout(function () {
+      _this.resizeend();
+    }, this.delta);
+  } else {
+    this.timeoutWindow = false;
+
+    _toConsumableArray(this.noTransitionElts).map(function (el) {
+      el.classList.remove('no-transition');
+      return el;
+    });
+  }
+};
+
+Window.prototype.noTransition = function noTransition() {
+  var _this2 = this;
+
+  _toConsumableArray(this.noTransitionElts).map(function (el) {
+    el.classList.add('no-transition');
+    return el;
+  });
+
+  this.rtime = new Date();
+
+  if (this.timeoutWindow === false) {
+    this.timeoutWindow = true;
+    setTimeout(function () {
+      _this2.resizeend();
+    }, this.delta);
+  }
+};
+
+Window.prototype.ioResize = function ioResize() {
+  if (!io.resized) io.resized = true;
+};
+
+Window.prototype.setBreakpoints = function setBreakpoints() {
+  var _this3 = this;
+
+  var currentBreakpoint = '';
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints), function (breakpoint) {
+    var _breakpoint = _slicedToArray(breakpoint, 2),
+        name = _breakpoint[0],
+        value = _breakpoint[1];
+
+    if (_this3.w > value) {
+      currentBreakpoint = name;
+    }
+  });
+
+  if (this.currentBreakpoint !== currentBreakpoint) {
+    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints), function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          name = _ref2[0];
+
+      document.documentElement.classList.remove("breakpoint-".concat(name));
+    });
+    this.currentBreakpoint = currentBreakpoint;
+    document.documentElement.classList.add("breakpoint-".concat(this.currentBreakpoint));
+  }
+};
+
+Window.prototype.resizeHandler = function resizeHandler() {
+  this.w = window.innerWidth;
+  this.h = window.innerHeight;
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeFunctions, function (f) {
+    f();
+  });
+  this.setBreakpoints();
+  this.noTransition();
+};
+
+Window.prototype.addResizeFunction = function addResizeFunction(f) {
+  this.resizeFunctions.push(f);
+};
+
+Window.prototype.toggleNoScroll = function toggleNoScroll(_ref3) {
+  var transitionElement = _ref3.transitionElement,
+      noScroll = _ref3.noScroll;
+
+  var removeScroll = function removeScroll() {
+    document.documentElement.style.top = "".concat(-window.scrollY, "px");
+    document.documentElement.classList.add('no-scroll');
+    transitionElement.removeEventListener('transitionend', removeScroll, false);
+  };
+
+  if (noScroll) {
+    transitionElement.addEventListener('transitionend', removeScroll, false);
+  } else {
+    var scrollY = Math.abs(parseInt(document.documentElement.style.top.replace('px', ''), 10));
+    document.documentElement.style.top = '';
+    document.documentElement.classList.remove('no-scroll');
+    setTimeout(function () {
+      window.scrollTo(0, scrollY);
+    }, 0);
+  }
+};
+
+Window.prototype.launchWindow = function launchWindow() {
+  var _this4 = this;
+
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(function () {
+    _this4.resizeHandler();
+  });
+};
+
+Window.prototype.init = function initWindow() {
+  var _this5 = this;
+
+  this.resizeHandler();
+  window.addEventListener('resize', function () {
+    _this5.launchWindow();
+  }, false);
+};
+
+Window.prototype.destroyWindow = function destroyWindow() {
+  var _this6 = this;
+
+  window.removeEventListener('resize', function () {
+    _this6.launchWindow();
+  }, false);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (new Window());
+
+/***/ }),
+
 /***/ "./wp-content/themes/proximis/src/js/main.js":
 /*!***************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/main.js ***!
@@ -23352,12 +23562,13 @@ Slider.prototype.kill = function kill() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./wp-content/themes/proximis/src/scss/main.scss");
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_main_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Scroll.js */ "./wp-content/themes/proximis/src/js/Scroll.js");
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
-/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
+/* harmony import */ var _Window_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Window.js */ "./wp-content/themes/proximis/src/js/Window.js");
+/* harmony import */ var _Scroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Scroll.js */ "./wp-content/themes/proximis/src/js/Scroll.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
+/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -23367,8 +23578,8 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
  //import { TweenLite, TimelineLite } from 'gsap';
-//import win from './Window.js';
-//import io from './io.js';
+
+ //import io from './io.js';
 
  //import fallback from './fallback.js';
 //import $ from 'jquery-slim';
@@ -23379,18 +23590,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var loadHandler = function loadHandler() {
-  _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].init(); // const noTransitionElts = [].slice.call(
+  _Scroll_js__WEBPACK_IMPORTED_MODULE_2__["default"].init(); // const noTransitionElts = [].slice.call(
   //     document.getElementsByClassName('element-without-transition-on-resize')
   // );
   // win.setNoTransitionElts(noTransitionElts);
   //io.init();
   //fallback.init();
 
-  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["query"])('#slider'),
+  _Window_js__WEBPACK_IMPORTED_MODULE_1__["default"].init();
+
+  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_3__["query"])('#slider'),
       _query2 = _slicedToArray(_query, 1),
       wrapperSlider = _query2[0];
 
-  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_4__["default"](wrapperSlider);
+  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_5__["default"](wrapperSlider);
   var body = document.getElementsByTagName('body')[0];
   var burger = document.getElementById('burger');
   burger.addEventListener('click', function () {
@@ -23401,7 +23614,7 @@ var loadHandler = function loadHandler() {
     body.classList.remove('menu-open');
   });
   [].slice.call(document.getElementsByClassName('js-benefit')).forEach(function (elt) {
-    lottie_web__WEBPACK_IMPORTED_MODULE_3___default.a.loadAnimation({
+    lottie_web__WEBPACK_IMPORTED_MODULE_4___default.a.loadAnimation({
       container: elt,
       renderer: 'svg',
       loop: true,
@@ -23410,7 +23623,7 @@ var loadHandler = function loadHandler() {
     });
   });
   slider.play();
-  Object(_united_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_united_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 };
 
 if (document.readyState === 'complete') {
@@ -23418,21 +23631,6 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', loadHandler, false);
 }
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/requestAnimFrame.js":
-/*!***************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/requestAnimFrame.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function () {
-  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-    window.setTimeout(callback, 1000 / 60);
-  };
-}();
 
 /***/ }),
 
@@ -23507,13 +23705,19 @@ var unitedAnimHandler = function unitedAnimHandler() {
 /*!****************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/utils.js ***!
   \****************************************************/
-/*! exports provided: query, forEach */
+/*! exports provided: forEach, roundNumbers, reverseString, createNewEvent, requestAnimFrame, throttle, query, isDisplayed, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query", function() { return query; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roundNumbers", function() { return roundNumbers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reverseString", function() { return reverseString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNewEvent", function() { return createNewEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAnimFrame", function() { return requestAnimFrame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query", function() { return query; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplayed", function() { return isDisplayed; });
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -23522,6 +23726,83 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
+var forEach = function forEach(arr, callback) {
+  var i = 0;
+  var length = arr.length;
+
+  while (i < length) {
+    callback(arr[i], i);
+    i += 1;
+  }
+};
+var roundNumbers = function roundNumbers(number, decimalNumber) {
+  var decimalsFactor = Math.pow(10, decimalNumber);
+  return Math.round(number * decimalsFactor) / decimalsFactor;
+};
+var reverseString = function reverseString(str) {
+  return str.split('').reverse().join('');
+};
+var newEvent;
+
+if (typeof window.CustomEvent === 'function') {
+  newEvent = function newEvent(eventName) {
+    var e = new Event(eventName);
+
+    if (typeof Event !== 'function') {
+      e = document.createEvent('Event');
+      e.initEvent(eventName, true, true);
+    }
+
+    return e;
+  };
+} else {
+  // ie 11
+  newEvent = function newEvent(event, params) {
+    params = params || {
+      bubbles: false,
+      cancelable: false,
+      detail: undefined
+    };
+    var evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    return evt;
+  };
+
+  newEvent.prototype = window.Event.prototype;
+  window.CustomEvent = newEvent;
+}
+
+var createNewEvent = newEvent;
+var requestAnimFrame = function requestAnimFrame(cb) {
+  var anim = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;
+  return anim(cb);
+};
+var throttle = function throttle(callback, delay) {
+  var last;
+  var timer;
+  return function throttleFunction() {
+    var _this = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var now = +new Date();
+
+    var reset = function reset() {
+      last = now;
+      callback.apply(_this, args);
+    };
+
+    if (last && now < last + delay) {
+      // le délai n'est pas écoulé on reset le timer
+      clearTimeout(timer);
+      timer = setTimeout(reset, delay);
+    } else {
+      reset();
+    }
+  };
+};
 var query = function query(selector, context) {
   context = context || document; // Redirect simple selectors to the more performant function
 
@@ -23547,15 +23828,23 @@ var query = function query(selector, context) {
 
   return _toConsumableArray(context.querySelectorAll(selector));
 };
-var forEach = function forEach(arr, callback) {
-  var i = 0;
-  var length = arr.length;
+/**
+ * @description get display state of one element
+ */
 
-  while (i < length) {
-    callback(arr[i], i);
-    i += 1;
-  }
+var isDisplayed = function isDisplayed(element) {
+  return getComputedStyle(element).display !== 'none';
 };
+/* harmony default export */ __webpack_exports__["default"] = ({
+  roundNumbers: roundNumbers,
+  forEach: forEach,
+  reverseString: reverseString,
+  createNewEvent: createNewEvent,
+  requestAnimFrame: requestAnimFrame,
+  throttle: throttle,
+  query: query,
+  isDisplayed: isDisplayed
+});
 
 /***/ }),
 

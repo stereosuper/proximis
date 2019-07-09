@@ -7,6 +7,8 @@ import {
     TweenMax
 } from 'gsap';
 
+import win from './Window.js';
+
 function Slider(
     wrapper
 ) {
@@ -16,7 +18,6 @@ function Slider(
     this.activeSlide = 0;
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
-    this.maxHeight = 0;
     forEach(this.dots, (dot, dotIndex) => {
         dot.addEventListener('click', () => {
             if (
@@ -28,16 +29,29 @@ function Slider(
         });
     });
 
-    this.slides.forEach((el) => {
-        this.itemHeight = el.clientHeight;
-        this.maxHeight = Math.max(this.maxHeight, this.itemHeight)
+    this.calculHeight(this);
+
+    win.addResizeFunction(() => this.calculHeight(this));
+}
+
+Slider.prototype.calculHeight = function calculHeight(self) {
+    TweenMax.set(self.wrapper, {
+        height: 'auto'
     });
-    this.slides.forEach((el) => {
+    self.maxHeight = 0;
+    self.slides.forEach((el) => {
         TweenMax.set(el, {
-            height: this.maxHeight
+            height: 'auto'
         });
-        TweenMax.set(this.wrapper, {
-            height: this.maxHeight
+        self.itemHeight = el.clientHeight;
+        self.maxHeight = Math.max(self.maxHeight, self.itemHeight)
+    });
+    TweenMax.set(self.wrapper, {
+        height: self.maxHeight
+    });
+    self.slides.forEach((el) => {
+        TweenMax.set(el, {
+            height: self.maxHeight
         });
     });
 }
