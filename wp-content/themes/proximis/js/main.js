@@ -23263,10 +23263,8 @@ function Slider(wrapper) {
       }
     });
   });
-  console.log("this.slides : " + this.slides);
   this.slides.forEach(function (el) {
     _this.itemHeight = el.clientHeight;
-    console.log("el.clientHeight : " + el.clientHeight);
     _this.maxHeight = Math.max(_this.maxHeight, _this.itemHeight);
   });
   this.slides.forEach(function (el) {
@@ -23280,7 +23278,9 @@ function Slider(wrapper) {
 }
 
 Slider.prototype.play = function play() {
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(20, this.next, [this]);
+  if (this.nbSlides > 1) {
+    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].delayedCall(20, this.next, [this]);
+  }
 };
 
 Slider.prototype.pause = function pause() {};

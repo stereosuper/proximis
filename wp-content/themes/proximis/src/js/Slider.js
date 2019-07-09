@@ -28,10 +28,8 @@ function Slider(
         });
     });
 
-    console.log("this.slides : " + this.slides);
     this.slides.forEach((el) => {
         this.itemHeight = el.clientHeight;
-        console.log("el.clientHeight : " + el.clientHeight);
         this.maxHeight = Math.max(this.maxHeight, this.itemHeight)
     });
     this.slides.forEach((el) => {
@@ -45,7 +43,9 @@ function Slider(
 }
 
 Slider.prototype.play = function play() {
-    TweenMax.delayedCall(20, this.next, [this]);
+    if (this.nbSlides > 1) {
+        TweenMax.delayedCall(20, this.next, [this]);
+    }
 };
 
 Slider.prototype.pause = function pause() {};
