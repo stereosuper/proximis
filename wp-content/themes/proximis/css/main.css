@@ -1135,7 +1135,6 @@ a.ref:hover img, a.ref:focus img {
     top: 0;
     left: 0;
     right: 0;
-    background: #55C4DA;
     -webkit-clip-path: circle(150% at 75% 75%);
             clip-path: circle(150% at 75% 75%); }
     .carousel .slide .container {

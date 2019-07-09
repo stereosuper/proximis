@@ -28,12 +28,19 @@ function Slider(
         });
     });
 
+    console.log("this.slides : " + this.slides);
     this.slides.forEach((el) => {
-        this.itemHeight = el.offsetHeight;
+        this.itemHeight = el.clientHeight;
+        console.log("el.clientHeight : " + el.clientHeight);
         this.maxHeight = Math.max(this.maxHeight, this.itemHeight)
     });
-    TweenMax.set(this.wrapper, {
-        height: this.maxHeight
+    this.slides.forEach((el) => {
+        TweenMax.set(el, {
+            height: this.maxHeight
+        });
+        TweenMax.set(this.wrapper, {
+            height: this.maxHeight
+        });
     });
 }
 

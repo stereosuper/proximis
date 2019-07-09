@@ -23263,12 +23263,19 @@ function Slider(wrapper) {
       }
     });
   });
+  console.log("this.slides : " + this.slides);
   this.slides.forEach(function (el) {
-    _this.itemHeight = el.offsetHeight;
+    _this.itemHeight = el.clientHeight;
+    console.log("el.clientHeight : " + el.clientHeight);
     _this.maxHeight = Math.max(_this.maxHeight, _this.itemHeight);
   });
-  gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(this.wrapper, {
-    height: this.maxHeight
+  this.slides.forEach(function (el) {
+    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(el, {
+      height: _this.maxHeight
+    });
+    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(_this.wrapper, {
+      height: _this.maxHeight
+    });
   });
 }
 
