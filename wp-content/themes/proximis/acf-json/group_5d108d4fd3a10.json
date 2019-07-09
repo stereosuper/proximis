@@ -87,7 +87,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -106,7 +106,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -120,6 +120,32 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5d245fe37d33c",
+                    "label": "Couleur",
+                    "name": "color",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "#55C4DA": "Bleu",
+                        "#FF737B": "Rose",
+                        "#CFD155": "Vert"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -141,5 +167,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1561984599
+    "modified": 1562665163
 }

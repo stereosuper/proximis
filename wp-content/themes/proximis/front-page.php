@@ -4,7 +4,7 @@
 	<?php if( have_rows('slides', 'options') ) : ?>
 		<header class='carousel' id='slider'>
 			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
-				<div class='slide'>
+				<div class='slide' style='background-color:<?php the_sub_field('color'); ?>'>
 					<div class='container'>
 						<div class='text'>
 							<h2 class='title'>
