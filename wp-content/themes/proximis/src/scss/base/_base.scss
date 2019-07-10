@@ -53,10 +53,9 @@ h6 {
     margin: 1.9em 0 1.5em;
 }
 
-h1,
-.home h1,
-.home h2 {
+h1 {
     font-size: 4.3rem;
+    letter-spacing: -1px;
 }
 
 h1 {
@@ -142,7 +141,7 @@ q {
         position: absolute;
         top: 0.1em;
         left: 0;
-        transform: translateX(calc(-100% - 5px));
+        transform: translateX(-100%);
         content: '“';
     }
 
@@ -439,6 +438,12 @@ a {
 }
 
 @media (min-width: $desktop-small) {
+    q {
+        &:before {
+            transform: translateX(calc(-100% - 5px));
+        }
+    }
+
     .has-drop-cap {
         &:before {
             right: 86%;

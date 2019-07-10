@@ -1,7 +1,12 @@
 /* Home specific style */
 
 .home {
+    h1 {
+        font-size: 4.3rem;
+    }
+
     h2 {
+        font-size: 3.5rem;
         margin: 0;
     }
 
@@ -26,14 +31,16 @@
         clip-path: circle(150% at 75% 75%);
 
         .container {
+            height: 100%;
             min-height: 90vh;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding-top: 215px;
+            padding-top: 190px;
 
             >div {
-                width: calc(50% - #{$gutter/2});
+                width: 100%;
+                padding-right: 30px;
             }
         }
 
@@ -60,18 +67,11 @@
     }
 
     .text {
-        padding-bottom: 100px;
+        padding-bottom: 50px;
     }
 
     .img {
-        align-self: stretch;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-
-        >img {
-            max-width: calc(100% - #{$gutter});
-        }
+        display: none;
     }
 }
 
@@ -87,24 +87,25 @@
 
     .dot {
         position: relative;
-        width: 8px;
-        height: 8px;
-        margin: 4px 0;
-        border-radius: 50%;
-        background: $white;
+        width: 14px;
+        height: 14px;
+        margin: 3px 0;
+
         cursor: pointer;
         z-index: 1;
-        transition: background 0.2s ease-out;
 
-        &::before {
+        &::before,
+        &::after {
             content: '';
             position: absolute;
-            width: 14px;
-            height: 14px;
             display: block;
-            top: 50%;
-            left: 50%;
-            margin: -7px 0 0 -7px;
+        }
+
+        &::before {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             border: 1px solid $text;
             border-radius: 50%;
             transform: scale(0);
@@ -112,11 +113,24 @@
             transition: transform 0.2s ease-out;
         }
 
+        &::after {
+            top: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $white;
+            transition: background 0.2s ease-out;
+        }
+
         &.active {
-            background: $text;
 
             &::before {
                 transform: scale(1);
+            }
+
+            &::after {
+                background: $text;
             }
         }
     }
@@ -368,6 +382,32 @@
     .home-ref-list {
         margin-left: -2*$gutter;
         margin-right: -2*$gutter;
+    }
+
+    .carousel {
+        .container {
+            padding-top: 215px;
+
+            >div {
+                width: calc(50% - #{$gutter/2});
+                padding-right: 0;
+            }
+        }
+
+        .text {
+            padding-bottom: 100px;
+        }
+
+        .img {
+            align-self: stretch;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            >img {
+                max-width: calc(100% - #{$gutter});
+            }
+        }
     }
 }
 
