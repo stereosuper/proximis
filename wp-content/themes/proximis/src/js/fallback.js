@@ -16,6 +16,26 @@ Fallback.prototype.init = function init() {
     if (snif.isMS()) this.html.classList.add('is-ms');
 
     if (snif.isIe11()) this.html.classList.add('is-ie');
+
+    // IE11 closest polyfill
+    if (!Element.prototype.matches) {
+        Element.prototype.matches =
+            Element.prototype.msMatchesSelector ||
+            Element.prototype.webkitMatchesSelector;
+    }
+
+    if (!Element.prototype.closest) {
+        Element.prototype.closest = function closestPolyfill(s) {
+            let el = this;
+
+            do {
+                if (el.matches(s)) return el;
+                el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+
+            return null;
+        };
+    }
 };
 
 export default new Fallback();

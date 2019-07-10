@@ -1,14 +1,18 @@
-import { TweenLite, Linear } from 'gsap';
+import {
+    TweenLite,
+    Linear
+} from 'gsap';
 import scroll from './Scroll.js';
+import 'intersection-observer';
 
 const unitedAnimHandler = () => {
-    
+
     const united = document.getElementById('united');
     const words = united.querySelectorAll('.js-word');
 
-    if( !united ) return;
+    if (!united) return;
 
-    let windowHeight = window.innerHeight*0.65;
+    let windowHeight = window.innerHeight * 0.65;
 
     // Constants used to create the intersection observer threshold array
     const samplesNumber = 100;
@@ -16,32 +20,38 @@ const unitedAnimHandler = () => {
     let index = 0;
     let observer = null;
 
-    let animLaunched = false, oScrollTop = 0;
+    let animLaunched = false,
+        oScrollTop = 0;
 
 
     const init = () => {
-        const tween = TweenLite.to(words, 1, {x: 0, y: 0, paused: true, ease: Linear.easeNone});
+        const tween = TweenLite.to(words, 1, {
+            x: 0,
+            y: 0,
+            paused: true,
+            ease: Linear.easeNone
+        });
         let progress = 0;
 
         animLaunched = true;
         windowHeight += oScrollTop;
 
         scroll.addScrollFunction(() => {
-            progress = (scroll.scrollTop-oScrollTop) / windowHeight;
-            if( progress >= 0 ) tween.progress(progress);
+            progress = (scroll.scrollTop - oScrollTop) / windowHeight;
+            if (progress >= 0) tween.progress(progress);
         });
     };
 
     const intersectionCallback = entries => {
         entries.forEach(entry => {
-            if( entry.intersectionRatio < 0.2 || animLaunched ) return;
+            if (entry.intersectionRatio < 0.2 || animLaunched) return;
             oScrollTop = scroll.scrollTop;
             init();
         });
     };
 
 
-    for( index; index <= samplesNumber; index++ ){
+    for (index; index <= samplesNumber; index++) {
         thresholdSamples[index] = index / samplesNumber;
     }
 
@@ -52,7 +62,7 @@ const unitedAnimHandler = () => {
     });
 
     observer.observe(united);
-    
+
 };
 
 export default unitedAnimHandler;

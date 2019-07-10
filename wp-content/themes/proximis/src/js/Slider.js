@@ -96,14 +96,14 @@ Slider.prototype.animate = function animate(self) {
         }
     });
     TweenMax.to(self.slides[self.activeSlide], 1, {
-        webkitClipPath: 'circle(0% at 75% 75%)',
+        'clip-path': 'circle(0% at 75% 75%)',
         onComplete: () => {
             TweenMax.set(self.slides[self.nextSlide], {
                 zIndex: 4
             });
             TweenMax.set(self.slides[self.activeSlide], {
                 zIndex: 2,
-                webkitClipPath: 'circle(150% at 75% 75%)'
+                'clip-path': 'circle(150% at 75% 75%)'
             });
             self.activeSlide = self.nextSlide;
         }

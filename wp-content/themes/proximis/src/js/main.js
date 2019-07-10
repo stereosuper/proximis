@@ -1,11 +1,12 @@
 import '../scss/main.scss';
 
 //import { TweenLite, TimelineLite } from 'gsap';
+import '@babel/polyfill';
 
 import win from './Window.js';
 //import io from './io.js';
 import scroll from './Scroll.js';
-//import fallback from './fallback.js';
+import fallback from './fallback.js';
 //import $ from 'jquery-slim';
 import {
     query
