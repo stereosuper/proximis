@@ -55,7 +55,7 @@ input{
         width: 500px;
     }
     &[type=text], &[type=tel], &[type=email]{
-        &:valid{
+        &.has-value:valid{
             background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
         }
     }

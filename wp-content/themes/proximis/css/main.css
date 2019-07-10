@@ -665,7 +665,7 @@ input {
     width: 230px; }
   input[type=email] {
     width: 500px; }
-  input[type=text]:valid, input[type=tel]:valid, input[type=email]:valid {
+  input[type=text].has-value:valid, input[type=tel].has-value:valid, input[type=email].has-value:valid {
     background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 50%/12px 8px; }
 
 textarea {

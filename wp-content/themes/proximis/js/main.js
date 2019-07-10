@@ -34593,6 +34593,35 @@ Fallback.prototype.init = function init() {
 
 /***/ }),
 
+/***/ "./wp-content/themes/proximis/src/js/form.js":
+/*!***************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/form.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var formHandler = function formHandler() {
+  var inputs = document.querySelectorAll('input');
+  if (!inputs.length) return;
+
+  var checkIfEmpty = function checkIfEmpty(input) {
+    input.value ? input.classList.add('has-value') : input.classList.remove('has-value');
+  };
+
+  [].slice.call(inputs).forEach(function (elt) {
+    checkIfEmpty(elt);
+    elt.addEventListener('focusout', function () {
+      checkIfEmpty(elt);
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (formHandler);
+
+/***/ }),
+
 /***/ "./wp-content/themes/proximis/src/js/header.js":
 /*!*****************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/header.js ***!
@@ -34640,6 +34669,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header.js */ "./wp-content/themes/proximis/src/js/header.js");
 /* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
 /* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
+/* harmony import */ var _form_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./form.js */ "./wp-content/themes/proximis/src/js/form.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -34662,27 +34692,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var loadHandler = function loadHandler() {
-  // const noTransitionElts = [].slice.call(
+  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_5__["query"])('#slider'),
+      _query2 = _slicedToArray(_query, 1),
+      wrapperSlider = _query2[0]; // const noTransitionElts = [].slice.call(
   //     document.getElementsByClassName('element-without-transition-on-resize')
   // );
   // win.setNoTransitionElts(noTransitionElts);
   //io.init();
+
+
   _fallback_js__WEBPACK_IMPORTED_MODULE_4__["default"].init();
   _Scroll_js__WEBPACK_IMPORTED_MODULE_3__["default"].init();
   _Window_js__WEBPACK_IMPORTED_MODULE_2__["default"].init();
-
-  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_5__["query"])('#slider'),
-      _query2 = _slicedToArray(_query, 1),
-      wrapperSlider = _query2[0];
+  Object(_header_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_form_js__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
   if (wrapperSlider) {
     var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_8__["default"](wrapperSlider);
     slider.play();
   }
 
-  var body = document.getElementsByTagName('body')[0];
-  Object(_header_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_united_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
   [].slice.call(document.getElementsByClassName('js-benefit')).forEach(function (elt) {
     lottie_web__WEBPACK_IMPORTED_MODULE_6___default.a.loadAnimation({

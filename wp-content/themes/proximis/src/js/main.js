@@ -16,9 +16,11 @@ import lottie from 'lottie-web';
 import header from './header.js';
 import Slider from './Slider.js';
 import united from './united.js';
+import form from './form.js';
 
 
 const loadHandler = () => {
+    const [wrapperSlider] = query('#slider');
     // const noTransitionElts = [].slice.call(
     //     document.getElementsByClassName('element-without-transition-on-resize')
     // );
@@ -28,15 +30,15 @@ const loadHandler = () => {
     fallback.init();
     scroll.init();
     win.init();
-    const [wrapperSlider] = query('#slider');
+
+    header();
+    form();
+
     if (wrapperSlider) {
         const slider = new Slider(wrapperSlider);
         slider.play();
     }
-
-    const body = document.getElementsByTagName('body')[0];
-
-    header();
+    
     united();
 
     [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {
