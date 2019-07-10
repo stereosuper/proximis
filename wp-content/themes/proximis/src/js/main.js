@@ -26,7 +26,10 @@ const loadHandler = () => {
     //fallback.init();
     win.init();
     const [wrapperSlider] = query('#slider');
-    const slider = new Slider(wrapperSlider);
+    if (wrapperSlider) {
+        const slider = new Slider(wrapperSlider);
+        slider.play();
+    }
 
     const body = document.getElementsByTagName('body')[0];
 
@@ -50,7 +53,6 @@ const loadHandler = () => {
         });
     });
 
-    slider.play();
     united();
 };
 

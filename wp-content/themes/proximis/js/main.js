@@ -34649,7 +34649,11 @@ var loadHandler = function loadHandler() {
       _query2 = _slicedToArray(_query, 1),
       wrapperSlider = _query2[0];
 
-  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
+  if (wrapperSlider) {
+    var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
+    slider.play();
+  }
+
   var body = document.getElementsByTagName('body')[0];
   var burger = document.getElementById('burger');
   burger.addEventListener('click', function () {
@@ -34668,7 +34672,6 @@ var loadHandler = function loadHandler() {
       path: elt.getAttribute('data-path')
     });
   });
-  slider.play();
   Object(_united_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 };
 
