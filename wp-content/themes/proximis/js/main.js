@@ -34593,6 +34593,31 @@ Fallback.prototype.init = function init() {
 
 /***/ }),
 
+/***/ "./wp-content/themes/proximis/src/js/header.js":
+/*!*****************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/header.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var headerHandler = function headerHandler() {
+  var body = document.getElementsByTagName('body')[0];
+  var burger = document.getElementById('burger');
+  var close = document.getElementById('close-menu');
+  burger.addEventListener('click', function () {
+    body.classList.add('menu-open');
+  });
+  close.addEventListener('click', function () {
+    body.classList.remove('menu-open');
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (headerHandler);
+
+/***/ }),
+
 /***/ "./wp-content/themes/proximis/src/js/main.js":
 /*!***************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/main.js ***!
@@ -34612,8 +34637,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
 /* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
 /* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
-/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
+/* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header.js */ "./wp-content/themes/proximis/src/js/header.js");
+/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
+/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -34635,30 +34661,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var loadHandler = function loadHandler() {
-  _Scroll_js__WEBPACK_IMPORTED_MODULE_3__["default"].init(); // const noTransitionElts = [].slice.call(
+  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_5__["query"])('#slider'),
+      _query2 = _slicedToArray(_query, 1),
+      wrapperSlider = _query2[0];
+
+  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_8__["default"](wrapperSlider); // const noTransitionElts = [].slice.call(
   //     document.getElementsByClassName('element-without-transition-on-resize')
   // );
   // win.setNoTransitionElts(noTransitionElts);
   //io.init();
   //fallback.init();
 
+  _Scroll_js__WEBPACK_IMPORTED_MODULE_3__["default"].init();
   _Window_js__WEBPACK_IMPORTED_MODULE_2__["default"].init();
-
-  var _query = Object(_utils_js__WEBPACK_IMPORTED_MODULE_5__["query"])('#slider'),
-      _query2 = _slicedToArray(_query, 1),
-      wrapperSlider = _query2[0];
-
-  var slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
-  var body = document.getElementsByTagName('body')[0];
-  var burger = document.getElementById('burger');
-  burger.addEventListener('click', function () {
-    body.classList.add('menu-open');
-  });
-  var close = document.getElementById('close-menu');
-  close.addEventListener('click', function () {
-    body.classList.remove('menu-open');
-  });
+  Object(_header_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  slider.play();
+  Object(_united_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
   [].slice.call(document.getElementsByClassName('js-benefit')).forEach(function (elt) {
     lottie_web__WEBPACK_IMPORTED_MODULE_6___default.a.loadAnimation({
       container: elt,
@@ -34668,8 +34688,6 @@ var loadHandler = function loadHandler() {
       path: elt.getAttribute('data-path')
     });
   });
-  slider.play();
-  Object(_united_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 };
 
 if (document.readyState === 'complete') {
