@@ -12,18 +12,23 @@ import {
     query
 } from './utils.js';
 import lottie from 'lottie-web';
+
+import header from './header.js';
 import Slider from './Slider.js';
 import united from './united.js';
 
 
 const loadHandler = () => {
-    scroll.init();
+    const [wrapperSlider] = query('#slider');
+    const slider = new Slider(wrapperSlider);
     // const noTransitionElts = [].slice.call(
     //     document.getElementsByClassName('element-without-transition-on-resize')
     // );
+
     // win.setNoTransitionElts(noTransitionElts);
     //io.init();
     //fallback.init();
+    scroll.init();
     win.init();
     const [wrapperSlider] = query('#slider');
     if (wrapperSlider) {
@@ -33,15 +38,9 @@ const loadHandler = () => {
 
     const body = document.getElementsByTagName('body')[0];
 
-    const burger = document.getElementById('burger');
-    burger.addEventListener('click', () => {
-        body.classList.add('menu-open');
-    });
-
-    const close = document.getElementById('close-menu');
-    close.addEventListener('click', () => {
-        body.classList.remove('menu-open');
-    });
+    header();
+    slider.play();
+    united();
 
     [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {
         lottie.loadAnimation({
