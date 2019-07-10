@@ -34722,8 +34722,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var unitedAnimHandler = function unitedAnimHandler() {
   var united = document.getElementById('united');
-  var words = united.querySelectorAll('.js-word');
   if (!united) return;
+  var words = united.querySelectorAll('.js-word');
   var windowHeight = window.innerHeight * 0.65; // Constants used to create the intersection observer threshold array
 
   var samplesNumber = 100;

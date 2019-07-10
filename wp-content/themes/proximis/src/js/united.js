@@ -8,9 +8,10 @@ import 'intersection-observer';
 const unitedAnimHandler = () => {
 
     const united = document.getElementById('united');
-    const words = united.querySelectorAll('.js-word');
-
+    
     if (!united) return;
+
+    const words = united.querySelectorAll('.js-word');
 
     let windowHeight = window.innerHeight * 0.65;
 
