@@ -2,17 +2,25 @@
 
 input, textarea, select, button{
     border: 0;
-  	transition: $transition;
+  	transition: border-color $transition;
   	&:focus{
       	outline: 0;
   	}
 }
 
 input, textarea, select{
-    padding: 15px 20px;
-    font-family: $ibm;
+    padding: 15px 55px 15px 20px;
+    border: 1px solid transparent;
     border-radius: 4px;
     background: #fff;
+    &:focus{
+        &:valid{
+            border-color: $tertiary;
+        }
+        &:invalid{
+            border-color: $secondary;
+        }
+    }
 }
 
 input, textarea{
@@ -23,11 +31,17 @@ input, textarea{
     &:invalid{
         // FF red borders
         box-shadow: none;
+        background: #fff url(../../img/wrong.svg) no-repeat 95% 50% / 2px 14px;
+        &:not(:focus){
+            border-color: $secondary;
+            color: $secondary;
+        }
     }
 }
 
 input{
     width: 350px;
+    font-family: $ibm;
     // hide the symbols of input search
     &[type=search]{
         &::-webkit-search-cancel-button, &::-webkit-search-decoration{
@@ -35,18 +49,28 @@ input{
         }
     }
     &[type=tel]{
-        width: 210px;
+        width: 230px;
     }
     &[type=email]{
         width: 500px;
+    }
+    &[type=text], &[type=tel], &[type=email]{
+        &:valid{
+            background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
+        }
     }
 }
 
 textarea{
     width: 500px;
+    font-family: $ibm-it;
+    &:valid{
+        background: #fff url(../../img/check.svg) no-repeat 95% 30px / 12px 8px;
+    }
 }
 
 select{
+    font-family: $ibm-it;
     // hide the arrow on edge + ie
     &::-ms-expand{
         display: none;
@@ -55,12 +79,56 @@ select{
 
 label{
     display: flex;
+    align-items: flex-start;
     font-family: $ibm-bold;
     br{
         display: none;
+    }
+    span{
+        &:first-of-type{
+            width: 14%;
+            margin: 15px 0 0;
+            text-align: right;
+        }
+    }
+    i{
+        margin: 15px 0 0 20px;
+    }
+}
+
+.wpcf7-form{
+    .position, .subject{
+        position: relative;
+        select{
+            appearance: none;
+        }
+        &:after{
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 4px;
+            bottom: 0;
+            right: 20px;
+            margin: auto;
+            border-style: solid;
+            border-width: 8px 6px 0 6px;
+            border-color: $primary transparent transparent transparent;
+            pointer-events: none;
+        }
     }
 }
 
 .wpcf7-form-control-wrap{
     margin: 0 0 0 20px;
+}
+
+.wpcf7-submit{
+    width: auto;
+    padding: 15px 25px;
+    margin: 0 0 0 calc(14% + 20px);
+    font-family: $ibm-bold;
+    line-height: 1;
+    background: $primary;
+    color: #fff;
 }
