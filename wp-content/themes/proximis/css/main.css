@@ -617,7 +617,9 @@ a {
 
 @media (min-width: 960px) {
   .container-small {
-    margin: 0 8.33333%; } }
+    margin: 0 8.33333%; }
+  .container-medium {
+    margin: 0 0 0 8.33333%; } }
 
 @media (min-width: 1100px) {
   .container-small {
@@ -625,27 +627,52 @@ a {
 
 /* Forms */
 input, textarea, select, button {
+  border: 0;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out; }
   input:focus, textarea:focus, select:focus, button:focus {
     outline: 0; }
 
-input:-webkit-autofill, textarea:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px #fff inset;
-          box-shadow: 0 0 0 1000px #fff inset; }
+input, textarea, select {
+  padding: 15px 20px;
+  font-family: "ibmplex", sans-serif;
+  border-radius: 4px;
+  background: #fff; }
 
-input:invalid, textarea:invalid {
-  -webkit-box-shadow: none;
-          box-shadow: none; }
+input, textarea {
+  max-width: 100%; }
+  input:-webkit-autofill, textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+            box-shadow: 0 0 0 1000px #fff inset; }
+  input:invalid, textarea:invalid {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
-input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
-  display: none; }
+input {
+  width: 350px; }
+  input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+    display: none; }
+  input[type=tel] {
+    width: 210px; }
+  input[type=email] {
+    width: 500px; }
+
+textarea {
+  width: 500px; }
 
 select::-ms-expand {
   display: none; }
 
-button {
-  border: 0; }
+label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
+  label br {
+    display: none; }
+
+.wpcf7-form-control-wrap {
+  margin: 0 0 0 20px; }
 
 /* Header */
 .header {
@@ -1494,6 +1521,21 @@ a.ref:hover img, a.ref:focus img {
   .home-ref-list {
     margin-left: -70px;
     margin-right: -70px; } }
+
+.contact-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.contact-form {
+  width: 52.5%; }
+
+.contact-infos {
+  width: 36%;
+  margin: 0 4% 0 0; }
 
 /******* PRINT *******/
 @media print {

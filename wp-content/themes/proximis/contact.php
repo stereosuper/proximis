@@ -11,10 +11,60 @@ get_header(); ?>
 		
 		<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
 
-		<div class='container-small'>
+		<div class='container-medium'>
 
 			<h1><?php the_title(); ?></h1>
-			<?php the_content(); ?>
+
+			<div class='contact-content'>
+				<div class='contact-form'>
+					<?php the_content(); ?>
+				</div>
+				<div class='contact-infos'>
+					<div>
+						<?php $address = get_field('address'); if( $address ) : ?>
+							<h2><?php echo $address['title']; ?></h2>
+							<p>
+								<?php if( $address['link'] ) : ?>
+									<a href='<?php echo $address['link']; ?>'>
+										<?php echo $address['text']; ?>
+									</a>
+								<?php else : echo $address['text']; endif; ?>
+							</p>
+						<?php endif; ?>
+						<?php $infos = get_field('contact_infos'); if( $infos ) : ?>
+							<h2><?php echo $infos['title']; ?></h2>
+							<p>
+								<?php if( $infos['link_tel'] ) : ?>
+									<a href='<?php echo $infos['link_tel']; ?>'>
+										<?php echo $infos['tel']; ?>
+									</a>
+								<?php else : echo $infos['tel']; endif; ?>
+								<br>
+								<?php if( $infos['link_mail'] ) : ?>
+									<a href='<?php echo $infos['link_mail']; ?>'>
+										<?php echo $infos['mail']; ?>
+									</a>
+								<?php else : echo $infos['mail']; endif; ?>
+							</p>
+						<?php endif; ?>
+					</div>
+
+					<div>
+						<?php $applications = get_field('applications'); if( $applications ) : ?>
+							<h2><?php echo $applications['title']; ?></h2>
+							<p>
+								<?php echo $applications['text']; ?>
+								<br>
+								<?php if( $applications['link'] ) : ?>
+									<a href='<?php echo $applications['link']; ?>'>
+										<?php echo $applications['mail']; ?>
+									</a>
+								<?php else : echo $applications['mail']; endif; ?>
+							</p>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
 
 		</div>
 		
