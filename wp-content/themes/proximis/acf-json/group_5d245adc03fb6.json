@@ -20,7 +20,7 @@
                 {
                     "key": "field_5d245b3d664cb",
                     "label": "Titre",
-                    "name": "titre",
+                    "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -94,7 +94,7 @@
                 {
                     "key": "field_5d245c1d664cf",
                     "label": "Titre",
-                    "name": "titre",
+                    "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -297,5 +297,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1562664242
+    "modified": 1562684940
 }

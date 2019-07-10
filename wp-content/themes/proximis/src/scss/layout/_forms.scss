@@ -1,24 +1,22 @@
 /* Forms */
 
-::-webkit-input-placeholder{
-}
-::-moz-placeholder{
-}
-:-ms-input-placeholder{
-}
-
-fieldset{
-
-}
-
 input, textarea, select, button{
+    border: 0;
   	transition: $transition;
   	&:focus{
       	outline: 0;
   	}
 }
 
+input, textarea, select{
+    padding: 15px 20px;
+    font-family: $ibm;
+    border-radius: 4px;
+    background: #fff;
+}
+
 input, textarea{
+    max-width: 100%;
   	&:-webkit-autofill{
       	box-shadow: 0 0 0 1000px #fff inset;
   	}
@@ -29,12 +27,23 @@ input, textarea{
 }
 
 input{
+    width: 350px;
     // hide the symbols of input search
     &[type=search]{
         &::-webkit-search-cancel-button, &::-webkit-search-decoration{
             display: none;
         }
     }
+    &[type=tel]{
+        width: 210px;
+    }
+    &[type=email]{
+        width: 500px;
+    }
+}
+
+textarea{
+    width: 500px;
 }
 
 select{
@@ -44,6 +53,14 @@ select{
     }
 }
 
-button{
-    border: 0;
+label{
+    display: flex;
+    font-family: $ibm-bold;
+    br{
+        display: none;
+    }
+}
+
+.wpcf7-form-control-wrap{
+    margin: 0 0 0 20px;
 }
