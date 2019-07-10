@@ -19,15 +19,13 @@ import united from './united.js';
 
 
 const loadHandler = () => {
-    const [wrapperSlider] = query('#slider');
-    const slider = new Slider(wrapperSlider);
     // const noTransitionElts = [].slice.call(
     //     document.getElementsByClassName('element-without-transition-on-resize')
     // );
 
     // win.setNoTransitionElts(noTransitionElts);
     //io.init();
-    //fallback.init();
+    fallback.init();
     scroll.init();
     win.init();
     const [wrapperSlider] = query('#slider');
@@ -39,7 +37,6 @@ const loadHandler = () => {
     const body = document.getElementsByTagName('body')[0];
 
     header();
-    slider.play();
     united();
 
     [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {
@@ -52,7 +49,6 @@ const loadHandler = () => {
         });
     });
 
-    united();
 };
 
 
