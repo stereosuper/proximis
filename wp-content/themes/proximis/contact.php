@@ -51,22 +51,28 @@ get_header(); ?>
 
 					<div>
 						<?php $applications = get_field('applications'); if( $applications ) : ?>
-							<h2><?php echo $applications['title']; ?></h2>
-							<p>
-								<?php echo $applications['text']; ?>
-								<br>
-								<?php if( $applications['link'] ) : ?>
-									<a href='<?php echo $applications['link']; ?>'>
-										<?php echo $applications['mail']; ?>
-									</a>
-								<?php else : echo $applications['mail']; endif; ?>
-							</p>
+							<?php if( $applications['img'] ) echo wp_get_attachment_image($applications['img'], 'full'); ?>
+							<div>
+								<h2><?php echo $applications['title']; ?></h2>
+								<p>
+									<?php echo $applications['text']; ?>
+									<br>
+									<?php if( $applications['link'] ) : ?>
+										<a href='<?php echo $applications['link']; ?>'>
+											<?php echo $applications['mail']; ?>
+										</a>
+									<?php else : echo $applications['mail']; endif; ?>
+								</p>
+							</div>
 						<?php endif; ?>
 					</div>
 				</div>
 			</div>
 
 		</div>
+
+		<i class='hidden' id='valid-msg'><?php _e('We will get back to you soon.', 'proximis'); ?></i>
+		<i class='hidden' id='valid-link'><?php _e('Send a new message', 'proximis'); ?></i>
 		
 	<?php endif; ?>
 

@@ -23,9 +23,27 @@
         margin-top: 60px;
     }
     > div{
-        padding: 60px;
         margin: 0 0 $gutter;
+        overflow: hidden;
         border-radius: 6px;
         background: #fff;
+        &:first-child{
+            padding: 60px;
+        }
+        &:last-child{
+            background: $primary;
+            > div{
+                padding: 60px;
+            }
+            a{
+                color: #fff;
+            }
+        }
+        .form-validated &{
+            background: none;
+            &:last-child{
+                display: none;
+            }
+        }
     }
 }

@@ -34622,8 +34622,27 @@ var formHandler = function formHandler() {
     });
   };
 
+  var cf7formValidHandler = function cf7formValidHandler() {
+    var cf7form = document.querySelector('.wpcf7-form');
+    if (!cf7form || !cf7form.classList.contains('sent')) return;
+    var validLink = document.getElementById('valid-link');
+    var validMsg = document.getElementById('valid-msg');
+    var msg = cf7form.querySelector('.wpcf7-mail-sent-ok');
+    var btn, span;
+    document.getElementsByTagName('body')[0].classList.add('form-validated');
+    if (!msg || !validLink || !validMsg) return;
+    span = document.createElement('span');
+    span.innerText = validMsg.innerText;
+    btn = document.createElement('a');
+    btn.innerText = validLink.innerText;
+    btn.href = window.location.origin + window.location.pathname;
+    msg.appendChild(span);
+    msg.appendChild(btn);
+  };
+
   eltHandler('input');
   eltHandler('textarea');
+  cf7formValidHandler();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (formHandler);

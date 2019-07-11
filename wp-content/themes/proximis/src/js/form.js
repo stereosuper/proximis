@@ -1,4 +1,5 @@
 const formHandler = () => {
+
     const checkIfEmpty = ( input, focusout ) => {
         input.value ? input.classList.add('has-value') : input.classList.remove('has-value');
         
@@ -18,8 +19,36 @@ const formHandler = () => {
         });
     };
 
+    const cf7formValidHandler = () => {
+        const cf7form = document.querySelector('.wpcf7-form');
+
+        if( !cf7form || !cf7form.classList.contains('sent') ) return;
+
+        const validLink = document.getElementById('valid-link');
+        const validMsg = document.getElementById('valid-msg');
+        const msg = cf7form.querySelector('.wpcf7-mail-sent-ok');
+        let btn, span;
+
+        document.getElementsByTagName('body')[0].classList.add('form-validated');
+
+        if( !msg || !validLink || !validMsg ) return;
+
+        span = document.createElement('span');
+        span.innerText = validMsg.innerText;
+
+        btn = document.createElement('a');
+        btn.innerText = validLink.innerText;
+        btn.href = window.location.origin + window.location.pathname;
+        
+        msg.appendChild(span);
+        msg.appendChild(btn);
+    };
+
+
     eltHandler('input');
     eltHandler('textarea');
+    cf7formValidHandler();
+    
 };
 
 export default formHandler;
