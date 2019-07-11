@@ -15,5 +15,17 @@
 
 .contact-infos{
     width: 36%;
-    margin: 0 4% 0 0;
+    margin: 8.6em 4% 0 0;
+    h2, p{
+        margin: 0;
+    }
+    p + h2{
+        margin-top: 60px;
+    }
+    > div{
+        padding: 60px;
+        margin: 0 0 $gutter;
+        border-radius: 6px;
+        background: #fff;
+    }
 }

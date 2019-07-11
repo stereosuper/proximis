@@ -547,8 +547,6 @@ a {
     right: 75%; } }
 
 @media (min-width: 780px) {
-  body {
-    font-size: 1.8em; }
   h1,
   .home h1,
   .home h2 {
@@ -705,6 +703,9 @@ label {
 div.wpcf7 {
   margin: 4em 0 0; }
 
+.wpcf7-form.sent p {
+  display: none; }
+
 .wpcf7-form .position, .wpcf7-form .subject {
   position: relative; }
   .wpcf7-form .position select, .wpcf7-form .subject select {
@@ -750,11 +751,12 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-response-output {
   padding: 0;
   border: 0;
-  margin: 0 0 0 calc(14% + 20px);
+  margin: 0;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   font-size: 1.4rem; }
 
 div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+  margin: 0 0 0 calc(14% + 20px);
   color: #FF737B; }
 
 /* Header */
@@ -1621,7 +1623,16 @@ a.ref:hover img, a.ref:focus img {
 
 .contact-infos {
   width: 36%;
-  margin: 0 4% 0 0; }
+  margin: 8.6em 4% 0 0; }
+  .contact-infos h2, .contact-infos p {
+    margin: 0; }
+  .contact-infos p + h2 {
+    margin-top: 60px; }
+  .contact-infos > div {
+    padding: 60px;
+    margin: 0 0 20px;
+    border-radius: 6px;
+    background: #fff; }
 
 /******* PRINT *******/
 @media print {
