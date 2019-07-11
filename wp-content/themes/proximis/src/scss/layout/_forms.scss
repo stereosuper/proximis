@@ -27,8 +27,11 @@ input, textarea{
     max-width: 100%;
   	&:-webkit-autofill{
       	box-shadow: 0 0 0 1000px #fff inset;
-  	}
-    &:invalid{
+    }
+    &.has-value:valid{
+        background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
+    }
+    &:invalid, &.wpcf7-not-valid, &.has-value.wpcf7-not-valid{
         // FF red borders
         box-shadow: none;
         background: #fff url(../../img/wrong.svg) no-repeat 95% 50% / 2px 14px;
@@ -36,6 +39,9 @@ input, textarea{
             border-color: $secondary;
             color: $secondary;
         }
+    }
+    &:focus{
+        background-image: none !important;
     }
 }
 
@@ -54,19 +60,12 @@ input{
     &[type=email]{
         width: 500px;
     }
-    &[type=text], &[type=tel], &[type=email]{
-        &.has-value:valid{
-            background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
-        }
-    }
 }
 
 textarea{
     width: 500px;
     font-family: $ibm-it;
-    &:valid{
-        background: #fff url(../../img/check.svg) no-repeat 95% 30px / 12px 8px;
-    }
+    background-position: 95% 30px !important;
 }
 
 select{
@@ -84,16 +83,22 @@ label{
     br{
         display: none;
     }
-    span{
+    > span{
         &:first-of-type{
             width: 14%;
+            min-width: 14%;
             margin: 15px 0 0;
             text-align: right;
         }
     }
     i{
         margin: 15px 0 0 20px;
+        color: $grey;
     }
+}
+
+div.wpcf7{
+    margin: 4em 0 0;
 }
 
 .wpcf7-form{
@@ -129,6 +134,31 @@ label{
     margin: 0 0 0 calc(14% + 20px);
     font-family: $ibm-bold;
     line-height: 1;
-    background: $primary;
+    background: $primary !important;
     color: #fff;
+}
+
+span.wpcf7-not-valid-tip{
+    margin: 5px 0 0;
+    font-size: 1.4rem;
+    color: $secondary;
+    .js &{
+        display: none;
+    }
+}
+.wpcf7-not-valid + .wpcf7-not-valid-tip{
+    .js &{
+        display: block;
+    }
+}
+
+div.wpcf7-response-output{
+    padding: 0;
+    border: 0;
+    margin: 0 0 0 calc(14% + 20px);
+    font-family: $ibm-bold;
+    font-size: 1.4rem;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
+    color: $secondary;
 }

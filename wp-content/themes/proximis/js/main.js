@@ -34603,19 +34603,27 @@ Fallback.prototype.init = function init() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var formHandler = function formHandler() {
-  var inputs = document.querySelectorAll('input');
-  if (!inputs.length) return;
-
-  var checkIfEmpty = function checkIfEmpty(input) {
+  var checkIfEmpty = function checkIfEmpty(input, focusout) {
     input.value ? input.classList.add('has-value') : input.classList.remove('has-value');
+
+    if (focusout && input.getAttribute('aria-required')) {
+      input.classList.contains('has-value') ? input.classList.remove('wpcf7-not-valid') : input.classList.add('wpcf7-not-valid');
+    }
   };
 
-  [].slice.call(inputs).forEach(function (elt) {
-    checkIfEmpty(elt);
-    elt.addEventListener('focusout', function () {
-      checkIfEmpty(elt);
+  var eltHandler = function eltHandler(formElt) {
+    var inputs = document.querySelectorAll(formElt);
+    if (!inputs.length) return;
+    [].slice.call(inputs).forEach(function (elt) {
+      if (formElt === 'input') checkIfEmpty(elt);
+      elt.addEventListener('focusout', function () {
+        checkIfEmpty(elt, true);
+      });
     });
-  });
+  };
+
+  eltHandler('input');
+  eltHandler('textarea');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (formHandler);

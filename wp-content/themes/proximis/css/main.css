@@ -648,13 +648,17 @@ input, textarea {
   input:-webkit-autofill, textarea:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
             box-shadow: 0 0 0 1000px #fff inset; }
-  input:invalid, textarea:invalid {
+  input.has-value:valid, textarea.has-value:valid {
+    background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 50%/12px 8px; }
+  input:invalid, input.wpcf7-not-valid, input.has-value.wpcf7-not-valid, textarea:invalid, textarea.wpcf7-not-valid, textarea.has-value.wpcf7-not-valid {
     -webkit-box-shadow: none;
             box-shadow: none;
     background: #fff url(/wp-content/themes/proximis/img/wrong.svg) no-repeat 95% 50%/2px 14px; }
-    input:invalid:not(:focus), textarea:invalid:not(:focus) {
+    input:invalid:not(:focus), input.wpcf7-not-valid:not(:focus), input.has-value.wpcf7-not-valid:not(:focus), textarea:invalid:not(:focus), textarea.wpcf7-not-valid:not(:focus), textarea.has-value.wpcf7-not-valid:not(:focus) {
       border-color: #FF737B;
       color: #FF737B; }
+  input:focus, textarea:focus {
+    background-image: none !important; }
 
 input {
   width: 350px;
@@ -665,14 +669,11 @@ input {
     width: 230px; }
   input[type=email] {
     width: 500px; }
-  input[type=text].has-value:valid, input[type=tel].has-value:valid, input[type=email].has-value:valid {
-    background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 50%/12px 8px; }
 
 textarea {
   width: 500px;
-  font-family: "ibmplex_italic", "ibmplex", sans-serif; }
-  textarea:valid {
-    background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 30px/12px 8px; }
+  font-family: "ibmplex_italic", "ibmplex", sans-serif;
+  background-position: 95% 30px !important; }
 
 select {
   font-family: "ibmplex_italic", "ibmplex", sans-serif; }
@@ -689,12 +690,17 @@ label {
   font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
   label br {
     display: none; }
-  label span:first-of-type {
+  label > span:first-of-type {
     width: 14%;
+    min-width: 14%;
     margin: 15px 0 0;
     text-align: right; }
   label i {
-    margin: 15px 0 0 20px; }
+    margin: 15px 0 0 20px;
+    color: #5C6370; }
+
+div.wpcf7 {
+  margin: 4em 0 0; }
 
 .wpcf7-form .position, .wpcf7-form .subject {
   position: relative; }
@@ -725,8 +731,28 @@ label {
   margin: 0 0 0 calc(14% + 20px);
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   line-height: 1;
-  background: #55C4DA;
+  background: #55C4DA !important;
   color: #fff; }
+
+span.wpcf7-not-valid-tip {
+  margin: 5px 0 0;
+  font-size: 1.4rem;
+  color: #FF737B; }
+  .js span.wpcf7-not-valid-tip {
+    display: none; }
+
+.js .wpcf7-not-valid + .wpcf7-not-valid-tip {
+  display: block; }
+
+div.wpcf7-response-output {
+  padding: 0;
+  border: 0;
+  margin: 0 0 0 calc(14% + 20px);
+  font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+  font-size: 1.4rem; }
+
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+  color: #FF737B; }
 
 /* Header */
 .header {
@@ -1575,6 +1601,9 @@ a.ref:hover img, a.ref:focus img {
   .home-ref-list {
     margin-left: -70px;
     margin-right: -70px; } }
+
+.page-template-contact h1 {
+  margin-bottom: 0; }
 
 .contact-content {
   display: -webkit-box;
