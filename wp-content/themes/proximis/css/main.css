@@ -516,14 +516,17 @@ a {
   line-height: 1.2;
   color: #5C6370;
   background: #fff; }
-  .highlighted:before {
-    content: '';
+  .highlighted .line {
     width: 45px;
     height: 1px;
     position: absolute;
     top: 52px;
     left: -22px;
-    background: #55C4DA; }
+    background: #55C4DA;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transform-origin: 80% 0;
+            transform-origin: 80% 0; }
   .highlighted > p {
     margin: 0; }
 
@@ -598,7 +601,7 @@ a {
     padding: 60px 100px 60px 40px;
     margin-top: -60px;
     font-size: 2.4rem; }
-    .highlighted:before {
+    .highlighted .line {
       top: 72px; } }
 
 /* Placeholders */

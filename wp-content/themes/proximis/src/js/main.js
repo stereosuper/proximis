@@ -4,7 +4,7 @@ import '../scss/main.scss';
 import '@babel/polyfill';
 
 import win from './Window.js';
-//import io from './io.js';
+import io from './io.js';
 import scroll from './Scroll.js';
 import fallback from './fallback.js';
 //import $ from 'jquery-slim';
@@ -26,7 +26,7 @@ const loadHandler = () => {
     // );
 
     // win.setNoTransitionElts(noTransitionElts);
-    //io.init();
+    io.init();
     fallback.init();
     scroll.init();
     win.init();
@@ -38,7 +38,7 @@ const loadHandler = () => {
         const slider = new Slider(wrapperSlider);
         slider.play();
     }
-    
+
     united();
 
     [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {

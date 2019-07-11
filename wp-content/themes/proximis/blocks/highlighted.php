@@ -28,6 +28,7 @@ if( !empty($block['className']) ){
 $text = get_field('highlighted') ?: 'Votre texte mis en avant...';
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" data-io="highlighted">
+    <span class="line"></span>
     <p><?php echo $text; ?></p>
 </div>

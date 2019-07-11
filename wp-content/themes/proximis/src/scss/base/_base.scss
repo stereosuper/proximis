@@ -364,14 +364,15 @@ a {
     color: $grey;
     background: #fff;
 
-    &:before {
-        content: '';
+    .line {
         width: 45px;
         height: 1px;
         position: absolute;
         top: 52px;
         left: -22px;
         background: $primary;
+        transform: scaleX(0);
+        transform-origin: 80% 0;
     }
 
     >p {
@@ -505,7 +506,7 @@ a {
         margin-top: -60px;
         font-size: 2.4rem;
 
-        &:before {
+        .line {
             top: 72px;
         }
     }
