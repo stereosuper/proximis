@@ -168,7 +168,7 @@ div.wpcf7-response-output{
         font-family: $ibm;
     }
 }
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng{
     font-size: 1.4rem;
     color: $secondary;
 }
@@ -203,11 +203,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
         margin: 0 0 0 20px;
     }
 
-    .wpcf7-submit{
-        margin: 0 0 0 calc(14% + 20px);
-    }
-
-    div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
+    .wpcf7-submit, div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng{
         margin: 0 0 0 calc(14% + 20px);
     }
 }
