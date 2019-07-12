@@ -20,7 +20,10 @@
     'layout/grid',
     'layout/forms',
     'layout/header',
-    'layout/footer';
+    'layout/footer',
+    'layout/header-page',
+    'layout/footer-page',
+    'layout/breadcrumbs';
 
 @import
     'components/buttons',
@@ -28,7 +31,8 @@
 
 @import
     'pages/home',
-    'pages/contact';
+    'pages/contact',
+    'pages/services';
 
 @import
     'base/print';

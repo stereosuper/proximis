@@ -1,0 +1,25 @@
+.services{
+    > div{
+        margin: 0 0 5em;
+    }
+}
+
+@media (min-width: $tablet){
+    .services{
+        display: flex;
+        justify-content: space-between;
+        > div{
+            width: 28%;
+        }
+    }
+}
+
+@media (min-width: $desktop-small){
+    .services{
+        > div{
+            width: $col*3;
+            margin: 0 $col 0 0;
+            padding: 0 $gutter/2 0 0;
+        }
+    }
+}

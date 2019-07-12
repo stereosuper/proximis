@@ -1,0 +1,41 @@
+.breadcrumbs {
+    position: relative;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-family: $ibm;
+
+    &:before {
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 10px;
+        left: -50vw;
+        right: 100%;
+        margin: 0 8px 0 0;
+        background: $primary;
+
+        .page-template-services &{
+            background: #fff;
+        }
+    }
+
+    a {
+        display: inline-flex;
+        border: 0;
+        align-items: center;
+        font-family: inherit;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            margin: 4px 4px 0 6px;
+            background: currentColor;
+        }
+
+        .page-template-services &{
+            color: #fff;
+        }
+    }
+}
