@@ -30,33 +30,43 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section class='team'>
+	<section class='team-wrapper'>
 		<div class='container'>
-			<div class='container-small'>
-				<?php if( have_rows('team') ) : ?>
-					<?php while( have_rows('team') ) : the_row(); ?>
-						<h2><?php the_sub_field('title'); ?></h2>
-						<?php the_sub_field('text'); ?>
+			<?php if( have_rows('team') ) : ?>
+				<?php while( have_rows('team') ) : the_row(); ?>
+					<h2 class='h1'><?php the_sub_field('title'); ?></h2>
+					<?php the_sub_field('text'); ?>
 
-						<?php if( have_rows('teams') ) : ?>
-							<?php while( have_rows('teams') ) : the_row(); ?>
+					<?php if( have_rows('teams') ) : ?>
+						<?php while( have_rows('teams') ) : the_row(); ?>
+							<div class='team'>
 								<h3><?php the_sub_field('title'); ?></h3>
 								<?php if( have_rows('members') ) : ?>
 									<ul>
 										<?php while( have_rows('members') ) : the_row(); ?>
 											<li>
-												<?php the_sub_field('name'); ?>
-												<?php the_sub_field('job'); ?>
+												<div class='img'>
+													<?php echo wp_get_attachment_image(get_sub_field('photo')); ?>
+												</div>
+												<p>
+													<strong><?php the_sub_field('name'); ?></strong>
+													<span><?php the_sub_field('job'); ?></span>
+													<?php if( get_sub_field('twitter') ) : ?>
+														<a href='<?php the_sub_field('twitter'); ?>' rel='noreferrer noopener'>Twitter</a>
+													<?php endif; ?>
+													<?php if( get_sub_field('linkedin') ) : ?>
+														<a href='<?php the_sub_field('linkedin'); ?>' rel='noreferrer noopener'>Linkedin</a>
+													<?php endif; ?>
+												</p>
 											</li>
 										<?php endwhile; ?>
 									</ul>
 								<?php endif; ?>
-
-							<?php endwhile; ?>
-						<?php endif; ?>
-					<?php endwhile; ?>
-				<?php endif; ?>
-			</div>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
 		</div>
 	</section>
 

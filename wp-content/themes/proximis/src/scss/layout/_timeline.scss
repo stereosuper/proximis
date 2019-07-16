@@ -5,16 +5,31 @@
 }
 
 .timeline{
+    padding: 20px 0 0;
     margin: 0;
     > li{
         display: flex;
-        padding: 0;
+        padding: 0 0 110px;
         &:before{
             content: none;
         }
     }
     time{
+        display: flex;
         width: 20%;
         min-width: 20%;
+        padding: 2px $gutter 0 0;
+        font-family: $recoleta-bold;
+        &:after{
+            content: '';
+            display: block;
+            width: 65px;
+            height: 1px;
+            margin: 10px auto 0;
+            background: $primary;
+        }
+    }
+    p{
+        margin: 0;
     }
 }
