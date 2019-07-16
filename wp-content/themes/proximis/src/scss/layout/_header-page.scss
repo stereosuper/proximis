@@ -35,7 +35,7 @@
 @media (min-width: $tablet){
     .header-page{
         p{
-            width: $col*8;
+            width: $col*10;
         }
     }
 }
@@ -43,14 +43,25 @@
 @media (min-width: $desktop){
     .header-page{
         p{
-            width: $col*5;
+            width: $col*7;
         }
         img{
             display: block;
-            max-width: 49%;
+            max-width: 40%;
             position: absolute;
             top: 0;
             right: 0;
+        }
+    }
+}
+
+@media (min-width: $desktop-big){
+    .header-page{
+        p{
+            width: $col*5;
+        }
+        img{
+            max-width: 43%;
         }
     }
 }
