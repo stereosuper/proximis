@@ -1177,6 +1177,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
       bottom: 7px;
       margin: 0 4px 0 6px;
       background: currentColor; }
+    .breadcrumbs a:hover, .breadcrumbs a:focus {
+      text-decoration: none; }
 
 /* Buttons */
 .btn {
