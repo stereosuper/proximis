@@ -3,6 +3,11 @@
     font-size: 1.4rem;
     line-height: 1;
     font-family: $ibm;
+    color: $primary;
+
+    .page-template-services &{
+        color: #fff;
+    }
 
     &:before {
         content: '';
@@ -12,30 +17,25 @@
         left: -50vw;
         right: 100%;
         margin: 0 8px 0 0;
-        background: $primary;
-
-        .page-template-services &{
-            background: #fff;
-        }
+        background: currentColor;
     }
 
     a {
-        display: inline-flex;
         border: 0;
-        align-items: center;
+        position: relative;
+        margin: 0 40px 0 0;
         font-family: inherit;
+        text-decoration: underline;
+        color: inherit;
 
         &:after {
             content: '';
-            display: block;
             width: 30px;
             height: 1px;
-            margin: 4px 4px 0 6px;
+            position: absolute;
+            bottom: 7px;
+            margin: 0 4px 0 6px;
             background: currentColor;
-        }
-
-        .page-template-services &{
-            color: #fff;
         }
     }
 }

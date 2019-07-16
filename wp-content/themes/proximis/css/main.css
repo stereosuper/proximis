@@ -1110,17 +1110,23 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
 
 @media (min-width: 780px) {
   .header-page p {
-    width: 66.66667%; } }
+    width: 83.33333%; } }
 
 @media (min-width: 1100px) {
   .header-page p {
-    width: 41.66667%; }
+    width: 58.33333%; }
   .header-page img {
     display: block;
-    max-width: 49%;
+    max-width: 40%;
     position: absolute;
     top: 0;
     right: 0; } }
+
+@media (min-width: 1400px) {
+  .header-page p {
+    width: 41.66667%; }
+  .header-page img {
+    max-width: 43%; } }
 
 .footer-page {
   padding: 10px 0 70px;
@@ -1128,7 +1134,10 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   text-align: center;
   background: #fff; }
   .footer-page h2 {
+    margin-bottom: 0;
     font-size: 3.5rem; }
+  .footer-page p {
+    margin: 1em 0; }
 
 @media (min-width: 780px) {
   .footer-page .container {
@@ -1140,7 +1149,10 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   position: relative;
   font-size: 1.4rem;
   line-height: 1;
-  font-family: "ibmplex", sans-serif; }
+  font-family: "ibmplex", sans-serif;
+  color: #55C4DA; }
+  .page-template-services .breadcrumbs {
+    color: #fff; }
   .breadcrumbs:before {
     content: '';
     height: 1px;
@@ -1149,27 +1161,22 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     left: -50vw;
     right: 100%;
     margin: 0 8px 0 0;
-    background: #55C4DA; }
-    .page-template-services .breadcrumbs:before {
-      background: #fff; }
+    background: currentColor; }
   .breadcrumbs a {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
     border: 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    font-family: inherit; }
+    position: relative;
+    margin: 0 40px 0 0;
+    font-family: inherit;
+    text-decoration: underline;
+    color: inherit; }
     .breadcrumbs a:after {
       content: '';
-      display: block;
       width: 30px;
       height: 1px;
-      margin: 4px 4px 0 6px;
+      position: absolute;
+      bottom: 7px;
+      margin: 0 4px 0 6px;
       background: currentColor; }
-    .page-template-services .breadcrumbs a {
-      color: #fff; }
 
 /* Buttons */
 .btn {
