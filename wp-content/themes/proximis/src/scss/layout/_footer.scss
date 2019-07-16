@@ -6,7 +6,7 @@
     font-size: 1.4rem;
     background: $text;
     color: $bg;
-    .page-template-services &{
+    .page-template-services &, .page-template-about &{
         margin-top: 0;
     }
     > .container{

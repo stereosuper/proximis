@@ -8,7 +8,7 @@
 
 		<h1><?php the_title(); ?></h1>
 
-		<div class='container-small'><?php the_content(); ?></div>
+		<div class='container-tiny'><?php the_content(); ?></div>
 		
 	<?php endif; ?>
 
