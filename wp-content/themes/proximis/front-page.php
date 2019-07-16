@@ -1,9 +1,10 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : the_post(); ?>
+
 	<?php if( have_rows('slides', 'options') ) : ?>
 		<header class='carousel' id='slider'>
-			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
+			<?php $countSlides = 0; while( have_rows('slides', 'options') ) : the_row(); ?>
 				<div class='slide' style='background-color:<?php the_sub_field('color'); ?>'>
 					<div class='container'>
 						<div class='text'>
@@ -17,14 +18,15 @@
 						<div class='img'><?php echo wp_get_attachment_image(get_sub_field('img'), 'full'); ?></div>
 					</div>
 				</div>
-			<?php endwhile; ?>
-			<div class='carousel-nav'>
-				<?php 
-				$i = 0;
-				while( have_rows('slides', 'options') ) : the_row(); ?>
-					<div class='<?php echo $i == 0 ? "dot active" : "dot"; ?>'></div>
-				<?php $i++; endwhile; ?>
-			</div>
+			<?php $countSlides ++; endwhile; ?>
+
+			<?php if( $countSlides > 1 ) : ?>
+				<div class='carousel-nav'>
+					<?php $i = 0; while( $i < $countSlides ) : ?>
+						<div class='<?php echo $i == 0 ? "dot active" : "dot"; ?>'></div>
+					<?php $i++; endwhile; ?>
+				</div>
+			<?php endif; ?>
 		</header>
 	<?php endif ;?>
 
