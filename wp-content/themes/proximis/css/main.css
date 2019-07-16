@@ -1417,7 +1417,9 @@ a.ref:hover img, a.ref:focus img {
     .carousel .title span:first-of-type {
       color: #fff; }
   .carousel .text {
-    padding-bottom: 50px; }
+    padding: 0 0 50px; }
+    .carousel .text a {
+      color: inherit; }
   .carousel .img {
     display: none; }
 
