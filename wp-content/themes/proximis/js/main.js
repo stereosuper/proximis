@@ -34826,7 +34826,7 @@ var loadHandler = function loadHandler() {
   }
 
   Object(_united_js__WEBPACK_IMPORTED_MODULE_10__["default"])();
-  [].slice.call(document.getElementsByClassName('js-benefit')).forEach(function (elt) {
+  [].slice.call(document.getElementsByClassName('js-lottie')).forEach(function (elt) {
     lottie_web__WEBPACK_IMPORTED_MODULE_7___default.a.loadAnimation({
       container: elt,
       renderer: 'svg',

@@ -356,6 +356,13 @@ a {
     }
 }
 
+.lottie {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: $primary;
+    box-shadow: 0 10px 15px rgba(#000, 0.05);
+}
 
 
 @media (min-width: $phone-small) {

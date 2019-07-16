@@ -60,7 +60,7 @@
 						<ul>
 							<?php while( have_rows('benefits') ) : the_row(); ?>
 								<li>
-									<div class='js-benefit anim' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
+									<div class='js-lottie lottie' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
 									<div>
 										<h3><?php the_sub_field('title'); ?></h3>
 										<p><?php the_sub_field('text'); ?></p>

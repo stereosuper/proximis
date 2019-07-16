@@ -13,6 +13,7 @@ get_header(); ?>
 		<?php if( have_rows('columns') ) : ?>
 			<?php while( have_rows('columns') ) : the_row(); ?>
 				<div>
+					<div class='js-lottie lottie' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
 					<h2><?php the_sub_field('title'); ?></h2>
 					<?php the_sub_field('text'); ?>
 				</div>

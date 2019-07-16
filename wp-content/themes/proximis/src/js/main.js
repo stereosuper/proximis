@@ -41,7 +41,7 @@ const loadHandler = () => {
 
     united();
 
-    [].slice.call(document.getElementsByClassName('js-benefit')).forEach(elt => {
+    [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
         lottie.loadAnimation({
             container: elt,
             renderer: 'svg',
