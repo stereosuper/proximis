@@ -2,6 +2,7 @@ import '../scss/main.scss';
 
 //import { TweenLite, TimelineLite } from 'gsap';
 import '@babel/polyfill';
+import Macy from 'macy';
 
 import win from './Window.js';
 import io from './io.js';
@@ -50,6 +51,19 @@ const loadHandler = () => {
             path: elt.getAttribute('data-path')
         });
     });
+
+    var macy = Macy({
+        container: '#blog',
+        trueOrder: true,
+        waitForImages: true,
+        margin: 55,
+        columns: 3,
+        breakAt: {
+            780: 2,
+            580: 1
+        }
+    });
+
 
 };
 

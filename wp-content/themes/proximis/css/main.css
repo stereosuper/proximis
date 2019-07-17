@@ -1928,6 +1928,26 @@ a.ref:hover img, a.ref:focus img {
     margin: 0 8.33333% 0 0;
     padding: 0 10px 0 0; } }
 
+.post {
+  padding: 0; }
+  .post:before {
+    content: none; }
+  .post h2 {
+    margin: 20px 0 0; }
+  .post p {
+    margin: 0; }
+
+.post-link {
+  color: inherit; }
+
+.post-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
 /******* PRINT *******/
 @media print {
   *, *:before {

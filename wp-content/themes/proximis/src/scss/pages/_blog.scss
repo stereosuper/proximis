@@ -1,0 +1,25 @@
+.blog-list{
+
+}
+
+.post{
+    padding: 0;
+    &:before{
+        content: none;
+    }
+    h2{
+        margin: 20px 0 0;
+    }
+    p{
+        margin: 0;
+    }
+}
+
+.post-link{
+    color: inherit;
+}
+
+.post-footer{
+    display: flex;
+    justify-content: space-between;
+}
