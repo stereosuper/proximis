@@ -328,6 +328,12 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'Reading Time WP',
+            'slug'        => 'reading-time-wp',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'SecuPress Free — Sécurité WordPress',
             'slug'        => 'secupress',
             'required'    => false,

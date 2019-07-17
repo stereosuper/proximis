@@ -2,54 +2,59 @@
 
 <div class='container'>
 
-	<h1><?php single_post_title(); ?></h1>
+	<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
 
-	<?php wp_list_categories( array('title_li' => '') ); ?> 
+	<div class='container-small'>
 
-	<?php if ( have_posts() ) : 
-		/*global $paged;
-		if(get_query_var('paged')){
-			$paged = get_query_var('paged');
-		}elseif(get_query_var('page')){
-			$paged = get_query_var('page');
-		}else{
-			$paged = 1;
-		} */
-	?>
+		<h1><?php single_post_title(); ?></h1>
 
-		<?php while ( have_posts() ) : the_post(); ?>
-			
-			<article>
+		<?php the_field('text', get_option( 'page_for_posts' )); ?>
 
-				<span><?php echo get_the_date(); ?></span>
-				<h2><?php the_title(); ?></h2>
-				<?php if( has_post_thumbnail() ){ the_post_thumbnail(); } ?>
-				<span>
-					<?php if( get_the_category() ){
-						foreach( get_the_category() as $cat ){
-							echo $cat->cat_name . ' - ';
-						}
-					} ?>
-				</span>
-				<?php the_excerpt(); ?>
-				<a href='<?php the_permalink(); ?>'><?php _e('Read more'); ?></a>
+		<?php wp_list_categories( array('title_li' => '') ); ?> 
 
-			</article>
-		
-		<?php endwhile; ?>
+		<?php if ( have_posts() ) : ?>
 
-		<?php previous_posts_link('Articles suivants'); ?>
-		<?php next_posts_link('Articles précédents'); ?>
+			<ul>
 
-		<div class='pagination'>
-			<?php echo paginate_links( array( 'prev_text' => '<b>‹</b> <span>' . 'Précédent' . '</span>', 'next_text'  => '<span>' . 'Suivant' . '</span> <b>›</b>' ) ); ?>
-		</div>
-	
-	<?php else : ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+					
+					<li>
+						<?php if( has_post_thumbnail() ) : ?>
+							<a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+						<?php endif; ?>
+						<time><?php echo get_the_date(); ?></time>
+						<a href='<?php the_permalink(); ?>'>
+							<h2><?php the_title(); ?></h2>
+							<?php the_excerpt(); ?>
+						</a>
+						<div class='cats'>
+							<?php $cats = get_the_category(); if( $cats ) :
+								$count = 0;
+								foreach( $cats as $cat ) :
+									$count ++;
+									if( $count > 1 ) echo ', ';
+									echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
+								endforeach;
+							endif; ?>
+						</div>
+						<?php echo do_shortcode('[rt_reading_time postfix="min"]'); ?>
+					</li>
 				
-		<p><?php _e('No posts yet'); ?></p>
+				<?php endwhile; ?>
 
-	<?php endif; ?>
+			</ul>
+
+			<div class='pagination'>
+				<?php echo paginate_links( array( 'prev_text' => '<b>‹</b> <span>' . 'Précédent' . '</span>', 'next_text'  => '<span>' . 'Suivant' . '</span> <b>›</b>' ) ); ?>
+			</div>
+		
+		<?php else : ?>
+					
+			<p><?php _e('No posts yet'); ?></p>
+
+		<?php endif; ?>
+
+	</div>
 
 </div>
 
