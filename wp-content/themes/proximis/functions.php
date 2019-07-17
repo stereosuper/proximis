@@ -304,8 +304,20 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'Contact Form 7',
+            'slug'        => 'contact-form-7',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'EWWW Image Optimizer',
             'slug'        => 'ewww-image-optimizer',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Flamingo',
+            'slug'        => 'flamingo',
             'required'    => false,
             'force_activation' => false
         ),
