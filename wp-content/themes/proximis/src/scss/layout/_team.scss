@@ -1,12 +1,10 @@
 .team-wrapper{
-    padding: 5px 0;
+    padding: 5px 0 100px;
     background: #fff;
-    h2, h2 + p{
-        margin-left: 25%;
-    }
 }
 
 .team{
+    margin: 70px 0 0;
     h3{
         color: $text;
     }
@@ -48,6 +46,20 @@
     strong, span{
         display: block;
     }
+    a{
+        display: inline-block;
+        border: 0;
+        margin: 0 5px 0 0;
+        &:hover, &:focus{
+            transform: scale(0.9);
+        }
+    }
+    .tw{
+        color: #1DA1F2;
+    }
+    .in{
+        color: #0e76a8;
+    }
 }
 
 
@@ -65,6 +77,9 @@
 
 @media (min-width: $desktop-small){
     .team-wrapper{
+        h2, h2 + p{
+            margin-left: 25%;
+        }
         h2 + p{
             max-width: $col*8;
         }

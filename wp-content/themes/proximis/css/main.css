@@ -1228,53 +1228,59 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     margin: 0; }
 
 .team-wrapper {
-  padding: 5px 0;
+  padding: 5px 0 100px;
   background: #fff; }
-  .team-wrapper h2, .team-wrapper h2 + p {
-    margin-left: 25%; }
 
-.team h3 {
-  color: #18162B; }
-
-.team li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0;
-  margin: 0 0 35px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .team li:before {
-    content: none; }
-
-.team p {
-  margin: 0; }
-
-.team .img {
-  width: 85px;
-  min-width: 85px;
-  height: 85px;
-  position: relative;
-  margin: 0 20px 0 0; }
-  .team .img:after {
-    content: '';
+.team {
+  margin: 70px 0 0; }
+  .team h3 {
+    color: #18162B; }
+  .team li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    margin: 0 0 35px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .team li:before {
+      content: none; }
+  .team p {
+    margin: 0; }
+  .team .img {
+    width: 85px;
+    min-width: 85px;
+    height: 85px;
+    position: relative;
+    margin: 0 20px 0 0; }
+    .team .img:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 50%;
+      background: #55C4DA; }
+  .team img {
     position: absolute;
-    top: 0;
     left: 0;
     bottom: 0;
-    right: 0;
-    border-radius: 50%;
-    background: #55C4DA; }
-
-.team img {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 1; }
-
-.team strong, .team span {
-  display: block; }
+    z-index: 1; }
+  .team strong, .team span {
+    display: block; }
+  .team a {
+    display: inline-block;
+    border: 0;
+    margin: 0 5px 0 0; }
+    .team a:hover, .team a:focus {
+      -webkit-transform: scale(0.9);
+              transform: scale(0.9); }
+  .team .tw {
+    color: #1DA1F2; }
+  .team .in {
+    color: #0e76a8; }
 
 @media (min-width: 780px) {
   .team ul {
@@ -1287,6 +1293,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     width: 50%; } }
 
 @media (min-width: 960px) {
+  .team-wrapper h2, .team-wrapper h2 + p {
+    margin-left: 25%; }
   .team-wrapper h2 + p {
     max-width: 66.66667%; }
   .team li {

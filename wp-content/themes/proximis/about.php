@@ -52,10 +52,10 @@ get_header(); ?>
 													<strong><?php the_sub_field('name'); ?></strong>
 													<span><?php the_sub_field('job'); ?></span>
 													<?php if( get_sub_field('twitter') ) : ?>
-														<a href='<?php the_sub_field('twitter'); ?>' rel='noreferrer noopener'>Twitter</a>
+														<a href='<?php the_sub_field('twitter'); ?>' rel='noreferrer noopener' class='tw'><svg class='icon'><use xlink:href='#icon-tw'></use></svg></a>
 													<?php endif; ?>
 													<?php if( get_sub_field('linkedin') ) : ?>
-														<a href='<?php the_sub_field('linkedin'); ?>' rel='noreferrer noopener'>Linkedin</a>
+														<a href='<?php the_sub_field('linkedin'); ?>' rel='noreferrer noopener' class='in'><svg class='icon'><use xlink:href='#icon-linkedin'></use></svg></a>
 													<?php endif; ?>
 												</p>
 											</li>
