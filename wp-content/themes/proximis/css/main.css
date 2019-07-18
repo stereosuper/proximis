@@ -2021,9 +2021,9 @@ a.ref:hover img, a.ref:focus img {
 .post-footer {
   margin: 1em 0 0; }
 
-.rt-reading-time {
+.rt-reading-time, .post-meta .cats {
   position: relative; }
-  .rt-reading-time:before {
+  .rt-reading-time:before, .post-meta .cats:before {
     content: '';
     width: 3px;
     height: 3px;
@@ -2032,6 +2032,9 @@ a.ref:hover img, a.ref:focus img {
     left: -12px;
     border-radius: 50%;
     background: #55C4DA; }
+
+.cats a {
+  font-family: "ibmplex", sans-serif; }
 
 .book {
   padding: 35px 30px 30px;
@@ -2043,6 +2046,16 @@ a.ref:hover img, a.ref:focus img {
     font-size: 1.4rem;
     line-height: 2;
     color: #5C6370; }
+
+.post-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0; }
+  .post-meta .rt-reading-time, .post-meta .cats {
+    margin: 0 0 0 20px; }
+    .post-meta .rt-reading-time:before, .post-meta .cats:before {
+      top: 12px; }
 
 @media (min-width: 780px) {
   .post h2 {

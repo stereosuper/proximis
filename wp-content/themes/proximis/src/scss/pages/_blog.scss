@@ -109,7 +109,7 @@
     margin: 1em 0 0;
 }
 
-.rt-reading-time{
+.rt-reading-time, .post-meta .cats{
     position: relative;
     &:before{
         content: '';
@@ -120,6 +120,12 @@
         left: -12px;
         border-radius: 50%;
         background: $primary;
+    }
+}
+
+.cats{
+    a{
+        font-family: $ibm;
     }
 }
 
@@ -134,6 +140,17 @@
         font-size: 1.4rem;
         line-height: 2;
         color: $grey;
+    }
+}
+
+.post-meta{
+    display: flex;
+    margin-top: 0;
+    .rt-reading-time, .cats{
+        margin: 0 0 0 20px;
+        &:before{
+            top: 12px;
+        }
     }
 }
 
