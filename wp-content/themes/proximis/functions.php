@@ -208,21 +208,38 @@ add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter' );
 
 
 /*-----------------------------------------------------------------------------------*/
+/* Blog
+/*-----------------------------------------------------------------------------------*/
+
+// Excerpt ending
+function proximis_excerpt_more( $more ){
+    return '&#46;&#46;&#46;';
+}
+add_filter( 'excerpt_more', 'proximis_excerpt_more' );
+
+// Excerpt length
+function proximis_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'proximis_excerpt_length' );
+
+
+/*-----------------------------------------------------------------------------------*/
 /* Sidebar & Widgets
 /*-----------------------------------------------------------------------------------*/
-function proximis_register_sidebars(){
-	register_sidebar( array(
-		'id' => 'sidebar',
-		'name' => 'Sidebar',
-		'description' => 'Take it on the side...',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-		'empty_title'=> ''
-	) );
-}
-add_action( 'widgets_init', 'proximis_register_sidebars' );
+// function proximis_register_sidebars(){
+// 	register_sidebar( array(
+// 		'id' => 'sidebar',
+// 		'name' => 'Sidebar',
+// 		'description' => 'Take it on the side...',
+// 		'before_widget' => '',
+// 		'after_widget' => '',
+// 		'before_title' => '',
+// 		'after_title' => '',
+// 		'empty_title'=> ''
+// 	) );
+// }
+// add_action( 'widgets_init', 'proximis_register_sidebars' );
 
 // Deregister default widgets
 function proximis_unregister_default_widgets(){

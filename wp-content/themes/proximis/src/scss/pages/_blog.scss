@@ -48,6 +48,8 @@
 
 .blog-list{
     > li{
+        display: inline-block;
+        width: 30%;
         &:before{
             content: none;
         }

@@ -1968,8 +1968,11 @@ a.ref:hover img, a.ref:focus img {
     font-family: "ibmplex_italic", "ibmplex", sans-serif;
     color: inherit; }
 
-.blog-list > li:before {
-  content: none; }
+.blog-list > li {
+  display: inline-block;
+  width: 30%; }
+  .blog-list > li:before {
+    content: none; }
 
 .post {
   padding: 0 0 30px;
