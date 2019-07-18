@@ -1,25 +1,145 @@
-.blog-list{
+.blog-title{
+    margin-bottom: 0;
+    + p{
+        width: 50%;
+        padding: 0 $gutter 0 0;
+        color: $grey;
+    }
+}
 
+.blog-cats{
+    display: inline-block;
+    padding: 0 35px 0 0;
+    position: relative;
+    line-height: 1;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        border-style: solid;
+        border-width: 8px 6px 0 6px;
+        border-color: $primary transparent transparent transparent;
+        pointer-events: none;
+    }
+    &.off{
+        height: 56px;
+        a{
+            pointer-events: none;
+        }
+    }
+    > li{
+        padding: 0;
+        &:before{
+            content: none;
+        }
+    }
+    a{
+        display: block;
+        padding: 20px;
+        border: 0;
+        font-family: $ibm-it;
+        color: inherit;
+    }
+}
+
+.blog-list{
+    > li{
+        &:before{
+            content: none;
+        }
+    }
 }
 
 .post{
-    padding: 0;
-    &:before{
-        content: none;
-    }
+    padding: 0 0 30px;
+    border-bottom: 1px solid $grey;
     h2{
-        margin: 20px 0 0;
+        margin: 15px 0 0;
     }
     p{
         margin: 0;
     }
+    a{
+        font-family: $ibm;
+    }
+    > a{
+        border: 0;
+        color: inherit;
+    }
 }
 
-.post-link{
-    color: inherit;
+.post-img{
+    display: block;
+    height: 150px;
+    margin: 0 0 1.2em;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.post-header, .post-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.post-header{
+    .author{
+        margin: 0 0 15px 32px;
+    }
+    .img{
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: -32px;
+    }
 }
 
 .post-footer{
-    display: flex;
-    justify-content: space-between;
+    margin: 1em 0 0;
+}
+
+.rt-reading-time{
+    position: relative;
+    &:before{
+        content: '';
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        top: 10px;
+        left: -12px;
+        border-radius: 50%;
+        background: $primary;
+    }
+}
+
+.book{
+    padding: 35px 30px 30px;
+    background: #fff;
+    h2{
+        margin: 20px 0 0;
+    }
+    p{
+        margin: 5px 0 30px;
+        font-size: 1.4rem;
+        line-height: 2;
+        color: $grey;
+    }
+}
+
+
+@media (min-width: $tablet){
+    .post{
+        h2{
+            font-size: 2.4rem;
+        }
+    }
 }

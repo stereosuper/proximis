@@ -22,6 +22,8 @@ import form from './form.js';
 
 const loadHandler = () => {
     const [wrapperSlider] = query('#slider');
+    let macy, slider;
+    const cats = document.getElementById('cats');
     // const noTransitionElts = [].slice.call(
     //     document.getElementsByClassName('element-without-transition-on-resize')
     // );
@@ -35,8 +37,8 @@ const loadHandler = () => {
     header();
     form();
 
-    if (wrapperSlider) {
-        const slider = new Slider(wrapperSlider);
+    if( wrapperSlider ){
+        slider = new Slider(wrapperSlider);
         slider.play();
     }
 
@@ -52,18 +54,25 @@ const loadHandler = () => {
         });
     });
 
-    var macy = Macy({
-        container: '#blog',
-        trueOrder: true,
-        waitForImages: true,
-        margin: 55,
-        columns: 3,
-        breakAt: {
-            780: 2,
-            580: 1
-        }
-    });
-
+    if( document.getElementById('blog') ){
+        macy = Macy({
+            container: '#blog',
+            trueOrder: true,
+            waitForImages: true,
+            margin: 80,
+            columns: 3,
+            breakAt: {
+                960: 2,
+                580: 1
+            }
+        });
+    }
+    
+    if( cats ){
+        cats.addEventListener('click', () => {
+            cats.classList.contains('off') ? cats.classList.remove('off') : cats.classList.add('off');
+        });
+    }
 
 };
 

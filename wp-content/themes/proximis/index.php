@@ -6,29 +6,45 @@
 
 	<div class='container-medium'>
 
-		<h1><?php single_post_title(); ?></h1>
+		<h1 class='blog-title'><?php single_post_title(); ?></h1>
 
-		<?php the_field('text', get_option( 'page_for_posts' )); ?>
+		<?php
+			$blog = get_option( 'page_for_posts' );
+			$book = get_field('book', $blog);
+			
+			the_field('text', $blog);
+		?>
 
-		<ul>
+		<ul class='blog-cats off' id='cats'>
+			<li><a href='#'><?php _e('Display all posts', 'proximis'); ?></a></li>
 			<?php wp_list_categories( array('title_li' => '') ); ?>
 		</ul>
 
-		<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : $countPosts = 0; ?>
 
 			<ul class='blog-list' id='blog'>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); $countPosts ++; ?>
 					
 					<li class='post'>
 						<?php if( has_post_thumbnail() ) : ?>
-							<a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+							<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("full"); ?>)'></a>
 						<?php endif; ?>
-						<time><?php echo get_the_date(); ?></time>
-						<a href='<?php the_permalink(); ?>' class='post-link'>
+
+						<header class='post-header'>
+							<?php $author = get_the_author(); ?>
+							<a href='<?php get_the_author_link(); ?>' class='author'>
+								<div class='img'><?php echo get_avatar( $author ); ?></div>
+								<?php echo $author; ?>
+							</a>
+							<time><?php echo get_the_date(); ?></time>
+						</header>
+
+						<a href='<?php the_permalink(); ?>'>
 							<h2><?php the_title(); ?></h2>
 							<?php the_excerpt(); ?>
 						</a>
+
 						<footer class='post-footer'>
 							<div class='cats'>
 								<?php $cats = get_the_category(); if( $cats ) :
@@ -43,6 +59,15 @@
 							<?php echo do_shortcode('[rt_reading_time postfix="min"]'); ?>
 						</footer>
 					</li>
+					
+					<?php if( $book && $book['display'] && $countPosts + 1 == $book['pos'] ) : ?>
+						<li class='book'>
+							<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
+							<h2><?php echo $book['title']; ?></h2>
+							<p><?php echo $book['text']; ?></p>
+							<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
+						</li>
+					<?php endif; ?>
 				
 				<?php endwhile; ?>
 
