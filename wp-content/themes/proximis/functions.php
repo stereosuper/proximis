@@ -181,6 +181,16 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'book',
+        'title'             => __('Livre blanc'),
+        'description'       => __('Un lien avec texte et image vers un livre blanc.'),
+        'render_template'   => 'blocks/book.php',
+        'category'          => 'formatting',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'book' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'img-shape',
         'title'             => __('Image découpant le texte'),
         'description'       => __('Une image, le texte autour va prendre sa forme.'),

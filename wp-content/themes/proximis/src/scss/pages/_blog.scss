@@ -54,6 +54,12 @@
             content: none;
         }
     }
+    .book{
+        padding: 35px 30px 30px;
+        h2{
+            margin: 20px 0 0;
+        }
+    }
 }
 
 .post{
@@ -97,11 +103,16 @@
     .img{
         width: 21px;
         height: 21px;
+        top: 0;
+        left: -32px;
+    }
+}
+
+.author, .post-author{
+    .img{
         border-radius: 50%;
         overflow: hidden;
         position: absolute;
-        top: 0;
-        left: -32px;
     }
 }
 
@@ -130,11 +141,7 @@
 }
 
 .book{
-    padding: 35px 30px 30px;
     background: #fff;
-    h2{
-        margin: 20px 0 0;
-    }
     p{
         margin: 5px 0 30px;
         font-size: 1.4rem;
@@ -151,6 +158,19 @@
         &:before{
             top: 12px;
         }
+    }
+}
+
+.post-author{
+    line-height: 1;
+    a{
+        margin: 0 0 0 55px;
+    }
+    .img{
+        width: 42px;
+        height: 42px;
+        top: -5px;
+        left: -55px;
     }
 }
 

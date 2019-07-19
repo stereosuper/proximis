@@ -329,32 +329,7 @@ a {
     }
 }
 
-.highlighted {
-    padding: 40px;
-    position: relative;
-    font-family: $recoleta;
-    font-size: 2rem;
-    line-height: 1.2;
-    color: $grey;
-    background: #fff;
-
-    .line {
-        width: 45px;
-        height: 1px;
-        position: absolute;
-        top: 52px;
-        left: -22px;
-        background: $primary;
-        transform: scaleX(0);
-        transform-origin: 80% 0;
-    }
-
-    >p {
-        margin: 0;
-    }
-}
-
-.img-shape {
+.highlighted, .img-shape {
     display: none;
 }
 
@@ -460,10 +435,50 @@ a {
             margin-right: 1em;
         }
     }
+
+    .highlighted {
+        display: block;
+        font-family: $recoleta;
+        font-size: 2rem;
+        line-height: 1.2;
+        color: $grey;
+        background: #fff;
+
+        >p {
+            margin: 0;
+        }
+
+        .line{
+            top: 52px;
+        }
+    }
+
+    .book-highlighted{
+        h2{
+            margin: 20px 0 30px;
+        }
+        .line{
+            top: 190px;
+        }
+    }
+
+    .highlighted, .book-highlighted{
+        padding: 40px;
+        position: relative;
+        .line {
+            width: 45px;
+            height: 1px;
+            position: absolute;
+            left: -22px;
+            background: $primary;
+            transform: scaleX(0);
+            transform-origin: 80% 0;
+        }
+    }
 }
 
 @media (min-width: $desktop) {
-    .highlighted {
+    .highlighted, .book-highlighted {
         width: 240px;
         position: absolute;
         right: 0;
@@ -482,14 +497,22 @@ a {
 }
 
 @media (min-width: $desktop-big) {
-    .highlighted {
-        width: 330px;
-        padding: 60px 100px 60px 40px;
-        margin-top: -60px;
+    .highlighted{
         font-size: 2.4rem;
-
         .line {
             top: 72px;
         }
+    }
+
+    .book-highlighted{
+        .line {
+            top: 208px;
+        }
+    }
+
+    .highlighted, .book-highlighted {
+        width: 330px;
+        padding: 60px 100px 60px 40px;
+        margin-top: -60px;
     }
 }

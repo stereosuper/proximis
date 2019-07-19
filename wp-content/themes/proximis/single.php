@@ -28,7 +28,17 @@
 			</div>
 		<?php endif; ?>
 
-		<div class='container-tiny <?php if( $thumbnail ) echo "has-thumbnail"; ?>'><?php the_content(); ?></div>
+		<div class='container-tiny <?php if( $thumbnail ) echo "has-thumbnail"; ?>'>
+			<?php the_content(); ?>
+
+			<?php $author = get_the_author(); ?>
+			<p class='post-author'>
+				<a href='<?php get_the_author_link(); ?>'>
+					<span class='img'><?php echo get_avatar( $author ); ?></span>
+					<?php echo $author; ?>
+				</a>
+			</p>
+		</div>
 		
 	<?php endif; ?>
 
