@@ -682,7 +682,7 @@ label {
   label i {
     color: #5C6370; }
 
-div.wpcf7 {
+.contact-form div.wpcf7 {
   margin: 4em 0 0; }
 
 .wpcf7-form {
@@ -752,27 +752,27 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   color: #FF737B; }
 
 @media (min-width: 580px) {
-  label {
+  .contact-form label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start; }
-    label br {
+    .contact-form label br {
       display: none; }
-    label > span:first-of-type {
+    .contact-form label > span:first-of-type {
       width: 14%;
       min-width: 14%;
       text-align: right; }
-    label i {
+    .contact-form label i {
       margin: 15px 0 0 20px; }
+  .contact-form .wpcf7-submit, .contact-form div.wpcf7-validation-errors, .contact-form div.wpcf7-acceptance-missing, .contact-form div.wpcf7-mail-sent-ng {
+    margin: 0 0 0 calc(14% + 20px); }
   .wpcf7-form.sent {
     padding: 5%; }
   .wpcf7-form-control-wrap {
-    margin: 0 0 0 20px; }
-  .wpcf7-submit, div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng {
-    margin: 0 0 0 calc(14% + 20px); } }
+    margin: 0 0 0 20px; } }
 
 @media (min-width: 780px) {
   .wpcf7-form.sent {
@@ -1491,6 +1491,71 @@ a.ref:hover:after, a.ref:focus:after {
 a.ref:hover img, a.ref:focus img {
   -webkit-transform: scale(0.97);
           transform: scale(0.97); }
+
+.newsletter {
+  padding: 30px 60px 35px;
+  margin: 8em 0;
+  border-radius: 6px;
+  background: #fff; }
+  .newsletter .wpcf7-email {
+    background-color: #F8F5F1; }
+  .newsletter .wpcf7-submit {
+    padding: 20px 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+  .newsletter .wpcf7-response-output {
+    width: 100%; }
+  .newsletter .email {
+    margin: 0; }
+    .newsletter .email + span {
+      padding: 15px 55px 15px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+  .newsletter label {
+    display: block;
+    position: relative;
+    font-family: "ibmplex", sans-serif; }
+  .newsletter input[type=email] {
+    max-width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .newsletter .text {
+    margin: 0 0 30px; }
+  .newsletter h2, .newsletter p {
+    margin: 0; }
+
+@media (min-width: 580px) {
+  .newsletter .wpcf7-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .newsletter .wpcf7-form > p:first-of-type {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 1px;
+              flex: 1 1 1px; } }
+
+@media (min-width: 960px) {
+  .newsletter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-left: -6em;
+    margin-right: -6em; }
+    .newsletter .text {
+      width: 35%; }
+    .newsletter .wpcf7 {
+      width: 55%; } }
 
 /* Home specific style */
 .home h1 {
