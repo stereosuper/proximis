@@ -293,7 +293,7 @@ a {
     margin-bottom: 4.2em;
 }
 
-.has-drop-cap {
+.post-thumbnail, .has-drop-cap{
     position: relative;
     z-index: 1;
 
@@ -307,7 +307,8 @@ a {
         z-index: -1;
         background: #fff;
     }
-
+}
+.has-drop-cap {
     &:not(:focus) {
         &:after {
             content: none;
@@ -319,6 +320,11 @@ a {
             line-height: 0.5;
             font-family: $recoleta-bold;
             color: $primary;
+        }
+    }
+    &:before{
+        .has-thumbnail &{
+            content: none;
         }
     }
 }
@@ -371,7 +377,7 @@ a {
 
 
 @media (min-width: $phone-small) {
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 65%;
         }
@@ -379,7 +385,7 @@ a {
 }
 
 @media (min-width: $phone) {
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 75%;
         }
@@ -407,7 +413,7 @@ a {
         font-size: 2.4rem;
     }
 
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 80%;
         }
@@ -421,7 +427,7 @@ a {
         }
     }
 
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 86%;
         }

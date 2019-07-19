@@ -2,7 +2,7 @@
 
 <article class='container'>
 
-	<?php if ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : the_post(); $thumbnail = has_post_thumbnail(); ?>
 
 		<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
 
@@ -22,9 +22,13 @@
 			</span>
 		</p>
 		
-		<?php the_post_thumbnail('full'); ?>
+		<?php if( $thumbnail ) : ?>
+			<div class='post-thumbnail'>
+				<?php the_post_thumbnail('full'); ?>
+			</div>
+		<?php endif; ?>
 
-		<div class='container-tiny'><?php the_content(); ?></div>
+		<div class='container-tiny <?php if( $thumbnail ) echo "has-thumbnail"; ?>'><?php the_content(); ?></div>
 		
 	<?php endif; ?>
 

@@ -145,7 +145,7 @@
 
 .post-meta{
     display: flex;
-    margin-top: 0;
+    margin: 0 0 5em;
     .rt-reading-time, .cats{
         margin: 0 0 0 20px;
         &:before{
@@ -160,5 +160,11 @@
         h2{
             font-size: 2.4rem;
         }
+    }
+}
+
+@media (min-width: $desktop-small){
+    .post-thumbnail{
+        margin: 0 0 0 $col;
     }
 }

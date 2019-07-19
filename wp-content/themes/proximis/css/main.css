@@ -456,10 +456,10 @@ a {
   font-size: 2rem;
   margin-bottom: 4.2em; }
 
-.has-drop-cap {
+.post-thumbnail, .has-drop-cap {
   position: relative;
   z-index: 1; }
-  .has-drop-cap:before {
+  .post-thumbnail:before, .has-drop-cap:before {
     content: '';
     height: 160px;
     position: absolute;
@@ -468,14 +468,19 @@ a {
     right: 50%;
     z-index: -1;
     background: #fff; }
-  .has-drop-cap:not(:focus):after {
-    content: none; }
-  .has-drop-cap:not(:focus):first-letter {
-    margin: 0.3em 20px 0 0;
-    font-size: 9.7rem;
-    line-height: 0.5;
-    font-family: "recoleta_bold", "ibmplex", sans-serif;
-    color: #55C4DA; }
+
+.has-drop-cap:not(:focus):after {
+  content: none; }
+
+.has-drop-cap:not(:focus):first-letter {
+  margin: 0.3em 20px 0 0;
+  font-size: 9.7rem;
+  line-height: 0.5;
+  font-family: "recoleta_bold", "ibmplex", sans-serif;
+  color: #55C4DA; }
+
+.has-thumbnail .has-drop-cap:before {
+  content: none; }
 
 .highlighted {
   padding: 40px;
@@ -516,11 +521,11 @@ a {
           box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05); }
 
 @media (min-width: 400px) {
-  .has-drop-cap:before {
+  .post-thumbnail:before, .has-drop-cap:before {
     right: 65%; } }
 
 @media (min-width: 580px) {
-  .has-drop-cap:before {
+  .post-thumbnail:before, .has-drop-cap:before {
     right: 75%; } }
 
 @media (min-width: 780px) {
@@ -534,14 +539,14 @@ a {
     font-size: 2.8rem; }
   h3 {
     font-size: 2.4rem; }
-  .has-drop-cap:before {
+  .post-thumbnail:before, .has-drop-cap:before {
     right: 80%; } }
 
 @media (min-width: 960px) {
   q:before {
     -webkit-transform: translateX(calc(-100% - 5px));
             transform: translateX(calc(-100% - 5px)); }
-  .has-drop-cap:before {
+  .post-thumbnail:before, .has-drop-cap:before {
     right: 86%; }
   .img-shape {
     display: block;
@@ -2051,7 +2056,7 @@ a.ref:hover img, a.ref:focus img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 0; }
+  margin: 0 0 5em; }
   .post-meta .rt-reading-time, .post-meta .cats {
     margin: 0 0 0 20px; }
     .post-meta .rt-reading-time:before, .post-meta .cats:before {
@@ -2060,6 +2065,10 @@ a.ref:hover img, a.ref:focus img {
 @media (min-width: 780px) {
   .post h2 {
     font-size: 2.4rem; } }
+
+@media (min-width: 960px) {
+  .post-thumbnail {
+    margin: 0 0 0 8.33333%; } }
 
 /******* PRINT *******/
 @media print {
