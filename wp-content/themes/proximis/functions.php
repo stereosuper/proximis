@@ -337,6 +337,12 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'Contact Form 7 HubSpot',
+            'slug'        => 'cf7-hubspot',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'EWWW Image Optimizer',
             'slug'        => 'ewww-image-optimizer',
             'required'    => false,
