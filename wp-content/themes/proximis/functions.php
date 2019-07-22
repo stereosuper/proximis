@@ -199,6 +199,16 @@ function register_acf_block_types() {
         'icon'              => 'format-image',
         'keywords'          => array( 'img-shape' ),
     ));
+
+    acf_register_block_type(array(
+        'name'              => 'title-text',
+        'title'             => __("Titre à côté d'un texte"),
+        'description'       => __("Titre à côté d'un texte"),
+        'render_template'   => 'blocks/title-text.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-image',
+        'keywords'          => array( 'title-text' ),
+    ));
 }
 if( function_exists('acf_register_block_type') ) {
     add_action('acf/init', 'register_acf_block_types');
