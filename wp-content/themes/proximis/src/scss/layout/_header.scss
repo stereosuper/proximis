@@ -215,7 +215,7 @@
             min-width: 0;
             margin: 0 60px 0 auto;
 
-            .home &, .page-template-services &, .page-template-about & {
+            .home &, .page-template-services &, .page-template-about &, .page-template-customers & {
                 color: $text;
 
                 &:after {
@@ -247,7 +247,7 @@
                 transform: scaleY(0);
                 transition: $transition;
 
-                .home &, .page-template-services &, .page-template-about & {
+                .home &, .page-template-services &, .page-template-about &, .page-template-customers & {
                     background: #fff;
                 }
             }

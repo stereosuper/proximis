@@ -950,9 +950,9 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     .nav .btn {
       min-width: 0;
       margin: 0 60px 0 auto; }
-      .home .nav .btn, .page-template-services .nav .btn, .page-template-about .nav .btn {
+      .home .nav .btn, .page-template-services .nav .btn, .page-template-about .nav .btn, .page-template-customers .nav .btn {
         color: #18162B; }
-        .home .nav .btn:after, .page-template-services .nav .btn:after, .page-template-about .nav .btn:after {
+        .home .nav .btn:after, .page-template-services .nav .btn:after, .page-template-about .nav .btn:after, .page-template-customers .nav .btn:after {
           background: #fff; }
   .menu-main {
     display: -webkit-box;
@@ -979,7 +979,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
                 transform: scaleY(0);
         -webkit-transition: 0.3s ease-in-out;
         transition: 0.3s ease-in-out; }
-        .home .menu-main a:before, .page-template-services .menu-main a:before, .page-template-about .menu-main a:before, .home .menu-main a:after, .page-template-services .menu-main a:after, .page-template-about .menu-main a:after {
+        .home .menu-main a:before, .page-template-services .menu-main a:before, .page-template-about .menu-main a:before, .page-template-customers .menu-main a:before, .home .menu-main a:after, .page-template-services .menu-main a:after, .page-template-about .menu-main a:after, .page-template-customers .menu-main a:after {
           background: #fff; }
       .menu-main a:before {
         height: 60px;
@@ -1178,7 +1178,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   line-height: 1;
   font-family: "ibmplex", sans-serif;
   color: #55C4DA; }
-  .page-template-services .breadcrumbs, .page-template-about .breadcrumbs {
+  .header-page .breadcrumbs {
     color: #fff; }
   .breadcrumbs:before {
     content: '';
@@ -1456,7 +1456,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 1;
-  line-height: 1.2; }
+  line-height: 1.2;
+  text-align: center; }
   .ref:after {
     content: '';
     position: absolute;
