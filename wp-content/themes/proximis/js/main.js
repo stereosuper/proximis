@@ -34795,6 +34795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
 /* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
 /* harmony import */ var _form_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./form.js */ "./wp-content/themes/proximis/src/js/form.js");
+/* harmony import */ var _newsletter_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./newsletter.js */ "./wp-content/themes/proximis/src/js/newsletter.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -34811,6 +34812,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
  //import $ from 'jquery-slim';
+
 
 
 
@@ -34836,6 +34838,7 @@ var loadHandler = function loadHandler() {
   _Window_js__WEBPACK_IMPORTED_MODULE_3__["default"].init();
   Object(_header_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
   Object(_form_js__WEBPACK_IMPORTED_MODULE_12__["default"])();
+  Object(_newsletter_js__WEBPACK_IMPORTED_MODULE_13__["default"])();
 
   if (wrapperSlider) {
     slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_10__["default"](wrapperSlider);
@@ -34879,6 +34882,38 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', loadHandler, false);
 }
+
+/***/ }),
+
+/***/ "./wp-content/themes/proximis/src/js/newsletter.js":
+/*!*********************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/newsletter.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+
+
+var headerHandler = function headerHandler() {
+  var newsletters = document.getElementsByClassName('newsletter');
+  var input, email;
+  if (!newsletters.length) return;
+  Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(newsletters, function (elt) {
+    input = elt.querySelector('.wpcf7-email');
+    email = elt.querySelector('.email');
+    input.addEventListener('focus', function () {
+      email.classList.add('on');
+    });
+    input.addEventListener('blur', function () {
+      if (!input.value) email.classList.remove('on');
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (headerHandler);
 
 /***/ }),
 

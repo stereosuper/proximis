@@ -18,6 +18,7 @@ import header from './header.js';
 import Slider from './Slider.js';
 import united from './united.js';
 import form from './form.js';
+import newsletter from './newsletter.js';
 
 
 const loadHandler = () => {
@@ -36,6 +37,7 @@ const loadHandler = () => {
 
     header();
     form();
+    newsletter();
 
     if( wrapperSlider ){
         slider = new Slider(wrapperSlider);

@@ -16,6 +16,11 @@
     }
     .email{
         margin: 0;
+        &.on{
+            + span{
+                opacity: 0;
+            }
+        }
         + span{
             padding: 15px 55px 15px 20px;
             position: absolute;
@@ -23,6 +28,7 @@
             left: 0;
             right: 0;
             bottom: 0;
+            pointer-events: none;
         }
     }
     label{

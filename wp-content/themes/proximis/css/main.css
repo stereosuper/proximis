@@ -1508,13 +1508,16 @@ a.ref:hover img, a.ref:focus img {
     width: 100%; }
   .newsletter .email {
     margin: 0; }
+    .newsletter .email.on + span {
+      opacity: 0; }
     .newsletter .email + span {
       padding: 15px 55px 15px 20px;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0; }
+      bottom: 0;
+      pointer-events: none; }
   .newsletter label {
     display: block;
     position: relative;
