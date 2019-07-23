@@ -31,6 +31,7 @@
         clip-path: circle(150% at 75% 75%);
 
         .container {
+            position: relative;
             height: 100%;
             min-height: 90vh;
             display: flex;
@@ -38,7 +39,8 @@
             align-items: flex-start;
             padding-top: 190px;
 
-            >div {
+            .text,
+            .img {
                 width: 100%;
                 padding-right: 30px;
             }
@@ -74,6 +76,10 @@
     }
 
     .img {
+        display: none;
+    }
+
+    .badge {
         display: none;
     }
 }
@@ -386,7 +392,8 @@
         .container {
             padding-top: 215px;
 
-            >div {
+            .text,
+            .img {
                 width: calc(50% - #{$gutter/2});
                 padding-right: 0;
             }
@@ -404,6 +411,40 @@
 
             >img {
                 max-width: calc(100% - #{$gutter});
+            }
+        }
+
+        .badge {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            bottom: 55px;
+            right: 55px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-family: $ibm-bold;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            background: $text;
+            transform: rotate(9deg);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+
+            >*,
+            strong {
+                display: block;
+            }
+
+            .icon {
+                width: 15px;
+                height: 15px;
+                margin: -6px 0 2px;
             }
         }
     }

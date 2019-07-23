@@ -1583,6 +1583,7 @@ a.ref:hover img, a.ref:focus img {
     -webkit-clip-path: circle(150% at 75% 75%);
             clip-path: circle(150% at 75% 75%); }
     .carousel .slide .container {
+      position: relative;
       height: 100%;
       min-height: 90vh;
       display: -webkit-box;
@@ -1595,7 +1596,8 @@ a.ref:hover img, a.ref:focus img {
           -ms-flex-align: start;
               align-items: flex-start;
       padding-top: 190px; }
-      .carousel .slide .container > div {
+      .carousel .slide .container .text,
+      .carousel .slide .container .img {
         width: 100%;
         padding-right: 30px; }
     .carousel .slide:first-child {
@@ -1612,6 +1614,8 @@ a.ref:hover img, a.ref:focus img {
     .carousel .text a {
       color: inherit; }
   .carousel .img {
+    display: none; }
+  .carousel .badge {
     display: none; }
 
 .carousel-nav {
@@ -1855,7 +1859,8 @@ a.ref:hover img, a.ref:focus img {
     margin-right: -40px; }
   .carousel .container {
     padding-top: 215px; }
-    .carousel .container > div {
+    .carousel .container .text,
+    .carousel .container .img {
       width: calc(50% - 10px);
       padding-right: 0; }
   .carousel .text {
@@ -1873,7 +1878,48 @@ a.ref:hover img, a.ref:focus img {
         -ms-flex-pack: center;
             justify-content: center; }
     .carousel .img > img {
-      max-width: calc(100% - 20px); } }
+      max-width: calc(100% - 20px); }
+  .carousel .badge {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    bottom: 55px;
+    right: 55px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background: #18162B;
+    -webkit-transform: rotate(9deg);
+            transform: rotate(9deg);
+    -webkit-box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05); }
+    .carousel .badge > *,
+    .carousel .badge strong {
+      display: block; }
+    .carousel .badge .icon {
+      width: 15px;
+      height: 15px;
+      margin: -6px 0 2px; } }
 
 @media (min-width: 1100px) {
   .home-united .anim {
