@@ -209,6 +209,16 @@ function register_acf_block_types() {
         'icon'              => 'format-image',
         'keywords'          => array( 'title-text' ),
     ));
+
+    acf_register_block_type(array(
+        'name'              => 'newsletter',
+        'title'             => __("Newsletter"),
+        'description'       => __("Newsletter"),
+        'render_template'   => 'blocks/newsletter.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-image',
+        'keywords'          => array( 'newsletter' ),
+    ));
 }
 if( function_exists('acf_register_block_type') ) {
     add_action('acf/init', 'register_acf_block_types');
