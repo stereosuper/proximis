@@ -637,7 +637,8 @@ input, textarea, select {
     border-color: #FF737B; }
 
 input, textarea {
-  max-width: 100%; }
+  max-width: 100%;
+  padding-right: 40px; }
   input:-webkit-autofill, textarea:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
             box-shadow: 0 0 0 1000px #fff inset; }
@@ -1494,7 +1495,7 @@ a.ref:hover img, a.ref:focus img {
           transform: scale(0.97); }
 
 .newsletter {
-  padding: 30px 60px 35px;
+  padding: 30px 20px 35px;
   margin: 8em 0;
   border-radius: 6px;
   background: #fff; }
@@ -1502,46 +1503,57 @@ a.ref:hover img, a.ref:focus img {
     background-color: #F8F5F1; }
   .newsletter .wpcf7-submit {
     padding: 20px 25px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0; }
+    margin: 10px 0 0; }
   .newsletter .wpcf7-response-output {
     width: 100%; }
+  .newsletter .wpcf7-form.sent {
+    width: auto;
+    padding: 0; }
   .newsletter .email {
     margin: 0; }
     .newsletter .email.on + span {
       opacity: 0; }
     .newsletter .email + span {
-      padding: 15px 55px 15px 20px;
+      padding: 15px 40px 15px 20px;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
+      white-space: nowrap;
       pointer-events: none; }
   .newsletter label {
     display: block;
     position: relative;
     font-family: "ibmplex", sans-serif; }
   .newsletter input[type=email] {
-    max-width: 100%;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
+    max-width: 100%; }
   .newsletter .text {
     margin: 0 0 30px; }
   .newsletter h2, .newsletter p {
     margin: 0; }
 
 @media (min-width: 580px) {
-  .newsletter .wpcf7-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-    .newsletter .wpcf7-form > p:first-of-type {
-      -webkit-box-flex: 1;
-          -ms-flex: 1 1 1px;
-              flex: 1 1 1px; } }
+  .newsletter {
+    padding-left: 60px;
+    padding-right: 60px; }
+    .newsletter .wpcf7-form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+      .newsletter .wpcf7-form > p:first-of-type {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 1px;
+                flex: 1 1 1px; }
+    .newsletter .wpcf7-submit {
+      margin: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+    .newsletter input[type=email] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; } }
 
 @media (min-width: 960px) {
   .newsletter {

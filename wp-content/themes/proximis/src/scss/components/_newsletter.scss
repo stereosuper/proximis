@@ -1,5 +1,5 @@
 .newsletter{
-    padding: 30px 60px 35px;
+    padding: 30px 20px 35px;
     margin: 8em 0;
     border-radius: 6px;
     background: #fff;
@@ -8,11 +8,14 @@
     }
     .wpcf7-submit{
         padding: 20px 25px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        margin: 10px 0 0;
     }
     .wpcf7-response-output{
         width: 100%;
+    }
+    .wpcf7-form.sent{
+        width: auto;
+        padding: 0;
     }
     .email{
         margin: 0;
@@ -22,12 +25,13 @@
             }
         }
         + span{
-            padding: 15px 55px 15px 20px;
+            padding: 15px 40px 15px 20px;
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            white-space: nowrap;
             pointer-events: none;
         }
     }
@@ -38,8 +42,6 @@
     }
     input[type=email]{
         max-width: 100%;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
     }
     .text{
         margin: 0 0 30px;
@@ -52,6 +54,8 @@
 
 @media (min-width: $phone){
     .newsletter{
+        padding-left: 60px;
+        padding-right: 60px;
         .wpcf7-form{
             display: flex;
             flex-wrap: wrap;
@@ -60,6 +64,15 @@
                     flex: 1 1 1px;
                 }
             }
+        }
+        .wpcf7-submit{
+            margin: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        input[type=email]{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
     }
 }
