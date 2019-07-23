@@ -54,6 +54,10 @@
 
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
+                <symbol id="icon-heart" viewBox="0 0 36 32">
+                    <title>Love</title>
+                    <path d="M18 31.5l13.5-13.441c3.138-3.079 4.5-6.454 4.5-9.474 0-5.151-3.434-8.586-8.645-8.586-4.855 0-6.513 2.25-9.355 5.507-2.842-3.257-4.5-5.507-9.355-5.507-5.211 0-8.645 3.434-8.645 8.586 0 3.020 1.362 6.395 4.5 9.474l13.5 13.441z"></path>
+                </symbol>
                 <symbol id="icon-fb" viewBox="0 0 17 32">
                     <title>Facebook</title>
                     <path d="M15.585 6.083v-6.083h-5.309c-4.282 0-6.508 2.259-6.508 6.083v4.866h-3.768v6.604h3.768v14.425h6.508v-14.425h4.795l0.514-6.604h-5.309v-2.085c0-1.39 0.342-2.781 2.398-2.781h2.911z"></path>

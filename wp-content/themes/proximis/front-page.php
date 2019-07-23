@@ -15,6 +15,7 @@
 							<?php the_sub_field('text'); ?>
 						</div>
 						<div class='img'><?php echo wp_get_attachment_image(get_sub_field('img'), 'full'); ?></div>
+						<div class='badge'><svg style='fill:<?php the_sub_field('color'); ?>' class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg><span>Unified <strong style='color:<?php the_sub_field('color'); ?>'>commerce</strong></span></div>
 					</div>
 				</div>
 			<?php endwhile; ?>
