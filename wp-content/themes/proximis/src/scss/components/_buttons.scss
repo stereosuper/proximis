@@ -25,6 +25,11 @@
             transform: scale(0.95);
         }
     }
+    &.big{
+        display: block;
+        padding: 20px;
+        text-align: center;
+    }
 }
 
 .link{

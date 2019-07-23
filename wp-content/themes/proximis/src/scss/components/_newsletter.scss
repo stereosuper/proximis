@@ -1,0 +1,75 @@
+.newsletter{
+    padding: 30px 60px 35px;
+    margin: 8em 0;
+    border-radius: 6px;
+    background: #fff;
+    .wpcf7-email{
+        background-color: $bg;
+    }
+    .wpcf7-submit{
+        padding: 20px 25px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .wpcf7-response-output{
+        width: 100%;
+    }
+    .email{
+        margin: 0;
+        + span{
+            padding: 15px 55px 15px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    label{
+        display: block;
+        position: relative;
+        font-family: $ibm;
+    }
+    input[type=email]{
+        max-width: 100%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .text{
+        margin: 0 0 30px;
+    }
+    h2, p{
+        margin: 0;
+    }
+}
+
+
+@media (min-width: $phone){
+    .newsletter{
+        .wpcf7-form{
+            display: flex;
+            flex-wrap: wrap;
+            > p{
+                &:first-of-type{
+                    flex: 1 1 1px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop-small){
+    .newsletter{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: -6em;
+        margin-right: -6em;
+        .text{
+            width: 35%;
+        }
+        .wpcf7{
+            width: 55%;
+        }
+    }
+}

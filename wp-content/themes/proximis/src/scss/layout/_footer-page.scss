@@ -1,0 +1,23 @@
+.footer-page{
+    padding: 10px 0 100px;
+    text-align: center;
+    .page-template-services &{
+        margin: 7em 0 0;
+        background: #fff;
+    }
+    h2{
+        margin-bottom: 0;
+    }
+    p{
+        margin: 1em 0;
+    }
+}
+
+
+@media (min-width: $tablet){
+    .footer-page{
+        .container{
+            max-width: $container*0.5px;
+        }
+    }
+}

@@ -5,44 +5,24 @@ Template Name: Services
 
 get_header(); ?>
 
-<div class='container'>
-
-	<?php if ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) : the_post(); ?>
 		
-		<header>
-			<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
+	<?php get_template_part('includes/header-page'); ?>
 
-			<h1>
-				<?php $title = get_field('title'); if( $title ) : ?>
-					<span class='<?php echo $title['white1'] ? 'white' : ''; ?>'>
-						<?php echo $title['title1']; ?>
-					</span>
-					<span class='<?php echo $title['white2'] ? 'white' : ''; ?>'>
-						<?php echo $title['title2']; ?>
-					</span>
-				<?php else : the_title(); endif; ?>
-			</h1>
-
-			<?php the_field('text'); ?>
-		</header>
-
-		<div class='container-small'>
-			<?php if( have_rows('columns') ) : ?>
-				<?php while( have_rows('columns') ) : the_row(); ?>
+	<section class='container services'>
+		<?php if( have_rows('columns') ) : ?>
+			<?php while( have_rows('columns') ) : the_row(); ?>
+				<div>
+					<div class='js-lottie lottie' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
 					<h2><?php the_sub_field('title'); ?></h2>
-					
 					<?php the_sub_field('text'); ?>
-				<?php endwhile; ?>
-			<?php endif; ?>
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</section>
 
-			<?php $bottom = get_field('bottom'); if( $bottom ) : ?>
-				<h2><?php echo $bottom['title']; ?></h2>
-				<?php echo $bottom['text']; ?>
-			<?php endif; ?>
-		</div>
+	<?php get_template_part('includes/footer-page'); ?>
 		
-	<?php endif; ?>
-
-</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>

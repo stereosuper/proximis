@@ -181,6 +181,16 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'book',
+        'title'             => __('Livre blanc'),
+        'description'       => __('Un lien avec texte et image vers un livre blanc.'),
+        'render_template'   => 'blocks/book.php',
+        'category'          => 'formatting',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'book' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'img-shape',
         'title'             => __('Image découpant le texte'),
         'description'       => __('Une image, le texte autour va prendre sa forme.'),
@@ -188,6 +198,16 @@ function register_acf_block_types() {
         'category'          => 'formatting',
         'icon'              => 'format-image',
         'keywords'          => array( 'img-shape' ),
+    ));
+
+    acf_register_block_type(array(
+        'name'              => 'title-text',
+        'title'             => __("Titre à côté d'un texte"),
+        'description'       => __("Titre à côté d'un texte"),
+        'render_template'   => 'blocks/title-text.php',
+        'category'          => 'formatting',
+        'icon'              => 'format-image',
+        'keywords'          => array( 'title-text' ),
     ));
 }
 if( function_exists('acf_register_block_type') ) {
@@ -208,21 +228,38 @@ add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter' );
 
 
 /*-----------------------------------------------------------------------------------*/
+/* Blog
+/*-----------------------------------------------------------------------------------*/
+
+// Excerpt ending
+function proximis_excerpt_more( $more ){
+    return '&#46;&#46;&#46;';
+}
+add_filter( 'excerpt_more', 'proximis_excerpt_more' );
+
+// Excerpt length
+function proximis_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'proximis_excerpt_length' );
+
+
+/*-----------------------------------------------------------------------------------*/
 /* Sidebar & Widgets
 /*-----------------------------------------------------------------------------------*/
-function proximis_register_sidebars(){
-	register_sidebar( array(
-		'id' => 'sidebar',
-		'name' => 'Sidebar',
-		'description' => 'Take it on the side...',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-		'empty_title'=> ''
-	) );
-}
-add_action( 'widgets_init', 'proximis_register_sidebars' );
+// function proximis_register_sidebars(){
+// 	register_sidebar( array(
+// 		'id' => 'sidebar',
+// 		'name' => 'Sidebar',
+// 		'description' => 'Take it on the side...',
+// 		'before_widget' => '',
+// 		'after_widget' => '',
+// 		'before_title' => '',
+// 		'after_title' => '',
+// 		'empty_title'=> ''
+// 	) );
+// }
+// add_action( 'widgets_init', 'proximis_register_sidebars' );
 
 // Deregister default widgets
 function proximis_unregister_default_widgets(){
@@ -304,8 +341,26 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'Contact Form 7',
+            'slug'        => 'contact-form-7',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Contact Form 7 HubSpot',
+            'slug'        => 'cf7-hubspot',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'EWWW Image Optimizer',
             'slug'        => 'ewww-image-optimizer',
+            'required'    => false,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Flamingo',
+            'slug'        => 'flamingo',
             'required'    => false,
             'force_activation' => false
         ),
@@ -313,6 +368,12 @@ function proximis_register_required_plugins(){
             'name'        => 'MultilingualPress',
             'slug'        => 'multilingual-press',
             'required'    => true,
+            'force_activation' => false
+        ),
+        array(
+            'name'        => 'Reading Time WP',
+            'slug'        => 'reading-time-wp',
+            'required'    => false,
             'force_activation' => false
         ),
         array(

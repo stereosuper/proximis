@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    font: 1.6em / 1.55 $ibm;
+    font: 1.6em / 1.65 $ibm;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: $bg;
@@ -53,13 +53,15 @@ h6 {
     margin: 1.9em 0 1.5em;
 }
 
-h1 {
+h1, .h1 {
     font-size: 4.3rem;
     letter-spacing: -1px;
 }
-
-h1 {
+h1{
     margin: 0.6em 0 1.4em;
+}
+.h1{
+    margin-bottom: 0.8em;
 }
 
 h2,
@@ -291,7 +293,7 @@ a {
     margin-bottom: 4.2em;
 }
 
-.has-drop-cap {
+.post-thumbnail, .has-drop-cap{
     position: relative;
     z-index: 1;
 
@@ -305,7 +307,8 @@ a {
         z-index: -1;
         background: #fff;
     }
-
+}
+.has-drop-cap {
     &:not(:focus) {
         &:after {
             content: none;
@@ -319,68 +322,14 @@ a {
             color: $primary;
         }
     }
-}
-
-.breadcrumbs {
-    position: relative;
-    font-size: 1.4rem;
-    line-height: 1;
-    font-family: $ibm;
-
-    &:before {
-        content: '';
-        height: 1px;
-        position: absolute;
-        top: 10px;
-        left: -50vw;
-        right: 100%;
-        margin: 0 8px 0 0;
-        background: $primary;
-    }
-
-    a {
-        display: inline-flex;
-        border: 0;
-        align-items: center;
-        font-family: inherit;
-
-        &:after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 1px;
-            margin: 4px 4px 0 6px;
-            background: $primary;
+    &:before{
+        .has-thumbnail &{
+            content: none;
         }
     }
 }
 
-.highlighted {
-    padding: 40px;
-    position: relative;
-    font-family: $recoleta;
-    font-size: 2rem;
-    line-height: 1.2;
-    color: $grey;
-    background: #fff;
-
-    .line {
-        width: 45px;
-        height: 1px;
-        position: absolute;
-        top: 52px;
-        left: -22px;
-        background: $primary;
-        transform: scaleX(0);
-        transform-origin: 80% 0;
-    }
-
-    >p {
-        margin: 0;
-    }
-}
-
-.img-shape {
+.highlighted, .img-shape {
     display: none;
 }
 
@@ -393,10 +342,17 @@ a {
     }
 }
 
+.lottie {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: $primary;
+    box-shadow: 0 10px 15px rgba(#000, 0.05);
+}
 
 
 @media (min-width: $phone-small) {
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 65%;
         }
@@ -404,7 +360,7 @@ a {
 }
 
 @media (min-width: $phone) {
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 75%;
         }
@@ -418,7 +374,8 @@ a {
 
     h1,
     .home h1,
-    .home h2 {
+    .home h2,
+    .h1 {
         font-size: 5.4rem;
     }
 
@@ -431,7 +388,7 @@ a {
         font-size: 2.4rem;
     }
 
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 80%;
         }
@@ -445,7 +402,7 @@ a {
         }
     }
 
-    .has-drop-cap {
+    .post-thumbnail, .has-drop-cap {
         &:before {
             right: 86%;
         }
@@ -478,10 +435,50 @@ a {
             margin-right: 1em;
         }
     }
+
+    .highlighted {
+        display: block;
+        font-family: $recoleta;
+        font-size: 2rem;
+        line-height: 1.2;
+        color: $grey;
+        background: #fff;
+
+        >p {
+            margin: 0;
+        }
+
+        .line{
+            top: 52px;
+        }
+    }
+
+    .book-highlighted{
+        h2{
+            margin: 20px 0 30px;
+        }
+        .line{
+            top: 190px;
+        }
+    }
+
+    .highlighted, .book-highlighted{
+        padding: 40px;
+        position: relative;
+        .line {
+            width: 45px;
+            height: 1px;
+            position: absolute;
+            left: -22px;
+            background: $primary;
+            transform: scaleX(0);
+            transform-origin: 80% 0;
+        }
+    }
 }
 
 @media (min-width: $desktop) {
-    .highlighted {
+    .highlighted, .book-highlighted {
         width: 240px;
         position: absolute;
         right: 0;
@@ -500,14 +497,22 @@ a {
 }
 
 @media (min-width: $desktop-big) {
-    .highlighted {
-        width: 330px;
-        padding: 60px 100px 60px 40px;
-        margin-top: -60px;
+    .highlighted{
         font-size: 2.4rem;
-
         .line {
             top: 72px;
         }
+    }
+
+    .book-highlighted{
+        .line {
+            top: 208px;
+        }
+    }
+
+    .highlighted, .book-highlighted {
+        width: 330px;
+        padding: 60px 100px 60px 40px;
+        margin-top: -60px;
     }
 }

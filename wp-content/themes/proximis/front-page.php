@@ -1,9 +1,10 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : the_post(); ?>
+
 	<?php if( have_rows('slides', 'options') ) : ?>
 		<header class='carousel' id='slider'>
-			<?php while( have_rows('slides', 'options') ) : the_row(); ?>
+			<?php $countSlides = 0; while( have_rows('slides', 'options') ) : the_row(); ?>
 				<div class='slide' style='background-color:<?php the_sub_field('color'); ?>'>
 					<div class='container'>
 						<div class='text'>
@@ -18,14 +19,15 @@
 						<div class='badge'><svg style='fill:<?php the_sub_field('color'); ?>' class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg><span>Unified <strong style='color:<?php the_sub_field('color'); ?>'>commerce</strong></span></div>
 					</div>
 				</div>
-			<?php endwhile; ?>
-			<div class='carousel-nav'>
-				<?php 
-				$i = 0;
-				while( have_rows('slides', 'options') ) : the_row(); ?>
-					<div class='<?php echo $i == 0 ? "dot active" : "dot"; ?>'></div>
-				<?php $i++; endwhile; ?>
-			</div>
+			<?php $countSlides ++; endwhile; ?>
+
+			<?php if( $countSlides > 1 ) : ?>
+				<div class='carousel-nav'>
+					<?php $i = 0; while( $i < $countSlides ) : ?>
+						<div class='<?php echo $i == 0 ? "dot active" : "dot"; ?>'></div>
+					<?php $i++; endwhile; ?>
+				</div>
+			<?php endif; ?>
 		</header>
 	<?php endif ;?>
 
@@ -59,7 +61,7 @@
 						<ul>
 							<?php while( have_rows('benefits') ) : the_row(); ?>
 								<li>
-									<div class='js-benefit anim' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
+									<div class='js-lottie lottie' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div>
 									<div>
 										<h3><?php the_sub_field('title'); ?></h3>
 										<p><?php the_sub_field('text'); ?></p>

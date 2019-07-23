@@ -2,8 +2,11 @@
 
 <div class='container'>
 
+	<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
+
 	<h1>404</h1>
-	<p><?php _e('Page not found'); ?></p>
+
+	<div class='container-tiny'><?php _e('Page not found'); ?></div>
 
 </div>
 

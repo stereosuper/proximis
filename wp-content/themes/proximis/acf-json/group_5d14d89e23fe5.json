@@ -1,6 +1,6 @@
 {
     "key": "group_5d14d89e23fe5",
-    "title": "[options] Chiffres clés",
+    "title": "[options] Key numbers",
     "fields": [
         {
             "key": "field_5d14da2621318",
@@ -23,7 +23,7 @@
             "sub_fields": [
                 {
                     "key": "field_5d14da5021319",
-                    "label": "Texte sous le chiffre ?",
+                    "label": "Chiffre sous le texte ?",
                     "name": "textBottom",
                     "type": "true_false",
                     "instructions": "",
@@ -98,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1561647898
+    "modified": 1563809865
 }
