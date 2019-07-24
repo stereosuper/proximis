@@ -505,6 +505,10 @@ a {
 .img-shape {
   display: none; }
 
+.newsletter-highlighted {
+  padding: 40px 20px;
+  background: #fff; }
+
 .wp-block-image .alignright,
 .wp-block-image .alignleft {
   float: none;
@@ -529,7 +533,10 @@ a {
 @media (min-width: 580px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
-    right: 75%; } }
+    right: 75%; }
+  .newsletter-highlighted {
+    padding-left: 40px;
+    padding-right: 40px; } }
 
 @media (min-width: 780px) {
   h1,
@@ -582,9 +589,11 @@ a {
       margin: 0; }
     .highlighted .line {
       top: 52px; }
-  .book-highlighted h2 {
+  .book-highlighted h2,
+  .newsletter-highlighted h2 {
     margin: 20px 0 30px; }
-  .book-highlighted .line {
+  .book-highlighted .line,
+  .newsletter-highlighted .line {
     top: 190px; }
   .highlighted,
   .book-highlighted {
@@ -604,7 +613,8 @@ a {
 
 @media (min-width: 1100px) {
   .highlighted,
-  .book-highlighted {
+  .book-highlighted,
+  .newsletter-highlighted {
     width: 240px;
     position: absolute;
     right: 0;
@@ -622,7 +632,8 @@ a {
   .book-highlighted .line {
     top: 208px; }
   .highlighted,
-  .book-highlighted {
+  .book-highlighted,
+  .newsletter-highlighted {
     width: 330px;
     padding: 60px 100px 60px 40px;
     margin-top: -60px; } }
@@ -670,7 +681,8 @@ input, textarea, select {
     border-color: #FF737B; }
 
 input, textarea {
-  max-width: 100%; }
+  max-width: 100%;
+  padding-right: 40px; }
   input:-webkit-autofill, textarea:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
             box-shadow: 0 0 0 1000px #fff inset; }
@@ -1540,54 +1552,77 @@ a.ref:hover img, a.ref:focus img {
     padding-top: 75px; } }
 
 .newsletter {
-  padding: 30px 60px 35px;
-  margin: 8em 0;
   border-radius: 6px;
   background: #fff; }
+  .newsletter-single .newsletter {
+    padding: 30px 20px;
+    margin: 8em 0; }
   .newsletter .wpcf7-email {
     background-color: #F8F5F1; }
   .newsletter .wpcf7-submit {
+    width: 100%;
+    min-width: 100%;
     padding: 20px 25px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0; }
+    margin: 10px 0 0; }
   .newsletter .wpcf7-response-output {
     width: 100%; }
+  .newsletter .wpcf7-form.sent {
+    width: auto;
+    padding: 0; }
   .newsletter .email {
     margin: 0; }
+    .newsletter .email.on + span {
+      opacity: 0; }
     .newsletter .email + span {
-      padding: 15px 55px 15px 20px;
+      padding: 17px 40px 15px 20px;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0; }
+      bottom: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      font-size: 1.4rem; }
   .newsletter label {
     display: block;
     position: relative;
     font-family: "ibmplex", sans-serif; }
   .newsletter input[type=email] {
-    max-width: 100%;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
+    max-width: 100%; }
   .newsletter .text {
     margin: 0 0 30px; }
   .newsletter h2, .newsletter p {
     margin: 0; }
 
 @media (min-width: 580px) {
-  .newsletter .wpcf7-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-    .newsletter .wpcf7-form > p:first-of-type {
-      -webkit-box-flex: 1;
-          -ms-flex: 1 1 1px;
-              flex: 1 1 1px; } }
+  .newsletter-single .newsletter {
+    padding-left: 60px;
+    padding-right: 60px; }
+    .newsletter-single .newsletter .wpcf7-form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+      .newsletter-single .newsletter .wpcf7-form > p:first-of-type {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 1px;
+                flex: 1 1 1px; }
+    .newsletter-single .newsletter .wpcf7-submit {
+      width: auto;
+      min-width: 0;
+      margin: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+    .newsletter-single .newsletter input[type=email] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .newsletter-single .newsletter .email + span {
+      padding-top: 15px;
+      font-size: inherit; } }
 
 @media (min-width: 960px) {
-  .newsletter {
+  .newsletter-single .newsletter {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1599,9 +1634,9 @@ a.ref:hover img, a.ref:focus img {
             justify-content: space-between;
     margin-left: -6em;
     margin-right: -6em; }
-    .newsletter .text {
+    .newsletter-single .newsletter .text {
       width: 35%; }
-    .newsletter .wpcf7 {
+    .newsletter-single .newsletter .wpcf7 {
       width: 55%; } }
 
 /* Home specific style */

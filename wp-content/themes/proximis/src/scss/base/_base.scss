@@ -365,6 +365,11 @@ a {
     display: none;
 }
 
+.newsletter-highlighted {
+    padding: 40px 20px;
+    background: #fff;
+}
+
 .wp-block-image {
 
     .alignright,
@@ -404,6 +409,11 @@ a {
         &:before {
             right: 75%;
         }
+    }
+
+    .newsletter-highlighted {
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
@@ -501,7 +511,8 @@ a {
         }
     }
 
-    .book-highlighted {
+    .book-highlighted,
+    .newsletter-highlighted {
         h2 {
             margin: 20px 0 30px;
         }
@@ -531,7 +542,8 @@ a {
 @media (min-width: $desktop) {
 
     .highlighted,
-    .book-highlighted {
+    .book-highlighted,
+    .newsletter-highlighted {
         width: 240px;
         position: absolute;
         right: 0;
@@ -565,7 +577,8 @@ a {
     }
 
     .highlighted,
-    .book-highlighted {
+    .book-highlighted,
+    .newsletter-highlighted {
         width: 330px;
         padding: 60px 100px 60px 40px;
         margin-top: -60px;

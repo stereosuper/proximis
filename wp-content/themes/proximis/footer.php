@@ -35,6 +35,9 @@
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
+                        <div class='newsletter'>
+                            <?php echo do_shortcode('[contact-form-7 id="250" title="Newsletter"]'); ?>
+                        </div>
                         <p><?php the_field('footerTextSmall2', 'options'); ?></p>
                         <?php if( have_rows('footerLinks', 'options') ) : ?>
                             <ul class='footer-menu'>

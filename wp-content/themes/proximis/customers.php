@@ -63,7 +63,7 @@ get_header(); ?>
         
         <?php $map = get_field('map'); if( $map ) : ?>
             <section class='wrapper-customers-map container'>
-                <?php echo wp_get_attachment_image($map['img'], 'large'); ?>
+                <?php echo wp_get_attachment_image($map['img'], 'full'); ?>
                 <h2 class='big no-margin-bottom'><span><?php echo $map['title1']; ?></span> <?php echo $map['title2']; ?></h2>
                 <p><?php echo $map['text']; ?></p>
             </section>

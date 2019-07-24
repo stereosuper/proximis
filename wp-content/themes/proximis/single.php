@@ -33,18 +33,14 @@
 
 			<?php $author = get_the_author(); ?>
 			<p class='post-author'>
-				<a href='<?php get_the_author_link(); ?>'>
+				<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>'>
 					<span class='img'><?php echo get_avatar( $author ); ?></span>
 					<?php echo $author; ?>
 				</a>
 			</p>
-
-			<div class='newsletter'>
-				<div class='text'>
-					<h2><?php the_field('title_news', 'options'); ?></h2>
-					<p><?php the_field('text_news', 'options'); ?></p>
-				</div>
-				<?php echo do_shortcode('[contact-form-7 id="250" title="Newsletter"]'); ?>
+			
+			<div class='newsletter-single'>
+				<?php get_template_part('includes/newsletter'); ?>
 			</div>
 		</div>
 		
