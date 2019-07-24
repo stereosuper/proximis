@@ -1,4 +1,4 @@
-.ref{
+.ref {
     display: inline-flex;
     width: 165px;
     height: 165px;
@@ -9,7 +9,8 @@
     z-index: 1;
     line-height: 1.2;
     text-align: center;
-    &:after{
+
+    &:after {
         content: '';
         position: absolute;
         top: 0;
@@ -21,31 +22,39 @@
         background: #fff;
         transition: $transition;
     }
-    &.number{
+
+    &.number {
         padding: 20px;
         font-family: $ibm-bold;
-        &:after{
+
+        &:after {
             background: $primary;
         }
     }
-    .nb{
+
+    .nb {
         display: block;
         font-family: $recoleta-bold;
         font-size: 3.6rem;
         color: #fff;
     }
-    img{
+
+    img {
         max-width: 80%;
         transition: $transition;
     }
 }
-a{
-    &.ref{
-        &:hover, &:focus{
-            &:after{
+
+a {
+    &.ref {
+
+        &:hover,
+        &:focus {
+            &:after {
                 transform: scale(0.9);
             }
-            img{
+
+            img {
                 transform: scale(0.97);
             }
         }

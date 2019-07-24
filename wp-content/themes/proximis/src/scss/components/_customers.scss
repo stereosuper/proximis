@@ -1,0 +1,14 @@
+.wrapper-customers {
+    text-align: center;
+}
+
+.wrapper-customers-map {
+    padding-top: 45px;
+}
+
+@media (min-width: $desktop-small) {
+    .wrapper-customers-map {
+        display: flex;
+        padding-top: 75px;
+    }
+}

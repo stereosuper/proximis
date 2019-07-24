@@ -10,7 +10,7 @@ get_header(); ?>
         <?php get_template_part('includes/header-page'); ?>
 
 		<section>
-            <div class='container'>
+            <div class='container wrapper-customers'>
                 <?php
 					if( have_rows('numbers', 'options') ) : $numbers = [];
 						while( have_rows('numbers', 'options') ) : the_row();
@@ -20,7 +20,7 @@ get_header(); ?>
 				?>
 
                 <?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => -1)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
-                    <h2><?php the_title(); ?></h2>
+                    <h2 class='h1 small-margin-bottom'><?php the_title(); ?></h2>
                     <?php the_field('customersText'); ?>
                     
                     <ul class='home-ref-list'>
@@ -62,9 +62,9 @@ get_header(); ?>
         </section>
         
         <?php $map = get_field('map'); if( $map ) : ?>
-            <section class='container'>
+            <section class='wrapper-customers-map container'>
                 <?php echo wp_get_attachment_image($map['img'], 'large'); ?>
-                <h2><?php echo $map['title1']; ?> <?php echo $map['title2']; ?></h2>
+                <h2 class='big no-margin-bottom'><span><?php echo $map['title1']; ?></span> <?php echo $map['title2']; ?></h2>
                 <p><?php echo $map['text']; ?></p>
             </section>
         <?php endif; ?>

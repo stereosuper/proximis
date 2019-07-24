@@ -38,6 +38,12 @@ h5,
 h6 {
     line-height: 1.2;
     font-weight: 400;
+
+    &.no-margin-bottom {
+        +p {
+            margin-top: 0;
+        }
+    }
 }
 
 h1,
@@ -53,15 +59,26 @@ h6 {
     margin: 1.9em 0 1.5em;
 }
 
-h1, .h1 {
+h1,
+.h1 {
     font-size: 4.3rem;
     letter-spacing: -1px;
 }
-h1{
+
+h1 {
     margin: 0.6em 0 1.4em;
 }
-.h1{
+
+.h1 {
     margin-bottom: 0.8em;
+
+    &.small-margin-bottom {
+        margin-bottom: 0.4em;
+
+        +p {
+            margin-top: 0;
+        }
+    }
 }
 
 h2,
@@ -71,6 +88,17 @@ h2,
 
 h2 {
     margin: 1.75em 0 1.25em;
+
+    &.big {
+        font-size: 2.4rem;
+    }
+
+    &:not(.title) {
+        >span {
+            display: block;
+            color: $grey;
+        }
+    }
 }
 
 h3 {
@@ -293,7 +321,8 @@ a {
     margin-bottom: 4.2em;
 }
 
-.post-thumbnail, .has-drop-cap{
+.post-thumbnail,
+.has-drop-cap {
     position: relative;
     z-index: 1;
 
@@ -308,6 +337,7 @@ a {
         background: #fff;
     }
 }
+
 .has-drop-cap {
     &:not(:focus) {
         &:after {
@@ -322,14 +352,16 @@ a {
             color: $primary;
         }
     }
-    &:before{
-        .has-thumbnail &{
+
+    &:before {
+        .has-thumbnail & {
             content: none;
         }
     }
 }
 
-.highlighted, .img-shape {
+.highlighted,
+.img-shape {
     display: none;
 }
 
@@ -350,9 +382,15 @@ a {
     box-shadow: 0 10px 15px rgba(#000, 0.05);
 }
 
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
 
 @media (min-width: $phone-small) {
-    .post-thumbnail, .has-drop-cap {
+
+    .post-thumbnail,
+    .has-drop-cap {
         &:before {
             right: 65%;
         }
@@ -360,7 +398,9 @@ a {
 }
 
 @media (min-width: $phone) {
-    .post-thumbnail, .has-drop-cap {
+
+    .post-thumbnail,
+    .has-drop-cap {
         &:before {
             right: 75%;
         }
@@ -384,11 +424,18 @@ a {
         font-size: 2.8rem;
     }
 
+    h2 {
+        &.big {
+            font-size: 3rem;
+        }
+    }
+
     h3 {
         font-size: 2.4rem;
     }
 
-    .post-thumbnail, .has-drop-cap {
+    .post-thumbnail,
+    .has-drop-cap {
         &:before {
             right: 80%;
         }
@@ -402,7 +449,8 @@ a {
         }
     }
 
-    .post-thumbnail, .has-drop-cap {
+    .post-thumbnail,
+    .has-drop-cap {
         &:before {
             right: 86%;
         }
@@ -448,23 +496,26 @@ a {
             margin: 0;
         }
 
-        .line{
+        .line {
             top: 52px;
         }
     }
 
-    .book-highlighted{
-        h2{
+    .book-highlighted {
+        h2 {
             margin: 20px 0 30px;
         }
-        .line{
+
+        .line {
             top: 190px;
         }
     }
 
-    .highlighted, .book-highlighted{
+    .highlighted,
+    .book-highlighted {
         padding: 40px;
         position: relative;
+
         .line {
             width: 45px;
             height: 1px;
@@ -478,7 +529,9 @@ a {
 }
 
 @media (min-width: $desktop) {
-    .highlighted, .book-highlighted {
+
+    .highlighted,
+    .book-highlighted {
         width: 240px;
         position: absolute;
         right: 0;
@@ -497,20 +550,22 @@ a {
 }
 
 @media (min-width: $desktop-big) {
-    .highlighted{
+    .highlighted {
         font-size: 2.4rem;
+
         .line {
             top: 72px;
         }
     }
 
-    .book-highlighted{
+    .book-highlighted {
         .line {
             top: 208px;
         }
     }
 
-    .highlighted, .book-highlighted {
+    .highlighted,
+    .book-highlighted {
         width: 330px;
         padding: 60px 100px 60px 40px;
         margin-top: -60px;
