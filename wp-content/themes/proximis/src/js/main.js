@@ -1,17 +1,12 @@
+// @babel/polyfill is necessary for async imports
+import '@babel/polyfill';
+import { superLoad, superWindow, query } from '@stereorepo/sac';
+
 import '../scss/main.scss';
 
-//import { TweenLite, TimelineLite } from 'gsap';
-import '@babel/polyfill';
 import Macy from 'macy';
 
-import win from './Window.js';
 import io from './io.js';
-import scroll from './Scroll.js';
-import fallback from './fallback.js';
-//import $ from 'jquery-slim';
-import {
-    query
-} from './utils.js';
 import lottie from 'lottie-web';
 
 import header from './header.js';
@@ -20,26 +15,44 @@ import united from './united.js';
 import form from './form.js';
 import newsletter from './newsletter.js';
 
+// ⚠️ DO NOT REMOVE ⚠️
+// Dynamic imports function
+const dynamicLoading = ({ name }) => async () => {
+    // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
+    const { default: defaultFunction } = await import(
+        /* webpackChunkName: "[request]" */ `./components/${name}`
+    );
+    defaultFunction();
+};
+// ⚠️ DO NOT REMOVE ⚠️
 
-const loadHandler = () => {
-    const [wrapperSlider] = query('#slider');
-    let macy, slider;
-    const cats = document.getElementById('cats');
-    // const noTransitionElts = [].slice.call(
-    //     document.getElementsByClassName('element-without-transition-on-resize')
-    // );
+const preloadCallback = () => {
+    superWindow.setBreakpoints({
+        horizontal: {
+            xs: 0,
+            s: 400,
+            m: 580,
+            l: 780,
+            xl: 960,
+            xxl: 1100
+        },
+        vertical: {}
+    });
 
-    // win.setNoTransitionElts(noTransitionElts);
+    // Stéréosuper js library init
     io.init();
-    fallback.init();
-    scroll.init();
-    win.init();
 
+    const [wrapperSlider] = query({ selector: '#slider' });
+
+    let slider = null;
+    const cats = document.getElementById('cats');
+
+    // Components with global use
     header();
     form();
     newsletter();
 
-    if( wrapperSlider ){
+    if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
         slider.play();
     }
@@ -56,8 +69,8 @@ const loadHandler = () => {
         });
     });
 
-    if( document.getElementById('blog') ){
-        macy = Macy({
+    if (document.getElementById('blog')) {
+        Macy({
             container: '#blog',
             trueOrder: true,
             waitForImages: true,
@@ -69,18 +82,17 @@ const loadHandler = () => {
             }
         });
     }
-    
-    if( cats ){
+
+    if (cats) {
         cats.addEventListener('click', () => {
-            cats.classList.contains('off') ? cats.classList.remove('off') : cats.classList.add('off');
+            cats.classList.contains('off')
+                ? cats.classList.remove('off')
+                : cats.classList.add('off');
         });
     }
-
 };
 
-
-if (document.readyState === 'complete') {
-    loadHandler();
-} else {
-    window.addEventListener('load', loadHandler, false);
-}
+superLoad.initializeLoadingShit({
+    preloadCallback,
+    noTransElementsClass: '.element-without-transition-on-resize'
+});

@@ -23,8 +23,12 @@ const config = (env, options) => {
             rules: [
                 {
                     test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel-loader',
+                    enforce: 'pre',
+                    loader: 'eslint-loader',
+                    exclude: /(node_modules)/,
+                    options: {
+                        sourceMap: true
+                    }
                 },
                 {
                     test: /\.(css|sass|scss)$/,

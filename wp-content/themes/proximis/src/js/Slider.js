@@ -1,17 +1,10 @@
-import {
-    query,
-    forEach
-} from './utils.js';
+import { query, forEach } from './utils.js';
 
-import {
-    TweenMax
-} from 'gsap';
+import { TweenMax } from 'gsap';
 
 import win from './Window.js';
 
-function Slider(
-    wrapper
-) {
+function Slider(wrapper) {
     this.wrapper = wrapper;
     this.slides = query('.slide', this.wrapper);
     this.dots = query('.dot', this.wrapper);
@@ -21,7 +14,8 @@ function Slider(
     forEach(this.dots, (dot, dotIndex) => {
         dot.addEventListener('click', () => {
             if (
-                !TweenMax.isTweening(this.slides) && this.activeSlide != dotIndex
+                !TweenMax.isTweening(this.slides) &&
+                this.activeSlide != dotIndex
             ) {
                 this.kill();
                 this.nextIndex(this, dotIndex);
@@ -39,22 +33,22 @@ Slider.prototype.calculHeight = function calculHeight(self) {
         height: 'auto'
     });
     self.maxHeight = 0;
-    self.slides.forEach((el) => {
+    self.slides.forEach(el => {
         TweenMax.set(el, {
             height: 'auto'
         });
         self.itemHeight = el.clientHeight;
-        self.maxHeight = Math.max(self.maxHeight, self.itemHeight)
+        self.maxHeight = Math.max(self.maxHeight, self.itemHeight);
     });
     TweenMax.set(self.wrapper, {
         height: self.maxHeight
     });
-    self.slides.forEach((el) => {
+    self.slides.forEach(el => {
         TweenMax.set(el, {
             height: self.maxHeight
         });
     });
-}
+};
 
 Slider.prototype.play = function play() {
     if (this.nbSlides > 1) {
@@ -109,7 +103,7 @@ Slider.prototype.animate = function animate(self) {
         }
     });
     self.play();
-}
+};
 
 Slider.prototype.kill = function kill() {
     TweenMax.killTweensOf(this.next);

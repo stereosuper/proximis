@@ -1,10 +1,9 @@
-import {
-    requestAnimFrame,
-    forEach
-} from './utils.js';
+import { requestAnimFrame, forEach } from './utils.js';
+import io from './io';
 
-if (!Object.entries) { // IE 11
-    Object.entries = function (obj) {
+if (!Object.entries) {
+    // IE 11
+    Object.entries = function(obj) {
         var ownProps = Object.keys(obj),
             i = ownProps.length,
             resArray = new Array(i);
@@ -13,7 +12,6 @@ if (!Object.entries) { // IE 11
         return resArray;
     };
 }
-
 
 function Window() {
     this.w = null;
@@ -29,7 +27,7 @@ function Window() {
         m: 580,
         l: 780,
         xl: 960,
-        xxl: 1100,
+        xxl: 1100
     };
     this.currentBreakpoint = '';
 }
@@ -111,7 +109,7 @@ Window.prototype.addResizeFunction = function addResizeFunction(f) {
 
 Window.prototype.toggleNoScroll = function toggleNoScroll({
     transitionElement,
-    noScroll,
+    noScroll
 }) {
     const removeScroll = () => {
         document.documentElement.style.top = `${-window.scrollY}px`;

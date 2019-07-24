@@ -1,8 +1,6 @@
 export const forEach = (arr, callback) => {
     let i = 0;
-    const {
-        length
-    } = arr;
+    const { length } = arr;
     while (i < length) {
         callback(arr[i], i);
         i += 1;
@@ -16,9 +14,9 @@ export const roundNumbers = (number, decimalNumber) => {
 
 export const reverseString = str =>
     str
-    .split('')
-    .reverse()
-    .join('');
+        .split('')
+        .reverse()
+        .join('');
 
 let newEvent;
 if (typeof window.CustomEvent === 'function') {
@@ -36,7 +34,7 @@ if (typeof window.CustomEvent === 'function') {
         params = params || {
             bubbles: false,
             cancelable: false,
-            detail: undefined,
+            detail: undefined
         };
         const evt = document.createEvent('CustomEvent');
         evt.initCustomEvent(
@@ -91,23 +89,26 @@ export const query = (selector, context) => {
     // Redirect simple selectors to the more performant function
     if (/^(#?[\w-]+|\.[\w-.]+)$/.test(selector)) {
         switch (selector.charAt(0)) {
-            case '#':
+            case '#': {
                 // Handle ID-based selectors
                 return [context.getElementById(selector.substr(1))];
-            case '.':
+            }
+            case '.': {
                 // Handle class-based selectors
-                // Query by multiple classes by converting the selector 
+                // Query by multiple classes by converting the selector
                 // string into single spaced class names
                 const classes = selector.substr(1).replace(/\./g, ' ');
                 return [...context.getElementsByClassName(classes)];
-            default:
+            }
+            default: {
                 // Handle tag-based selectors
                 return [...context.getElementsByTagName(selector)];
+            }
         }
     }
     // Default to `querySelectorAll`
     return [...context.querySelectorAll(selector)];
-}
+};
 
 /**
  * @description get display state of one element
@@ -123,5 +124,5 @@ export default {
     requestAnimFrame,
     throttle,
     query,
-    isDisplayed,
+    isDisplayed
 };

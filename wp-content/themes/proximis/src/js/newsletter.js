@@ -1,12 +1,10 @@
-import {
-    forEach
-} from './utils.js';
+import { forEach } from './utils.js';
 
 const headerHandler = () => {
     const newsletters = document.getElementsByClassName('newsletter');
     let input, email;
 
-    if( !newsletters.length ) return;
+    if (!newsletters.length) return;
 
     forEach(newsletters, elt => {
         input = elt.querySelector('.wpcf7-email');
@@ -17,7 +15,7 @@ const headerHandler = () => {
         });
 
         input.addEventListener('blur', () => {
-            if( !input.value ) email.classList.remove('on');
+            if (!input.value) email.classList.remove('on');
         });
     });
 };

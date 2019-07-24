@@ -1,14 +1,10 @@
-import {
-    TweenLite,
-    Linear
-} from 'gsap';
+import { TweenLite, Linear } from 'gsap';
 import scroll from './Scroll.js';
 import 'intersection-observer';
 
 const unitedAnimHandler = () => {
-
     const united = document.getElementById('united');
-    
+
     if (!united) return;
 
     const words = united.querySelectorAll('.js-word');
@@ -23,7 +19,6 @@ const unitedAnimHandler = () => {
 
     let animLaunched = false,
         oScrollTop = 0;
-
 
     const init = () => {
         const tween = TweenLite.to(words, 1, {
@@ -51,7 +46,6 @@ const unitedAnimHandler = () => {
         });
     };
 
-
     for (index; index <= samplesNumber; index++) {
         thresholdSamples[index] = index / samplesNumber;
     }
@@ -59,11 +53,10 @@ const unitedAnimHandler = () => {
     observer = new IntersectionObserver(intersectionCallback, {
         root: null,
         rootMargin: '0px',
-        threshold: thresholdSamples,
+        threshold: thresholdSamples
     });
 
     observer.observe(united);
-
 };
 
 export default unitedAnimHandler;
