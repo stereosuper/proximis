@@ -62,10 +62,14 @@ get_header(); ?>
         </section>
         
         <?php $map = get_field('map'); if( $map ) : ?>
-            <section class='wrapper-customers-map container'>
-                <?php echo wp_get_attachment_image($map['img'], 'full'); ?>
-                <h2 class='big no-margin-bottom'><span><?php echo $map['title1']; ?></span> <?php echo $map['title2']; ?></h2>
-                <p><?php echo $map['text']; ?></p>
+            <section class='container'>
+                <div class='wrapper-customers-map container-small'>
+                    <?php echo wp_get_attachment_image($map['img'], 'full'); ?>
+                    <div class='wrapper-txt'>
+                        <h2 class='big no-margin-bottom'><span><?php echo $map['title1']; ?></span> <?php echo $map['title2']; ?></h2>
+                        <p><?php echo $map['text']; ?></p>
+                    </div>
+                </div>
             </section>
         <?php endif; ?>
 		

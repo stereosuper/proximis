@@ -1,34 +1,36 @@
 /* Grid */
 
-.wrapper{
+.wrapper {
     overflow: hidden;
 }
 
-.container{
+.container {
     max-width: 1350px;
     padding: 0 $gutter;
     margin: 0 auto;
 }
 
 
-@media (min-width: $phone-small){
-    .container{
+@media (min-width: $phone-small) {
+    .container {
         padding: 0 $gutter*2;
     }
 }
 
-@media (min-width: $desktop-small){
-    .container-tiny, .container-small{
+@media (min-width: $desktop-small) {
+
+    .container-tiny,
+    .container-small {
         margin: 0 $col;
     }
 
-    .container-medium{
+    .container-medium {
         margin: 0 0 0 $col;
     }
 }
 
-@media (min-width: $desktop){
-    .container-tiny{
+@media (min-width: $desktop) {
+    .container-tiny {
         margin: 0 $col*3 0 $col;
     }
 }
