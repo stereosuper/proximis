@@ -1,25 +1,28 @@
-const webpack = require("webpack");
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-let config = (env, options) => {
-
-    const MODE = options.mode;    
-    return {
-        entry: "./wp-content/themes/proximis/src/js/main.js",
-        output: {
-            path: path.resolve(__dirname),
-            filename: "./wp-content/themes/proximis/js/main.js",
-            publicPath: '/wp-content/themes/proximis/js'
-        },
-        devtool: '',
-        module: {
-            rules: [{
+const config = () => ({
+    entry: './wp-content/themes/proximis/src/js/main.js',
+    output: {
+        path: path.resolve(__dirname, 'wp-content/themes/proximis/js'),
+        filename: '[name].js',
+        // Public path is important for dynamic imports. It'll help webpack to retrieve bundles by name and not by ids
+        publicPath: '/wp-content/themes/proximis/js/',
+        chunkFilename: '[name].js',
+    },
+    devtool: '',
+    module: {
+        rules: [
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
-            },{
+                loader: 'babel-loader',
+            },
+            {
                 test: /\.(css|sass|scss)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -27,23 +30,13 @@ let config = (env, options) => {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            //minimize: true,
-                        }
+                        },
                     },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => [
-                                require('autoprefixer')({
-                                    browsers: ['last 2 versions']
-                                })
-                            ]
-                        }
-                    },
+                    'postcss-loader',
                     {
                         loader: 'sass-loader',
-                    }
-                ]
+                    },
+                ],
             },
             {
                 test: /\.(png|jpg|gif|svg|ttf|otf|woff|woff2)$/,
@@ -53,22 +46,25 @@ let config = (env, options) => {
                         options: {
                             publicPath: '/',
                             name: '[path][name].[ext]',
-                            emitFile: false
-                        }
-                    }
-                ]
-            }],
-        },
-        node: {
-            fs: "empty" // avoids error messages
-        },
-    
-        plugins: [ 
-            new MiniCssExtractPlugin({
-                filename: "wp-content/themes/proximis/css/main.css",
-            }),
-        ]
-    }
-} 
+                            emitFile: false,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    node: {
+        fs: 'empty', // avoids error messages
+    },
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '../css/[name].css',
+        }),
+    ],
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
+});
 
 module.exports = config;
