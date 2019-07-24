@@ -12,13 +12,55 @@
     line-height: 1.55;
 }
 
-.logo {
-    margin: 0 60px 0 0;
+.wrapper-logo {
+    flex: 0 0 auto;
+    width: calc(#{3*$col} - 20px);
 }
 
-.logo-menu {
-    display: inline-block;
-    margin: 0 0 30px;
+.logo {
+    display: block;
+    position: relative;
+    height: 31px;
+    margin: 0 60px 0 0;
+    border: 0;
+
+    &::before {
+        content: none;
+    }
+
+    >svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: auto;
+        height: 100%;
+    }
+
+    &.logo-header {
+        width: 147px;
+
+        .wordmark {
+            transform: translate3d(0, 5px, 0);
+        }
+
+        .baseline {
+            display: none;
+        }
+    }
+
+    &.logo-menu {
+        position: absolute;
+        top: 40px;
+        left: 27px;
+        width: 31px;
+        margin: 0 0 30px;
+
+        .wordmark,
+        .baseline {
+            display: none;
+        }
+    }
 }
 
 .burger {
@@ -66,7 +108,7 @@
 .nav {
     display: none;
     width: 95%;
-    padding: $gutter*2;
+    padding: $gutter * 2;
     position: fixed;
     top: 0;
     right: 0;
@@ -91,8 +133,8 @@
     width: 24px;
     height: 22px;
     position: absolute;
-    top: $gutter*2;
-    right: $gutter*2;
+    top: 44px;
+    right: $gutter * 2;
 
     &:before,
     &:after {
@@ -118,7 +160,7 @@
 }
 
 .menu-main {
-    margin: 5vh 0;
+    margin: 6vh 0;
 
     >li {
         padding: 0;
@@ -187,7 +229,6 @@
     }
 }
 
-
 @media (min-width: $desktop) {
     .header {
         margin-top: 50px;
@@ -197,6 +238,21 @@
     .logo-menu,
     .close-menu {
         display: none;
+    }
+
+    .logo {
+        &.logo-header {
+            width: 208px;
+            height: 43px;
+
+            .wordmark {
+                transform: none;
+            }
+
+            .baseline {
+                display: block;
+            }
+        }
     }
 
     .nav {
@@ -213,9 +269,12 @@
 
         .btn {
             min-width: 0;
-            margin: 0 60px 0 auto;
+            margin: 0 40px 0 auto;
 
-            .home &, .page-template-services &, .page-template-about &, .page-template-customers & {
+            .home &,
+            .page-template-services &,
+            .page-template-about &,
+            .page-template-customers & {
                 color: $text;
 
                 &:after {
@@ -247,7 +306,10 @@
                 transform: scaleY(0);
                 transition: $transition;
 
-                .home &, .page-template-services &, .page-template-about &, .page-template-customers & {
+                .home &,
+                .page-template-services &,
+                .page-template-about &,
+                .page-template-customers & {
                     background: #fff;
                 }
             }
@@ -286,6 +348,14 @@
     .mlp-language-box {
         ul {
             margin: 0;
+        }
+    }
+}
+
+@media (min-width: $desktop-big) {
+    .nav {
+        .btn {
+            margin-right: 60px;
         }
     }
 }
