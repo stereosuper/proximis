@@ -33,7 +33,7 @@
 
 			<?php $author = get_the_author(); ?>
 			<p class='post-author'>
-				<a href='<?php get_the_author_link(); ?>'>
+				<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>'>
 					<span class='img'><?php echo get_avatar( $author ); ?></span>
 					<?php echo $author; ?>
 				</a>

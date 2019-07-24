@@ -6,7 +6,28 @@
 
 	<div class='container-medium'>
 
-		<h1 class='blog-title'><?php single_post_title(); ?></h1>
+		<h1 class='blog-title'>
+			<?php
+				if( is_category() ){
+
+					single_cat_title();
+				
+				}else if( is_search() ){
+
+					global $wp_query;
+					$results = $wp_query->found_posts;
+					echo $results . __(' results for ', 'proximis');
+					the_search_query();
+
+				}else if( is_author() ){
+
+					the_author();
+
+				}else{
+					single_post_title();
+				}
+			?>
+		</h1>
 
 		<?php
 			$blog = get_option( 'page_for_posts' );
@@ -16,9 +37,11 @@
 		?>
 
 		<ul class='blog-cats off' id='cats'>
-			<li><a href='#'><?php _e('Display all posts', 'proximis'); ?></a></li>
+			<li><a href='<?php echo get_permalink($blog); ?>'><?php _e('Display all posts', 'proximis'); ?></a></li>
 			<?php wp_list_categories( array('title_li' => '') ); ?>
 		</ul>
+
+		<?php get_search_form(); ?>
 
 		<?php if ( have_posts() ) : $countPosts = 0; ?>
 
@@ -33,7 +56,7 @@
 
 						<header class='post-header'>
 							<?php $author = get_the_author(); ?>
-							<a href='<?php get_the_author_link(); ?>' class='author'>
+							<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>' class='author'>
 								<div class='img'><?php echo get_avatar( $author ); ?></div>
 								<?php echo $author; ?>
 							</a>
@@ -79,7 +102,7 @@
 		
 		<?php else : ?>
 					
-			<p><?php _e('No posts yet'); ?></p>
+			<p><?php _e('There are no posts here', 'proximis'); ?></p>
 
 		<?php endif; ?>
 
