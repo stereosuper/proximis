@@ -21,16 +21,18 @@
 				<p><a href='<?php the_field('pdf'); ?>'><?php _e('Télécharger'); ?></a></p>
 			<?php endif; ?>
 
-			<?php echo wp_get_attachment_image(get_field('img'), 'medium'); ?>
+			<div class="wrapper-ref-illus">
+				<?php echo wp_get_attachment_image(get_field('img'), 'medium'); ?>
+			</div>
 
 			<?php the_content(); ?>
 
 			<div class='wrapper-results-awards'>
 				<?php if( have_rows('results') ) : ?>
-					<div class='results'>
+					<div class='results title-text'>
 						<?php while( have_rows('results') ) : the_row(); ?>
-							<h3><?php the_sub_field('results_title'); ?></h3>
-							<?php the_sub_field('results_text') ?>
+							<h3 class="use-case-title"><?php the_sub_field('results_title'); ?></h3>
+							<div class="use-case-content"><?php the_sub_field('results_text') ?></div>
 						<?php endwhile; ?>
 					</div>
 				<?php endif; ?>

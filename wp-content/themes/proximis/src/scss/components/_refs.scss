@@ -103,15 +103,16 @@ a {
     >* {
         flex: 0 0 auto;
     }
+}
 
-    >h3 {
-        width: percentage(2/6);
-    }
+.use-case-title {
+    width: percentage(2/6);
+    color: $text;
+}
 
-    >div {
-        width: percentage(4/6);
-        padding-left: $gutter;
-    }
+.use-case-content {
+    width: percentage(4/6);
+    padding-left: $gutter;
 }
 
 .wrapper-results-awards {
@@ -119,6 +120,14 @@ a {
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+
+    >* {
+        flex: 0 0 auto;
+    }
+}
+
+.results {
+    width: percentage(6/10);
 }
 
 .awards {
@@ -162,4 +171,12 @@ a {
 
 .award-desc {
     margin: 0;
+}
+
+.wrapper-ref-illus {
+    width: 254px;
+    height: 254px;
+    border-radius: 50%;
+    background: $primary;
+    margin: 0 0 $line-height percentage(1/10);
 }

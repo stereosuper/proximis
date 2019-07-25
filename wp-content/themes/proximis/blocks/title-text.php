@@ -30,6 +30,6 @@ $text = get_field('texte');
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <h3><?php echo $title; ?></h3>
-    <div><?php echo $text; ?></div>
+    <h3 class="use-case-title"><?php echo $title; ?></h3>
+    <div class="use-case-content"><?php echo $text; ?></div>
 </div>
