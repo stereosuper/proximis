@@ -60,3 +60,106 @@ a {
         }
     }
 }
+
+.title-ref {
+    margin-bottom: 2*$line-height;
+}
+
+.wrapper-data {
+    position: relative;
+}
+
+.data-number {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    font-family: $recoleta-bold;
+    color: $white;
+    border-radius: 50%;
+    background: $primary;
+
+    >span {
+        position: relative;
+        top: 0.15em;
+    }
+}
+
+.data-text {
+    padding-left: 61px;
+    margin-bottom: $line-height;
+}
+
+.title-text {
+    display: flex;
+    align-items: flex-start;
+    width: percentage(6/10);
+
+    >* {
+        flex: 0 0 auto;
+    }
+
+    >h3 {
+        width: percentage(2/6);
+    }
+
+    >div {
+        width: percentage(4/6);
+        padding-left: $gutter;
+    }
+}
+
+.wrapper-results-awards {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.awards {
+    width: percentage(3/10);
+
+    h3 {
+        color: $grey;
+    }
+
+    >ul {
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: $line-height;
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.award-name {
+    display: inline-block;
+    font-family: $recoleta-bold;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.award-year {
+    font-family: $ibm;
+    font-size: 1.4rem;
+    margin-left: 3px;
+    color: $primary;
+}
+
+.award-desc {
+    margin: 0;
+}

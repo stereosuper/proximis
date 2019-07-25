@@ -17,13 +17,19 @@ $transition: 0.3s ease-in-out;
 
 
 // Fonts
-$ibm: 'ibmplex', sans-serif;
-$ibm-it: 'ibmplex_italic', $ibm;
-$ibm-bold: 'ibmplex_semibold', $ibm;
-$ibm-it-bold: 'ibmplex_semibolditalic', $ibm;
+$ibm: 'ibmplex',
+sans-serif;
+$ibm-it: 'ibmplex_italic',
+$ibm;
+$ibm-bold: 'ibmplex_semibold',
+$ibm;
+$ibm-it-bold: 'ibmplex_semibolditalic',
+$ibm;
 
-$recoleta: 'recoleta', $ibm;
-$recoleta-bold: 'recoleta_bold', $ibm;
+$recoleta: 'recoleta',
+$ibm;
+$recoleta-bold: 'recoleta_bold',
+$ibm;
 
 
 // Mediaqueries
@@ -42,3 +48,4 @@ $phone-small: '400px';
 $col: 100/12*1%;
 
 $gutter: 20px;
+$line-height: 28px;
