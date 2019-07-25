@@ -26,6 +26,14 @@
 			<?php the_content(); ?>
 
 			<div class='wrapper-results-awards'>
+				<?php if( have_rows('results') ) : ?>
+					<div class='results'>
+						<?php while( have_rows('results') ) : the_row(); ?>
+							<h3><?php the_sub_field('results_title'); ?></h3>
+							<?php the_sub_field('results_text') ?>
+						<?php endwhile; ?>
+					</div>
+				<?php endif; ?>
 				<?php if( have_rows('awards') ) : ?>
 					<div class='awards'>
 						<h3><?php the_field('awards_title'); ?></h3>

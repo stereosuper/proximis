@@ -3,30 +3,6 @@
     "title": "[post] Reference",
     "fields": [
         {
-            "key": "field_5d35dd2047def",
-            "label": "Logo",
-            "name": "logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5d35dd3647df0",
             "label": "Etude de cas",
             "name": "studycase",
@@ -70,10 +46,10 @@
             "mime_types": ""
         },
         {
-            "key": "field_5d35dc3698ebd",
-            "label": "Pdf",
-            "name": "pdf",
-            "type": "file",
+            "key": "field_5d35dd2047def",
+            "label": "Logo",
+            "name": "logo",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,9 +58,14 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "id",
+            "preview_size": "medium",
             "library": "all",
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
+            "max_width": "",
+            "max_height": "",
             "max_size": "",
             "mime_types": ""
         },
@@ -148,23 +129,23 @@
             ]
         },
         {
-            "key": "field_5d36c56147443",
-            "label": "Titre récompenses",
-            "name": "awards_title",
-            "type": "text",
+            "key": "field_5d35dc3698ebd",
+            "label": "Pdf",
+            "name": "pdf",
+            "type": "file",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_5d39ba6a2e367",
@@ -188,7 +169,7 @@
                 {
                     "key": "field_5d39ba6a2e368",
                     "label": "Titre",
-                    "name": "title",
+                    "name": "results_title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -207,7 +188,7 @@
                 {
                     "key": "field_5d39ba6a2e36a",
                     "label": "Texte",
-                    "name": "text",
+                    "name": "results_text",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -224,6 +205,25 @@
                     "delay": 0
                 }
             ]
+        },
+        {
+            "key": "field_5d36c56147443",
+            "label": "Titre récompenses",
+            "name": "awards_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5d35dc8c98ec1",
@@ -321,5 +321,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1564064872
+    "modified": 1564066677
 }
