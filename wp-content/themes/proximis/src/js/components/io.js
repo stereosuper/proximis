@@ -1,6 +1,5 @@
-import 'intersection-observer';
+import { query, superPolyfill } from '@stereorepo/sac';
 import { TweenMax, Power2 } from 'gsap';
-import { query } from './utils.js';
 
 const io = function() {
     const threshold = 0.15;
@@ -8,6 +7,8 @@ const io = function() {
     this.resized = true;
 
     this.init = () => {
+        superPolyfill.initializeIntersectionObserver();
+
         const objectsToIO = [...document.querySelectorAll('[data-io]')];
 
         const observer = new IntersectionObserver(
@@ -37,7 +38,7 @@ const io = function() {
     };
 
     this.highlightedIn = entry => {
-        let line = query('.line', entry);
+        let line = query({ selector: '.line', ctx: entry });
         if (line) {
             TweenMax.to(line, 0.5, {
                 scaleX: 1,
@@ -47,7 +48,7 @@ const io = function() {
     };
 
     this.highlightedOut = entry => {
-        let line = query('.line', entry);
+        let line = query({ selector: '.line', ctx: entry });
         if (line) {
             TweenMax.to(line, 0.2, {
                 scaleX: 0,

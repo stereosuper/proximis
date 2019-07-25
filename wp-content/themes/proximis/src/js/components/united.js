@@ -1,11 +1,12 @@
 import { TweenLite, Linear } from 'gsap';
-import scroll from './Scroll.js';
-import 'intersection-observer';
+import { superScroll, superPolyfill } from '@stereorepo/sac';
 
 const unitedAnimHandler = () => {
     const united = document.getElementById('united');
 
     if (!united) return;
+
+    superPolyfill.initializeIntersectionObserver();
 
     const words = united.querySelectorAll('.js-word');
 
@@ -32,8 +33,8 @@ const unitedAnimHandler = () => {
         animLaunched = true;
         windowHeight += oScrollTop;
 
-        scroll.addScrollFunction(() => {
-            progress = (scroll.scrollTop - oScrollTop) / windowHeight;
+        superScroll.addScrollFunction(() => {
+            progress = (superScroll.scrollTop - oScrollTop) / windowHeight;
             if (progress >= 0) tween.progress(progress);
         });
     };
@@ -41,7 +42,7 @@ const unitedAnimHandler = () => {
     const intersectionCallback = entries => {
         entries.forEach(entry => {
             if (entry.intersectionRatio < 0.2 || animLaunched) return;
-            oScrollTop = scroll.scrollTop;
+            oScrollTop = superScroll.scrollTop;
             init();
         });
     };

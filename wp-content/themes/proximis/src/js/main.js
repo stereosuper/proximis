@@ -1,19 +1,18 @@
+import '../scss/main.scss';
+
 // @babel/polyfill is necessary for async imports
 import '@babel/polyfill';
 import { superLoad, superWindow, query } from '@stereorepo/sac';
-
-import '../scss/main.scss';
-
 import Macy from 'macy';
-
-import io from './io.js';
 import lottie from 'lottie-web';
 
-import header from './header.js';
-import Slider from './Slider.js';
-import united from './united.js';
-import form from './form.js';
-import newsletter from './newsletter.js';
+import io from './components/io';
+
+import header from './components/header';
+import Slider from './components/Slider';
+import united from './components/united';
+import form from './components/form';
+import newsletter from './components/newsletter';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -92,7 +91,13 @@ const preloadCallback = () => {
     }
 };
 
+const loadCallback = () => {};
+
+const animationsCallback = () => {};
+
 superLoad.initializeLoadingShit({
     preloadCallback,
+    loadCallback,
+    animationsCallback,
     noTransElementsClass: '.element-without-transition-on-resize'
 });

@@ -1,4 +1,4 @@
-import { forEach } from './utils.js';
+import { forEach } from '@stereorepo/sac';
 
 const headerHandler = () => {
     const newsletters = document.getElementsByClassName('newsletter');

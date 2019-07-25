@@ -35493,124 +35493,71 @@ if (!self.fetch) {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/Scroll.js":
-/*!*****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/Scroll.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$":
+/*!*************************************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components lazy ^\.\/.*$ namespace object ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+var map = {
+	"./Slider": "./wp-content/themes/proximis/src/js/components/Slider.js",
+	"./Slider.js": "./wp-content/themes/proximis/src/js/components/Slider.js",
+	"./form": "./wp-content/themes/proximis/src/js/components/form.js",
+	"./form.js": "./wp-content/themes/proximis/src/js/components/form.js",
+	"./header": "./wp-content/themes/proximis/src/js/components/header.js",
+	"./header.js": "./wp-content/themes/proximis/src/js/components/header.js",
+	"./io": "./wp-content/themes/proximis/src/js/components/io.js",
+	"./io.js": "./wp-content/themes/proximis/src/js/components/io.js",
+	"./newsletter": "./wp-content/themes/proximis/src/js/components/newsletter.js",
+	"./newsletter.js": "./wp-content/themes/proximis/src/js/components/newsletter.js",
+	"./united": "./wp-content/themes/proximis/src/js/components/united.js",
+	"./united.js": "./wp-content/themes/proximis/src/js/components/united.js"
+};
 
+function webpackAsyncContext(req) {
+	return Promise.resolve().then(function() {
+		if(!__webpack_require__.o(map, req)) {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		}
 
-function Scroll() {
-    this.scrollTop = null;
-    this.event = null;
-    this.timeoutScroll = null;
-    this.scrollEnd = true;
-    this.scrollFunctions = [];
-    this.endFunctions = [];
+		var id = map[req];
+		return __webpack_require__(id);
+	});
 }
-
-Scroll.prototype.scrollHandler = function scrollHandler() {
-    this.scrollTop = window.pageYOffset || window.scrollY;
-
-    if (this.scrollEnd) {
-        this.scrollEnd = false;
-    }
-
-    clearTimeout(this.timeoutScroll);
-
-    this.timeoutScroll = setTimeout(() => {
-        this.onScrollEnd();
-    }, 66);
-
-    this.scrollFunctions.forEach(f => {
-        f();
-    });
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
 };
-
-Scroll.prototype.launchScroll = function launchScroll(e) {
-    this.event = e;
-
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(() => {
-        this.scrollHandler();
-    });
-};
-
-Scroll.prototype.init = function initScroll() {
-    this.scrollHandler();
-    window.addEventListener(
-        'scroll',
-        () => {
-            this.launchScroll();
-        },
-        false
-    );
-};
-
-Scroll.prototype.destroyScroll = function destroyScroll() {
-    window.removeEventListener(
-        'scroll',
-        () => {
-            this.launchScroll();
-        },
-        false
-    );
-};
-
-Scroll.prototype.onScrollEnd = function onScrollEnd() {
-    this.scrollEnd = true;
-    this.endFunctions.forEach(f => {
-        f();
-    });
-};
-
-Scroll.prototype.addScrollFunction = function addScrollFunction(
-    f,
-    onEnd = false
-) {
-    this.scrollFunctions.push(f);
-    if (onEnd) this.endFunctions.push(f);
-};
-
-Scroll.prototype.addEndFunction = function addEndFunction(f) {
-    this.endFunctions.push(f);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (new Scroll());
-
+webpackAsyncContext.id = "./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$";
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/Slider.js":
-/*!*****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/Slider.js ***!
-  \*****************************************************/
+/***/ "./wp-content/themes/proximis/src/js/components/Slider.js":
+/*!****************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/Slider.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _Window_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Window.js */ "./wp-content/themes/proximis/src/js/Window.js");
-
-
 
 
 
 
 function Slider(wrapper) {
     this.wrapper = wrapper;
-    this.slides = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["query"])('.slide', this.wrapper);
-    this.dots = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["query"])('.dot', this.wrapper);
+    this.slides = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.slide', ctx: this.wrapper });
+    this.dots = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.dot', ctx: this.wrapper });
     this.activeSlide = 0;
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.dots, (dot, dotIndex) => {
+    Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.dots, (dot, dotIndex) => {
         dot.addEventListener('click', () => {
             if (
                 !gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].isTweening(this.slides) &&
@@ -35624,7 +35571,7 @@ function Slider(wrapper) {
 
     this.calculHeight(this);
 
-    _Window_js__WEBPACK_IMPORTED_MODULE_2__["default"].addResizeFunction(() => this.calculHeight(this));
+    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeFunction(() => this.calculHeight(this));
 }
 
 Slider.prototype.calculHeight = function calculHeight(self) {
@@ -35713,196 +35660,10 @@ Slider.prototype.kill = function kill() {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/Window.js":
-/*!*****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/Window.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
-/* harmony import */ var _io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./io */ "./wp-content/themes/proximis/src/js/io.js");
-
-
-
-if (!Object.entries) {
-    // IE 11
-    Object.entries = function(obj) {
-        var ownProps = Object.keys(obj),
-            i = ownProps.length,
-            resArray = new Array(i);
-
-        while (i--) resArray[i] = [ownProps[i], obj[ownProps[i]]];
-        return resArray;
-    };
-}
-
-function Window() {
-    this.w = null;
-    this.h = null;
-    this.resizeFunctions = [];
-    this.rtime = null;
-    this.timeoutWindow = false;
-    this.delta = 200;
-    this.noTransitionElts = [];
-    this.breakpoints = {
-        xs: 0,
-        s: 400,
-        m: 580,
-        l: 780,
-        xl: 960,
-        xxl: 1100
-    };
-    this.currentBreakpoint = '';
-}
-
-Window.prototype.setNoTransitionElts = function setNoTransitionElts(elements) {
-    this.noTransitionElts = elements;
-};
-
-Window.prototype.resizeend = function resizeend() {
-    if (new Date() - this.rtime < this.delta) {
-        setTimeout(() => {
-            this.resizeend();
-        }, this.delta);
-    } else {
-        this.timeoutWindow = false;
-        [...this.noTransitionElts].map(el => {
-            el.classList.remove('no-transition');
-            return el;
-        });
-    }
-};
-
-Window.prototype.noTransition = function noTransition() {
-    [...this.noTransitionElts].map(el => {
-        el.classList.add('no-transition');
-        return el;
-    });
-
-    this.rtime = new Date();
-
-    if (this.timeoutWindow === false) {
-        this.timeoutWindow = true;
-        setTimeout(() => {
-            this.resizeend();
-        }, this.delta);
-    }
-};
-
-Window.prototype.ioResize = function ioResize() {
-    if (!_io__WEBPACK_IMPORTED_MODULE_1__["default"].resized) _io__WEBPACK_IMPORTED_MODULE_1__["default"].resized = true;
-};
-
-Window.prototype.setBreakpoints = function setBreakpoints() {
-    let currentBreakpoint = '';
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints), breakpoint => {
-        const [name, value] = breakpoint;
-        if (this.w > value) {
-            currentBreakpoint = name;
-        }
-    });
-
-    if (this.currentBreakpoint !== currentBreakpoint) {
-        Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints), ([name]) => {
-            document.documentElement.classList.remove(`breakpoint-${name}`);
-        });
-        this.currentBreakpoint = currentBreakpoint;
-        document.documentElement.classList.add(
-            `breakpoint-${this.currentBreakpoint}`
-        );
-    }
-};
-
-Window.prototype.resizeHandler = function resizeHandler() {
-    this.w = window.innerWidth;
-    this.h = window.innerHeight;
-
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeFunctions, f => {
-        f();
-    });
-
-    this.setBreakpoints();
-
-    this.noTransition();
-};
-
-Window.prototype.addResizeFunction = function addResizeFunction(f) {
-    this.resizeFunctions.push(f);
-};
-
-Window.prototype.toggleNoScroll = function toggleNoScroll({
-    transitionElement,
-    noScroll
-}) {
-    const removeScroll = () => {
-        document.documentElement.style.top = `${-window.scrollY}px`;
-        document.documentElement.classList.add('no-scroll');
-
-        transitionElement.removeEventListener(
-            'transitionend',
-            removeScroll,
-            false
-        );
-    };
-
-    if (noScroll) {
-        transitionElement.addEventListener(
-            'transitionend',
-            removeScroll,
-            false
-        );
-    } else {
-        const scrollY = Math.abs(
-            parseInt(document.documentElement.style.top.replace('px', ''), 10)
-        );
-        document.documentElement.style.top = '';
-        document.documentElement.classList.remove('no-scroll');
-
-        setTimeout(() => {
-            window.scrollTo(0, scrollY);
-        }, 0);
-    }
-};
-
-Window.prototype.launchWindow = function launchWindow() {
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(() => {
-        this.resizeHandler();
-    });
-};
-
-Window.prototype.init = function initWindow() {
-    this.resizeHandler();
-    window.addEventListener(
-        'resize',
-        () => {
-            this.launchWindow();
-        },
-        false
-    );
-};
-
-Window.prototype.destroyWindow = function destroyWindow() {
-    window.removeEventListener(
-        'resize',
-        () => {
-            this.launchWindow();
-        },
-        false
-    );
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (new Window());
-
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/form.js":
-/*!***************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/form.js ***!
-  \***************************************************/
+/***/ "./wp-content/themes/proximis/src/js/components/form.js":
+/*!**************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/form.js ***!
+  \**************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -35971,10 +35732,10 @@ const formHandler = () => {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/header.js":
-/*!*****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/header.js ***!
-  \*****************************************************/
+/***/ "./wp-content/themes/proximis/src/js/components/header.js":
+/*!****************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/header.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -35999,20 +35760,17 @@ const headerHandler = () => {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/io.js":
-/*!*************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/io.js ***!
-  \*************************************************/
+/***/ "./wp-content/themes/proximis/src/js/components/io.js":
+/*!************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/io.js ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var intersection_observer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! intersection-observer */ "./node_modules/intersection-observer/intersection-observer.js");
-/* harmony import */ var intersection_observer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(intersection_observer__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
-
 
 
 
@@ -36022,6 +35780,8 @@ const io = function() {
     this.resized = true;
 
     this.init = () => {
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeIntersectionObserver();
+
         const objectsToIO = [...document.querySelectorAll('[data-io]')];
 
         const observer = new IntersectionObserver(
@@ -36051,7 +35811,7 @@ const io = function() {
     };
 
     this.highlightedIn = entry => {
-        let line = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["query"])('.line', entry);
+        let line = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.line', ctx: entry });
         if (line) {
             gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(line, 0.5, {
                 scaleX: 1,
@@ -36061,7 +35821,7 @@ const io = function() {
     };
 
     this.highlightedOut = entry => {
-        let line = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["query"])('.line', entry);
+        let line = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.line', ctx: entry });
         if (line) {
             gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(line, 0.2, {
                 scaleX: 0,
@@ -36076,6 +35836,121 @@ const io = function() {
 
 /***/ }),
 
+/***/ "./wp-content/themes/proximis/src/js/components/newsletter.js":
+/*!********************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/newsletter.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
+
+
+const headerHandler = () => {
+    const newsletters = document.getElementsByClassName('newsletter');
+    let input, email;
+
+    if (!newsletters.length) return;
+
+    Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(newsletters, elt => {
+        input = elt.querySelector('.wpcf7-email');
+        email = elt.querySelector('.email');
+
+        input.addEventListener('focus', () => {
+            email.classList.add('on');
+        });
+
+        input.addEventListener('blur', () => {
+            if (!input.value) email.classList.remove('on');
+        });
+    });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (headerHandler);
+
+
+/***/ }),
+
+/***/ "./wp-content/themes/proximis/src/js/components/united.js":
+/*!****************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/united.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
+
+
+
+const unitedAnimHandler = () => {
+    const united = document.getElementById('united');
+
+    if (!united) return;
+
+    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superPolyfill"].initializeIntersectionObserver();
+
+    const words = united.querySelectorAll('.js-word');
+
+    let windowHeight = window.innerHeight * 0.65;
+
+    // Constants used to create the intersection observer threshold array
+    const samplesNumber = 100;
+    const thresholdSamples = [];
+    let index = 0;
+    let observer = null;
+
+    let animLaunched = false,
+        oScrollTop = 0;
+
+    const init = () => {
+        const tween = gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
+            x: 0,
+            y: 0,
+            paused: true,
+            ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
+        });
+        let progress = 0;
+
+        animLaunched = true;
+        windowHeight += oScrollTop;
+
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].addScrollFunction(() => {
+            progress = (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop - oScrollTop) / windowHeight;
+            if (progress >= 0) tween.progress(progress);
+        });
+    };
+
+    const intersectionCallback = entries => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio < 0.2 || animLaunched) return;
+            oScrollTop = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop;
+            init();
+        });
+    };
+
+    for (index; index <= samplesNumber; index++) {
+        thresholdSamples[index] = index / samplesNumber;
+    }
+
+    observer = new IntersectionObserver(intersectionCallback, {
+        root: null,
+        rootMargin: '0px',
+        threshold: thresholdSamples
+    });
+
+    observer.observe(united);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (unitedAnimHandler);
+
+
+/***/ }),
+
 /***/ "./wp-content/themes/proximis/src/js/main.js":
 /*!***************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/main.js ***!
@@ -36085,25 +35960,24 @@ const io = function() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
-/* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
-/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/main.scss */ "./wp-content/themes/proximis/src/scss/main.scss");
-/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scss_main_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./wp-content/themes/proximis/src/scss/main.scss");
+/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_main_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
+/* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 /* harmony import */ var macy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! macy */ "./node_modules/macy/dist/macy.js");
 /* harmony import */ var macy__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(macy__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _io_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./io.js */ "./wp-content/themes/proximis/src/js/io.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header.js */ "./wp-content/themes/proximis/src/js/header.js");
-/* harmony import */ var _Slider_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Slider.js */ "./wp-content/themes/proximis/src/js/Slider.js");
-/* harmony import */ var _united_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./united.js */ "./wp-content/themes/proximis/src/js/united.js");
-/* harmony import */ var _form_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./form.js */ "./wp-content/themes/proximis/src/js/form.js");
-/* harmony import */ var _newsletter_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./newsletter.js */ "./wp-content/themes/proximis/src/js/newsletter.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_io__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/io */ "./wp-content/themes/proximis/src/js/components/io.js");
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/header */ "./wp-content/themes/proximis/src/js/components/header.js");
+/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Slider */ "./wp-content/themes/proximis/src/js/components/Slider.js");
+/* harmony import */ var _components_united__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/united */ "./wp-content/themes/proximis/src/js/components/united.js");
+/* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/form */ "./wp-content/themes/proximis/src/js/components/form.js");
+/* harmony import */ var _components_newsletter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/newsletter */ "./wp-content/themes/proximis/src/js/components/newsletter.js");
+
+
 // @babel/polyfill is necessary for async imports
-
-
-
 
 
 
@@ -36121,13 +35995,13 @@ __webpack_require__.r(__webpack_exports__);
 // Dynamic imports function
 const dynamicLoading = ({ name }) => async () => {
     // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
-    const { default: defaultFunction } = await !(function webpackMissingModule() { var e = new Error("Cannot find module 'undefined'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+    const { default: defaultFunction } = await __webpack_require__("./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$")(`./${name}`);
     defaultFunction();
 };
 // ⚠️ DO NOT REMOVE ⚠️
 
 const preloadCallback = () => {
-    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].setBreakpoints({
+    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superWindow"].setBreakpoints({
         horizontal: {
             xs: 0,
             s: 400,
@@ -36140,27 +36014,27 @@ const preloadCallback = () => {
     });
 
     // Stéréosuper js library init
-    _io_js__WEBPACK_IMPORTED_MODULE_4__["default"].init();
+    _components_io__WEBPACK_IMPORTED_MODULE_5__["default"].init();
 
-    const [wrapperSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["query"])({ selector: '#slider' });
+    const [wrapperSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["query"])({ selector: '#slider' });
 
     let slider = null;
     const cats = document.getElementById('cats');
 
     // Components with global use
-    Object(_header_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
-    Object(_form_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
-    Object(_newsletter_js__WEBPACK_IMPORTED_MODULE_10__["default"])();
+    Object(_components_header__WEBPACK_IMPORTED_MODULE_6__["default"])();
+    Object(_components_form__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    Object(_components_newsletter__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
     if (wrapperSlider) {
-        slider = new _Slider_js__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
+        slider = new _components_Slider__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
         slider.play();
     }
 
-    Object(_united_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
+    Object(_components_united__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
     [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
-        lottie_web__WEBPACK_IMPORTED_MODULE_5___default.a.loadAnimation({
+        lottie_web__WEBPACK_IMPORTED_MODULE_4___default.a.loadAnimation({
             container: elt,
             renderer: 'svg',
             loop: true,
@@ -36192,274 +36066,15 @@ const preloadCallback = () => {
     }
 };
 
-_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superLoad"].initializeLoadingShit({
+const loadCallback = () => {};
+
+const animationsCallback = () => {};
+
+_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit({
     preloadCallback,
+    loadCallback,
+    animationsCallback,
     noTransElementsClass: '.element-without-transition-on-resize'
-});
-
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/newsletter.js":
-/*!*********************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/newsletter.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./wp-content/themes/proximis/src/js/utils.js");
-
-
-const headerHandler = () => {
-    const newsletters = document.getElementsByClassName('newsletter');
-    let input, email;
-
-    if (!newsletters.length) return;
-
-    Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["forEach"])(newsletters, elt => {
-        input = elt.querySelector('.wpcf7-email');
-        email = elt.querySelector('.email');
-
-        input.addEventListener('focus', () => {
-            email.classList.add('on');
-        });
-
-        input.addEventListener('blur', () => {
-            if (!input.value) email.classList.remove('on');
-        });
-    });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (headerHandler);
-
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/united.js":
-/*!*****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/united.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _Scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Scroll.js */ "./wp-content/themes/proximis/src/js/Scroll.js");
-/* harmony import */ var intersection_observer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! intersection-observer */ "./node_modules/intersection-observer/intersection-observer.js");
-/* harmony import */ var intersection_observer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(intersection_observer__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-const unitedAnimHandler = () => {
-    const united = document.getElementById('united');
-
-    if (!united) return;
-
-    const words = united.querySelectorAll('.js-word');
-
-    let windowHeight = window.innerHeight * 0.65;
-
-    // Constants used to create the intersection observer threshold array
-    const samplesNumber = 100;
-    const thresholdSamples = [];
-    let index = 0;
-    let observer = null;
-
-    let animLaunched = false,
-        oScrollTop = 0;
-
-    const init = () => {
-        const tween = gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
-            x: 0,
-            y: 0,
-            paused: true,
-            ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
-        });
-        let progress = 0;
-
-        animLaunched = true;
-        windowHeight += oScrollTop;
-
-        _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].addScrollFunction(() => {
-            progress = (_Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop - oScrollTop) / windowHeight;
-            if (progress >= 0) tween.progress(progress);
-        });
-    };
-
-    const intersectionCallback = entries => {
-        entries.forEach(entry => {
-            if (entry.intersectionRatio < 0.2 || animLaunched) return;
-            oScrollTop = _Scroll_js__WEBPACK_IMPORTED_MODULE_1__["default"].scrollTop;
-            init();
-        });
-    };
-
-    for (index; index <= samplesNumber; index++) {
-        thresholdSamples[index] = index / samplesNumber;
-    }
-
-    observer = new IntersectionObserver(intersectionCallback, {
-        root: null,
-        rootMargin: '0px',
-        threshold: thresholdSamples
-    });
-
-    observer.observe(united);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (unitedAnimHandler);
-
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/utils.js":
-/*!****************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/utils.js ***!
-  \****************************************************/
-/*! exports provided: forEach, roundNumbers, reverseString, createNewEvent, requestAnimFrame, throttle, query, isDisplayed, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roundNumbers", function() { return roundNumbers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reverseString", function() { return reverseString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNewEvent", function() { return createNewEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAnimFrame", function() { return requestAnimFrame; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query", function() { return query; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplayed", function() { return isDisplayed; });
-const forEach = (arr, callback) => {
-    let i = 0;
-    const { length } = arr;
-    while (i < length) {
-        callback(arr[i], i);
-        i += 1;
-    }
-};
-
-const roundNumbers = (number, decimalNumber) => {
-    const decimalsFactor = 10 ** decimalNumber;
-    return Math.round(number * decimalsFactor) / decimalsFactor;
-};
-
-const reverseString = str =>
-    str
-        .split('')
-        .reverse()
-        .join('');
-
-let newEvent;
-if (typeof window.CustomEvent === 'function') {
-    newEvent = eventName => {
-        let e = new Event(eventName);
-        if (typeof Event !== 'function') {
-            e = document.createEvent('Event');
-            e.initEvent(eventName, true, true);
-        }
-        return e;
-    };
-} else {
-    // ie 11
-    newEvent = (event, params) => {
-        params = params || {
-            bubbles: false,
-            cancelable: false,
-            detail: undefined
-        };
-        const evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(
-            event,
-            params.bubbles,
-            params.cancelable,
-            params.detail
-        );
-        return evt;
-    };
-
-    newEvent.prototype = window.Event.prototype;
-    window.CustomEvent = newEvent;
-}
-const createNewEvent = newEvent;
-
-const requestAnimFrame = cb => {
-    const anim =
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame;
-    return anim(cb);
-};
-
-const throttle = (callback, delay) => {
-    let last;
-    let timer;
-
-    return function throttleFunction(...args) {
-        const now = +new Date();
-
-        const reset = () => {
-            last = now;
-            callback.apply(this, args);
-        };
-
-        if (last && now < last + delay) {
-            // le délai n'est pas écoulé on reset le timer
-            clearTimeout(timer);
-
-            timer = setTimeout(reset, delay);
-        } else {
-            reset();
-        }
-    };
-};
-
-const query = (selector, context) => {
-    context = context || document;
-    // Redirect simple selectors to the more performant function
-    if (/^(#?[\w-]+|\.[\w-.]+)$/.test(selector)) {
-        switch (selector.charAt(0)) {
-            case '#': {
-                // Handle ID-based selectors
-                return [context.getElementById(selector.substr(1))];
-            }
-            case '.': {
-                // Handle class-based selectors
-                // Query by multiple classes by converting the selector
-                // string into single spaced class names
-                const classes = selector.substr(1).replace(/\./g, ' ');
-                return [...context.getElementsByClassName(classes)];
-            }
-            default: {
-                // Handle tag-based selectors
-                return [...context.getElementsByTagName(selector)];
-            }
-        }
-    }
-    // Default to `querySelectorAll`
-    return [...context.querySelectorAll(selector)];
-};
-
-/**
- * @description get display state of one element
- */
-const isDisplayed = element =>
-    getComputedStyle(element).display !== 'none';
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    roundNumbers,
-    forEach,
-    reverseString,
-    createNewEvent,
-    requestAnimFrame,
-    throttle,
-    query,
-    isDisplayed
 });
 
 
@@ -36477,4 +36092,4 @@ const isDisplayed = element =>
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?6c7cb5c72d125f4a0c5e198027773491
+//# sourceMappingURL=main.js.map?773503e46ee88069b2dd0e1b4f9af3d2
