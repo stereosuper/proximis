@@ -177,6 +177,64 @@
 		</div>
 	</section>
 
+	<?php if (have_rows('they_talk_about_us')): ?>
+	<section>
+		<div class="container">
+		<?php while (have_rows('they_talk_about_us')): the_row(); ?>
+			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
+				<h2><?php echo $they_talk_about_us_title ?></h2>
+				<?php if (have_rows('they_talk_about_us_items')): ?>
+				<ul class="items">
+				<?php while (have_rows('they_talk_about_us_items')): the_row();
+					$logo = get_sub_field('logo');
+					$website_link = get_sub_field('website_link');
+					$title = get_sub_field('title');
+					$text = get_sub_field('text');
+					$post_reference_url = get_sub_field('post_reference');
+					$post_reference_id = url_to_postid($post_reference_url);
+					$post_reference = get_post($post_reference_id);
+				?>
+					<li>
+						<header>
+						<?php
+						if ($logo) {
+							echo wp_get_attachment_image($logo['ID'], 'full'); 
+						} 
+						?>
+						<?php if ($website_link): ?>
+							<a href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+								<?php echo $website_link['title'] ?>
+							</a>
+						<?php endif; ?>
+						<?php if ($post_reference): ?>
+							<span><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
+						<?php endif; ?>
+						</header>
+						<div>
+							<?php if ($title): ?>
+								<h3>
+									<a href="<?php echo $post_reference_url ?>">
+										<?php echo $title ?>
+									</a>
+								</h3>
+							<?php endif; ?>
+							<?php if ($text): ?>
+								<?php echo $text ?>
+							<?php endif; ?>
+							<a href="<?php echo $post_reference_url ?>">
+								<?php _e('Read more', 'proximis') ?>
+							</a>
+						</div>
+					</li>
+				<?php endwhile; ?>
+				</ul>
+				<?php endif; ?>
+			<?php endif; ?>
+		<?php endwhile; ?>
+		</div>
+	</section>
+	<?php endif; ?>
+
 <?php endif; ?>
 
 <?php get_footer(); ?>
