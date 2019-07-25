@@ -36,7 +36,48 @@
 			<?php if( have_rows('section1') ) : while( have_rows('section1') ) : the_row(); ?>
 				<div class='anim'>
 					<div class='anim-united'>
-						<svg width="470" height="522" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".7" filter="url(#filter0_d)"><path d="M210.022 6.522c15.456-8.696 34.5-8.696 49.956 0l170.044 95.661C445.478 110.878 455 126.948 455 144.339v191.322c0 17.391-9.522 33.461-24.978 42.156l-170.044 95.661c-15.456 8.696-34.5 8.696-49.956 0L39.978 377.817C24.522 369.122 15 353.052 15 335.661V144.339c0-17.391 9.522-33.461 24.978-42.156L210.022 6.522z" fill="#F9F6F2"/><path d="M210.512 7.393c15.152-8.524 33.824-8.524 48.976 0l170.043 95.661c15.15 8.523 24.469 24.264 24.469 41.285v191.322c0 17.021-9.319 32.762-24.469 41.285l-170.043 95.661c-15.152 8.524-33.824 8.524-48.976 0L40.469 376.946C25.319 368.423 16 352.682 16 335.661V144.339c0-17.021 9.32-32.762 24.469-41.285l170.043-95.66z" stroke="#fff" stroke-width="2"/></g><g filter="url(#filter1_d)"><path d="M205 98.32a60 60 0 0 1 60 0l77.698 44.859a60 60 0 0 1 30 51.962v89.718a60 60 0 0 1-30 51.962L265 381.68a60.005 60.005 0 0 1-60 0l-77.698-44.859a60 60 0 0 1-30-51.962v-89.718a60 60 0 0 1 30-51.962L205 98.32z" fill="#FBFAF8"/><path d="M205.5 99.186a59 59 0 0 1 59 0l77.698 44.86a58.998 58.998 0 0 1 29.5 51.095v89.718a58.998 58.998 0 0 1-29.5 51.095L264.5 380.813a58.997 58.997 0 0 1-59 0l-77.698-44.859a58.998 58.998 0 0 1-29.5-51.095v-89.718a58.998 58.998 0 0 1 29.5-51.095l77.698-44.86z" stroke="#fff" stroke-width="2"/></g><g filter="url(#filter2_d)"><path d="M215 188.547a40.002 40.002 0 0 1 40 0l14.56 8.406a40 40 0 0 1 20 34.641v16.812a40 40 0 0 1-20 34.641L255 291.453a40.002 40.002 0 0 1-40 0l-14.56-8.406a40 40 0 0 1-20-34.641v-16.812a40 40 0 0 1 20-34.641l14.56-8.406z" fill="#fff"/><path d="M215.25 188.98a39.5 39.5 0 0 1 39.5 0l14.56 8.406a39.5 39.5 0 0 1 19.75 34.208v16.812a39.5 39.5 0 0 1-19.75 34.208l-14.56 8.406a39.5 39.5 0 0 1-39.5 0l-14.56-8.406a39.5 39.5 0 0 1-19.75-34.208v-16.812a39.5 39.5 0 0 1 19.75-34.208l14.56-8.406z" stroke="#F8F5F1" stroke-opacity=".6"/></g><defs><filter id="filter0_d" x="0" y="0" width="470" height="522" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dy="27"/><feGaussianBlur stdDeviation="7.5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter1_d" x="82.302" y="90.282" width="305.396" height="341.436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dy="27"/><feGaussianBlur stdDeviation="7.5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter2_d" x="165.44" y="183.188" width="139.119" height="155.624" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dy="27"/><feGaussianBlur stdDeviation="7.5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+						<svg width="470" height="522" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g opacity=".7" filter="url(#filter0_d)">
+								<path d="M210.022 6.522c15.456-8.696 34.5-8.696 49.956 0l170.044 95.661C445.478 110.878 455 126.948 455 144.339v191.322c0 17.391-9.522 33.461-24.978 42.156l-170.044 95.661c-15.456 8.696-34.5 8.696-49.956 0L39.978 377.817C24.522 369.122 15 353.052 15 335.661V144.339c0-17.391 9.522-33.461 24.978-42.156L210.022 6.522z" fill="#F9F6F2"/>
+								<path d="M210.512 7.393c15.152-8.524 33.824-8.524 48.976 0l170.043 95.661c15.15 8.523 24.469 24.264 24.469 41.285v191.322c0 17.021-9.319 32.762-24.469 41.285l-170.043 95.661c-15.152 8.524-33.824 8.524-48.976 0L40.469 376.946C25.319 368.423 16 352.682 16 335.661V144.339c0-17.021 9.32-32.762 24.469-41.285l170.043-95.66z" stroke="#fff" stroke-width="2"/>
+							</g>
+							<g filter="url(#filter1_d)">
+								<path d="M205 98.32a60 60 0 0 1 60 0l77.698 44.859a60 60 0 0 1 30 51.962v89.718a60 60 0 0 1-30 51.962L265 381.68a60.005 60.005 0 0 1-60 0l-77.698-44.859a60 60 0 0 1-30-51.962v-89.718a60 60 0 0 1 30-51.962L205 98.32z" fill="#FBFAF8"/>
+								<path d="M205.5 99.186a59 59 0 0 1 59 0l77.698 44.86a58.998 58.998 0 0 1 29.5 51.095v89.718a58.998 58.998 0 0 1-29.5 51.095L264.5 380.813a58.997 58.997 0 0 1-59 0l-77.698-44.859a58.998 58.998 0 0 1-29.5-51.095v-89.718a58.998 58.998 0 0 1 29.5-51.095l77.698-44.86z" stroke="#fff" stroke-width="2"/>
+							</g>
+							<g filter="url(#filter2_d)">
+								<path d="M215 188.547a40.002 40.002 0 0 1 40 0l14.56 8.406a40 40 0 0 1 20 34.641v16.812a40 40 0 0 1-20 34.641L255 291.453a40.002 40.002 0 0 1-40 0l-14.56-8.406a40 40 0 0 1-20-34.641v-16.812a40 40 0 0 1 20-34.641l14.56-8.406z" fill="#fff"/>
+								<path d="M215.25 188.98a39.5 39.5 0 0 1 39.5 0l14.56 8.406a39.5 39.5 0 0 1 19.75 34.208v16.812a39.5 39.5 0 0 1-19.75 34.208l-14.56 8.406a39.5 39.5 0 0 1-39.5 0l-14.56-8.406a39.5 39.5 0 0 1-19.75-34.208v-16.812a39.5 39.5 0 0 1 19.75-34.208l14.56-8.406z" stroke="#F8F5F1" stroke-opacity=".6"/>
+							</g>
+							<defs>
+								<filter id="filter0_d" x="0" y="0" width="470" height="522" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+									<feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+									<feOffset dy="27"/><feGaussianBlur stdDeviation="7.5"/>
+									<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
+									<feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+									<feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+								</filter>
+								<filter id="filter1_d" x="82.302" y="90.282" width="305.396" height="341.436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+									<feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+									<feOffset dy="27"/>
+									<feGaussianBlur stdDeviation="7.5"/>
+									<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
+									<feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+									<feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+								</filter>
+								<filter id="filter2_d" x="165.44" y="183.188" width="139.119" height="155.624" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+									<feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+									<feOffset dy="27"/>
+									<feGaussianBlur stdDeviation="7.5"/>
+									<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+									<feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+									<feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+								</filter>
+							</defs>
+						</svg>
 						<?php if( have_rows('keywords') ) : while( have_rows('keywords') ) : the_row(); ?>
 							<span class='keyword js-word'><?php the_sub_field('word'); ?></span>
 						<?php endwhile; endif; ?>

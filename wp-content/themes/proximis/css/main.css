@@ -1791,7 +1791,7 @@ a.ref:hover img, a.ref:focus img {
     margin-left: 27%; }
   .anim-united {
     width: 480px;
-    height: 480px;
+    height: 534px;
     position: relative;
     margin: 0 auto;
     font-family: "ibmplex_semibold", "ibmplex", sans-serif;
@@ -1800,7 +1800,8 @@ a.ref:hover img, a.ref:focus img {
     .anim-united > svg {
       display: block;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      padding-top: 27px; }
     .anim-united .keyword {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -2199,4 +2200,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?7c3928c1f9d4c3867c1619f196692020*/
+/*# sourceMappingURL=main.css.map?40a01c730111d72a01838ca794b89f22*/
