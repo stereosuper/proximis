@@ -1,13 +1,11 @@
-import { query, forEach } from './utils.js';
+import { query, forEach, superWindow } from '@stereorepo/sac';
 
 import { TweenMax } from 'gsap';
 
-import win from './Window.js';
-
 function Slider(wrapper) {
     this.wrapper = wrapper;
-    this.slides = query('.slide', this.wrapper);
-    this.dots = query('.dot', this.wrapper);
+    this.slides = query({ selector: '.slide', ctx: this.wrapper });
+    this.dots = query({ selector: '.dot', ctx: this.wrapper });
     this.activeSlide = 0;
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
@@ -25,7 +23,7 @@ function Slider(wrapper) {
 
     this.calculHeight(this);
 
-    win.addResizeFunction(() => this.calculHeight(this));
+    superWindow.addResizeFunction(() => this.calculHeight(this));
 }
 
 Slider.prototype.calculHeight = function calculHeight(self) {
