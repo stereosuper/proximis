@@ -35993,9 +35993,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
-const dynamicLoading = ({ name }) => async () => {
+const dynamicLoading = ({
+    name
+}) => async () => {
     // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
-    const { default: defaultFunction } = await __webpack_require__("./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$")(`./${name}`);
+    const {
+        default: defaultFunction
+    } = await __webpack_require__("./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$")(`./${name}`);
     defaultFunction();
 };
 // ⚠️ DO NOT REMOVE ⚠️
@@ -36016,7 +36020,9 @@ const preloadCallback = () => {
     // Stéréosuper js library init
     _components_io__WEBPACK_IMPORTED_MODULE_5__["default"].init();
 
-    const [wrapperSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["query"])({ selector: '#slider' });
+    const [wrapperSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["query"])({
+        selector: '#slider'
+    });
 
     let slider = null;
     const cats = document.getElementById('cats');
@@ -36059,9 +36065,9 @@ const preloadCallback = () => {
 
     if (cats) {
         cats.addEventListener('click', () => {
-            cats.classList.contains('off')
-                ? cats.classList.remove('off')
-                : cats.classList.add('off');
+            cats.classList.contains('off') ?
+                cats.classList.remove('off') :
+                cats.classList.add('off');
         });
     }
 };
@@ -36074,9 +36080,8 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
     preloadCallback,
     loadCallback,
     animationsCallback,
-    noTransElementsClass: '.element-without-transition-on-resize'
+    noTransElementsClass: '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
 });
-
 
 /***/ }),
 
@@ -36092,4 +36097,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?773503e46ee88069b2dd0e1b4f9af3d2
+//# sourceMappingURL=main.js.map?b89217071dcabff152f01d0432017903

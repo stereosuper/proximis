@@ -314,6 +314,11 @@ a {
 
 .no-transition {
     transition: none !important;
+
+    &::before,
+    &::after {
+        transition: none !important;
+    }
 }
 
 .has-medium-font-size {

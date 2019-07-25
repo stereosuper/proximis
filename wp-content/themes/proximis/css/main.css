@@ -398,6 +398,9 @@ a:active {
 .no-transition {
   -webkit-transition: none !important;
   transition: none !important; }
+.no-transition::before, .no-transition::after {
+    -webkit-transition: none !important;
+    transition: none !important; }
 .has-medium-font-size {
   font-size: 2rem;
   margin-bottom: 4.2em; }
@@ -2196,4 +2199,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?3f6738e2ed88e4d57b2cec9e004d6fd1*/
+/*# sourceMappingURL=main.css.map?7c3928c1f9d4c3867c1619f196692020*/

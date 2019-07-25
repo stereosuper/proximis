@@ -19,7 +19,7 @@
 
 			<header role='banner' class='header container'>
 				<div class='wrapper-logo'>
-					<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo logo-header'>
+					<a href='<?php echo home_url('/'); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home' class='logo logo-header element-without-transition-on-resize'>
 						<svg width="208" height="45" viewBox="0 0 208 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g class="favicon">
 								<path d="M22.2667 12.4097C19.2344 12.4097 17.2384 14.8547 17.2384 17.7265V17.7653C17.2384 20.6372 19.3111 23.1597 22.3051 23.1597C25.299 23.1597 27.295 20.7148 27.295 17.8429V17.8041C27.3334 14.8935 25.299 12.4097 22.2667 12.4097Z" fill="#18162B"/>
@@ -63,7 +63,7 @@
 					<div class='burger-icon'></div>
 				</button>
 
-				<nav role='navigation' class='nav'>
+				<nav role='navigation' class='nav element-without-transition-on-resize'>
 					<button type='button' class='close-menu' id='close-menu'>
 						<span class='visually-hidden'><?php _e('Close menu', 'proximis'); ?></span>
 					</button>
