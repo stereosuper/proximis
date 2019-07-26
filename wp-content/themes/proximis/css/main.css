@@ -1833,6 +1833,18 @@ a.ref:hover img, a.ref:focus img {
       width: 35%; }
     .newsletter-single .newsletter .wpcf7 {
       width: 55%; } }
+.press {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+.press > li {
+    width: 33.33333%;
+    padding: 0 8.33333% 0 0; }
+.press > li::before {
+      content: none; }
 /* Home specific style */
 .home h1 {
   font-size: 4.3rem; }
@@ -2436,4 +2448,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?8a9597aa6c039811512ba2254136b259*/
+/*# sourceMappingURL=main.css.map?74ad4cef5ccd6d3d4e22226419e36d5b*/

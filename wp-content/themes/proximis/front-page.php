@@ -184,7 +184,7 @@
 			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
 				<h2><?php echo $they_talk_about_us_title ?></h2>
 				<?php if (have_rows('they_talk_about_us_items')): ?>
-				<ul class="items">
+				<ul class="press">
 				<?php while (have_rows('they_talk_about_us_items')): the_row();
 					$logo = get_sub_field('logo');
 					$website_link = get_sub_field('website_link');

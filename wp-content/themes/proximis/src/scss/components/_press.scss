@@ -1,0 +1,13 @@
+.press {
+    display: flex;
+    align-items: flex-start;
+
+    >li {
+        width: 33.33333%;
+        padding: 0 percentage(1/12) 0 0;
+
+        &::before {
+            content: none;
+        }
+    }
+}
