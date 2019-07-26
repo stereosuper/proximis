@@ -364,6 +364,12 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'Loco Translate',
+            'slug'        => 'loco-translate',
+            'required'    => true,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'MultilingualPress',
             'slug'        => 'multilingual-press',
             'required'    => true,
@@ -405,5 +411,22 @@ function proximis_register_required_plugins(){
 	tgmpa( $plugins, $config );
 }
 add_action( 'tgmpa_register', 'proximis_register_required_plugins' );
+
+/*-----------------------------------------------------------------------------------*/
+/* I18n
+/*-----------------------------------------------------------------------------------*/
+
+add_action( 'after_setup_theme', 'language_translation_setup' );
+function language_translation_setup(){
+    load_theme_textdomain( 'proximis', get_template_directory() . '/languages' );
+
+    $locale = get_locale();
+    $locale_file = get_template_directory() . "/languages/$locale.php";
+
+    if ( is_readable( $locale_file ) ) {
+        require_once( $locale_file );
+    }
+}
+
 
 ?>
