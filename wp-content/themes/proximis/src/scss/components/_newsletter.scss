@@ -1,34 +1,51 @@
-.newsletter{
+.newsletter {
     border-radius: 6px;
     background: #fff;
-    .newsletter-single &{
+
+    .newsletter-single & {
         padding: 30px 20px;
         margin: 8em 0;
     }
-    .wpcf7-email{
+
+    .newsletter-in-list & {
+        padding: 30px;
+
+        p {
+            font-size: 1.4rem;
+            color: $grey;
+        }
+    }
+
+    .wpcf7-email {
         background-color: $bg;
     }
-    .wpcf7-submit{
+
+    .wpcf7-submit {
         width: 100%;
         min-width: 100%;
         padding: 20px 25px;
-        margin: 10px 0 0;
+        margin: 15px 0 0;
     }
-    .wpcf7-response-output{
+
+    .wpcf7-response-output {
         width: 100%;
     }
-    .wpcf7-form.sent{
+
+    .wpcf7-form.sent {
         width: auto;
         padding: 0;
     }
-    .email{
+
+    .email {
         margin: 0;
-        &.on{
-            + span{
+
+        &.on {
+            +span {
                 opacity: 0;
             }
         }
-        + span{
+
+        +span {
             padding: 17px 40px 15px 20px;
             position: absolute;
             top: 0;
@@ -40,50 +57,60 @@
             font-size: 1.4rem;
         }
     }
-    label{
+
+    label {
         display: block;
         position: relative;
         font-family: $ibm;
     }
-    input[type=email]{
+
+    input[type=email] {
         max-width: 100%;
     }
-    .text{
-        margin: 0 0 30px;
+
+    .text {
+        margin: 0 0 $line-height;
     }
-    h2, p{
+
+    h2,
+    p {
         margin: 0;
     }
 }
 
 
-@media (min-width: $phone){
-    .newsletter{
-        .newsletter-single &{
+@media (min-width: $phone) {
+    .newsletter {
+        .newsletter-single & {
             padding-left: 60px;
             padding-right: 60px;
-            .wpcf7-form{
+
+            .wpcf7-form {
                 display: flex;
                 flex-wrap: wrap;
-                > p{
-                    &:first-of-type{
+
+                >p {
+                    &:first-of-type {
                         flex: 1 1 1px;
                     }
                 }
             }
-            .wpcf7-submit{
+
+            .wpcf7-submit {
                 width: auto;
                 min-width: 0;
                 margin: 0;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
-            input[type=email]{
+
+            input[type=email] {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
-            .email{
-                + span{
+
+            .email {
+                +span {
                     padding-top: 15px;
                     font-size: inherit;
                 }
@@ -92,18 +119,20 @@
     }
 }
 
-@media (min-width: $desktop-small){
-    .newsletter{
-        .newsletter-single &{
+@media (min-width: $desktop-small) {
+    .newsletter {
+        .newsletter-single & {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-left: -6em;
             margin-right: -6em;
-            .text{
+
+            .text {
                 width: 35%;
             }
-            .wpcf7{
+
+            .wpcf7 {
                 width: 55%;
             }
         }

@@ -63,7 +63,7 @@
 					?>
 
 					<?php if( $newsletter && $newsletter['display'] && $countPosts == $newsletter['pos'] ) : ?>
-						<li class="newsletter">
+						<li class="newsletter-in-list">
 							<?php get_template_part('includes/newsletter'); ?>
 						</li>
 					<?php 

@@ -201,7 +201,7 @@ html {
   font-size: 62.5%;
   /* sets the base font to 10px for easier math */ }
 body {
-  font: 1.6em/1.65 "ibmplex", sans-serif;
+  font: 1.6em / 28px ibmplex, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #F8F5F1;
@@ -214,7 +214,6 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2;
   font-weight: 400; }
 h1.no-margin-bottom + p,
   h2.no-margin-bottom + p,
@@ -235,7 +234,8 @@ h6 {
 h1,
 .h1 {
   font-size: 4.3rem;
-  letter-spacing: -0.02em; }
+  letter-spacing: -0.02em;
+  line-height: 56px; }
 h1 {
   margin: 0.6em 0 1.4em; }
 .h1 {
@@ -361,7 +361,7 @@ a {
   border-bottom: 1px solid;
   position: relative;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
-  line-height: 1.3;
+  line-height: 28px;
   color: #55C4DA;
   text-decoration: none;
   -webkit-transition: 0.3s ease-in-out;
@@ -506,7 +506,7 @@ a:active {
     display: block;
     font-family: "recoleta", "ibmplex", sans-serif;
     font-size: 2rem;
-    line-height: 1.2;
+    line-height: 28px;
     color: #5C6370;
     background: #fff; }
     .highlighted > p {
@@ -742,8 +742,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   margin-top: 40px;
   margin-bottom: 130px;
   z-index: 15;
-  font-size: 1.6rem;
-  line-height: 1.55; }
+  font-size: 1.6rem; }
 .wrapper-logo {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -872,27 +871,25 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     position: relative;
     font-family: "ibmplex", sans-serif;
     color: #18162B; }
-.mlp-language-box {
-  line-height: 1.2; }
 .mlp-language-box ul {
-    margin: 35px 0 0; }
+  margin: 35px 0 0; }
 .mlp-language-box li {
-    display: inline;
-    padding: 0; }
+  display: inline;
+  padding: 0; }
 .mlp-language-box li:before {
-      content: none; }
+    content: none; }
 .mlp-language-box li:after {
-      content: ' / '; }
+    content: ' / '; }
 .mlp-language-box li:last-child:after {
-      content: none; }
+    content: none; }
 .mlp-language-box a {
-    border-bottom: 1px solid transparent;
-    font-family: "recoleta", "ibmplex", sans-serif;
-    color: #18162B; }
+  border-bottom: 1px solid transparent;
+  font-family: "recoleta", "ibmplex", sans-serif;
+  color: #18162B; }
 .mlp-language-box a:hover, .mlp-language-box a:focus {
-      border-color: currentColor; }
+    border-color: currentColor; }
 .mlp-language-box .current-language-item {
-    font-family: "recoleta_bold", "ibmplex", sans-serif; }
+  font-family: "recoleta_bold", "ibmplex", sans-serif; }
 @media (min-width: 1100px) {
   .header {
     margin-top: 50px; }
@@ -1790,13 +1787,18 @@ a.ref:hover img, a.ref:focus img {
 .newsletter-single .newsletter {
     padding: 30px 20px;
     margin: 8em 0; }
+.newsletter-in-list .newsletter {
+    padding: 30px; }
+.newsletter-in-list .newsletter p {
+      font-size: 1.4rem;
+      color: #5C6370; }
 .newsletter .wpcf7-email {
     background-color: #F8F5F1; }
 .newsletter .wpcf7-submit {
     width: 100%;
     min-width: 100%;
     padding: 20px 25px;
-    margin: 10px 0 0; }
+    margin: 15px 0 0; }
 .newsletter .wpcf7-response-output {
     width: 100%; }
 .newsletter .wpcf7-form.sent {
@@ -1823,8 +1825,9 @@ a.ref:hover img, a.ref:focus img {
 .newsletter input[type=email] {
     max-width: 100%; }
 .newsletter .text {
-    margin: 0 0 30px; }
-.newsletter h2, .newsletter p {
+    margin: 0 0 28px; }
+.newsletter h2,
+  .newsletter p {
     margin: 0; }
 @media (min-width: 580px) {
   .newsletter-single .newsletter {
@@ -1940,6 +1943,7 @@ a.ref:hover img, a.ref:focus img {
   font-size: 4.3rem; }
 .home h2 {
   font-size: 3.5rem;
+  line-height: 56px;
   letter-spacing: -0.02em;
   margin: 0; }
 .home h3 {
@@ -2540,4 +2544,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b4c62053f661e711dedea156905b540f*/
+/*# sourceMappingURL=main.css.map?23d375f3ea5a43762203ab24bac0c129*/
