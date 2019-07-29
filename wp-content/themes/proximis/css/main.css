@@ -2202,10 +2202,10 @@ a.ref:hover img, a.ref:focus img {
   .home-ref-list {
     margin-left: -40px;
     margin-right: -40px; }
-  .carousel .container {
+  .carousel .slide .container {
     padding-top: 215px; }
-    .carousel .container .text,
-    .carousel .container .img {
+    .carousel .slide .container .text,
+    .carousel .slide .container .img {
       width: calc(50% - 10px);
       padding-right: 0; }
   .carousel .text {
@@ -2223,7 +2223,8 @@ a.ref:hover img, a.ref:focus img {
         -ms-flex-pack: center;
             justify-content: center; }
     .carousel .img > img {
-      max-width: calc(100% - 20px); }
+      width: calc(100% - 40px);
+      max-width: 525px; }
   .carousel .badge {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
@@ -2538,4 +2539,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?408f6da9d2f5543b119e90e4d1c819bb*/
+/*# sourceMappingURL=main.css.map?4702b8482d34209750a09ddc089b02ad*/

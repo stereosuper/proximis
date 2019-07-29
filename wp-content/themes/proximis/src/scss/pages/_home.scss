@@ -68,6 +68,7 @@
 
     .text {
         padding: 0 0 50px;
+
         a {
             color: inherit;
         }
@@ -205,7 +206,7 @@
     padding-bottom: 0;
     text-align: center;
 
-    h2 + p {
+    h2+p {
         margin-top: 0;
     }
 }
@@ -216,7 +217,7 @@
     margin: 3em 0;
     flex-wrap: wrap;
 
-    > li {
+    >li {
         width: 14%;
         min-width: 180px;
         padding: 0 0 10px;
@@ -228,6 +229,7 @@
 }
 
 @media (min-width: $tablet) {
+
     .home h1,
     .home h2 {
         font-size: 5rem;
@@ -248,7 +250,7 @@
     }
 
     .home-united {
-        > .container {
+        >.container {
             display: flex;
             align-items: flex-end;
         }
@@ -276,7 +278,7 @@
         font-size: 1.6rem;
         text-align: center;
 
-        > svg {
+        >svg {
             display: block;
             width: 100%;
             height: 100%;
@@ -363,15 +365,18 @@
     }
 
     .carousel {
-        .container {
-            padding-top: 215px;
+        .slide {
+            .container {
+                padding-top: 215px;
 
-            .text,
-            .img {
-                width: calc(50% - #{$gutter/2});
-                padding-right: 0;
+                .text,
+                .img {
+                    width: calc(50% - #{$gutter/2});
+                    padding-right: 0;
+                }
             }
         }
+
 
         .text {
             padding-bottom: 100px;
@@ -383,8 +388,9 @@
             align-items: flex-end;
             justify-content: center;
 
-            > img {
-                max-width: calc(100% - #{$gutter});
+            >img {
+                width: calc(100% - #{2*$gutter});
+                max-width: 525px;
             }
         }
 
@@ -410,7 +416,7 @@
             transform: rotate(9deg);
             box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
 
-            > *,
+            >*,
             strong {
                 display: block;
             }
@@ -436,7 +442,7 @@
     }
 
     .home-solution {
-        > .container {
+        >.container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -458,6 +464,7 @@
 }
 
 @media (min-width: $desktop-big) {
+
     .home h1,
     .home h2 {
         font-size: 5.4rem;
