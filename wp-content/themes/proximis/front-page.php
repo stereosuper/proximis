@@ -178,11 +178,11 @@
 	</section>
 
 	<?php if (have_rows('they_talk_about_us')): ?>
-	<section>
+	<section class="wrapper-press">
 		<div class="container">
 		<?php while (have_rows('they_talk_about_us')): the_row(); ?>
 			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
-				<h2><?php echo $they_talk_about_us_title ?></h2>
+				<h2 class="x-small"><?php echo $they_talk_about_us_title ?></h2>
 				<?php if (have_rows('they_talk_about_us_items')): ?>
 				<ul class="press">
 				<?php while (have_rows('they_talk_about_us_items')): the_row();
@@ -196,33 +196,35 @@
 				?>
 					<li>
 						<header>
-						<?php
-						if ($logo) {
-							echo wp_get_attachment_image($logo['ID'], 'full'); 
-						} 
-						?>
-						<?php if ($website_link): ?>
-							<a href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-								<?php echo $website_link['title'] ?>
-							</a>
-						<?php endif; ?>
+						<span class="logo-link">
+							<?php
+							if ($logo) {
+								echo wp_get_attachment_image($logo['ID'], 'full'); 
+							} 
+							?>
+							<?php if ($website_link): ?>
+								<a href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+									<?php echo $website_link['title'] ?>
+								</a>
+							<?php endif; ?>
+						</span>
 						<?php if ($post_reference): ?>
-							<span><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
+							<span class="press-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
 						<?php endif; ?>
 						</header>
 						<div>
 							<?php if ($title): ?>
-								<h3>
+								<h3 class="press-title">
 									<a href="<?php echo $post_reference_url ?>">
 										<?php echo $title ?>
 									</a>
 								</h3>
 							<?php endif; ?>
 							<?php if ($text): ?>
-								<?php echo $text ?>
+								<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($text)), 17))) ?>
 							<?php endif; ?>
-							<a href="<?php echo $post_reference_url ?>">
-								<?php _e('Read more', 'proximis') ?>
+							<a href="<?php echo $post_reference_url ?>" class="link">
+								<span><?php _e('Read more', 'proximis') ?></span><i></i>
 							</a>
 						</div>
 					</li>

@@ -251,6 +251,10 @@ h2 {
   margin: 1.75em 0 1.25em; }
 h2.big {
     font-size: 2.4rem; }
+.home h2.x-small, h2.x-small {
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+    font-size: 2rem;
+    color: #5C6370; }
 h2:not(.title) > span {
     display: block;
     color: #5C6370; }
@@ -357,6 +361,7 @@ a {
   border-bottom: 1px solid;
   position: relative;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+  line-height: 1.3;
   color: #55C4DA;
   text-decoration: none;
   -webkit-transition: 0.3s ease-in-out;
@@ -994,11 +999,11 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
 /* Footer */
 .footer {
   padding: 25px 0 50px;
-  margin: 100px 0 0;
   font-size: 1.4rem;
   background: #18162B;
   color: #F8F5F1; }
-.page-template-services .footer, .page-template-about .footer {
+.page-template-services .footer,
+  .page-template-about .footer {
     margin-top: 0; }
 .footer > .container {
     position: relative; }
@@ -1020,13 +1025,16 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   margin-bottom: 4em; }
 .footer-small {
   font-size: 1.1rem; }
-.footer-menu, .footer-social {
+.footer-menu,
+.footer-social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-.footer-menu > li:before, .footer-social > li:before {
+.footer-menu > li:before,
+  .footer-social > li:before {
     content: none; }
-.footer-menu a, .footer-social a {
+.footer-menu a,
+  .footer-social a {
     color: #F8F5F1; }
 .footer-social {
   margin: 0 0 3.5em; }
@@ -1090,7 +1098,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   .footer-small {
     font-size: 1.2rem;
     text-align: right; }
-  .footer-social, .footer-menu {
+  .footer-social,
+  .footer-menu {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end; } }
@@ -1833,18 +1842,72 @@ a.ref:hover img, a.ref:focus img {
       width: 35%; }
     .newsletter-single .newsletter .wpcf7 {
       width: 55%; } }
+.wrapper-press {
+  margin-top: 84px;
+  padding: 84px 0 84px;
+  background: #fff; }
 .press {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: flex-start; }
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 .press > li {
-    width: 33.33333%;
-    padding: 0 8.33333% 0 0; }
+    width: 100%;
+    margin-bottom: 28px;
+    padding: 0 0 28px;
+    border-bottom: 1px solid #5C6370; }
 .press > li::before {
       content: none; }
+.press header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 0 25px; }
+.press .logo-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+.press .logo-link img {
+      margin-right: 10px; }
+.press .logo-link a {
+      font-family: "ibmplex", sans-serif;
+      font-size: 1.4rem; }
+.press p {
+    margin: 0; }
+.press-title a {
+  font-family: "recoleta_bold", "ibmplex", sans-serif;
+  font-size: 2.4rem;
+  border: 0;
+  color: #18162B; }
+.press-title a:hover, .press-title a:focus {
+    color: #55C4DA; }
+.press-date {
+  font-family: "ibmplex", sans-serif;
+  font-size: 1.4rem;
+  color: #18162B; }
+@media (min-width: 960px) {
+  .wrapper-press {
+    margin-top: 112px;
+    padding: 112px 0 168px; }
+  .press > li {
+    width: 25%;
+    margin-right: 8.33333%; } }
 /* Home specific style */
 .home h1 {
   font-size: 4.3rem; }
@@ -2448,4 +2511,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?74ad4cef5ccd6d3d4e22226419e36d5b*/
+/*# sourceMappingURL=main.css.map?21cfa1f41bc7955c84efdbcc27172d7b*/
