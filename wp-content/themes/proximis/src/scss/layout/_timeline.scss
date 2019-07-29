@@ -10,7 +10,9 @@
 
     >li {
         display: flex;
-        padding: 0 0 110px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 0 2*$line-height;
 
         &:before {
             content: none;
@@ -19,8 +21,7 @@
 
     time {
         display: flex;
-        width: 20%;
-        min-width: 20%;
+        align-self: flex-start;
         padding: 2px $gutter 0 0;
         font-family: $recoleta-bold;
 
@@ -29,7 +30,7 @@
             display: block;
             width: 65px;
             height: 1px;
-            margin: 10px auto 0;
+            margin: 10px 0 0 10px;
             background: $primary;
         }
     }
@@ -40,7 +41,32 @@
 
     .lottie {
         flex: 0 0 auto;
-        width: 97px;
-        height: 97px;
+        width: 100px;
+        height: 100px;
+        margin: $line-height 0 0;
+    }
+}
+
+@media (min-width: $tablet) {
+    .timeline {
+        >li {
+            flex-direction: row;
+            padding-bottom: 3*$line-height;
+        }
+
+        time {
+            width: 20%;
+            min-width: 20%;
+
+            &:after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .lottie {
+            align-self: center;
+            margin: 0 0 0 110px;
+        }
     }
 }
