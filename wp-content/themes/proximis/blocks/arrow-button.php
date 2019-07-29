@@ -25,8 +25,8 @@ if( !empty($block['className']) ){
 // }
 
 // Load values and assing defaults.
-$title = get_field('link')['title'] ?: 'Votre texte mis en avant...';
-$url = get_field('link')['url'] ?: 'Votre texte mis en avant...';
+$title = get_field('link')['title'] ?: 'Votre texte...';
+$url = get_field('link')['url'] ?: 'http://';
 
 ?>
 <a id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" href="<?php echo $url ?>">
