@@ -2562,6 +2562,8 @@ a.ref:hover img, a.ref:focus img {
     height: 42px;
     top: -5px;
     left: -55px; }
+.newsletter-in-list {
+  padding-left: 0; }
 @media (min-width: 780px) {
   .post h2 {
     font-size: 2.4rem; } }
@@ -2587,4 +2589,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?5cb5b9679d0c5b83bb9a5f8e29a8697d*/
+/*# sourceMappingURL=main.css.map?1e15752b7e373f3a2f314eb49dc8f572*/
