@@ -5,7 +5,8 @@
 .wrapper-customers-map {
     display: flex;
     flex-direction: column;
-    padding-top: 45px;
+    padding-top: 2*$line-height;
+    padding-bottom: 2*$line-height;
 
     img {
         order: 2;
@@ -43,7 +44,8 @@
 
 @media (min-width: $desktop-small) {
     .wrapper-customers-map {
-        padding-top: 75px;
+        padding-top: 4*$line-height;
+        padding-bottom: 3*$line-height;
 
         img {
             width: 60%;
