@@ -112,7 +112,7 @@
 							<?php endwhile; ?>
 						</ul>
 					<?php endif; ?>
-				</div<h3>
+				</div>
 			<?php endwhile; endif; ?>
 		</div>
 	</section>
@@ -168,9 +168,9 @@
 					</ul>
 				<?php wp_reset_postdata(); endif; ?>
 
-				<?php $link = get_sub_field('link'); if( $link ) : ?>
+				<?php if( $link = get_sub_field('link') ) : ?>
 					<a href='<?php echo $link['url'] ?>' class='link'>
-						<span><?php echo $link['title']; ?></span><!--<svg class='icon'><use xlink:href='#icon-arrow'></use></svg>--><i></i>
+						<span><?php echo $link['title']; ?></span><i></i>
 					</a>
 				<?php endif; ?>
 			<?php endwhile; endif; ?>
