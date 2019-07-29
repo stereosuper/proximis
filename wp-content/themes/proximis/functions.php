@@ -200,6 +200,16 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'arrow-button',
+        'title'             => __("Arrow button"),
+        'description'       => __("Arrow button"),
+        'render_template'   => 'blocks/arrow-button.php',
+        'category'          => 'layout',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'arrow', 'button' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'newsletter',
         'title'             => __("Newsletter"),
         'description'       => __("Newsletter"),
