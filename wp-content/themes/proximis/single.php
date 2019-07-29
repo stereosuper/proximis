@@ -9,7 +9,7 @@
 		<h1 class='blog-title'><?php the_title(); ?></h1>
 		<p class='post-meta'>
 			<time><?php echo get_the_date(); ?></time>
-			<?php echo do_shortcode('[rt_reading_time postfix="min"]'); ?>
+			<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
 			<span class='cats'>
 				<?php $cats = get_the_category(); if( $cats ) :
 					$count = 0;
@@ -41,6 +41,10 @@
 			
 			<div class='newsletter-single'>
 				<?php get_template_part('includes/newsletter'); ?>
+			</div>
+
+			<div class='post-related-single'>
+				<?php get_template_part('includes/post-related'); ?>
 			</div>
 		</div>
 		
