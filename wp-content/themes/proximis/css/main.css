@@ -235,7 +235,7 @@ h6 {
 h1,
 .h1 {
   font-size: 4.3rem;
-  letter-spacing: -1px; }
+  letter-spacing: -0.02em; }
 h1 {
   margin: 0.6em 0 1.4em; }
 .h1 {
@@ -1940,6 +1940,7 @@ a.ref:hover img, a.ref:focus img {
   font-size: 4.3rem; }
 .home h2 {
   font-size: 3.5rem;
+  letter-spacing: -0.02em;
   margin: 0; }
 .home h3 {
   margin: 0;
@@ -2539,4 +2540,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?4702b8482d34209750a09ddc089b02ad*/
+/*# sourceMappingURL=main.css.map?b4c62053f661e711dedea156905b540f*/
