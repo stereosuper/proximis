@@ -1165,7 +1165,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     content: '';
     height: 1px;
     position: absolute;
-    top: 10px;
+    top: 16px;
     left: -50vw;
     right: 100%;
     margin: 0 8px 0 0;
@@ -2544,4 +2544,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?23d375f3ea5a43762203ab24bac0c129*/
+/*# sourceMappingURL=main.css.map?5d24efa56c6dd02a1a7146c20d457754*/

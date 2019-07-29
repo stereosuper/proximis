@@ -5,7 +5,7 @@
     font-family: $ibm;
     color: $primary;
 
-    .header-page &{
+    .header-page & {
         color: #fff;
     }
 
@@ -13,7 +13,7 @@
         content: '';
         height: 1px;
         position: absolute;
-        top: 10px;
+        top: 16px;
         left: -50vw;
         right: 100%;
         margin: 0 8px 0 0;
@@ -38,7 +38,8 @@
             background: currentColor;
         }
 
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
             text-decoration: none;
         }
     }
