@@ -101,7 +101,7 @@
 									endforeach;
 								endif; ?>
 							</div>
-							<?php echo do_shortcode('[rt_reading_time postfix="min"]'); ?>
+							<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
 						</footer>
 					</li>
 				
