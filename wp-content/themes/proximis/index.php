@@ -32,6 +32,7 @@
 		<?php
 			$blog = get_option( 'page_for_posts' );
 			$book = get_field('book', $blog);
+			$newsletter = get_field('newsletter', $blog);
 			
 			the_field('text', $blog);
 		?>
@@ -48,6 +49,27 @@
 			<ul class='blog-list' id='blog'>
 
 				<?php while ( have_posts() ) : the_post(); $countPosts ++; ?>
+
+					<?php if( $book && $book['display'] && $countPosts == $book['pos'] ) : ?>
+						<li class='book'>
+							<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
+							<h2><?php echo $book['title']; ?></h2>
+							<p><?php echo $book['text']; ?></p>
+							<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
+						</li>
+					<?php 
+					$countPosts++;
+					endif; 
+					?>
+
+					<?php if( $newsletter && $newsletter['display'] && $countPosts == $newsletter['pos'] ) : ?>
+						<li class="newsletter">
+							<?php get_template_part('includes/newsletter'); ?>
+						</li>
+					<?php 
+					$countPosts++;
+					endif; 
+					?>
 					
 					<li class='post'>
 						<?php if( has_post_thumbnail() ) : ?>
@@ -82,15 +104,6 @@
 							<?php echo do_shortcode('[rt_reading_time postfix="min"]'); ?>
 						</footer>
 					</li>
-					
-					<?php if( $book && $book['display'] && $countPosts + 1 == $book['pos'] ) : ?>
-						<li class='book'>
-							<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
-							<h2><?php echo $book['title']; ?></h2>
-							<p><?php echo $book['text']; ?></p>
-							<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
-						</li>
-					<?php endif; ?>
 				
 				<?php endwhile; ?>
 
