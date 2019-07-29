@@ -1219,6 +1219,12 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
       background: #55C4DA; }
 .timeline p {
     margin: 0; }
+.timeline .lottie {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 97px;
+    height: 97px; }
 .team-wrapper {
   padding: 5px 0 100px;
   background: #fff; }
@@ -2511,4 +2517,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?21cfa1f41bc7955c84efdbcc27172d7b*/
+/*# sourceMappingURL=main.css.map?2529098fef70a80451ab20dbffcd672d*/

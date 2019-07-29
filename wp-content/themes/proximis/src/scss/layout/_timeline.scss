@@ -1,26 +1,30 @@
-.timeline-wrapper{
-    h2{
+.timeline-wrapper {
+    h2 {
         margin-left: 20%;
     }
 }
 
-.timeline{
+.timeline {
     padding: 20px 0 0;
     margin: 0;
-    > li{
+
+    >li {
         display: flex;
         padding: 0 0 110px;
-        &:before{
+
+        &:before {
             content: none;
         }
     }
-    time{
+
+    time {
         display: flex;
         width: 20%;
         min-width: 20%;
         padding: 2px $gutter 0 0;
         font-family: $recoleta-bold;
-        &:after{
+
+        &:after {
             content: '';
             display: block;
             width: 65px;
@@ -29,7 +33,14 @@
             background: $primary;
         }
     }
-    p{
+
+    p {
         margin: 0;
+    }
+
+    .lottie {
+        flex: 0 0 auto;
+        width: 97px;
+        height: 97px;
     }
 }

@@ -21,6 +21,8 @@ get_header(); ?>
 								<li>
 									<time><?php the_sub_field('year'); ?></time>
 									<?php the_sub_field('text'); ?>
+									<div class='lottie'></div>
+									<!-- <div class='js-lottie lottie' id='<?php the_sub_field('anim'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('anim') . '.json'; ?>'></div> -->
 								</li>
 							<?php endwhile; ?>
 						</ul>
