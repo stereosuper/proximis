@@ -1277,21 +1277,13 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
     height: 85px;
     position: relative;
     margin: 0 20px 0 0; }
-.team .img:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      border-radius: 50%;
-      background: #55C4DA; }
 .team img {
     position: absolute;
     left: 0;
     bottom: 0;
     z-index: 1; }
-.team strong, .team span {
+.team strong,
+  .team span {
     display: block; }
 .team a {
     display: inline-block;
@@ -1314,7 +1306,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
   .team li {
     width: 50%; } }
 @media (min-width: 960px) {
-  .team-wrapper h2, .team-wrapper h2 + p {
+  .team-wrapper h2,
+  .team-wrapper h2 + p {
     margin-left: 25%; }
   .team-wrapper h2 + p {
     max-width: 66.66667%; }
@@ -2545,4 +2538,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?f58ddc09557c677794269cc5501459a8*/
+/*# sourceMappingURL=main.css.map?408f6da9d2f5543b119e90e4d1c819bb*/

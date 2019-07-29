@@ -1,112 +1,121 @@
-.team-wrapper{
+.team-wrapper {
     padding: 5px 0 100px;
     background: #fff;
 }
 
-.team{
+.team {
     margin: 70px 0 0;
-    h3{
+
+    h3 {
         color: $text;
     }
-    li{
+
+    li {
         display: flex;
         padding: 0;
         margin: 0 0 35px;
         align-items: center;
-        &:before{
+
+        &:before {
             content: none;
         }
     }
-    p{
+
+    p {
         margin: 0;
     }
-    .img{
+
+    .img {
         width: 85px;
         min-width: 85px;
         height: 85px;
         position: relative;
         margin: 0 $gutter 0 0;
-        &:after{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            border-radius: 50%;
-            background: $primary;
-        }
     }
-    img{
+
+    img {
         position: absolute;
         left: 0;
         bottom: 0;
         z-index: 1;
     }
-    strong, span{
+
+    strong,
+    span {
         display: block;
     }
-    a{
+
+    a {
         display: inline-block;
         border: 0;
         margin: 0 5px 0 0;
-        &:hover, &:focus{
+
+        &:hover,
+        &:focus {
             transform: scale(0.9);
         }
     }
-    .tw{
+
+    .tw {
         color: #1DA1F2;
     }
-    .in{
+
+    .in {
         color: #0e76a8;
     }
 }
 
 
-@media (min-width: $tablet){
-    .team{
-        ul{
+@media (min-width: $tablet) {
+    .team {
+        ul {
             display: flex;
             flex-wrap: wrap;
         }
-        li{
+
+        li {
             width: 50%;
         }
     }
 }
 
-@media (min-width: $desktop-small){
-    .team-wrapper{
-        h2, h2 + p{
+@media (min-width: $desktop-small) {
+    .team-wrapper {
+
+        h2,
+        h2+p {
             margin-left: 25%;
         }
-        h2 + p{
+
+        h2+p {
             max-width: $col*8;
         }
     }
 
-    .team{
-        li{
+    .team {
+        li {
             width: 33.33%;
         }
     }
 }
 
-@media (min-width: $desktop){
-    .team-wrapper{
-        h2 + p{
+@media (min-width: $desktop) {
+    .team-wrapper {
+        h2+p {
             max-width: 50%;
         }
     }
 
-    .team{
+    .team {
         display: flex;
         align-items: flex-start;
-        h3{
+
+        h3 {
             width: 25%;
             font-size: 2.8rem;
         }
-        ul{
+
+        ul {
             width: 75%;
         }
     }
