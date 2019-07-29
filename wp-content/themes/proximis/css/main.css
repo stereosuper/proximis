@@ -580,37 +580,61 @@ a:active {
   .container-tiny {
     margin: 0 25% 0 8.33333%; } }
 /* Forms */
-input, textarea, select, button {
+input,
+textarea,
+select,
+button {
   border: 0;
   -webkit-transition: border-color 0.3s ease-in-out;
   transition: border-color 0.3s ease-in-out; }
-input:focus, textarea:focus, select:focus, button:focus {
+input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
     outline: 0; }
-input, textarea, select {
-  padding: 15px 55px 15px 20px;
+input,
+textarea,
+select {
+  padding: 0 55px 0 20px;
+  height: 56px;
   border: 1px solid transparent;
   border-radius: 4px;
   background: #fff; }
-input:focus:valid, textarea:focus:valid, select:focus:valid {
+input:focus:valid,
+  textarea:focus:valid,
+  select:focus:valid {
     border-color: #CFD155; }
-input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
+input:focus:invalid,
+  textarea:focus:invalid,
+  select:focus:invalid {
     border-color: #FF737B; }
-input, textarea {
+input,
+textarea {
   max-width: 100%;
-  padding-right: 40px; }
-input:-webkit-autofill, textarea:-webkit-autofill {
+  padding-right: 40px;
+  line-height: 1; }
+input:-webkit-autofill,
+  textarea:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
             box-shadow: 0 0 0 1000px #fff inset; }
-input.has-value:valid, textarea.has-value:valid {
+input.has-value:valid,
+  textarea.has-value:valid {
     background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 50%/12px 8px; }
-input:invalid, input.wpcf7-not-valid, input.has-value.wpcf7-not-valid, textarea:invalid, textarea.wpcf7-not-valid, textarea.has-value.wpcf7-not-valid {
+input:invalid, input.wpcf7-not-valid, input.has-value.wpcf7-not-valid,
+  textarea:invalid,
+  textarea.wpcf7-not-valid,
+  textarea.has-value.wpcf7-not-valid {
     -webkit-box-shadow: none;
             box-shadow: none;
     background: #fff url(/wp-content/themes/proximis/img/wrong.svg) no-repeat 95% 50%/2px 14px; }
-input:invalid:not(:focus), input.wpcf7-not-valid:not(:focus), input.has-value.wpcf7-not-valid:not(:focus), textarea:invalid:not(:focus), textarea.wpcf7-not-valid:not(:focus), textarea.has-value.wpcf7-not-valid:not(:focus) {
+input:invalid:not(:focus), input.wpcf7-not-valid:not(:focus), input.has-value.wpcf7-not-valid:not(:focus),
+    textarea:invalid:not(:focus),
+    textarea.wpcf7-not-valid:not(:focus),
+    textarea.has-value.wpcf7-not-valid:not(:focus) {
       border-color: #FF737B;
       color: #FF737B; }
-input:focus, textarea:focus {
+input:focus,
+  textarea:focus {
     background-image: none !important; }
 input {
   width: 100%;
@@ -625,7 +649,10 @@ input[type=email] {
 textarea {
   width: 100%;
   max-width: 500px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   font-family: "ibmplex_italic", "ibmplex", sans-serif;
+  line-height: 28px;
   background-position: 95% 30px !important; }
 select {
   font-family: "ibmplex_italic", "ibmplex", sans-serif; }
@@ -646,14 +673,17 @@ label i {
     background: #fff; }
 .wpcf7-form.sent p {
       display: none; }
-.wpcf7-form .position, .wpcf7-form .subject {
+.wpcf7-form .position,
+  .wpcf7-form .subject {
     width: auto;
     position: relative; }
-.wpcf7-form .position select, .wpcf7-form .subject select {
+.wpcf7-form .position select,
+    .wpcf7-form .subject select {
       -webkit-appearance: none;
          -moz-appearance: none;
               appearance: none; }
-.wpcf7-form .position:after, .wpcf7-form .subject:after {
+.wpcf7-form .position:after,
+    .wpcf7-form .subject:after {
       content: '';
       width: 0;
       height: 0;
@@ -695,7 +725,9 @@ div.wpcf7-response-output {
 div.wpcf7-response-output span {
     display: block;
     font-family: "ibmplex", sans-serif; }
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng {
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-mail-sent-ng {
   font-size: 1.4rem;
   color: #FF737B; }
 @media (min-width: 580px) {
@@ -714,7 +746,10 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
       text-align: right; }
     .contact-form label i {
       margin: 15px 0 0 20px; }
-  .contact-form .wpcf7-submit, .contact-form div.wpcf7-validation-errors, .contact-form div.wpcf7-acceptance-missing, .contact-form div.wpcf7-mail-sent-ng {
+  .contact-form .wpcf7-submit,
+  .contact-form div.wpcf7-validation-errors,
+  .contact-form div.wpcf7-acceptance-missing,
+  .contact-form div.wpcf7-mail-sent-ng {
     margin: 0 0 0 calc(14% + 20px); }
   .wpcf7-form.sent {
     padding: 5%; }
@@ -1809,7 +1844,7 @@ a.ref:hover img, a.ref:focus img {
 .newsletter .email.on + span {
       opacity: 0; }
 .newsletter .email + span {
-      padding: 17px 40px 15px 20px;
+      padding: 0 40px 0 20px;
       position: absolute;
       top: 0;
       left: 0;
@@ -1817,7 +1852,8 @@ a.ref:hover img, a.ref:focus img {
       bottom: 0;
       white-space: nowrap;
       pointer-events: none;
-      font-size: 1.4rem; }
+      font-size: 1.4rem;
+      line-height: 56px; }
 .newsletter label {
     display: block;
     position: relative;
@@ -2426,8 +2462,9 @@ a.ref:hover img, a.ref:focus img {
       content: none; }
 .blog-cats a {
     display: block;
-    padding: 20px;
+    padding: 0 20px;
     border: 0;
+    line-height: 56px;
     font-family: "ibmplex_italic", "ibmplex", sans-serif;
     color: inherit; }
 .blog-list > li {
@@ -2457,7 +2494,8 @@ a.ref:hover img, a.ref:focus img {
   margin: 0 0 1.2em;
   background-size: cover;
   background-position: 50% 50%; }
-.post-header, .post-footer {
+.post-header,
+.post-footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2475,15 +2513,18 @@ a.ref:hover img, a.ref:focus img {
   height: 21px;
   top: 0;
   left: -32px; }
-.author .img, .post-author .img {
+.author .img,
+.post-author .img {
   border-radius: 50%;
   overflow: hidden;
   position: absolute; }
 .post-footer {
   margin: 1em 0 0; }
-.rt-reading-time, .post-meta .cats {
+.rt-reading-time,
+.post-meta .cats {
   position: relative; }
-.rt-reading-time:before, .post-meta .cats:before {
+.rt-reading-time:before,
+  .post-meta .cats:before {
     content: '';
     width: 3px;
     height: 3px;
@@ -2506,9 +2547,11 @@ a.ref:hover img, a.ref:focus img {
   display: -ms-flexbox;
   display: flex;
   margin: 0 0 5em; }
-.post-meta .rt-reading-time, .post-meta .cats {
+.post-meta .rt-reading-time,
+  .post-meta .cats {
     margin: 0 0 0 20px; }
-.post-meta .rt-reading-time:before, .post-meta .cats:before {
+.post-meta .rt-reading-time:before,
+    .post-meta .cats:before {
       top: 12px; }
 .post-author {
   line-height: 1; }
@@ -2544,4 +2587,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?5d24efa56c6dd02a1a7146c20d457754*/
+/*# sourceMappingURL=main.css.map?e67f099e25d2b56d5edcc61197c3a5ab*/

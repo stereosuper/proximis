@@ -1,118 +1,153 @@
 /* Forms */
 
-input, textarea, select, button{
+input,
+textarea,
+select,
+button {
     border: 0;
-  	transition: border-color $transition;
-  	&:focus{
-      	outline: 0;
-  	}
+    transition: border-color $transition;
+
+    &:focus {
+        outline: 0;
+    }
 }
 
-input, textarea, select{
-    padding: 15px 55px 15px 20px;
+input,
+textarea,
+select {
+    padding: 0 55px 0 20px;
+    height: 2*$line-height;
     border: 1px solid transparent;
     border-radius: 4px;
     background: #fff;
-    &:focus{
-        &:valid{
+
+    &:focus {
+        &:valid {
             border-color: $tertiary;
         }
-        &:invalid{
+
+        &:invalid {
             border-color: $secondary;
         }
     }
 }
 
-input, textarea{
+input,
+textarea {
     max-width: 100%;
     padding-right: 40px;
-  	&:-webkit-autofill{
-      	box-shadow: 0 0 0 1000px #fff inset;
+    line-height: 1;
+
+    &:-webkit-autofill {
+        box-shadow: 0 0 0 1000px #fff inset;
     }
-    &.has-value:valid{
+
+    &.has-value:valid {
         background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
     }
-    &:invalid, &.wpcf7-not-valid, &.has-value.wpcf7-not-valid{
+
+    &:invalid,
+    &.wpcf7-not-valid,
+    &.has-value.wpcf7-not-valid {
         // FF red borders
         box-shadow: none;
         background: #fff url(../../img/wrong.svg) no-repeat 95% 50% / 2px 14px;
-        &:not(:focus){
+
+        &:not(:focus) {
             border-color: $secondary;
             color: $secondary;
         }
     }
-    &:focus{
+
+    &:focus {
         background-image: none !important;
     }
 }
 
-input{
+input {
     width: 100%;
     max-width: 350px;
     font-family: $ibm;
+
     // hide the symbols of input search
-    &[type=search]{
-        &::-webkit-search-cancel-button, &::-webkit-search-decoration{
+    &[type=search] {
+
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
             display: none;
         }
     }
-    &[type=tel]{
+
+    &[type=tel] {
         width: 230px;
     }
-    &[type=email]{
+
+    &[type=email] {
         max-width: 500px;
     }
 }
 
-textarea{
+textarea {
     width: 100%;
     max-width: 500px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     font-family: $ibm-it;
+    line-height: $line-height;
     background-position: 95% 30px !important;
 }
 
-select{
+select {
     font-family: $ibm-it;
+
     // hide the arrow on edge + ie
-    &::-ms-expand{
+    &::-ms-expand {
         display: none;
     }
 }
 
-label{
+label {
     font-family: $ibm-bold;
-    > span{
-        &:first-of-type{
+
+    >span {
+        &:first-of-type {
             margin: 15px 0 0;
         }
     }
-    i{
+
+    i {
         color: $grey;
     }
 }
 
-.contact-form{
-    div.wpcf7{
+.contact-form {
+    div.wpcf7 {
         margin: 4em 0 0;
     }
 }
 
-.wpcf7-form{
+.wpcf7-form {
     border-radius: 6px;
-    &.sent{
+
+    &.sent {
         padding: 20px;
         background: #fff;
-        p{
+
+        p {
             display: none;
         }
     }
-    .position, .subject{
+
+    .position,
+    .subject {
         width: auto;
         position: relative;
-        select{
+
+        select {
             appearance: none;
         }
-        &:after{
+
+        &:after {
             content: '';
             width: 0;
             height: 0;
@@ -127,18 +162,19 @@ label{
             pointer-events: none;
         }
     }
-    .tel{
+
+    .tel {
         width: auto;
     }
 }
 
-.wpcf7-form-control-wrap{
+.wpcf7-form-control-wrap {
     display: inline-block;
     width: 100%;
     margin: 5px 0;
 }
 
-.wpcf7-submit{
+.wpcf7-submit {
     width: auto;
     padding: 15px 25px;
     font-family: $ibm-bold;
@@ -147,83 +183,95 @@ label{
     color: #fff;
 }
 
-span.wpcf7-not-valid-tip{
+span.wpcf7-not-valid-tip {
     margin: 5px 0 0;
     font-size: 1.4rem;
     color: $secondary;
-    .js &{
+
+    .js & {
         display: none;
     }
 }
-.wpcf7-not-valid + .wpcf7-not-valid-tip{
-    .js &{
+
+.wpcf7-not-valid+.wpcf7-not-valid-tip {
+    .js & {
         display: block;
     }
 }
 
-div.wpcf7-response-output{
+div.wpcf7-response-output {
     padding: 0;
     border: 0;
     margin: 0;
     font-family: $ibm-bold;
-    span{
+
+    span {
         display: block;
         font-family: $ibm;
     }
 }
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng{
+
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-mail-sent-ng {
     font-size: 1.4rem;
     color: $secondary;
 }
 
 
-@media (min-width: $phone){
-   .contact-form{
-        label{
-           display: flex;
-           align-items: flex-start;
-           br{
-               display: none;
-           }
-           > span{
-               &:first-of-type{
-                   width: 14%;
-                   min-width: 14%;
-                   text-align: right;
-               }
-           }
-           i{
-               margin: 15px 0 0 20px;
-           }
-       }
+@media (min-width: $phone) {
+    .contact-form {
+        label {
+            display: flex;
+            align-items: flex-start;
 
-       .wpcf7-submit, div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ng{
-           margin: 0 0 0 calc(14% + 20px);
-       }
-   }
+            br {
+                display: none;
+            }
 
-    .wpcf7-form{
-        &.sent{
+            >span {
+                &:first-of-type {
+                    width: 14%;
+                    min-width: 14%;
+                    text-align: right;
+                }
+            }
+
+            i {
+                margin: 15px 0 0 20px;
+            }
+        }
+
+        .wpcf7-submit,
+        div.wpcf7-validation-errors,
+        div.wpcf7-acceptance-missing,
+        div.wpcf7-mail-sent-ng {
+            margin: 0 0 0 calc(14% + 20px);
+        }
+    }
+
+    .wpcf7-form {
+        &.sent {
             padding: 5%;
         }
     }
 
-    .wpcf7-form-control-wrap{
+    .wpcf7-form-control-wrap {
         margin: 0 0 0 20px;
     }
 }
 
-@media (min-width: $tablet){
-    .wpcf7-form{
-        &.sent{
+@media (min-width: $tablet) {
+    .wpcf7-form {
+        &.sent {
             width: 86%;
         }
     }
 }
 
-@media (min-width: $desktop-small){
-    .wpcf7-form{
-        &.sent{
+@media (min-width: $desktop-small) {
+    .wpcf7-form {
+        &.sent {
             padding: 10%;
             margin: 0 0 0 -10%;
         }

@@ -1,13 +1,14 @@
-.blog-title{
+.blog-title {
     margin-bottom: 0;
-    + p{
+
+    +p {
         width: 50%;
         padding: 0 $gutter 0 0;
         color: $grey;
     }
 }
 
-.blog-cats{
+.blog-cats {
     display: inline-block;
     padding: 0 35px 0 0;
     position: relative;
@@ -15,7 +16,8 @@
     overflow: hidden;
     background: #fff;
     cursor: pointer;
-    &:after{
+
+    &:after {
         content: '';
         position: absolute;
         top: 25px;
@@ -25,62 +27,75 @@
         border-color: $primary transparent transparent transparent;
         pointer-events: none;
     }
-    &.off{
-        height: 56px;
-        a{
+
+    &.off {
+        height: $line-height*2;
+
+        a {
             pointer-events: none;
         }
     }
-    > li{
+
+    >li {
         padding: 0;
-        &:before{
+
+        &:before {
             content: none;
         }
     }
-    a{
+
+    a {
         display: block;
-        padding: 20px;
+        padding: 0 20px;
         border: 0;
+        line-height: 2*$line-height;
         font-family: $ibm-it;
         color: inherit;
     }
 }
 
-.blog-list{
-    > li{
+.blog-list {
+    >li {
         display: inline-block;
         width: 30%;
-        &:before{
+
+        &:before {
             content: none;
         }
     }
-    .book{
+
+    .book {
         padding: 35px 30px 30px;
-        h2{
+
+        h2 {
             margin: 20px 0 0;
         }
     }
 }
 
-.post{
+.post {
     padding: 0 0 30px;
     border-bottom: 1px solid $grey;
-    h2{
+
+    h2 {
         margin: 15px 0 0;
     }
-    p{
+
+    p {
         margin: 0;
     }
-    a{
+
+    a {
         font-family: $ibm;
     }
-    > a{
+
+    >a {
         border: 0;
         color: inherit;
     }
 }
 
-.post-img{
+.post-img {
     display: block;
     height: 150px;
     margin: 0 0 1.2em;
@@ -88,7 +103,8 @@
     background-position: 50% 50%;
 }
 
-.post-header, .post-footer{
+.post-header,
+.post-footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -96,11 +112,12 @@
     line-height: 1;
 }
 
-.post-header{
-    .author{
+.post-header {
+    .author {
         margin: 0 0 15px 32px;
     }
-    .img{
+
+    .img {
         width: 21px;
         height: 21px;
         top: 0;
@@ -108,21 +125,24 @@
     }
 }
 
-.author, .post-author{
-    .img{
+.author,
+.post-author {
+    .img {
         border-radius: 50%;
         overflow: hidden;
         position: absolute;
     }
 }
 
-.post-footer{
+.post-footer {
     margin: 1em 0 0;
 }
 
-.rt-reading-time, .post-meta .cats{
+.rt-reading-time,
+.post-meta .cats {
     position: relative;
-    &:before{
+
+    &:before {
         content: '';
         width: 3px;
         height: 3px;
@@ -134,15 +154,16 @@
     }
 }
 
-.cats{
-    a{
+.cats {
+    a {
         font-family: $ibm;
     }
 }
 
-.book{
+.book {
     background: #fff;
-    p{
+
+    p {
         margin: 5px 0 30px;
         font-size: 1.4rem;
         line-height: 2;
@@ -150,23 +171,28 @@
     }
 }
 
-.post-meta{
+.post-meta {
     display: flex;
     margin: 0 0 5em;
-    .rt-reading-time, .cats{
+
+    .rt-reading-time,
+    .cats {
         margin: 0 0 0 20px;
-        &:before{
+
+        &:before {
             top: 12px;
         }
     }
 }
 
-.post-author{
+.post-author {
     line-height: 1;
-    a{
+
+    a {
         margin: 0 0 0 55px;
     }
-    .img{
+
+    .img {
         width: 42px;
         height: 42px;
         top: -5px;
@@ -175,16 +201,16 @@
 }
 
 
-@media (min-width: $tablet){
-    .post{
-        h2{
+@media (min-width: $tablet) {
+    .post {
+        h2 {
             font-size: 2.4rem;
         }
     }
 }
 
-@media (min-width: $desktop-small){
-    .post-thumbnail{
+@media (min-width: $desktop-small) {
+    .post-thumbnail {
         margin: 0 0 0 $col;
     }
 }

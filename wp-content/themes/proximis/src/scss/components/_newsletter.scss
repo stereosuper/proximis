@@ -46,7 +46,7 @@
         }
 
         +span {
-            padding: 17px 40px 15px 20px;
+            padding: 0 40px 0 20px;
             position: absolute;
             top: 0;
             left: 0;
@@ -55,6 +55,7 @@
             white-space: nowrap;
             pointer-events: none;
             font-size: 1.4rem;
+            line-height: $line-height*2;
         }
     }
 
