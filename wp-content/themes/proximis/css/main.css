@@ -1232,7 +1232,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-n
             flex: 0 0 auto;
     width: 100px;
     height: 100px;
-    margin: 28px 0 0; }
+    margin: 28px 0 0;
+    overflow: hidden; }
 @media (min-width: 780px) {
   .timeline > li {
     -webkit-box-orient: horizontal;
@@ -2542,4 +2543,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?ed62321a3cd80a5c935721a2a731886b*/
+/*# sourceMappingURL=main.css.map?1770064a8dfc39065ee4f567d635d279*/
