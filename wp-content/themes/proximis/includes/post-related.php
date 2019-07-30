@@ -37,7 +37,6 @@
 					<?php 
 					$author_ID = get_the_author_meta('ID');
 					$author_display_name = get_the_author_meta('display_name');
-					var_dump($author_display_name);
 					$avatar = get_avatar($author_ID);
 					$excerpt = get_the_excerpt() ?: get_the_content();
 					?>
