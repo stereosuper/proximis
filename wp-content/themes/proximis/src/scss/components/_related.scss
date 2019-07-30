@@ -1,13 +1,19 @@
-.wrapper-press {
+.wrapper-related {
     margin-top: 3*$line-height;
     padding: 3*$line-height 0 3*$line-height;
     background: $white;
 }
 
-.press {
+.related-posts {
+    margin-top: 3*$line-height;
+    padding: 0 0 3*$line-height;
+}
+
+.related {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin: #{2*$line-height} 0 0;
 
     >li {
         width: 100%;
@@ -47,7 +53,7 @@
     }
 }
 
-.press-title {
+.related-title {
     a {
         font-family: $recoleta-bold;
         font-size: 2.4rem;
@@ -61,19 +67,39 @@
     }
 }
 
-.press-date {
+.related-date {
     font-family: $ibm;
     font-size: 1.4rem;
     color: $text;
 }
 
 @media (min-width: $desktop-small) {
-    .wrapper-press {
+    .wrapper-related {
         margin-top: 4*$line-height;
         padding: 4*$line-height 0 6*$line-height;
     }
 
-    .press {
+    .related-posts {
+        &.reversed {
+            .related {
+                >li {
+                    margin-right: 0;
+                    margin-left: percentage(1/12);
+                }
+            }
+
+            h2 {
+                margin-left: percentage(1/12);
+            }
+        }
+    }
+
+    .related-posts {
+        padding-bottom: 5*$line-height;
+    }
+
+    .related {
+
         >li {
             width: 25%;
             margin-right: percentage(1/12);

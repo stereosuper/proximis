@@ -178,13 +178,13 @@
 	</section>
 
 	<?php if (have_rows('they_talk_about_us')): ?>
-	<section class="wrapper-press">
+	<section class="wrapper-related">
 		<div class="container">
 		<?php while (have_rows('they_talk_about_us')): the_row(); ?>
 			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
 				<h2 class="x-small"><?php echo $they_talk_about_us_title ?></h2>
 				<?php if (have_rows('they_talk_about_us_items')): ?>
-				<ul class="press">
+				<ul class="related">
 				<?php while (have_rows('they_talk_about_us_items')): the_row();
 					$logo = get_sub_field('logo');
 					$website_link = get_sub_field('website_link');
@@ -209,12 +209,12 @@
 							<?php endif; ?>
 						</span>
 						<?php if ($post_reference): ?>
-							<span class="press-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
+							<span class="related-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
 						<?php endif; ?>
 						</header>
 						<div>
 							<?php if ($title): ?>
-								<h3 class="press-title">
+								<h3 class="related-title">
 									<a href="<?php echo $post_reference_url ?>">
 										<?php echo $title ?>
 									</a>

@@ -254,6 +254,7 @@ h2.big {
 .home h2.x-small, h2.x-small {
     font-family: "ibmplex_semibold", "ibmplex", sans-serif;
     font-size: 2rem;
+    line-height: 28px;
     color: #5C6370; }
 h2:not(.title) > span {
     display: block;
@@ -1889,7 +1890,6 @@ a.ref:hover img, a.ref:focus img {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0; }
     .newsletter-single .newsletter .email + span {
-      padding-top: 15px;
       font-size: inherit; } }
 @media (min-width: 960px) {
   .newsletter-single .newsletter {
@@ -1908,11 +1908,14 @@ a.ref:hover img, a.ref:focus img {
       width: 35%; }
     .newsletter-single .newsletter .wpcf7 {
       width: 55%; } }
-.wrapper-press {
+.wrapper-related {
   margin-top: 84px;
   padding: 84px 0 84px;
   background: #fff; }
-.press {
+.related-posts {
+  margin-top: 84px;
+  padding: 0 0 84px; }
+.related {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1920,15 +1923,16 @@ a.ref:hover img, a.ref:focus img {
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-.press > li {
+      flex-wrap: wrap;
+  margin: 56px 0 0; }
+.related > li {
     width: 100%;
     margin-bottom: 28px;
     padding: 0 0 28px;
     border-bottom: 1px solid #5C6370; }
-.press > li::before {
+.related > li::before {
       content: none; }
-.press header {
+.related header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1939,7 +1943,7 @@ a.ref:hover img, a.ref:focus img {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin: 0 0 25px; }
-.press .logo-link {
+.related .logo-link {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1949,29 +1953,36 @@ a.ref:hover img, a.ref:focus img {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start; }
-.press .logo-link img {
+.related .logo-link img {
       margin-right: 10px; }
-.press .logo-link a {
+.related .logo-link a {
       font-family: "ibmplex", sans-serif;
       font-size: 1.4rem; }
-.press p {
+.related p {
     margin: 0; }
-.press-title a {
+.related-title a {
   font-family: "recoleta_bold", "ibmplex", sans-serif;
   font-size: 2.4rem;
   border: 0;
   color: #18162B; }
-.press-title a:hover, .press-title a:focus {
+.related-title a:hover, .related-title a:focus {
     color: #55C4DA; }
-.press-date {
+.related-date {
   font-family: "ibmplex", sans-serif;
   font-size: 1.4rem;
   color: #18162B; }
 @media (min-width: 960px) {
-  .wrapper-press {
+  .wrapper-related {
     margin-top: 112px;
     padding: 112px 0 168px; }
-  .press > li {
+  .related-posts.reversed .related > li {
+    margin-right: 0;
+    margin-left: 8.33333%; }
+  .related-posts.reversed h2 {
+    margin-left: 8.33333%; }
+  .related-posts {
+    padding-bottom: 140px; }
+  .related > li {
     width: 25%;
     margin-right: 8.33333%; } }
 /* Home specific style */
@@ -2589,4 +2600,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?1e15752b7e373f3a2f314eb49dc8f572*/
+/*# sourceMappingURL=main.css.map?e8a3b319ec09d45aca7ca4cac2c319d5*/

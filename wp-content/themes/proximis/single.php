@@ -42,10 +42,9 @@
 			<div class='newsletter-single'>
 				<?php get_template_part('includes/newsletter'); ?>
 			</div>
-
-			<div class='post-related-single'>
-				<?php get_template_part('includes/post-related'); ?>
-			</div>
+		</div>
+		<div class='post-related-single'>
+			<?php get_template_part('includes/post-related'); ?>
 		</div>
 		
 	<?php endif; ?>

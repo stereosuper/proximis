@@ -27,9 +27,9 @@
 
 	if( $relatedQuery->have_posts() ) :
 		?>
-		<div class="related-posts">
-			<h2><?php echo __('You may also like...', 'proximis'); ?></h2>
-			<ul>
+		<div class="related-posts reversed">
+			<h2 class="x-small"><?php echo __('You may also like...', 'proximis'); ?></h2>
+			<ul class="related">
 		<?php
 			while( $relatedQuery->have_posts() ) : $relatedQuery->the_post(); ?>
 			<li>
@@ -53,10 +53,10 @@
 							</a>
 						<?php endif; ?>
 					</span>
-					<span class="press-date"><?php echo get_the_date('d F Y') ?></span>
+					<span class="related-date"><?php echo get_the_date('d F Y') ?></span>
 				</header>
 				<div>
-					<h3>
+					<h3 class="related-title">
 						<a href='<?php the_permalink(); ?>'><?php echo get_the_title(); ?></a>
 					</h3>
 					<?php if ($excerpt): ?>
