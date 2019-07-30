@@ -81,17 +81,17 @@
 							<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("full"); ?>)'></a>
 						<?php endif; ?>
 
-						<header class='post-header'>
+						<header class='post-head'>
 							<?php $author = get_the_author(); ?>
-							<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>' class='author'>
-								<div class='img'><?php echo get_avatar( $author ); ?></div>
+							<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>' class='logo-link'>
+								<span class="img author-img"><?php echo get_avatar( $author ); ?></span>
 								<?php echo $author; ?>
 							</a>
-							<time><?php echo get_the_date(); ?></time>
+							<time class="related-date"><?php echo get_the_date(); ?></time>
 						</header>
 
-						<a href='<?php the_permalink(); ?>'>
-							<h2><?php the_title(); ?></h2>
+						<a class="post-content-link" href='<?php the_permalink(); ?>'>
+							<h2 class="related-title"><?php the_title(); ?></h2>
 							<?php the_excerpt(); ?>
 						</a>
 

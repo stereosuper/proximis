@@ -263,15 +263,14 @@ hr {
 /******* LIENS / BOUTONS *******/
 
 a {
-    border-bottom: 1px solid;
     position: relative;
     font-family: $ibm-bold;
     line-height: $line-height;
     color: $primary;
-    text-decoration: none;
+    text-decoration: underline;
     transition: $transition;
 
-    &:before {
+    &::before {
         content: '';
         position: absolute;
         top: -10px;
@@ -282,7 +281,11 @@ a {
 
     &:hover,
     &:focus {
-        border-color: transparent;
+        text-decoration-color: transparent;
+
+        .is-ie & {
+            text-decoration: none;
+        }
     }
 
     &:focus {
@@ -378,6 +381,11 @@ a {
 .highlighted,
 .img-shape {
     display: none;
+}
+
+.highlighted,
+.book-highlighted {
+    padding: 40px;
 }
 
 .newsletter-highlighted {
@@ -539,7 +547,6 @@ a {
 
     .highlighted,
     .book-highlighted {
-        padding: 40px;
         position: relative;
 
         .line {

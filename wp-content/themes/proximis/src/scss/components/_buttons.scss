@@ -1,13 +1,15 @@
 /* Buttons */
 
-.btn{
+.btn {
     display: inline-block;
     padding: 15px 25px;
     border: 0;
     z-index: 1;
+    text-decoration: none;
     line-height: 1;
     color: #fff;
-    &:after{
+
+    &:after {
         content: '';
         position: absolute;
         top: 0;
@@ -20,43 +22,52 @@
         transform-origin: 50% 50%;
         transition: $transition;
     }
-    &:hover, &:focus{
-        &:after{
+
+    &:hover,
+    &:focus {
+        &:after {
             transform: scale(0.95);
         }
     }
-    &.big{
+
+    &.big {
         display: block;
         padding: 20px;
         text-align: center;
     }
 }
 
-.link{
+.link {
     display: inline-flex;
     border: 0;
-    align-items: flex-end;
+    align-items: baseline;
     text-align: left;
-    .icon{
+    text-decoration: none;
+
+    .icon {
         width: 0.7em;
         height: 0.7em;
         margin: 0 0 3px 6px;
     }
-    > i{
+
+    >i {
         width: 25px;
         min-width: 25px;
         height: 10px;
         position: relative;
-        margin: 0 0 6px 6px;
+        margin: 0 0 0 6px;
         transform: scale(0.8);
         transition: $transition;
         transition-delay: 0s;
-        &:before, &:after{
+
+        &:before,
+        &:after {
             content: '';
             position: absolute;
             top: 0;
         }
-        &:before{
+
+        &:before {
             width: 20px;
             height: 2px;
             bottom: 0;
@@ -67,7 +78,8 @@
             transition: $transition;
             transition-delay: 0s;
         }
-        &:after{
+
+        &:after {
             width: 0;
             height: 0;
             border-style: solid;
@@ -76,42 +88,56 @@
             right: 0;
         }
     }
-    > span{
+
+    >span {
         position: relative;
-        &:after{
+
+        &:after {
             content: '';
             height: 1px;
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
+            bottom: 3px;
             background: currentColor;
             transform-origin: 50% 50%;
             transition: $transition;
         }
     }
-    &:hover, &:focus{
-        > i{
+
+    &:hover,
+    &:focus {
+        >i {
             transition-delay: 0.1s;
             transform: scale(0.8) translate3d(-10px, 0, 0);
-            &:before{
+
+            &:before {
                 transition-delay: 0.15s;
                 transform: scaleX(0.7);
             }
         }
-        > span{
-            &:after{
+
+        >span {
+            &:after {
                 transform: scaleX(0.9);
             }
         }
     }
-    &.small{
-        > i{
-            margin-bottom: 4px;
+
+    &.small {
+        >i {
             transform: scale(0.6);
         }
-        &:hover, &:focus{
-            > i{
+
+        >span {
+            &:after {
+                bottom: 5px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            >i {
                 transform: scale(0.6) translate3d(-10px, 0, 0);
             }
         }

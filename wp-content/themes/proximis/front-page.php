@@ -195,38 +195,34 @@
 					$post_reference = get_post($post_reference_id);
 				?>
 					<li>
-						<header>
-						<span class="logo-link">
-							<?php
-							if ($logo) {
-								echo wp_get_attachment_image($logo['ID'], 'full'); 
-							} 
-							?>
+						<header class="post-head">
 							<?php if ($website_link): ?>
-								<a href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-									<?php echo $website_link['title'] ?>
+								<a class="logo-link" href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+									<span class="img"><?php
+									if ($logo) {
+										echo wp_get_attachment_image($logo['ID'], 'full'); 
+									} 
+									?></span>
+									<span><?php echo $website_link['title'] ?></span>
 								</a>
 							<?php endif; ?>
-						</span>
-						<?php if ($post_reference): ?>
-							<span class="related-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></span>
-						<?php endif; ?>
+							<?php if ($post_reference): ?>
+								<time class="related-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></time>
+							<?php endif; ?>
 						</header>
-						<div>
+						<a class="post-content-link" href="<?php echo $post_reference_url ?>">
 							<?php if ($title): ?>
 								<h3 class="related-title">
-									<a href="<?php echo $post_reference_url ?>">
-										<?php echo $title ?>
-									</a>
+									<?php echo $title ?>
 								</h3>
 							<?php endif; ?>
 							<?php if ($text): ?>
 								<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($text)), 17))) ?>
 							<?php endif; ?>
-							<a href="<?php echo $post_reference_url ?>" class="link">
-								<span><?php _e('Read more', 'proximis') ?></span><i></i>
-							</a>
-						</div>
+						</a>
+						<a href="<?php echo $post_reference_url ?>" class="link">
+							<span><?php _e('Read more', 'proximis') ?></span><i></i>
+						</a>
 					</li>
 				<?php endwhile; ?>
 				</ul>

@@ -40,7 +40,11 @@
 
         &:hover,
         &:focus {
-            text-decoration: none;
+            text-decoration-color: transparent;
+
+            .is-ie & {
+                text-decoration: none;
+            }
         }
     }
 }

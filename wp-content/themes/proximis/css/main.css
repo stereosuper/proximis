@@ -359,15 +359,14 @@ hr {
   background: #000; }
 /******* LIENS / BOUTONS *******/
 a {
-  border-bottom: 1px solid;
   position: relative;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   line-height: 28px;
   color: #55C4DA;
-  text-decoration: none;
+  text-decoration: underline;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out; }
-a:before {
+a::before {
     content: '';
     position: absolute;
     top: -10px;
@@ -375,7 +374,10 @@ a:before {
     right: -10px;
     bottom: -10px; }
 a:hover, a:focus {
-    border-color: transparent; }
+    -webkit-text-decoration-color: transparent;
+            text-decoration-color: transparent; }
+.is-ie a:hover, .is-ie a:focus {
+      text-decoration: none; }
 a:focus {
     outline: 0; }
 a:active {
@@ -437,6 +439,9 @@ a:active {
 .highlighted,
 .img-shape {
   display: none; }
+.highlighted,
+.book-highlighted {
+  padding: 40px; }
 .newsletter-highlighted {
   padding: 40px 20px;
   background: #fff; }
@@ -522,7 +527,6 @@ a:active {
     top: 190px; }
   .highlighted,
   .book-highlighted {
-    padding: 40px;
     position: relative; }
     .highlighted .line,
     .book-highlighted .line {
@@ -903,9 +907,10 @@ div.wpcf7-mail-sent-ng {
     display: inline-block;
     min-width: 200px;
     padding: 20px;
-    border-color: rgba(92, 99, 112, 0.15);
+    border-bottom: 1px solid rgba(92, 99, 112, 0.15);
     position: relative;
     font-family: "ibmplex", sans-serif;
+    text-decoration: none;
     color: #18162B; }
 .mlp-language-box ul {
   margin: 35px 0 0; }
@@ -919,11 +924,13 @@ div.wpcf7-mail-sent-ng {
 .mlp-language-box li:last-child:after {
     content: none; }
 .mlp-language-box a {
-  border-bottom: 1px solid transparent;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
   font-family: "recoleta", "ibmplex", sans-serif;
   color: #18162B; }
 .mlp-language-box a:hover, .mlp-language-box a:focus {
-    border-color: currentColor; }
+    -webkit-text-decoration-color: currentColor;
+            text-decoration-color: currentColor; }
 .mlp-language-box .current-language-item {
   font-family: "recoleta_bold", "ibmplex", sans-serif; }
 @media (min-width: 1100px) {
@@ -1222,7 +1229,10 @@ div.wpcf7-mail-sent-ng {
       margin: 0 4px 0 6px;
       background: currentColor; }
 .breadcrumbs a:hover, .breadcrumbs a:focus {
-      text-decoration: none; }
+      -webkit-text-decoration-color: transparent;
+              text-decoration-color: transparent; }
+.is-ie .breadcrumbs a:hover, .is-ie .breadcrumbs a:focus {
+        text-decoration: none; }
 .timeline-wrapper h2 {
   margin-left: 20%; }
 .timeline {
@@ -1367,6 +1377,7 @@ div.wpcf7-mail-sent-ng {
   padding: 15px 25px;
   border: 0;
   z-index: 1;
+  text-decoration: none;
   line-height: 1;
   color: #fff; }
 .btn:after {
@@ -1395,10 +1406,11 @@ div.wpcf7-mail-sent-ng {
   display: -ms-inline-flexbox;
   display: inline-flex;
   border: 0;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  text-align: left; }
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  text-align: left;
+  text-decoration: none; }
 .link .icon {
     width: 0.7em;
     height: 0.7em;
@@ -1408,7 +1420,7 @@ div.wpcf7-mail-sent-ng {
     min-width: 25px;
     height: 10px;
     position: relative;
-    margin: 0 0 6px 6px;
+    margin: 0 0 0 6px;
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
     -webkit-transition: 0.3s ease-in-out;
@@ -1447,7 +1459,7 @@ div.wpcf7-mail-sent-ng {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 3px;
       background: currentColor;
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
@@ -1467,9 +1479,10 @@ div.wpcf7-mail-sent-ng {
     -webkit-transform: scaleX(0.9);
             transform: scaleX(0.9); }
 .link.small > i {
-    margin-bottom: 4px;
     -webkit-transform: scale(0.6);
             transform: scale(0.6); }
+.link.small > span:after {
+    bottom: 5px; }
 .link.small:hover > i, .link.small:focus > i {
     -webkit-transform: scale(0.6) translate3d(-10px, 0, 0);
             transform: scale(0.6) translate3d(-10px, 0, 0); }
@@ -1932,63 +1945,6 @@ a.ref:hover img, a.ref:focus img {
     border-bottom: 1px solid #5C6370; }
 .related > li::before {
       content: none; }
-.related header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin: 0 0 25px; }
-.related .logo-link {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start; }
-.related .logo-link img {
-      margin-right: 10px; }
-.related .logo-link img.avatar {
-        width: 21px;
-        height: 21px; }
-.related .logo-link a {
-      font-family: "ibmplex", sans-serif;
-      font-size: 1.4rem; }
-.related p {
-    margin: 0; }
-.related-title {
-  margin: 0; }
-.related-title a {
-    font-family: "recoleta_bold", "ibmplex", sans-serif;
-    font-size: 2.4rem;
-    border: 0;
-    color: #18162B; }
-.related-title a:hover, .related-title a:focus {
-      color: #55C4DA; }
-.related-date {
-  font-family: "ibmplex", sans-serif;
-  font-size: 1.4rem;
-  color: #18162B; }
-.wrapper-cats-rt {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 1.4rem; }
-.wrapper-cats-rt .rt-reading-time::before {
-    margin-right: 10px; }
 @media (min-width: 960px) {
   .wrapper-related {
     margin-top: 112px;
@@ -2495,6 +2451,7 @@ a.ref:hover img, a.ref:focus img {
     border: 0;
     line-height: 56px;
     font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    text-decoration: none;
     color: inherit; }
 .blog-list > li {
   display: inline-block;
@@ -2506,49 +2463,79 @@ a.ref:hover img, a.ref:focus img {
 .blog-list .book h2 {
     margin: 20px 0 0; }
 .post {
-  padding: 0 0 30px;
+  padding: 0 0 28px;
   border-bottom: 1px solid #5C6370; }
-.post h2 {
-    margin: 15px 0 0; }
-.post p {
-    margin: 0; }
-.post a {
-    font-family: "ibmplex", sans-serif; }
-.post > a {
-    border: 0;
-    color: inherit; }
 .post-img {
   display: block;
   height: 150px;
   margin: 0 0 1.2em;
   background-size: cover;
   background-position: 50% 50%; }
-.post-header,
-.post-footer {
+.post-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin: 0 0 25px; }
+.logo-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-right: 10px;
+  font-family: "ibmplex", sans-serif;
+  font-size: 1.4rem; }
+.logo-link .img {
+    margin-right: 10px; }
+.logo-link .img.author-img {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      overflow: hidden; }
+.related-date {
+  font-family: "ibmplex", sans-serif;
   font-size: 1.4rem;
-  line-height: 1; }
-.post-header .author {
-  margin: 0 0 15px 32px; }
-.post-header .img {
-  width: 21px;
-  height: 21px;
-  top: 0;
-  left: -32px; }
-.author .img,
-.post-author .img {
-  border-radius: 50%;
-  overflow: hidden;
-  position: absolute; }
+  color: #18162B; }
+.post-content-link {
+  color: #18162B;
+  text-decoration: none; }
+.post-content-link:hover .related-title, .post-content-link:focus .related-title {
+    color: #55C4DA; }
+.post-content-link p {
+    margin: 0;
+    font-family: "ibmplex", sans-serif; }
+.related-title {
+  margin: 0;
+  font-family: "recoleta_bold", "ibmplex", sans-serif;
+  font-size: 2.4rem;
+  color: #18162B;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out; }
 .post-footer {
-  margin: 1em 0 0; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.4rem; }
+.post-footer .rt-reading-time::before {
+    margin-right: 10px; }
 .rt-reading-time,
 .post-meta .cats {
   display: -webkit-box;
@@ -2584,19 +2571,25 @@ a.ref:hover img, a.ref:focus img {
   .post-meta .cats {
     margin: 0 0 0 13px; }
 .post-author {
-  line-height: 1; }
-.post-author a {
-    margin: 0 0 0 55px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "ibmplex", sans-serif; }
 .post-author .img {
+    display: block;
     width: 42px;
     height: 42px;
-    top: -5px;
-    left: -55px; }
+    margin-right: 15px;
+    border-radius: 50%;
+    overflow: hidden; }
 .newsletter-in-list {
   padding-left: 0; }
-@media (min-width: 780px) {
-  .post h2 {
-    font-size: 2.4rem; } }
 @media (min-width: 960px) {
   .post-thumbnail {
     margin: 0 0 0 8.33333%; } }
@@ -2619,4 +2612,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?243777b514be83061629073a2f395ad8*/
+/*# sourceMappingURL=main.css.map?741443494d3693f83d743d4016c76865*/

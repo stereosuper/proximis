@@ -32,12 +32,10 @@
 			<?php the_content(); ?>
 
 			<?php $author = get_the_author(); ?>
-			<p class='post-author'>
-				<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>'>
-					<span class='img'><?php echo get_avatar( $author ); ?></span>
-					<?php echo $author; ?>
-				</a>
-			</p>
+			<a class='post-author' href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>'>
+				<span class='img'><?php echo get_avatar( $author ); ?></span>
+				<span class='txt'><?php echo $author; ?></span>
+			</a>
 			
 			<div class='newsletter-single'>
 				<?php get_template_part('includes/newsletter'); ?>

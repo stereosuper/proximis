@@ -180,9 +180,10 @@
         display: inline-block;
         min-width: 200px;
         padding: $gutter;
-        border-color: rgba($grey, 0.15);
+        border-bottom: 1px solid rgba($grey, 0.15);
         position: relative;
         font-family: $ibm;
+        text-decoration: none;
         color: $text;
     }
 }
@@ -213,13 +214,13 @@
     }
 
     a {
-        border-bottom: 1px solid transparent;
+        text-decoration-color: transparent;
         font-family: $recoleta;
         color: $text;
 
         &:hover,
         &:focus {
-            border-color: currentColor;
+            text-decoration-color: currentColor;
         }
     }
 

@@ -33,49 +33,47 @@
 		<?php
 			while( $relatedQuery->have_posts() ) : $relatedQuery->the_post(); ?>
 			<li>
-				<header>
+				<header class="post-head">
 					<?php 
 					$author_ID = get_the_author_meta('ID');
 					$author_display_name = get_the_author_meta('display_name');
 					$avatar = get_avatar($author_ID);
 					$excerpt = get_the_excerpt() ?: get_the_content();
 					?>
-					<span class="logo-link">
-						<?php
-						if ($avatar) {
-							echo $avatar;
-						} 
-						?>
-						<?php if ($author_display_name): ?>
-							<a href="<?php echo get_author_posts_url($author_ID) ?>">
-								<?php echo $author_display_name ?>
-							</a>
-						<?php endif; ?>
-					</span>
-					<span class="related-date"><?php echo get_the_date('d F Y') ?></span>
+					<?php if ($author_display_name): ?>
+						<a class="logo-link" href="<?php echo get_author_posts_url($author_ID) ?>">
+							<span class="img author-img"><?php
+							if ($avatar) {
+								echo $avatar;
+							} 
+							?></span>
+							<span><?php echo $author_display_name ?></span>
+						</a>
+					<?php endif; ?>
+					<time class="related-date"><?php echo get_the_date('d F Y') ?></time>
 				</header>
-				<div>
+				<a class="post-content-link" href='<?php the_permalink(); ?>'>
 					<h3 class="related-title">
-						<a href='<?php the_permalink(); ?>'><?php echo get_the_title(); ?></a>
+						<?php echo get_the_title(); ?>
 					</h3>
 					<?php if ($excerpt): ?>
 						<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($excerpt)), 24))) ?>
 					<?php endif; ?>
-					<div class='wrapper-cats-rt'>
-						<div class='cats'>
-							<?php $cats = get_the_category(); 
-								if( $cats ) :
-								$count = 0;
-								foreach( $cats as $cat ) :
-									$count ++;
-									if( $count > 1 ) echo ' - ';
-									echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
-								endforeach;
-							endif; ?>
-						</div>
-						<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
+				</a>
+				<footer class='post-footer'>
+					<div class='cats'>
+						<?php $cats = get_the_category(); 
+							if( $cats ) :
+							$count = 0;
+							foreach( $cats as $cat ) :
+								$count ++;
+								if( $count > 1 ) echo ' - ';
+								echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
+							endforeach;
+						endif; ?>
 					</div>
-				</div>
+					<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
+				</footer>
 			</li>
 			<?php endwhile;
 			?>
