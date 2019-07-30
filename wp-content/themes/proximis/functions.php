@@ -324,12 +324,70 @@ function proximis_scripts(){
 
 	// footer
 	wp_deregister_script('jquery');
-	wp_enqueue_script( 'proximis-scripts', get_template_directory_uri() . '/js/main.js', array(), PROXIMIS_VERSION, true );
-
+    wp_enqueue_script( 'proximis-scripts', get_template_directory_uri() . '/js/main.js', array(), PROXIMIS_VERSION, true );
+    
     wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Ajax
+/*-----------------------------------------------------------------------------------*/
+
+function load_references() {
+    // Is prev or next
+	$type = $_POST['type'];
+    $current_reference_id = intval($_POST['current_reference_id']);
+
+    $query_args = array(
+        'post_type' => 'reference',
+        'posts_per_page' => -1,
+        'meta_key' => 'studycase',
+        'meta_value' => true,
+    );
+    
+    $query_all_references = new WP_Query($query_args);
+    
+    function filter_by_id($carry, $item) {
+        $carry[] = $item->ID;
+        return $carry;
+    }
+
+    $ids = array_reduce($query_all_references->posts, 'filter_by_id', []);
+    $index = array_search($current_reference_id, $ids);
+
+    if ($type === 'next') {
+        $rel = $index + 2 > sizeof($ids) ? array_slice($ids, 0, 1) : array_slice($ids, $index + 1, 1);
+    } else if ($type === 'prev') {
+        $rel = $index - 1 > 0 ? array_slice($ids, -1, 1) : array_slice($ids, $index - 1, 1);
+    }
+
+    $query_args = array(
+        'post_type' => 'reference',
+        'posts_per_page' => 1,
+        'meta_key' => 'studycase',
+        'meta_value' => true,
+        'post__in' => $rel
+    );
+    
+    $query_the_reference = new WP_Query($query_args);
+
+    if ($query_the_reference->have_posts()) { 
+        while ($query_the_reference->have_posts()) {
+            $query_the_reference->the_post();
+            ?>
+            <div class="ref-slide ref-slide-<?php echo $type ?> js-ref-slide-<?php echo $type ?>" data-ref-id="<?php the_ID() ?>">
+                <?php get_template_part('/includes/reference'); ?>
+            </div>
+            <?php
+        }
+	}
+
+	wp_die();
+}
+add_action( 'wp_ajax_load_references', 'load_references' );
+add_action( 'wp_ajax_nopriv_load_references', 'load_references' );
 
 /*-----------------------------------------------------------------------------------*/
 /* TGMPA

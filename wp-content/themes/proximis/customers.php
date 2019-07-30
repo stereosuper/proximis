@@ -3,7 +3,20 @@
 Template Name: Customers
 */
 
-get_header(); ?>
+get_header(); 
+
+$refQuery = new WP_Query(array(
+    'post_type' => 'reference',
+    'posts_per_page' => -1
+));
+
+$caseStudyQuery = new WP_Query(array(
+    'post_type' => 'reference',
+    'posts_per_page' => 1,
+    'meta_key' => 'studycase',
+    'meta_value' => true,
+));
+?>
 
 <?php if ( have_posts() ) : the_post(); ?>
 
@@ -19,13 +32,13 @@ get_header(); ?>
 					endif;
 				?>
 
-                <?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => -1)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
+                <?php if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
                     <h2 class='h1 small-margin-bottom'><?php the_title(); ?></h2>
                     <?php the_field('customersText'); ?>
                     
                     <ul class='home-ref-list'>
                         <?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
-                             <li>
+                            <li>
                                 <?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
 
                                 <?php if( get_field('studycase') ) : ?>
@@ -59,6 +72,19 @@ get_header(); ?>
                     </ul>
                 <?php wp_reset_postdata(); endif; ?>
             </div>
+        </section>
+
+        <section class="ref-slider js-ref-slider">
+            <?php if ($caseStudyQuery->have_posts()) :?>
+            <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
+            <div class="ref-slide ref-slide-current js-ref-slide-current" data-ref-id="<?php the_ID() ?>">
+                <?php 
+                    get_template_part('/includes/reference');
+                ?>
+            </div>
+            <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+            <?php endif; ?>
         </section>
         
         <?php $map = get_field('map'); if( $map ) : ?>

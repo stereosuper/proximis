@@ -1959,6 +1959,39 @@ a.ref:hover img, a.ref:focus img {
   .related > li {
     width: 25%;
     margin-right: 8.33333%; } }
+.ref-slider {
+  width: 100%;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  background: #fff; }
+.ref-slide-current {
+  position: relative;
+  -webkit-transition:  -webkit-transform 1s ease-out;
+  transition:  -webkit-transform 1s ease-out;
+  transition:  transform 1s ease-out;
+  transition:  transform 1s ease-out, -webkit-transform 1s ease-out; }
+.ref-slide-prev {
+  left: 100%; }
+.ref-slide-next {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  right: -100%; }
+.ref-slide-next-in {
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition:  -webkit-transform 0.3s 0.3s ease-out;
+  transition:  -webkit-transform 0.3s 0.3s ease-out;
+  transition:  transform 0.3s 0.3s ease-out;
+  transition:  transform 0.3s 0.3s ease-out, -webkit-transform 0.3s 0.3s ease-out; }
+.ref-slide-next-out {
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition:  -webkit-transform 0.3s ease-in;
+  transition:  -webkit-transform 0.3s ease-in;
+  transition:  transform 0.3s ease-in;
+  transition:  transform 0.3s ease-in, -webkit-transform 0.3s ease-in; }
 /* Home specific style */
 .home h1 {
   font-size: 4.3rem; }
@@ -2612,4 +2645,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?741443494d3693f83d743d4016c76865*/
+/*# sourceMappingURL=main.css.map?05ea5999aa9791a82948e2a392a85439*/
