@@ -222,6 +222,34 @@
     padding-left: 0;
 }
 
+.wrapper-cat-search {
+    display: flex;
+    align-items: center;
+
+    >form {
+        margin-left: 10px;
+    }
+}
+
+.search-form {
+    position: relative;
+}
+
+.btn-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 20px;
+
+    .icon {
+        fill: $grey;
+    }
+}
+
 @media (min-width: $desktop-small) {
     .post-thumbnail {
         margin: 0 0 0 $col;

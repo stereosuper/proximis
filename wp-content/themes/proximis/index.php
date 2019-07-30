@@ -42,12 +42,13 @@
 			the_field('text', $blog);
 		?>
 
-		<ul class='blog-cats off' id='cats'>
-			<li><a href='<?php echo get_permalink($blog); ?>'><?php _e('Display all posts', 'proximis'); ?></a></li>
-			<?php wp_list_categories( array('title_li' => '') ); ?>
-		</ul>
-
-		<?php get_search_form(); ?>
+		<div class="wrapper-cat-search">
+			<ul class='blog-cats off' id='cats'>
+				<li><a href='<?php echo get_permalink($blog); ?>'><?php _e('Display all posts', 'proximis'); ?></a></li>
+				<?php wp_list_categories( array('title_li' => '') ); ?>
+			</ul>
+			<?php get_search_form(); ?>
+		</div>
 
 		<?php if ( have_posts() ) : $countPosts = 0; ?>
 

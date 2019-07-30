@@ -641,6 +641,42 @@ input:invalid:not(:focus), input.wpcf7-not-valid:not(:focus), input.has-value.wp
 input:focus,
   textarea:focus {
     background-image: none !important; }
+input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input::-ms-input-placeholder,
+  textarea::-ms-input-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input::placeholder,
+  textarea::placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
+input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    font-family: "ibmplex_italic", "ibmplex", sans-serif;
+    color: #18162B; }
 input {
   width: 100%;
   max-width: 350px;
@@ -2602,6 +2638,34 @@ a.ref:hover img, a.ref:focus img {
     overflow: hidden; }
 .newsletter-in-list {
   padding-left: 0; }
+.wrapper-cat-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+.wrapper-cat-search > form {
+    margin-left: 10px; }
+.search-form {
+  position: relative; }
+.btn-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 20px; }
+.btn-search .icon {
+    fill: #5C6370; }
 @media (min-width: 960px) {
   .post-thumbnail {
     margin: 0 0 0 8.33333%; } }
@@ -2624,4 +2688,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?90c49c89a21ef7d48551310998c9c1ba*/
+/*# sourceMappingURL=main.css.map?91bb59c6689edd2b24c842e0ff7255ab*/

@@ -62,6 +62,11 @@ textarea {
     &:focus {
         background-image: none !important;
     }
+
+    @include placeholder {
+        font-family: $ibm-it;
+        color: $text;
+    }
 }
 
 input {
