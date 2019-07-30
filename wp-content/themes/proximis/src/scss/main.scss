@@ -1,19 +1,22 @@
 @charset 'utf-8';
 
-@import "abstracts/variables", "abstracts/functions", "abstracts/mixins";
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins',
+    'abstracts/animations';
 
-@import "base/reset", "base/fonts", "base/base";
+@import 'base/reset', 'base/fonts', 'base/base';
 
 //@import
 //  'vendors/';
 
-@import "abstracts/placeholders";
+@import 'abstracts/placeholders';
 
-@import "layout/grid", "layout/forms", "layout/header", "layout/footer", "layout/header-page",
-"layout/footer-page", "layout/breadcrumbs", "layout/timeline", "layout/team";
+@import 'layout/grid', 'layout/forms', 'layout/header', 'layout/footer',
+    'layout/header-page', 'layout/footer-page', 'layout/breadcrumbs',
+    'layout/timeline', 'layout/team';
 
-@import "components/buttons", "components/refs", "components/customers", "components/newsletter", "components/related";
+@import 'components/buttons', 'components/refs', 'components/customers',
+    'components/newsletter', 'components/related', 'components/refs-slider';
 
-@import "pages/home", "pages/contact", "pages/services", "pages/blog";
+@import 'pages/home', 'pages/contact', 'pages/services', 'pages/blog';
 
-@import "base/print";
+@import 'base/print';
