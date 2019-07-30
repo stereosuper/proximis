@@ -1146,7 +1146,7 @@ div.wpcf7-mail-sent-ng {
 .header-page {
   padding: 180px 0 7vh;
   position: relative;
-  margin: -245px 0 0;
+  margin: -248px 0 0;
   overflow: hidden;
   background: #55C4DA; }
 .header-page h1 {
@@ -2007,7 +2007,7 @@ a.ref:hover img, a.ref:focus img {
 .carousel {
   position: relative;
   min-height: 90vh;
-  margin: -245px 0 0; }
+  margin: -248px 0 0; }
 .carousel .slide {
     min-height: 90vh;
     position: absolute;
@@ -2646,4 +2646,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?c8a72c3fc428943cc7a685cb348dc5f3*/
+/*# sourceMappingURL=main.css.map?ea1a94681f7f8e2bc655eb7117f907b2*/

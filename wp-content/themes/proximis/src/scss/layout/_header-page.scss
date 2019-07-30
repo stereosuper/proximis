@@ -1,57 +1,63 @@
-.header-page{
+.header-page {
     //min-height: 90vh;
     padding: 180px 0 7vh;
     position: relative;
-    margin: -245px 0 0;
+    margin: -248px 0 0;
     overflow: hidden;
     background: $primary;
-    h1{
+
+    h1 {
         margin-bottom: 0;
-        span{
-            &.white{
+
+        span {
+            &.white {
                 color: #fff;
             }
         }
     }
-    a{
+
+    a {
         color: inherit;
     }
-    img{
+
+    img {
         display: none;
     }
 }
 
 
-@media (min-width: $phone){
-    .header-page{
-        h1{
-            span{
+@media (min-width: $phone) {
+    .header-page {
+        h1 {
+            span {
                 display: block;
             }
         }
     }
 }
 
-@media (min-width: $tablet){
-    .header-page{
-        p{
+@media (min-width: $tablet) {
+    .header-page {
+        p {
             width: $col*10;
         }
     }
 }
 
-@media (min-width: $desktop){
-    .header-page{
-        p{
+@media (min-width: $desktop) {
+    .header-page {
+        p {
             width: $col*7;
         }
-        img{
+
+        img {
             display: block;
             max-width: 40%;
             position: absolute;
             top: 0;
             right: 0;
-            .page-template-about &{
+
+            .page-template-about & {
                 max-width: 32%;
                 top: auto;
                 bottom: 0;
@@ -60,14 +66,16 @@
     }
 }
 
-@media (min-width: $desktop-big){
-    .header-page{
-        p{
+@media (min-width: $desktop-big) {
+    .header-page {
+        p {
             width: $col*5;
         }
-        img{
+
+        img {
             max-width: 43%;
-            .page-template-about &{
+
+            .page-template-about & {
                 max-width: 38%;
             }
         }
