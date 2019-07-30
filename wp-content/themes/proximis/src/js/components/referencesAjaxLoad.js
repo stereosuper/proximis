@@ -1,4 +1,5 @@
 import { superPolyfill, query } from '@stereorepo/sac';
+import { TweenMax, TimelineLite } from 'gsap';
 
 const referencesAjaxLoadHandler = () => {
     const [referenceSlider] = query({ selector: '.js-ref-slider' });
@@ -6,18 +7,12 @@ const referencesAjaxLoadHandler = () => {
     if (!referenceSlider) return;
     superPolyfill.initializeWhatwgFetch();
 
-    const updateOldElement = ({ oldElement, type }) => {
-        oldElement.classList.add(`ref-slide-${type}-out`);
-    };
-
-    const updateFollowingElement = ({ followingElement, type }) => {
-        followingElement.classList.add(`ref-slide-${type}-in`);
-    };
+    const checkLoadingAction = ({ type = 'next', currentSlide }) => {};
 
     const startLoadingAction = ({ type = 'next', currentSlide }) => {
         const currentReferenceId = currentSlide.dataset.refId;
 
-        const action = 'load_references';
+        const action = 'check_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
         fetch(url, {
@@ -32,16 +27,17 @@ const referencesAjaxLoadHandler = () => {
             .then(response => {
                 currentSlide.insertAdjacentHTML('afterend', response);
 
-                let selector = '';
+                let selector = '.js-ref-following-slide';
+                let xPercent = 0;
                 switch (type) {
                     case 'prev':
-                        selector = '.js-ref-slide-prev';
+                        xPercent = -100;
                         break;
                     case 'next':
-                        selector = '.js-ref-slide-next';
+                        xPercent = 100;
                         break;
                     default:
-                        selector = '.js-ref-slide-next';
+                        xPercent = 100;
                         break;
                 }
 
@@ -51,42 +47,53 @@ const referencesAjaxLoadHandler = () => {
                 });
 
                 const [oldSlide] = query({
-                    selector: '.js-ref-slide-current',
+                    selector: '.js-ref-current-slide',
                     ctx: referenceSlider
                 });
 
-                const transitionElementDuration = getComputedStyle(
-                    oldSlide
-                ).getPropertyValue('transition-duration');
+                oldSlide.classList.remove('ref-slide-init');
 
-                if (transitionElementDuration !== '0s') {
-                    oldSlide.addEventListener(
-                        'transitionstart',
-                        () => {
-                            updateFollowingElement({
-                                followingElement: followingSlide,
-                                type
-                            });
-                        },
-                        false
-                    );
-                } else {
-                    updateFollowingElement({
-                        followingElement: followingSlide,
-                        type
-                    });
-                }
+                const timeline = new TimelineLite({
+                    onComplete: () => {
+                        oldSlide.classList.remove('js-ref-current-slide');
 
-                updateOldElement({ oldElement: oldSlide, type });
+                        followingSlide.classList.remove(
+                            'js-ref-following-slide'
+                        );
+                        followingSlide.classList.add('js-ref-current-slide');
+                        getCurrentContext();
+                    }
+                });
+
+                TweenMax.set(followingSlide, {
+                    xPercent
+                });
+
+                timeline.add(
+                    TweenMax.to(oldSlide, 0.3, {
+                        xPercent: -xPercent
+                    })
+                );
+
+                timeline.add(
+                    TweenMax.to(followingSlide, 0.3, {
+                        xPercent: 0
+                    })
+                );
+
+                timeline.play();
             });
     };
 
     const getCurrentContext = () => {
-        const [currentSlide] = query({ selector: '.js-ref-slide-current' });
+        const [currentSlide] = query({ selector: '.js-ref-current-slide' });
         const [prevButton, nextButton] = query({
             selector: '.js-button-hexagon',
             ctx: currentSlide
         });
+
+        const { height } = currentSlide.getBoundingClientRect();
+        TweenMax.to(referenceSlider, 0.3, { height: `${height}px` });
 
         prevButton.addEventListener(
             'click',

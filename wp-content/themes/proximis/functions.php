@@ -335,7 +335,7 @@ add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 /* Ajax
 /*-----------------------------------------------------------------------------------*/
 
-function load_references() {
+function check_references() {
     // Is prev or next
 	$type = $_POST['type'];
     $current_reference_id = intval($_POST['current_reference_id']);
@@ -363,6 +363,13 @@ function load_references() {
         $rel = $index - 1 > 0 ? array_slice($ids, -1, 1) : array_slice($ids, $index - 1, 1);
     }
 
+    return $rel[0];
+	wp_die();
+}
+add_action( 'wp_ajax_check_references', 'check_references' );
+add_action( 'wp_ajax_nopriv_check_references', 'check_references' );
+
+function load_references() {
     $query_args = array(
         'post_type' => 'reference',
         'posts_per_page' => 1,
@@ -377,13 +384,13 @@ function load_references() {
         while ($query_the_reference->have_posts()) {
             $query_the_reference->the_post();
             ?>
-            <div class="ref-slide ref-slide-<?php echo $type ?> js-ref-slide-<?php echo $type ?>" data-ref-id="<?php the_ID() ?>">
+            <div class="ref-slide js-ref-following-slide" data-ref-id="<?php the_ID() ?>">
                 <?php get_template_part('/includes/reference'); ?>
             </div>
             <?php
         }
-	}
-
+    }
+    
 	wp_die();
 }
 add_action( 'wp_ajax_load_references', 'load_references' );

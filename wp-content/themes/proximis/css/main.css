@@ -1963,36 +1963,14 @@ a.ref:hover img, a.ref:focus img {
 .ref-slider {
   width: 100%;
   position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
   background: #fff; }
-.ref-slide-current {
-  position: relative;
-  -webkit-transition:  -webkit-transform 1s ease-out;
-  transition:  -webkit-transform 1s ease-out;
-  transition:  transform 1s ease-out;
-  transition:  transform 1s ease-out, -webkit-transform 1s ease-out; }
-.ref-slide-prev {
-  left: 100%; }
-.ref-slide-next {
+.ref-slide {
   position: absolute;
   top: 0;
-  left: 100%;
-  right: -100%; }
-.ref-slide-next-in {
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  -webkit-transition:  -webkit-transform 0.3s 0.3s ease-out;
-  transition:  -webkit-transform 0.3s 0.3s ease-out;
-  transition:  transform 0.3s 0.3s ease-out;
-  transition:  transform 0.3s 0.3s ease-out, -webkit-transform 0.3s 0.3s ease-out; }
-.ref-slide-next-out {
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  -webkit-transition:  -webkit-transform 0.3s ease-in;
-  transition:  -webkit-transform 0.3s ease-in;
-  transition:  transform 0.3s ease-in;
-  transition:  transform 0.3s ease-in, -webkit-transform 0.3s ease-in; }
+  left: 0;
+  right: 0; }
+.ref-slide-init {
+  position: relative; }
 /* Home specific style */
 .home h1 {
   font-size: 4.3rem; }
@@ -2646,4 +2624,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?c8a72c3fc428943cc7a685cb348dc5f3*/
+/*# sourceMappingURL=main.css.map?4c55e2f31d14aa147aaef09e9a0dc95c*/
