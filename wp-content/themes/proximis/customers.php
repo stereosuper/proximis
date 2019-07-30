@@ -77,13 +77,13 @@ $caseStudyQuery = new WP_Query(array(
         <section class="ref-slider js-ref-slider">
             <?php if ($caseStudyQuery->have_posts()) :?>
             <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
-            <div class="ref-slide ref-slide-init js-ref-current-slide" data-ref-id="<?php the_ID() ?>">
+            <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>">
                 <?php 
                     get_template_part('/includes/reference');
                 ?>
             </div>
-            <?php wp_reset_postdata(); ?>
             <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
             <?php endif; ?>
         </section>
         
