@@ -61,18 +61,20 @@
 					<?php if ($excerpt): ?>
 						<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($excerpt)), 24))) ?>
 					<?php endif; ?>
-					<div class='cats'>
-						<?php $cats = get_the_category(); 
-							if( $cats ) :
-							$count = 0;
-							foreach( $cats as $cat ) :
-								$count ++;
-								if( $count > 1 ) echo ' - ';
-								echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
-							endforeach;
-						endif; ?>
+					<div class='wrapper-cats-rt'>
+						<div class='cats'>
+							<?php $cats = get_the_category(); 
+								if( $cats ) :
+								$count = 0;
+								foreach( $cats as $cat ) :
+									$count ++;
+									if( $count > 1 ) echo ' - ';
+									echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
+								endforeach;
+							endif; ?>
+						</div>
+						<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
 					</div>
-					<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
 				</div>
 			</li>
 			<?php endwhile;

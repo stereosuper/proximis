@@ -1,7 +1,7 @@
 .blog-title {
     margin-bottom: 0;
 
-    +p {
+    +p:not(.post-meta) {
         width: 50%;
         padding: 0 $gutter 0 0;
         color: $grey;
@@ -140,15 +140,15 @@
 
 .rt-reading-time,
 .post-meta .cats {
+    display: flex;
+    align-items: center;
     position: relative;
 
     &:before {
         content: '';
         width: 3px;
         height: 3px;
-        position: absolute;
-        top: 10px;
-        left: -12px;
+        margin-right: 15px;
         border-radius: 50%;
         background: $primary;
     }
@@ -177,11 +177,7 @@
 
     .rt-reading-time,
     .cats {
-        margin: 0 0 0 20px;
-
-        &:before {
-            top: 12px;
-        }
+        margin: 0 0 0 13px;
     }
 }
 
