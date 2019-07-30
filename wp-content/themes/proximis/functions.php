@@ -345,6 +345,8 @@ function check_references() {
         'posts_per_page' => -1,
         'meta_key' => 'studycase',
         'meta_value' => true,
+        'orderby' => 'date',
+        'order'   => 'DESC',
     );
     
     $query_all_references = new WP_Query($query_args);
@@ -360,22 +362,24 @@ function check_references() {
     if ($type === 'next') {
         $rel = $index + 2 > sizeof($ids) ? array_slice($ids, 0, 1) : array_slice($ids, $index + 1, 1);
     } else if ($type === 'prev') {
-        $rel = $index - 1 > 0 ? array_slice($ids, -1, 1) : array_slice($ids, $index - 1, 1);
+        $rel = $index - 1 < 0 ? array_slice($ids, -1, 1) : array_slice($ids, $index - 1, 1);
     }
 
-    return $rel[0];
+    echo json_encode($rel);
 	wp_die();
 }
 add_action( 'wp_ajax_check_references', 'check_references' );
 add_action( 'wp_ajax_nopriv_check_references', 'check_references' );
 
 function load_references() {
+    $new_reference_id = intval($_POST['new_reference_id']);
+
     $query_args = array(
         'post_type' => 'reference',
         'posts_per_page' => 1,
         'meta_key' => 'studycase',
         'meta_value' => true,
-        'post__in' => $rel
+        'post__in' => array($new_reference_id)
     );
     
     $query_the_reference = new WP_Query($query_args);
@@ -384,7 +388,7 @@ function load_references() {
         while ($query_the_reference->have_posts()) {
             $query_the_reference->the_post();
             ?>
-            <div class="ref-slide js-ref-following-slide" data-ref-id="<?php the_ID() ?>">
+            <div class="ref-slide js-ref-following-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>">
                 <?php get_template_part('/includes/reference'); ?>
             </div>
             <?php

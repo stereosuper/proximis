@@ -13,7 +13,7 @@ import Slider from './components/Slider';
 import united from './components/united';
 import form from './components/form';
 import newsletter from './components/newsletter';
-import referencesAjaxLoad from './components/referencesAjaxLoad';
+import referencesSlider from './components/referencesSlider';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -54,7 +54,7 @@ const preloadCallback = () => {
     header();
     form();
     newsletter();
-    referencesAjaxLoad();
+    new referencesSlider();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
