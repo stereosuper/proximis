@@ -77,7 +77,7 @@ $caseStudyQuery = new WP_Query(array(
         <section class="ref-slider js-ref-slider">
             <?php if ($caseStudyQuery->have_posts()) :?>
             <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
-            <div class="ref-slide ref-slide-current js-ref-slide-current" data-ref-id="<?php the_ID() ?>">
+            <div class="ref-slide ref-slide-init js-ref-current-slide" data-ref-id="<?php the_ID() ?>">
                 <?php 
                     get_template_part('/includes/reference');
                 ?>
