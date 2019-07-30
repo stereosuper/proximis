@@ -8,7 +8,7 @@
 
 		<h1 class='blog-title'>
 			<?php
-				if( is_category() ){
+				if( is_category() ) {
 
 					global $wp_query;
 					$results = $wp_query->found_posts . ' ';
@@ -16,7 +16,7 @@
 					$type = __('in the category');
 					echo "$results $type \"".single_cat_title('', false).'"'; 
 					
-				}else if( is_search() ){
+				} else if( is_search() ) {
 					
 					global $wp_query;
 					$results = $wp_query->found_posts . ' ';
@@ -24,11 +24,11 @@
 					$type = __('found for');
 					echo "$results $type \"".get_search_query().'"'; 
 
-				}else if( is_author() ){
+				} else if( is_author() ) {
 
 					echo __('Posts published by ') . get_the_author();
 
-				}else{
+				} else {
 					single_post_title();
 				}
 			?>

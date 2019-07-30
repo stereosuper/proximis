@@ -36,8 +36,7 @@
 				<header>
 					<?php 
 					$author_ID = get_the_author_meta('ID');
-					$author_first_name = get_the_author_meta('first_name');
-					$author_last_name = get_the_author_meta('last_name');
+					$author_display_name = get_the_author_meta('display_name');
 					$avatar = get_avatar($author_ID);
 					$excerpt = get_the_excerpt() ?: get_the_content();
 					?>
@@ -47,9 +46,9 @@
 							echo $avatar;
 						} 
 						?>
-						<?php if ($author_first_name && $author_last_name): ?>
-							<a href="<?php get_author_posts_url() ?>">
-								<?php echo $author_first_name.' '.$author_last_name ?>
+						<?php if ($author_display_name): ?>
+							<a href="<?php echo get_author_posts_url($author_ID) ?>">
+								<?php echo $author_display_name ?>
 							</a>
 						<?php endif; ?>
 					</span>
