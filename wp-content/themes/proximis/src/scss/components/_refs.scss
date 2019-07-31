@@ -45,9 +45,8 @@
     }
 }
 
-a {
-    &.ref {
-
+.ref {
+    &.clickable {
         &:hover,
         &:focus {
             &:after {
@@ -68,7 +67,7 @@ a {
 }
 
 .infos-datas {
-    margin-bottom: $line-height*3;
+    margin-bottom: $line-height * 3;
 }
 
 .title-ref {
@@ -98,7 +97,7 @@ a {
     border-radius: 50%;
     background: $primary;
 
-    >span {
+    > span {
         position: relative;
         top: 0.15em;
     }
@@ -110,12 +109,11 @@ a {
 }
 
 .awards {
-
     h3 {
         color: $grey;
     }
 
-    >ul {
+    > ul {
         margin: 0;
     }
 
@@ -160,7 +158,7 @@ a {
     margin: 0 0 $line-height;
     overflow: hidden;
 
-    >img {
+    > img {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -172,7 +170,7 @@ a {
     justify-content: flex-start;
     align-items: center;
 
-    >* {
+    > * {
         margin-right: 16px;
 
         &:last-child {
@@ -180,7 +178,7 @@ a {
         }
     }
 
-    +.wrapper-btn-download {
+    + .wrapper-btn-download {
         margin-top: 16px;
     }
 }
@@ -208,7 +206,7 @@ a {
 
         &::before,
         &::after {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -276,7 +274,7 @@ a {
         align-items: flex-start;
         width: percentage(6/10);
 
-        >* {
+        > * {
             flex: 0 0 auto;
         }
     }
@@ -296,7 +294,7 @@ a {
         align-items: flex-start;
         width: 100%;
 
-        >* {
+        > * {
             flex: 0 0 auto;
         }
     }
@@ -340,7 +338,7 @@ a {
         right: $gutter;
         justify-content: space-between;
 
-        +.wrapper-btn-download {
+        + .wrapper-btn-download {
             margin-top: 0;
         }
     }

@@ -63,7 +63,9 @@ const preloadCallback = () => {
     header();
     form();
     newsletter();
-    new referencesSlider();
+
+    const referenceSlider = new ReferencesSlider();
+    referenceSlider.initialize();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);

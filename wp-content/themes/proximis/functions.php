@@ -334,12 +334,7 @@ add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 /*-----------------------------------------------------------------------------------*/
 /* Ajax
 /*-----------------------------------------------------------------------------------*/
-
-function check_references() {
-    // Is prev or next
-	$type = $_POST['type'];
-    $current_reference_id = intval($_POST['current_reference_id']);
-
+function get_references_ids() {
     $query_args = array(
         'post_type' => 'reference',
         'posts_per_page' => -1,
@@ -357,19 +352,17 @@ function check_references() {
     }
 
     $ids = array_reduce($query_all_references->posts, 'filter_by_id', []);
-    $index = array_search($current_reference_id, $ids);
 
-    if ($type === 'next') {
-        $rel = $index + 2 > sizeof($ids) ? array_slice($ids, 0, 1) : array_slice($ids, $index + 1, 1);
-    } else if ($type === 'prev') {
-        $rel = $index - 1 < 0 ? array_slice($ids, -1, 1) : array_slice($ids, $index - 1, 1);
-    }
+    $response = array(
+        'ids' => $ids,
+    );
 
-    echo json_encode($rel);
-	wp_die();
+    echo json_encode($response);
+    wp_die();
 }
-add_action( 'wp_ajax_check_references', 'check_references' );
-add_action( 'wp_ajax_nopriv_check_references', 'check_references' );
+
+add_action( 'wp_ajax_get_references_ids', 'get_references_ids' );
+add_action( 'wp_ajax_nopriv_get_references_ids', 'get_references_ids' );
 
 function load_references() {
     $new_reference_id = intval($_POST['new_reference_id']);

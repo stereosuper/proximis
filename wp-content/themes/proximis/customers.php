@@ -42,11 +42,11 @@ $caseStudyQuery = new WP_Query(array(
                                 <?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
 
                                 <?php if( get_field('studycase') ) : ?>
-                                    <a class='ref' href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+                                    <button class="ref clickable js-case-study" type="button" data-ref-id="<?php the_ID() ?>">
                                         <?php echo $img; ?>
-                                    </a>
+                                    </button>
                                 <?php else : ?>
-                                    <div class='ref'>
+                                    <div class="ref">
                                         <?php echo $img; ?>
                                     </div>
                                 <?php endif; ?>

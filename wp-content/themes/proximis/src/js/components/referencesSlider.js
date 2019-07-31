@@ -1,52 +1,76 @@
-import { superPolyfill, query } from '@stereorepo/sac';
-import { TweenMax } from 'gsap';
+import { superPolyfill, query, forEach } from '@stereorepo/sac';
+import { TweenMax, Power2, TweenLite } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-class referencesSlider {
+// NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
+const ensureScrollTo = ScrollToPlugin;
+
+class ReferencesSlider {
     constructor() {
         [this.referenceSlider] = query({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
+        this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
         this.currentSlide = null;
 
         superPolyfill.initializeWhatwgFetch();
-        this.getCurrentContext();
     }
-
-    checkLoadingAction() {
-        this.currentReferenceId = this.currentSlide.dataset.refId;
-
-        const action = 'check_references';
+    getAllSlideIds(callback) {
+        const action = 'get_references_ids';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
         fetch(url, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
-            },
-            body: `type=${this.type}&current_reference_id=${this.currentReferenceId}`
+            }
         })
             .then(res => {
                 return res.json();
             })
-            .then(([id]) => {
-                this.newReferenceId = id;
-                const [slide] = query({
-                    selector: `.js-ref-id-${this.newReferenceId}`
-                });
-
-                if (slide) {
-                    slide.classList.add('js-ref-following-slide');
-
-                    this.slideAnimation();
-                } else {
-                    this.startLoadingAction();
-                }
+            .then(({ ids }) => {
+                this.idsList = [...ids];
+                callback();
             });
     }
+    selectFollowingElement({ id = null }) {
+        if (id !== null) {
+            this.newReferenceId = id;
+        } else {
+            this.findFollowingElement();
+        }
+    }
+    findFollowingElement() {
+        const idIndex = this.idsList.indexOf(this.currentReferenceId);
 
+        if (this.type === 'next') {
+            this.newReferenceId =
+                idIndex + 2 > this.idsList.length
+                    ? this.idsList.slice(0, 1)
+                    : this.idsList.slice(idIndex + 1, idIndex + 2);
+        } else if (this.type === 'prev') {
+            this.newReferenceId =
+                idIndex - 1 < 0
+                    ? this.idsList.slice(-1)
+                    : this.idsList.slice(idIndex - 1, idIndex - 2);
+        }
+    }
+    checkLoadingCall() {
+        if (this.newReferenceId === this.currentReferenceId) return;
+        const [slide] = query({
+            selector: `.js-ref-id-${this.newReferenceId}`
+        });
+
+        if (slide) {
+            slide.classList.add('js-ref-following-slide');
+            this.slideAnimation();
+        } else {
+            this.startLoadingAction();
+        }
+    }
     startLoadingAction() {
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
@@ -131,10 +155,14 @@ class referencesSlider {
         this.type = null;
         this.currentSlide = null;
 
-        this.getCurrentContext();
+        this.setCurrentContext();
     }
-    getCurrentContext() {
+    setCurrentContext() {
+        if (this.idsList.length < 2) return;
+
         [this.currentSlide] = query({ selector: '.js-ref-current-slide' });
+        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
+
         const [prevButton, nextButton] = query({
             selector: '.js-button-hexagon',
             ctx: this.currentSlide
@@ -147,7 +175,8 @@ class referencesSlider {
             'click',
             () => {
                 this.type = 'prev';
-                this.checkLoadingAction();
+                this.findFollowingElement();
+                this.checkLoadingCall();
             },
             false
         );
@@ -155,11 +184,46 @@ class referencesSlider {
             'click',
             () => {
                 this.type = 'next';
-                this.checkLoadingAction();
+                this.findFollowingElement();
+                this.checkLoadingCall();
             },
             false
         );
     }
+    initializeCaseStudyClickEvent() {
+        const caseStudies = query({ selector: '.js-case-study' });
+
+        forEach(caseStudies, caseStudy => {
+            caseStudy.addEventListener(
+                'click',
+                event => {
+                    event.preventDefault();
+                    const selectedId = parseInt(caseStudy.dataset.refId, 10);
+
+                    const offset =
+                        window.scrollY +
+                        this.referenceSlider.getBoundingClientRect().top;
+
+                    TweenLite.to(window, 0.5, {
+                        scrollTo: {
+                            y: offset
+                        },
+                        ease: Power2.easeInOut
+                    });
+
+                    this.selectFollowingElement({ id: selectedId });
+                    this.checkLoadingCall();
+                },
+                false
+            );
+        });
+    }
+    initialize() {
+        this.getAllSlideIds(() => {
+            this.initializeCaseStudyClickEvent();
+            this.setCurrentContext();
+        });
+    }
 }
 
-export default referencesSlider;
+export default ReferencesSlider;
