@@ -150,6 +150,59 @@ __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerat
 
 /***/ }),
 
+/***/ "./node_modules/@stereorepo/sac/src/async.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@stereorepo/sac/src/async.js ***!
+  \***************************************************/
+/*! exports provided: fetchData, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchData", function() { return fetchData; });
+const fetchDataFactory = () => {
+    const fetchSomeData = ({
+        url,
+        method,
+        fetchParams = {},
+        headersContent = {},
+        data = {},
+        cb
+    }) => {
+        const headers = new Headers({
+            ...headersContent
+        });
+
+        const params = {
+            method,
+            ...fetchParams,
+            headers
+        };
+
+        if (method === 'POST' || method === 'PUT') {
+            params.body = JSON.stringify(data);
+        }
+
+        fetch(url, params)
+            .then(response => response.json())
+            .then(response => {
+                if (cb) {
+                    cb(response);
+                }
+            });
+    };
+    return Object.freeze({
+        fetch: fetchSomeData
+    });
+};
+
+const fetchData = fetchDataFactory();
+
+/* harmony default export */ __webpack_exports__["default"] = ({ fetchData });
+
+
+/***/ }),
+
 /***/ "./node_modules/@stereorepo/sac/src/components/Error.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@stereorepo/sac/src/components/Error.js ***!
@@ -886,11 +939,12 @@ const bodyRouter = ({ identifier, callback }) => {
 /*!***************************************************!*\
   !*** ./node_modules/@stereorepo/sac/src/index.js ***!
   \***************************************************/
-/*! exports provided: bodyRouter, createCrossBrowserEvent, forEach, isDisplayed, nodeIndex, query, requestAnimFrame, supportsWebp, throttle, camalize, reverseString, roundNumbers, SuperError, superFallback, superLoad, superPolyfill, superScroll, superSnif, superWindow, default */
+/*! exports provided: fetchData, bodyRouter, createCrossBrowserEvent, forEach, isDisplayed, nodeIndex, query, requestAnimFrame, supportsWebp, throttle, camalize, reverseString, roundNumbers, SuperError, superFallback, superLoad, superPolyfill, superScroll, superSnif, superWindow, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchData", function() { return fetchData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bodyRouter", function() { return bodyRouter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCrossBrowserEvent", function() { return createCrossBrowserEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
@@ -910,16 +964,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superScroll", function() { return superScroll; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superSnif", function() { return superSnif; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superWindow", function() { return superWindow; });
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./node_modules/@stereorepo/sac/src/core.js");
-/* harmony import */ var _parsing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parsing */ "./node_modules/@stereorepo/sac/src/parsing.js");
-/* harmony import */ var _math__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./math */ "./node_modules/@stereorepo/sac/src/math.js");
-/* harmony import */ var _components_Error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Error */ "./node_modules/@stereorepo/sac/src/components/Error.js");
-/* harmony import */ var _components_Fallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Fallback */ "./node_modules/@stereorepo/sac/src/components/Fallback.js");
-/* harmony import */ var _components_LoadHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/LoadHandler */ "./node_modules/@stereorepo/sac/src/components/LoadHandler.js");
-/* harmony import */ var _components_Polyfill__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Polyfill */ "./node_modules/@stereorepo/sac/src/components/Polyfill.js");
-/* harmony import */ var _components_Scroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Scroll */ "./node_modules/@stereorepo/sac/src/components/Scroll.js");
-/* harmony import */ var _components_Snif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Snif */ "./node_modules/@stereorepo/sac/src/components/Snif.js");
-/* harmony import */ var _components_Window__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Window */ "./node_modules/@stereorepo/sac/src/components/Window.js");
+/* harmony import */ var _async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./async */ "./node_modules/@stereorepo/sac/src/async.js");
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core */ "./node_modules/@stereorepo/sac/src/core.js");
+/* harmony import */ var _parsing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parsing */ "./node_modules/@stereorepo/sac/src/parsing.js");
+/* harmony import */ var _math__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./math */ "./node_modules/@stereorepo/sac/src/math.js");
+/* harmony import */ var _components_Error__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Error */ "./node_modules/@stereorepo/sac/src/components/Error.js");
+/* harmony import */ var _components_Fallback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Fallback */ "./node_modules/@stereorepo/sac/src/components/Fallback.js");
+/* harmony import */ var _components_LoadHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/LoadHandler */ "./node_modules/@stereorepo/sac/src/components/LoadHandler.js");
+/* harmony import */ var _components_Polyfill__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Polyfill */ "./node_modules/@stereorepo/sac/src/components/Polyfill.js");
+/* harmony import */ var _components_Scroll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Scroll */ "./node_modules/@stereorepo/sac/src/components/Scroll.js");
+/* harmony import */ var _components_Snif__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Snif */ "./node_modules/@stereorepo/sac/src/components/Snif.js");
+/* harmony import */ var _components_Window__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Window */ "./node_modules/@stereorepo/sac/src/components/Window.js");
+
 
 
 
@@ -935,36 +991,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const { bodyRouter } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { createCrossBrowserEvent } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { forEach } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { isDisplayed } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { nodeIndex } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { query } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { requestAnimFrame } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { supportsWebp } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
-const { throttle } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { fetchData } = _async__WEBPACK_IMPORTED_MODULE_0__["default"];
 
-const { camalize } = _parsing__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { reverseString } = _parsing__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { bodyRouter } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { createCrossBrowserEvent } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { forEach } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { isDisplayed } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { nodeIndex } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { query } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { requestAnimFrame } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { supportsWebp } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { throttle } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
 
-const { roundNumbers } = _math__WEBPACK_IMPORTED_MODULE_2__["default"];
+const { camalize } = _parsing__WEBPACK_IMPORTED_MODULE_2__["default"];
+const { reverseString } = _parsing__WEBPACK_IMPORTED_MODULE_2__["default"];
+
+const { roundNumbers } = _math__WEBPACK_IMPORTED_MODULE_3__["default"];
 
 // Components classes exports
-const SuperError = _components_Error__WEBPACK_IMPORTED_MODULE_3__["default"];
+const SuperError = _components_Error__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 // Components instances exports
-const superFallback = _components_Fallback__WEBPACK_IMPORTED_MODULE_4__["default"];
-const superLoad = _components_LoadHandler__WEBPACK_IMPORTED_MODULE_5__["default"];
-const superPolyfill = _components_Polyfill__WEBPACK_IMPORTED_MODULE_6__["default"];
-const superScroll = _components_Scroll__WEBPACK_IMPORTED_MODULE_7__["default"];
-const superSnif = _components_Snif__WEBPACK_IMPORTED_MODULE_8__["default"];
-const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_9__["default"];
+const superFallback = _components_Fallback__WEBPACK_IMPORTED_MODULE_5__["default"];
+const superLoad = _components_LoadHandler__WEBPACK_IMPORTED_MODULE_6__["default"];
+const superPolyfill = _components_Polyfill__WEBPACK_IMPORTED_MODULE_7__["default"];
+const superScroll = _components_Scroll__WEBPACK_IMPORTED_MODULE_8__["default"];
+const superSnif = _components_Snif__WEBPACK_IMPORTED_MODULE_9__["default"];
+const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_10__["default"];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     bodyRouter,
     camalize,
     createCrossBrowserEvent,
+    fetchData,
     forEach,
     isDisplayed,
     nodeIndex,
@@ -22649,10 +22708,13 @@ var ShapePropertyFactory = (function(){
     }
 
     function processEffectsSequence() {
-        if(this.elem.globalData.frameId === this.frameId || !this.effectsSequence.length) {
+        if (this.elem.globalData.frameId === this.frameId) {
+            return;
+        } else if (!this.effectsSequence.length) {
+            this._mdf = false;
             return;
         }
-        if(this.lock) {
+        if (this.lock) {
             this.setVValue(this.pv);
             return;
         }
@@ -23058,11 +23120,13 @@ function ShapeModifier(){}
 ShapeModifier.prototype.initModifierProperties = function(){};
 ShapeModifier.prototype.addShapeToModifier = function(){};
 ShapeModifier.prototype.addShape = function(data){
-    if(!this.closed){
+    if (!this.closed) {
+        // Adding shape to dynamic properties. It covers the case where a shape has no effects applied, to reset it's _mdf state on every tick.
+        data.sh.container.addDynamicProperty(data.sh);
         var shapeData = {shape:data.sh, data: data, localShapeCollection:shapeCollection_pool.newShapeCollection()};
         this.shapes.push(shapeData);
         this.addShapeToModifier(shapeData);
-        if(this._isAnimated) {
+        if (this._isAnimated) {
             data.setAsAnimated();
         }
     }
@@ -28045,7 +28109,7 @@ SVGTextElement.prototype.buildNewText = function(){
         this.layerElement.setAttribute('font-style', fStyle);
         this.layerElement.setAttribute('font-weight', fWeight);
     }
-    this.layerElement.setAttribute('arial-label', documentData.t);
+    this.layerElement.setAttribute('aria-label', documentData.t);
 
     var letters = documentData.l || [];
     var usesGlyphs = !!this.globalData.fontManager.chars;
@@ -28198,6 +28262,7 @@ SVGTextElement.prototype.renderInnerContent = function(){
         }
     }
 };
+
 function SVGShapeElement(data,globalData,comp){
     //List of drawable elements
     this.shapes = [];
@@ -33283,6 +33348,7 @@ var ShapeExpressionInterface = (function(){
             },
             '_name': { value: shape.nm },
             'ix': { value: shape.ix },
+            'propertyIndex': { value: shape.ix },
             'mn': { value: shape.mn }
         });
         return interfaceFunction;
@@ -34107,7 +34173,7 @@ GroupEffect.prototype.init = function(data,element){
     lottiejs.unfreeze = animationManager.unfreeze;
     lottiejs.getRegisteredAnimations = animationManager.getRegisteredAnimations;
     lottiejs.__getFactory = getFactory;
-    lottiejs.version = '5.5.6';
+    lottiejs.version = '5.5.7';
 
     function checkReady() {
         if (document.readyState === "complete") {
@@ -35501,6 +35567,8 @@ if (!self.fetch) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./ReferencesSlider": "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
+	"./ReferencesSlider.js": "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
 	"./Slider": "./wp-content/themes/proximis/src/js/components/Slider.js",
 	"./Slider.js": "./wp-content/themes/proximis/src/js/components/Slider.js",
 	"./form": "./wp-content/themes/proximis/src/js/components/form.js",
@@ -35511,8 +35579,6 @@ var map = {
 	"./io.js": "./wp-content/themes/proximis/src/js/components/io.js",
 	"./newsletter": "./wp-content/themes/proximis/src/js/components/newsletter.js",
 	"./newsletter.js": "./wp-content/themes/proximis/src/js/components/newsletter.js",
-	"./referencesSlider": "./wp-content/themes/proximis/src/js/components/referencesSlider.js",
-	"./referencesSlider.js": "./wp-content/themes/proximis/src/js/components/referencesSlider.js",
 	"./united": "./wp-content/themes/proximis/src/js/components/united.js",
 	"./united.js": "./wp-content/themes/proximis/src/js/components/united.js"
 };
@@ -35534,6 +35600,206 @@ webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 };
 webpackAsyncContext.id = "./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js":
+/*!**************************************************************************!*\
+  !*** ./wp-content/themes/proximis/src/js/components/ReferencesSlider.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+
+
+
+class ReferencesSlider {
+    constructor() {
+        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
+        if (!this.referenceSlider) return;
+        this.idsList = [];
+        this.currentReferenceId = 0;
+        this.newReferenceId = 0;
+        this.type = null;
+        this.currentSlide = null;
+
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeWhatwgFetch();
+    }
+    getAllSlideIds(callback) {
+        const action = 'get_references_ids';
+        const url = `/wp-admin/admin-ajax.php?action=${action}`;
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type':
+                    'application/x-www-form-urlencoded; charset=utf-8'
+            }
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(({ ids }) => {
+                this.idsList = [...ids];
+                callback();
+            });
+    }
+    checkLoadingCall() {
+        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
+
+        const idIndex = this.idsList.indexOf(this.currentReferenceId);
+
+        if (this.type === 'next') {
+            this.newReferenceId =
+                idIndex + 2 > this.idsList.length
+                    ? this.idsList.slice(0, 1)
+                    : this.idsList.slice(idIndex + 1, idIndex + 2);
+        } else if (this.type === 'prev') {
+            this.newReferenceId =
+                idIndex - 1 < 0
+                    ? this.idsList.slice(-1)
+                    : this.idsList.slice(idIndex - 1, idIndex - 2);
+        }
+
+        const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: `.js-ref-id-${this.newReferenceId}`
+        });
+
+        if (slide) {
+            slide.classList.add('js-ref-following-slide');
+            this.slideAnimation();
+        } else {
+            this.startLoadingAction();
+        }
+    }
+    startLoadingAction() {
+        const action = 'load_references';
+        const url = `/wp-admin/admin-ajax.php?action=${action}`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type':
+                    'application/x-www-form-urlencoded; charset=utf-8'
+            },
+            body: `new_reference_id=${this.newReferenceId}`
+        })
+            .then(res => res.text())
+            .then(response => {
+                this.currentSlide.insertAdjacentHTML('afterend', response);
+
+                this.slideAnimation();
+            });
+    }
+    slideAnimation() {
+        let selector = '.js-ref-following-slide';
+        let xPercent = 0;
+        switch (this.type) {
+            case 'prev':
+                xPercent = -100;
+                break;
+            case 'next':
+                xPercent = 100;
+                break;
+            default:
+                xPercent = 100;
+                break;
+        }
+
+        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector,
+            ctx: this.referenceSlider
+        });
+
+        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: '.js-ref-current-slide',
+            ctx: this.referenceSlider
+        });
+
+        oldSlide.classList.remove('ref-slide-init');
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+            xPercent
+        });
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+            xPercent
+        });
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.3, {
+            xPercent: -xPercent,
+            onComplete: () => {
+                gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.3, {
+                    xPercent: 0,
+                    onComplete: this.resetContext()
+                });
+            }
+        });
+    }
+    resetContext() {
+        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
+            { selector: '.js-ref-current-slide' },
+            this.referenceSlider
+        );
+        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
+            { selector: '.js-ref-following-slide' },
+            this.referenceSlider
+        );
+
+        oldSlide.classList.remove('js-ref-current-slide');
+
+        followingSlide.classList.remove('js-ref-following-slide');
+        followingSlide.classList.add('js-ref-current-slide');
+
+        this.currentReferenceId = 0;
+        this.newReferenceId = 0;
+        this.type = null;
+        this.currentSlide = null;
+
+        this.setCurrentContext();
+    }
+    setCurrentContext() {
+        if (this.idsList.length < 2) return;
+
+        [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
+        const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: '.js-button-hexagon',
+            ctx: this.currentSlide
+        });
+
+        const { height } = this.currentSlide.getBoundingClientRect();
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.referenceSlider, 0.3, { height: `${height}px` });
+
+        prevButton.addEventListener(
+            'click',
+            () => {
+                this.type = 'prev';
+                this.checkLoadingCall();
+            },
+            false
+        );
+        nextButton.addEventListener(
+            'click',
+            () => {
+                this.type = 'next';
+                this.checkLoadingCall();
+            },
+            false
+        );
+    }
+    initialize() {
+        this.getAllSlideIds(() => {
+            this.setCurrentContext();
+        });
+    }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ReferencesSlider);
+
 
 /***/ }),
 
@@ -35875,186 +36141,6 @@ const headerHandler = () => {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/components/referencesSlider.js":
-/*!**************************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/referencesSlider.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-
-
-
-class referencesSlider {
-    constructor() {
-        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
-        if (!this.referenceSlider) return;
-        this.currentReferenceId = 0;
-        this.newReferenceId = 0;
-        this.type = null;
-        this.currentSlide = null;
-
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeWhatwgFetch();
-        this.getCurrentContext();
-    }
-
-    checkLoadingAction() {
-        this.currentReferenceId = this.currentSlide.dataset.refId;
-
-        const action = 'check_references';
-        const url = `/wp-admin/admin-ajax.php?action=${action}`;
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type':
-                    'application/x-www-form-urlencoded; charset=utf-8'
-            },
-            body: `type=${this.type}&current_reference_id=${this.currentReferenceId}`
-        })
-            .then(res => {
-                return res.json();
-            })
-            .then(([id]) => {
-                this.newReferenceId = id;
-                const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-                    selector: `.js-ref-id-${this.newReferenceId}`
-                });
-
-                if (slide) {
-                    slide.classList.add('js-ref-following-slide');
-
-                    this.slideAnimation();
-                } else {
-                    this.startLoadingAction();
-                }
-            });
-    }
-
-    startLoadingAction() {
-        const action = 'load_references';
-        const url = `/wp-admin/admin-ajax.php?action=${action}`;
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type':
-                    'application/x-www-form-urlencoded; charset=utf-8'
-            },
-            body: `new_reference_id=${this.newReferenceId}`
-        })
-            .then(res => res.text())
-            .then(response => {
-                this.currentSlide.insertAdjacentHTML('afterend', response);
-
-                this.slideAnimation();
-            });
-    }
-    slideAnimation() {
-        let selector = '.js-ref-following-slide';
-        let xPercent = 0;
-        switch (this.type) {
-            case 'prev':
-                xPercent = -100;
-                break;
-            case 'next':
-                xPercent = 100;
-                break;
-            default:
-                xPercent = 100;
-                break;
-        }
-
-        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector,
-            ctx: this.referenceSlider
-        });
-
-        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector: '.js-ref-current-slide',
-            ctx: this.referenceSlider
-        });
-
-        oldSlide.classList.remove('ref-slide-init');
-
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
-            xPercent
-        });
-
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
-            xPercent
-        });
-
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.3, {
-            xPercent: -xPercent,
-            onComplete: () => {
-                gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.3, {
-                    xPercent: 0,
-                    onComplete: this.resetContext()
-                });
-            }
-        });
-    }
-    resetContext() {
-        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
-            { selector: '.js-ref-current-slide' },
-            this.referenceSlider
-        );
-        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
-            { selector: '.js-ref-following-slide' },
-            this.referenceSlider
-        );
-
-        oldSlide.classList.remove('js-ref-current-slide');
-
-        followingSlide.classList.remove('js-ref-following-slide');
-        followingSlide.classList.add('js-ref-current-slide');
-
-        this.currentReferenceId = 0;
-        this.newReferenceId = 0;
-        this.type = null;
-        this.currentSlide = null;
-
-        this.getCurrentContext();
-    }
-    getCurrentContext() {
-        [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
-        const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector: '.js-button-hexagon',
-            ctx: this.currentSlide
-        });
-
-        const { height } = this.currentSlide.getBoundingClientRect();
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.referenceSlider, 0.3, { height: `${height}px` });
-
-        prevButton.addEventListener(
-            'click',
-            () => {
-                this.type = 'prev';
-                this.checkLoadingAction();
-            },
-            false
-        );
-        nextButton.addEventListener(
-            'click',
-            () => {
-                this.type = 'next';
-                this.checkLoadingAction();
-            },
-            false
-        );
-    }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (referencesSlider);
-
-
-/***/ }),
-
 /***/ "./wp-content/themes/proximis/src/js/components/united.js":
 /*!****************************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/components/united.js ***!
@@ -36157,7 +36243,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_united__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/united */ "./wp-content/themes/proximis/src/js/components/united.js");
 /* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/form */ "./wp-content/themes/proximis/src/js/components/form.js");
 /* harmony import */ var _components_newsletter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/newsletter */ "./wp-content/themes/proximis/src/js/components/newsletter.js");
-/* harmony import */ var _components_referencesSlider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/referencesSlider */ "./wp-content/themes/proximis/src/js/components/referencesSlider.js");
+/* harmony import */ var _components_ReferencesSlider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/ReferencesSlider */ "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js");
 
 
 // @babel/polyfill is necessary for async imports
@@ -36211,7 +36297,9 @@ const preloadCallback = () => {
     Object(_components_header__WEBPACK_IMPORTED_MODULE_6__["default"])();
     Object(_components_form__WEBPACK_IMPORTED_MODULE_9__["default"])();
     Object(_components_newsletter__WEBPACK_IMPORTED_MODULE_10__["default"])();
-    new _components_referencesSlider__WEBPACK_IMPORTED_MODULE_11__["default"]();
+
+    const referenceSlider = new _components_ReferencesSlider__WEBPACK_IMPORTED_MODULE_11__["default"]();
+    referenceSlider.initialize();
 
     if (wrapperSlider) {
         slider = new _components_Slider__WEBPACK_IMPORTED_MODULE_7__["default"](wrapperSlider);
@@ -36280,4 +36368,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?b6cf52312546ca55818fffddd1483c14
+//# sourceMappingURL=main.js.map?13db9f32cfc2fd107945405bafad7c20

@@ -1,52 +1,65 @@
 import { superPolyfill, query } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 
-class referencesSlider {
+class ReferencesSlider {
     constructor() {
         [this.referenceSlider] = query({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
+        this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
         this.currentSlide = null;
 
         superPolyfill.initializeWhatwgFetch();
-        this.getCurrentContext();
     }
-
-    checkLoadingAction() {
-        this.currentReferenceId = this.currentSlide.dataset.refId;
-
-        const action = 'check_references';
+    getAllSlideIds(callback) {
+        const action = 'get_references_ids';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
         fetch(url, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
-            },
-            body: `type=${this.type}&current_reference_id=${this.currentReferenceId}`
+            }
         })
             .then(res => {
                 return res.json();
             })
-            .then(([id]) => {
-                this.newReferenceId = id;
-                const [slide] = query({
-                    selector: `.js-ref-id-${this.newReferenceId}`
-                });
-
-                if (slide) {
-                    slide.classList.add('js-ref-following-slide');
-
-                    this.slideAnimation();
-                } else {
-                    this.startLoadingAction();
-                }
+            .then(({ ids }) => {
+                this.idsList = [...ids];
+                callback();
             });
     }
+    checkLoadingCall() {
+        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
 
+        const idIndex = this.idsList.indexOf(this.currentReferenceId);
+
+        if (this.type === 'next') {
+            this.newReferenceId =
+                idIndex + 2 > this.idsList.length
+                    ? this.idsList.slice(0, 1)
+                    : this.idsList.slice(idIndex + 1, idIndex + 2);
+        } else if (this.type === 'prev') {
+            this.newReferenceId =
+                idIndex - 1 < 0
+                    ? this.idsList.slice(-1)
+                    : this.idsList.slice(idIndex - 1, idIndex - 2);
+        }
+
+        const [slide] = query({
+            selector: `.js-ref-id-${this.newReferenceId}`
+        });
+
+        if (slide) {
+            slide.classList.add('js-ref-following-slide');
+            this.slideAnimation();
+        } else {
+            this.startLoadingAction();
+        }
+    }
     startLoadingAction() {
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
@@ -131,9 +144,11 @@ class referencesSlider {
         this.type = null;
         this.currentSlide = null;
 
-        this.getCurrentContext();
+        this.setCurrentContext();
     }
-    getCurrentContext() {
+    setCurrentContext() {
+        if (this.idsList.length < 2) return;
+
         [this.currentSlide] = query({ selector: '.js-ref-current-slide' });
         const [prevButton, nextButton] = query({
             selector: '.js-button-hexagon',
@@ -147,7 +162,7 @@ class referencesSlider {
             'click',
             () => {
                 this.type = 'prev';
-                this.checkLoadingAction();
+                this.checkLoadingCall();
             },
             false
         );
@@ -155,11 +170,16 @@ class referencesSlider {
             'click',
             () => {
                 this.type = 'next';
-                this.checkLoadingAction();
+                this.checkLoadingCall();
             },
             false
         );
     }
+    initialize() {
+        this.getAllSlideIds(() => {
+            this.setCurrentContext();
+        });
+    }
 }
 
-export default referencesSlider;
+export default ReferencesSlider;

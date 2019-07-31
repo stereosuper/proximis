@@ -1,8 +1,8 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["referencesSlider"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ReferencesSlider"],{
 
-/***/ "./wp-content/themes/proximis/src/js/components/referencesSlider.js":
+/***/ "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js":
 /*!**************************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/referencesSlider.js ***!
+  !*** ./wp-content/themes/proximis/src/js/components/ReferencesSlider.js ***!
   \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -14,18 +14,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class referencesSlider {
+class ReferencesSlider {
     constructor() {
         [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
         this.currentReferenceId = 0;
+        this.newReferenceId = 0;
+        this.type = null;
+        this.currentSlide = null;
 
         _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeWhatwgFetch();
         this.getCurrentContext();
     }
 
-    checkLoadingAction({ type = 'next', currentSlide }) {
-        this.currentReferenceId = currentSlide.dataset.refId;
+    checkLoadingAction() {
+        this.currentReferenceId = this.currentSlide.dataset.refId;
 
         const action = 'check_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
@@ -36,22 +39,28 @@ class referencesSlider {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: `type=${type}&current_reference_id=${this.currentReferenceId}`
+            body: `type=${this.type}&current_reference_id=${this.currentReferenceId}`
         })
             .then(res => {
                 return res.json();
             })
             .then(([id]) => {
-                const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: `.js-ref-id-${id}` });
+                this.newReferenceId = id;
+                const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+                    selector: `.js-ref-id-${this.newReferenceId}`
+                });
 
                 if (slide) {
+                    slide.classList.add('js-ref-following-slide');
+
+                    this.slideAnimation();
                 } else {
                     this.startLoadingAction();
                 }
             });
     }
 
-    startLoadingAction({ type = 'next', currentSlide }) {
+    startLoadingAction() {
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
@@ -61,107 +70,115 @@ class referencesSlider {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: `type=${type}&current_reference_id=${this.currentReferenceId}`
+            body: `new_reference_id=${this.newReferenceId}`
         })
             .then(res => res.text())
             .then(response => {
-                currentSlide.insertAdjacentHTML('afterend', response);
+                this.currentSlide.insertAdjacentHTML('afterend', response);
 
-                let selector = '.js-ref-following-slide';
-                let xPercent = 0;
-                switch (type) {
-                    case 'prev':
-                        xPercent = -100;
-                        break;
-                    case 'next':
-                        xPercent = 100;
-                        break;
-                    default:
-                        xPercent = 100;
-                        break;
-                }
-
-                const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-                    selector,
-                    ctx: this.referenceSlider
-                });
-
-                const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-                    selector: '.js-ref-current-slide',
-                    ctx: this.referenceSlider
-                });
-
-                oldSlide.classList.remove('ref-slide-init');
-
-                const timeline = new gsap__WEBPACK_IMPORTED_MODULE_1__["TimelineLite"]({
-                    onComplete: () => {
-                        oldSlide.classList.remove('js-ref-current-slide');
-
-                        followingSlide.classList.remove(
-                            'js-ref-following-slide'
-                        );
-                        followingSlide.classList.add('js-ref-current-slide');
-                        this.getCurrentContext();
-                    }
-                });
-
-                gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
-                    xPercent
-                });
-
-                timeline.add(
-                    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.3, {
-                        xPercent: -xPercent
-                    })
-                );
-
-                timeline.add(
-                    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.3, {
-                        xPercent: 0
-                    })
-                );
-
-                timeline.play();
+                this.slideAnimation();
             });
     }
+    slideAnimation() {
+        let selector = '.js-ref-following-slide';
+        let xPercent = 0;
+        switch (this.type) {
+            case 'prev':
+                xPercent = -100;
+                break;
+            case 'next':
+                xPercent = 100;
+                break;
+            default:
+                xPercent = 100;
+                break;
+        }
 
-    getCurrentContext() {
-        const [currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
-        const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector: '.js-button-hexagon',
-            ctx: currentSlide
+        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector,
+            ctx: this.referenceSlider
         });
 
-        const { height } = currentSlide.getBoundingClientRect();
+        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: '.js-ref-current-slide',
+            ctx: this.referenceSlider
+        });
+
+        oldSlide.classList.remove('ref-slide-init');
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+            xPercent
+        });
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+            xPercent
+        });
+
+        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.3, {
+            xPercent: -xPercent,
+            onComplete: () => {
+                gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.3, {
+                    xPercent: 0,
+                    onComplete: this.resetContext()
+                });
+            }
+        });
+    }
+    resetContext() {
+        const [oldSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
+            { selector: '.js-ref-current-slide' },
+            this.referenceSlider
+        );
+        const [followingSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])(
+            { selector: '.js-ref-following-slide' },
+            this.referenceSlider
+        );
+
+        oldSlide.classList.remove('js-ref-current-slide');
+
+        followingSlide.classList.remove('js-ref-following-slide');
+        followingSlide.classList.add('js-ref-current-slide');
+
+        this.currentReferenceId = 0;
+        this.newReferenceId = 0;
+        this.type = null;
+        this.currentSlide = null;
+
+        this.getCurrentContext();
+    }
+    getCurrentContext() {
+        [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
+        const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: '.js-button-hexagon',
+            ctx: this.currentSlide
+        });
+
+        const { height } = this.currentSlide.getBoundingClientRect();
         gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.referenceSlider, 0.3, { height: `${height}px` });
 
         prevButton.addEventListener(
             'click',
             () => {
-                this.checkLoadingAction({
-                    type: 'prev',
-                    currentSlide
-                });
+                this.type = 'prev';
+                this.checkLoadingAction();
             },
             false
         );
         nextButton.addEventListener(
             'click',
             () => {
-                this.checkLoadingAction({
-                    type: 'next',
-                    currentSlide
-                });
+                this.type = 'next';
+                this.checkLoadingAction();
             },
             false
         );
     }
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (referencesSlider);
+/* harmony default export */ __webpack_exports__["default"] = (ReferencesSlider);
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=referencesSlider.js.map?61d79397048b901143c707a652d92e0b
+//# sourceMappingURL=ReferencesSlider.js.map?84cd1bf6655b3166a6fbff7acf0f3272
