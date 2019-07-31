@@ -31,16 +31,13 @@ $caseStudyQuery = new WP_Query(array(
 						endwhile;
 					endif;
 				?>
-
                 <?php if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
                     <h2 class='h1 small-margin-bottom'><?php the_title(); ?></h2>
                     <?php the_field('customersText'); ?>
-                    
                     <ul class='home-ref-list'>
                         <?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
                             <li>
                                 <?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
-
                                 <?php if( get_field('studycase') ) : ?>
                                     <button class="ref clickable js-case-study" type="button" data-ref-id="<?php the_ID() ?>">
                                         <?php echo $img; ?>
@@ -51,7 +48,6 @@ $caseStudyQuery = new WP_Query(array(
                                     </div>
                                 <?php endif; ?>
                             </li>
-
                             <?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
                                 <li>
                                     <div class='ref number'>
@@ -67,14 +63,18 @@ $caseStudyQuery = new WP_Query(array(
                                     </div>
                                 </li>
                             <?php $countNb++; endif; ?>
-
                         <?php endwhile; ?>
                     </ul>
                 <?php wp_reset_postdata(); endif; ?>
             </div>
         </section>
-
         <section class="ref-slider js-ref-slider">
+            <div class="hexagon-loader js-loader">
+                <span class="hexagon"></span>
+                <div class="spinner-wrapper">
+                    <span class="spinner"></span>
+                </div>
+            </div>
             <?php if ($caseStudyQuery->have_posts()) :?>
             <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
             <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>">
@@ -86,7 +86,6 @@ $caseStudyQuery = new WP_Query(array(
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
         </section>
-        
         <?php $map = get_field('map'); if( $map ) : ?>
             <section class='container'>
                 <div class='wrapper-customers-map container-small'>

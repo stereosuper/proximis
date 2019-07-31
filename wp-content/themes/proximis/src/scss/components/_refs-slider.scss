@@ -2,6 +2,7 @@
     width: 100%;
     position: relative;
     background: $white;
+    overflow: hidden;
 }
 
 .ref-slide {
@@ -13,4 +14,91 @@
 
 .ref-slide-init {
     position: relative;
+}
+
+.hexagon-loader {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -$line-height * 2;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    transition: transition(
+        (
+            transform: '#{$short-duration}'
+        ),
+        $ease-in-timing-function
+    );
+    z-index: 1;
+    .hexagon {
+        display: block;
+        width: 26px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        border-radius: 5px;
+        background: $primary;
+        transform: translate(-50%, -50%) rotate(30deg);
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: auto;
+            bottom: auto;
+            background: inherit;
+            border-radius: inherit;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+        &::before {
+            transform: rotate(60deg);
+        }
+        &::after {
+            transform: rotate(-60deg);
+        }
+    }
+    .spinner-wrapper {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        animation: spinner-wrapper 2s $ease-in-out-timing-function infinite;
+    }
+    .spinner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip: rect(0, 20px, 20px, 10px);
+        animation: spinner 1.5s $ease-in-out-timing-function infinite;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid $white;
+            border-radius: 50%;
+            clip: rect(0, 20px, 20px, 10px);
+            animation: spinner-line 1.5s $ease-in-out-timing-function infinite;
+        }
+    }
+    &.loading {
+        transform: translate3d(-50%, $line-height * 3, 0);
+        transition: transition(
+            (
+                transform: '#{$short-duration}'
+            ),
+            $ease-out-timing-function
+        );
+    }
 }

@@ -4,11 +4,42 @@
 @import '~@stereorepo/sac/src/scss/transition';
 
 // Timing functions
-$ease-in-out-timing-function: cubic-bezier(0.38, 0, 0.45, 0.93);
 $ease-in-timing-function: cubic-bezier(0.42, 0.08, 0.45, 0.09);
 $ease-out-timing-function: cubic-bezier(0, 0.15, 0.1, 0.85);
+$ease-in-out-timing-function: cubic-bezier(0.38, 0, 0.45, 0.93);
 
 // Durations
 $big-duration: 0.7s;
 $medium-duration: 0.5s;
 $short-duration: 0.3s;
+
+// Keyframes
+@keyframes spinner-wrapper {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(220deg);
+    }
+}
+
+@keyframes spinner-line {
+    0% {
+        transform: rotate(-140deg);
+    }
+    50% {
+        transform: rotate(-160deg);
+    }
+    100% {
+        transform: rotate(140deg);
+    }
+}
