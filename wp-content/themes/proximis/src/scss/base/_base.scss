@@ -15,7 +15,6 @@
 html {
     font-size: 62.5%;
     /* sets the base font to 10px for easier math */
-
 }
 
 body {
@@ -40,7 +39,7 @@ h6 {
     font-weight: 400;
 
     &.no-margin-bottom {
-        +p {
+        + p {
             margin-top: 0;
         }
     }
@@ -63,7 +62,7 @@ h1,
 .h1 {
     font-size: 4.3rem;
     letter-spacing: -0.02em;
-    line-height: 2*$line-height;
+    line-height: 2 * $line-height;
 }
 
 h1 {
@@ -76,7 +75,7 @@ h1 {
     &.small-margin-bottom {
         margin-bottom: 0.4em;
 
-        +p {
+        + p {
             margin-top: 0;
         }
     }
@@ -103,7 +102,7 @@ h2 {
     }
 
     &:not(.title) {
-        >span {
+        > span {
             display: block;
             color: $grey;
         }
@@ -160,7 +159,7 @@ blockquote {
     font-size: 2.4rem;
     color: $grey;
 
-    >p {
+    > p {
         &:before {
             content: '“';
             color: $primary;
@@ -205,18 +204,18 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    >li {
+    > li {
         counter-increment: ol-counter;
 
         &:before {
-            content: counter(ol-counter)'.';
+            content: counter(ol-counter) '.';
             color: $primary;
         }
     }
 }
 
 ul {
-    >li {
+    > li {
         &:before {
             width: 8px;
             height: 8px;
@@ -227,7 +226,7 @@ ul {
 }
 
 li {
-    padding: 0 0 0 $gutter*2;
+    padding: 0 0 0 $gutter * 2;
     position: relative;
 
     &:before {
@@ -259,7 +258,6 @@ hr {
     background: $black;
 }
 
-
 /******* LIENS / BOUTONS *******/
 
 a {
@@ -268,7 +266,14 @@ a {
     line-height: $line-height;
     color: $primary;
     text-decoration: underline;
-    transition: $transition;
+    transition: transition(
+        (
+            text-decoration-color: (
+                '0.5s'
+            )
+        ),
+        ease-in-out
+    );
 
     &::before {
         content: '';
@@ -296,7 +301,6 @@ a {
         filter: saturate(200%);
     }
 }
-
 
 /******* CLASSES GENERALES  *******/
 
@@ -394,7 +398,6 @@ a {
 }
 
 .wp-block-image {
-
     .alignright,
     .alignleft {
         float: none;
@@ -414,9 +417,7 @@ a {
     margin-bottom: 0;
 }
 
-
 @media (min-width: $phone-small) {
-
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -426,7 +427,6 @@ a {
 }
 
 @media (min-width: $phone) {
-
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -525,7 +525,7 @@ a {
         color: $grey;
         background: #fff;
 
-        >p {
+        > p {
             margin: 0;
         }
 
@@ -562,7 +562,6 @@ a {
 }
 
 @media (min-width: $desktop) {
-
     .highlighted,
     .book-highlighted,
     .newsletter-highlighted {
