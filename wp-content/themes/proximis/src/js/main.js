@@ -17,7 +17,7 @@ import Slider from './components/Slider';
 import united from './components/united';
 import form from './components/form';
 import newsletter from './components/newsletter';
-import referencesSlider from './components/referencesSlider';
+import ReferencesSlider from './components/ReferencesSlider';
 import searchHandler from './components/searchHandler';
 
 // ⚠️ DO NOT REMOVE ⚠️
@@ -64,8 +64,8 @@ const preloadCallback = () => {
     form();
     newsletter();
 
-    const referenceSlider = new ReferencesSlider();
-    referenceSlider.initialize();
+    const referencesSlider = new ReferencesSlider();
+    referencesSlider.initialize();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);

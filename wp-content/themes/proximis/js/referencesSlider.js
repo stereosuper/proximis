@@ -1,8 +1,8 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ReferencesSlider"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["referencesSlider"],{
 
-/***/ "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js":
+/***/ "./wp-content/themes/proximis/src/js/components/referencesSlider.js":
 /*!**************************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/ReferencesSlider.js ***!
+  !*** ./wp-content/themes/proximis/src/js/components/referencesSlider.js ***!
   \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11,55 +11,80 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
 
 
+
+
+// NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
+const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["default"];
 
 class ReferencesSlider {
     constructor() {
         [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
+        this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
         this.currentSlide = null;
 
         _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeWhatwgFetch();
-        this.getCurrentContext();
     }
-
-    checkLoadingAction() {
-        this.currentReferenceId = this.currentSlide.dataset.refId;
-
-        const action = 'check_references';
+    getAllSlideIds(callback) {
+        const action = 'get_references_ids';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
         fetch(url, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
-            },
-            body: `type=${this.type}&current_reference_id=${this.currentReferenceId}`
+            }
         })
             .then(res => {
                 return res.json();
             })
-            .then(([id]) => {
-                this.newReferenceId = id;
-                const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-                    selector: `.js-ref-id-${this.newReferenceId}`
-                });
-
-                if (slide) {
-                    slide.classList.add('js-ref-following-slide');
-
-                    this.slideAnimation();
-                } else {
-                    this.startLoadingAction();
-                }
+            .then(({ ids }) => {
+                this.idsList = [...ids];
+                callback();
             });
     }
+    selectFollowingElement({ id = null }) {
+        if (id !== null) {
+            this.newReferenceId = id;
+        } else {
+            this.findFollowingElement();
+        }
+    }
+    findFollowingElement() {
+        const idIndex = this.idsList.indexOf(this.currentReferenceId);
 
+        if (this.type === 'next') {
+            this.newReferenceId =
+                idIndex + 2 > this.idsList.length
+                    ? this.idsList.slice(0, 1)
+                    : this.idsList.slice(idIndex + 1, idIndex + 2);
+        } else if (this.type === 'prev') {
+            this.newReferenceId =
+                idIndex - 1 < 0
+                    ? this.idsList.slice(-1)
+                    : this.idsList.slice(idIndex - 1, idIndex - 2);
+        }
+    }
+    checkLoadingCall() {
+        if (this.newReferenceId === this.currentReferenceId) return;
+        const [slide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: `.js-ref-id-${this.newReferenceId}`
+        });
+
+        if (slide) {
+            slide.classList.add('js-ref-following-slide');
+            this.slideAnimation();
+        } else {
+            this.startLoadingAction();
+        }
+    }
     startLoadingAction() {
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
@@ -144,10 +169,14 @@ class ReferencesSlider {
         this.type = null;
         this.currentSlide = null;
 
-        this.getCurrentContext();
+        this.setCurrentContext();
     }
-    getCurrentContext() {
+    setCurrentContext() {
+        if (this.idsList.length < 2) return;
+
         [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
+        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
+
         const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
             selector: '.js-button-hexagon',
             ctx: this.currentSlide
@@ -160,7 +189,8 @@ class ReferencesSlider {
             'click',
             () => {
                 this.type = 'prev';
-                this.checkLoadingAction();
+                this.findFollowingElement();
+                this.checkLoadingCall();
             },
             false
         );
@@ -168,10 +198,45 @@ class ReferencesSlider {
             'click',
             () => {
                 this.type = 'next';
-                this.checkLoadingAction();
+                this.findFollowingElement();
+                this.checkLoadingCall();
             },
             false
         );
+    }
+    initializeCaseStudyClickEvent() {
+        const caseStudies = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-case-study' });
+
+        Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(caseStudies, caseStudy => {
+            caseStudy.addEventListener(
+                'click',
+                event => {
+                    event.preventDefault();
+                    const selectedId = parseInt(caseStudy.dataset.refId, 10);
+
+                    const offset =
+                        window.scrollY +
+                        this.referenceSlider.getBoundingClientRect().top;
+
+                    gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(window, 0.5, {
+                        scrollTo: {
+                            y: offset
+                        },
+                        ease: gsap__WEBPACK_IMPORTED_MODULE_1__["Power2"].easeInOut
+                    });
+
+                    this.selectFollowingElement({ id: selectedId });
+                    this.checkLoadingCall();
+                },
+                false
+            );
+        });
+    }
+    initialize() {
+        this.getAllSlideIds(() => {
+            this.initializeCaseStudyClickEvent();
+            this.setCurrentContext();
+        });
     }
 }
 
@@ -181,4 +246,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=ReferencesSlider.js.map?84cd1bf6655b3166a6fbff7acf0f3272
+//# sourceMappingURL=referencesSlider.js.map?d2a7951b4a5c3a8da3e833b355290114
