@@ -364,10 +364,10 @@ a {
   line-height: 28px;
   color: #55c4da;
   text-decoration: underline;
-  -webkit-transition:  -webkit-text-decoration-color 0.5s ease-in-out;
-  transition:  -webkit-text-decoration-color 0.5s ease-in-out;
-  transition:  text-decoration-color 0.5s ease-in-out;
-  transition:  text-decoration-color 0.5s ease-in-out, -webkit-text-decoration-color 0.5s ease-in-out; }
+  -webkit-transition:  -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 a::before {
     content: '';
     position: absolute;
@@ -1454,8 +1454,10 @@ div.wpcf7-mail-sent-ng {
     background: #55c4da;
     -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out; }
+    -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .btn:hover:after, .btn:focus:after {
     -webkit-transform: scale(0.95);
             transform: scale(0.95); }
@@ -1473,10 +1475,6 @@ div.wpcf7-mail-sent-ng {
           align-items: baseline;
   text-align: left;
   text-decoration: none; }
-.link .icon {
-    width: 0.7em;
-    height: 0.7em;
-    margin: 0 0 3px 6px; }
 .link > i {
     width: 25px;
     min-width: 25px;
@@ -1485,10 +1483,10 @@ div.wpcf7-mail-sent-ng {
     margin: 0 0 0 6px;
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s; }
+    -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .link > i:before, .link > i:after {
       content: '';
       position: absolute;
@@ -1502,10 +1500,10 @@ div.wpcf7-mail-sent-ng {
       background: #55c4da;
       -webkit-transform-origin: 100% 0;
               transform-origin: 100% 0;
-      -webkit-transition: 0.3s ease-in-out;
-      transition: 0.3s ease-in-out;
-      -webkit-transition-delay: 0s;
-              transition-delay: 0s; }
+      -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .link > i:after {
       width: 0;
       height: 0;
@@ -1525,16 +1523,18 @@ div.wpcf7-mail-sent-ng {
       background: currentColor;
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
-      -webkit-transition: 0.3s ease-in-out;
-      transition: 0.3s ease-in-out; }
+      -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
+.link .icon {
+    width: 0.7em;
+    height: 0.7em;
+    margin: 0 0 3px 6px; }
 .link:hover > i, .link:focus > i {
-    -webkit-transition-delay: 0.1s;
-            transition-delay: 0.1s;
     -webkit-transform: scale(0.8) translate3d(-10px, 0, 0);
             transform: scale(0.8) translate3d(-10px, 0, 0); }
 .link:hover > i:before, .link:focus > i:before {
-      -webkit-transition-delay: 0.15s;
-              transition-delay: 0.15s;
       -webkit-transform: scaleX(0.7);
               transform: scaleX(0.7); }
 .link:hover > span:after, .link:focus > span:after {
@@ -1575,8 +1575,10 @@ div.wpcf7-mail-sent-ng {
     z-index: -1;
     border-radius: 50%;
     background: #fff;
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out; }
+    -webkit-transition:  -webkit-transform 0.5s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.5s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.5s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.5s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.5s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .ref.number {
     padding: 20px;
     font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
@@ -1589,14 +1591,20 @@ div.wpcf7-mail-sent-ng {
     color: #fff; }
 .ref img {
     max-width: 80%;
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out; }
+    -webkit-transition:  -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .ref.clickable:hover:after, .ref.clickable:focus:after {
   -webkit-transform: scale(0.9);
           transform: scale(0.9); }
 .ref.clickable:hover img, .ref.clickable:focus img {
   -webkit-transform: scale(0.97);
-          transform: scale(0.97); }
+          transform: scale(0.97);
+  -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .container-ref {
   position: relative;
   padding: 50px 0 100px;
@@ -1718,14 +1726,10 @@ div.wpcf7-mail-sent-ng {
       z-index: -1; }
 .btn-hexagon .hexagon::before {
       -webkit-transform: rotate(60deg);
-              transform: rotate(60deg);
-      -webkit-transition: all 1s 0.5s;
-      transition: all 1s 0.5s; }
+              transform: rotate(60deg); }
 .btn-hexagon .hexagon::after {
       -webkit-transform: rotate(-60deg);
-              transform: rotate(-60deg);
-      -webkit-transition: all 1s 1s;
-      transition: all 1s 1s; }
+              transform: rotate(-60deg); }
 .btn-hexagon .icon {
     position: absolute;
     top: 50%;
@@ -2734,4 +2738,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?7501fb44181f2a4ce1c4679da07eee00*/
+/*# sourceMappingURL=main.css.map?676c9617c69afab1b9c4a1d4e111cc5f*/

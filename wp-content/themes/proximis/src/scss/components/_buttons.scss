@@ -8,7 +8,6 @@
     text-decoration: none;
     line-height: 1;
     color: #fff;
-
     &:after {
         content: '';
         position: absolute;
@@ -20,16 +19,19 @@
         border-radius: 4px;
         background: $primary;
         transform-origin: 50% 50%;
-        transition: $transition;
+        transition: transition(
+            (
+                transform: '#{$short-duration}'
+            ),
+            $ease-in-out-timing-function
+        );
     }
-
     &:hover,
     &:focus {
         &:after {
             transform: scale(0.95);
         }
     }
-
     &.big {
         display: block;
         padding: 20px;
@@ -43,30 +45,25 @@
     align-items: baseline;
     text-align: left;
     text-decoration: none;
-
-    .icon {
-        width: 0.7em;
-        height: 0.7em;
-        margin: 0 0 3px 6px;
-    }
-
-    >i {
+    > i {
         width: 25px;
         min-width: 25px;
         height: 10px;
         position: relative;
         margin: 0 0 0 6px;
         transform: scale(0.8);
-        transition: $transition;
-        transition-delay: 0s;
-
+        transition: transition(
+            (
+                transform: '#{$short-duration}'
+            ),
+            $ease-in-out-timing-function
+        );
         &:before,
         &:after {
             content: '';
             position: absolute;
             top: 0;
         }
-
         &:before {
             width: 20px;
             height: 2px;
@@ -75,10 +72,13 @@
             margin: auto;
             background: $primary;
             transform-origin: 100% 0;
-            transition: $transition;
-            transition-delay: 0s;
+            transition: transition(
+                (
+                    transform: '#{$short-duration}'
+                ),
+                $ease-in-out-timing-function
+            );
         }
-
         &:after {
             width: 0;
             height: 0;
@@ -88,10 +88,8 @@
             right: 0;
         }
     }
-
-    >span {
+    > span {
         position: relative;
-
         &:after {
             content: '';
             height: 1px;
@@ -101,43 +99,45 @@
             bottom: 3px;
             background: currentColor;
             transform-origin: 50% 50%;
-            transition: $transition;
+            transition: transition(
+                (
+                    transform: '#{$short-duration}'
+                ),
+                $ease-in-out-timing-function
+            );
         }
     }
-
+    .icon {
+        width: 0.7em;
+        height: 0.7em;
+        margin: 0 0 3px 6px;
+    }
     &:hover,
     &:focus {
-        >i {
-            transition-delay: 0.1s;
+        > i {
             transform: scale(0.8) translate3d(-10px, 0, 0);
-
             &:before {
-                transition-delay: 0.15s;
                 transform: scaleX(0.7);
             }
         }
-
-        >span {
+        > span {
             &:after {
                 transform: scaleX(0.9);
             }
         }
     }
-
     &.small {
-        >i {
+        > i {
             transform: scale(0.6);
         }
-
-        >span {
+        > span {
             &:after {
                 bottom: 5px;
             }
         }
-
         &:hover,
         &:focus {
-            >i {
+            > i {
                 transform: scale(0.6) translate3d(-10px, 0, 0);
             }
         }

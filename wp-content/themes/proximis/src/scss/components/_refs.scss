@@ -20,7 +20,12 @@
         z-index: -1;
         border-radius: 50%;
         background: #fff;
-        transition: $transition;
+        transition: transition(
+            (
+                transform: '#{$medium-duration}'
+            ),
+            $ease-in-out-timing-function
+        );
     }
 
     &.number {
@@ -41,7 +46,15 @@
 
     img {
         max-width: 80%;
-        transition: $transition;
+        transition: transition(
+            (
+                transform: (
+                    '#{$short-duration}',
+                    '#{$short-duration * 0.5}'
+                )
+            ),
+            $ease-in-out-timing-function
+        );
     }
 }
 
@@ -55,6 +68,12 @@
 
             img {
                 transform: scale(0.97);
+                transition: transition(
+                    (
+                        transform: '#{$short-duration}'
+                    ),
+                    $ease-in-out-timing-function
+                );
             }
         }
     }
@@ -189,11 +208,12 @@
     width: 40px;
     height: 40px;
     border: 0;
-
     &::before {
         content: none;
     }
-
+    &:hover {
+        // transform: scale3d(1, 1, 1, )
+    }
     .hexagon {
         display: block;
         position: relative;
@@ -203,7 +223,6 @@
         border-radius: 5px;
         background: $primary;
         transform: rotate(30deg);
-
         &::before,
         &::after {
             content: '';
@@ -218,31 +237,24 @@
             width: 100%;
             z-index: -1;
         }
-
         &::before {
             transform: rotate(60deg);
-            transition: all 1s 0.5s;
         }
-
         &::after {
             transform: rotate(-60deg);
-            transition: all 1s 1s;
         }
     }
-
     .icon {
         position: absolute;
         top: 50%;
         left: 50%;
         transform-origin: 50% 50%;
         fill: $white;
-
         &.icon-download {
             width: 16px;
             height: 16px;
             margin: -8px 0 0 -8px;
         }
-
         &.icon-small-arrow {
             width: 10px;
             height: 15px;

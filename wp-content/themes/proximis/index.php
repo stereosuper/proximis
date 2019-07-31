@@ -38,15 +38,40 @@
 			$blog = get_option( 'page_for_posts' );
 			$book = get_field('book', $blog);
 			$newsletter = get_field('newsletter', $blog);
+			$current_category = get_queried_object();
+			$current_category_id = $current_category->term_id;
 			
 			the_field('text', $blog);
 		?>
 
 		<div class="wrapper-cat-search">
-			<ul class='blog-cats off' id='cats'>
-				<li><a href='<?php echo get_permalink($blog); ?>'><?php _e('Display all posts', 'proximis'); ?></a></li>
-				<?php wp_list_categories( array('title_li' => '') ); ?>
-			</ul>
+			<div class="blog-categories">
+				<?php if (!$current_category_id): ?>
+					<button class="js-category-select-button" type="button">
+						<?php _e('Display all posts', 'proximis'); ?>
+					</button>
+				<?php else: ?>
+					<button class="js-category-select-button" type="button">
+						<?php echo $current_category->name ?>
+					</button>
+				<?php endif; ?>
+				<ul id="cats" class='blog-cats-list off'>
+					<?php if ($current_category_id): ?>
+						<li>
+							<a href="<?php echo get_permalink($blog); ?>">
+								<?php _e('Display all posts', 'proximis'); ?>
+							</a>
+						</li>
+					<?php endif; ?>
+					<?php wp_list_categories(
+						array(
+							'title_li' => '',
+							'exclude' => $current_category_id,
+							'show_option_none' => ''
+						)
+					); ?>
+				</ul>
+			</div>
 			<?php get_search_form(); ?>
 		</div>
 
