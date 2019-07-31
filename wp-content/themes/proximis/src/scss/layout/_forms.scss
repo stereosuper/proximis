@@ -58,6 +58,25 @@ textarea {
         background: #fff url(../../img/check.svg) no-repeat 95% 50% / 12px 8px;
     }
 
+    .no-focus & {
+        &.has-value:valid {
+            background: $white;
+        }
+
+        &:invalid,
+        &.wpcf7-not-valid,
+        &.has-value.wpcf7-not-valid {
+            // FF red borders
+            box-shadow: none;
+            background: $white;
+
+            &:not(:focus) {
+                border-color: transparent;
+                color: $text;
+            }
+        }
+    }
+
     &:invalid,
     &.wpcf7-not-valid,
     &.has-value.wpcf7-not-valid {

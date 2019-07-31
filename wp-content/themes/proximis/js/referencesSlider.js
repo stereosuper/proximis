@@ -21,8 +21,7 @@ const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["default
 
 class ReferencesSlider {
     constructor() {
-        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
-        if (!this.referenceSlider) return;
+        this.referenceSlider = null;
         this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -233,6 +232,9 @@ class ReferencesSlider {
         });
     }
     initialize() {
+        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
+        if (!this.referenceSlider) return;
+
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
@@ -246,4 +248,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=referencesSlider.js.map?d2a7951b4a5c3a8da3e833b355290114
+//# sourceMappingURL=referencesSlider.js.map?94d261b2cd16286f48b9da8dce0567f7

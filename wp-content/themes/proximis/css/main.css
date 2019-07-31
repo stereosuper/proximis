@@ -635,6 +635,22 @@ input:-webkit-autofill,
 input.has-value:valid,
   textarea.has-value:valid {
     background: #fff url(/wp-content/themes/proximis/img/check.svg) no-repeat 95% 50%/12px 8px; }
+.no-focus input.has-value:valid, .no-focus
+  textarea.has-value:valid {
+    background: #fff; }
+.no-focus input:invalid, .no-focus input.wpcf7-not-valid, .no-focus input.has-value.wpcf7-not-valid, .no-focus
+  textarea:invalid, .no-focus
+  textarea.wpcf7-not-valid, .no-focus
+  textarea.has-value.wpcf7-not-valid {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background: #fff; }
+.no-focus input:invalid:not(:focus), .no-focus input.wpcf7-not-valid:not(:focus), .no-focus input.has-value.wpcf7-not-valid:not(:focus), .no-focus
+    textarea:invalid:not(:focus), .no-focus
+    textarea.wpcf7-not-valid:not(:focus), .no-focus
+    textarea.has-value.wpcf7-not-valid:not(:focus) {
+      border-color: transparent;
+      color: #18162b; }
 input:invalid, input.wpcf7-not-valid, input.has-value.wpcf7-not-valid,
   textarea:invalid,
   textarea.wpcf7-not-valid,
@@ -2718,4 +2734,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?5700bc1941b136bd63d2287f6ed11ab2*/
+/*# sourceMappingURL=main.css.map?7501fb44181f2a4ce1c4679da07eee00*/
