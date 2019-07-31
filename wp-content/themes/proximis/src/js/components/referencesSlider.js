@@ -7,8 +7,7 @@ const ensureScrollTo = ScrollToPlugin;
 
 class ReferencesSlider {
     constructor() {
-        [this.referenceSlider] = query({ selector: '.js-ref-slider' });
-        if (!this.referenceSlider) return;
+        this.referenceSlider = null;
         this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -219,6 +218,9 @@ class ReferencesSlider {
         });
     }
     initialize() {
+        [this.referenceSlider] = query({ selector: '.js-ref-slider' });
+        if (!this.referenceSlider) return;
+
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();

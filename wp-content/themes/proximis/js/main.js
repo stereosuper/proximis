@@ -35823,8 +35823,7 @@ const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["default
 
 class ReferencesSlider {
     constructor() {
-        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
-        if (!this.referenceSlider) return;
+        this.referenceSlider = null;
         this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -36035,6 +36034,9 @@ class ReferencesSlider {
         });
     }
     initialize() {
+        [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
+        if (!this.referenceSlider) return;
+
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
@@ -36670,4 +36672,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?a9371e3dcac49487dc25b1a51cd70918
+//# sourceMappingURL=main.js.map?01456cfb1acfe8bfb499c382e3d0b87b
