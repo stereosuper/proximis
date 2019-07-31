@@ -2,7 +2,11 @@ import '../scss/main.scss';
 
 // @babel/polyfill is necessary for async imports
 import '@babel/polyfill';
-import { superLoad, superWindow, query } from '@stereorepo/sac';
+import {
+    superLoad,
+    superWindow,
+    query
+} from '@stereorepo/sac';
 import Macy from 'macy';
 import lottie from 'lottie-web';
 
@@ -14,12 +18,17 @@ import united from './components/united';
 import form from './components/form';
 import newsletter from './components/newsletter';
 import referencesSlider from './components/referencesSlider';
+import searchHandler from './components/searchHandler';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
-const dynamicLoading = ({ name }) => async () => {
+const dynamicLoading = ({
+    name
+}) => async () => {
     // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
-    const { default: defaultFunction } = await import(
+    const {
+        default: defaultFunction
+    } = await import(
         /* webpackChunkName: "[request]" */
         `./components/${name}`
     );
@@ -89,14 +98,16 @@ const preloadCallback = () => {
 
     if (cats) {
         cats.addEventListener('click', () => {
-            cats.classList.contains('off')
-                ? cats.classList.remove('off')
-                : cats.classList.add('off');
+            cats.classList.contains('off') ?
+                cats.classList.remove('off') :
+                cats.classList.add('off');
         });
     }
 };
 
-const loadCallback = () => {};
+const loadCallback = () => {
+    searchHandler();
+};
 
 const animationsCallback = () => {};
 
@@ -104,6 +115,5 @@ superLoad.initializeLoadingShit({
     preloadCallback,
     loadCallback,
     animationsCallback,
-    noTransElementsClass:
-        '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
+    noTransElementsClass: '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
 });

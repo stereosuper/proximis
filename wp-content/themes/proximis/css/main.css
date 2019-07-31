@@ -613,6 +613,14 @@ input:focus:invalid,
   textarea:focus:invalid,
   select:focus:invalid {
     border-color: #FF737B; }
+.no-focus input:focus:valid, .no-focus
+  textarea:focus:valid, .no-focus
+  select:focus:valid {
+    border-color: transparent; }
+.no-focus input:focus:invalid, .no-focus
+  textarea:focus:invalid, .no-focus
+  select:focus:invalid {
+    border-color: transparent; }
 input,
 textarea {
   max-width: 100%;
@@ -2470,6 +2478,7 @@ a.ref:hover img, a.ref:focus img {
     color: #5C6370; }
 .blog-cats {
   display: inline-block;
+  margin: 28px 0;
   padding: 0 35px 0 0;
   position: relative;
   line-height: 1;
@@ -2644,11 +2653,27 @@ a.ref:hover img, a.ref:focus img {
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
-.wrapper-cat-search > form {
-    margin-left: 10px; }
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+.wrapper-cat-search .blog-cats {
+    margin-right: 10px; }
 .search-form {
-  position: relative; }
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden; }
+.js .search-form.on .content-search {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+.js .content-search {
+  -webkit-transform: translate3d(calc(-100% + 56px), 0, 0);
+          transform: translate3d(calc(-100% + 56px), 0, 0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; }
 .btn-search {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2663,8 +2688,11 @@ a.ref:hover img, a.ref:focus img {
   top: 0;
   bottom: 0;
   right: 0;
-  padding: 0 20px; }
+  width: 56px;
+  border-radius: 4px; }
 .btn-search .icon {
+    width: 16px;
+    height: 16px;
     fill: #5C6370; }
 @media (min-width: 960px) {
   .post-thumbnail {
@@ -2688,4 +2716,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?91bb59c6689edd2b24c842e0ff7255ab*/
+/*# sourceMappingURL=main.css.map?9a89fad0ef6cc8941f7408997dd10a04*/

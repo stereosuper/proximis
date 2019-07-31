@@ -10,6 +10,7 @@
 
 .blog-cats {
     display: inline-block;
+    margin: $line-height 0;
     padding: 0 35px 0 0;
     position: relative;
     line-height: 1;
@@ -225,14 +226,34 @@
 .wrapper-cat-search {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
-    >form {
-        margin-left: 10px;
+    .blog-cats {
+        margin-right: 10px;
     }
 }
 
 .search-form {
+    width: 100%;
+    max-width: 340px;
     position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &.on {
+        .content-search {
+            .js & {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+}
+
+.content-search {
+    .js & {
+        transform: translate3d(calc(-100% + #{$line-height*2}), 0, 0);
+        transition: transform $transition;
+    }
 }
 
 .btn-search {
@@ -243,9 +264,12 @@
     top: 0;
     bottom: 0;
     right: 0;
-    padding: 0 20px;
+    width: 2*$line-height;
+    border-radius: 4px;
 
     .icon {
+        width: 16px;
+        height: 16px;
         fill: $grey;
     }
 }

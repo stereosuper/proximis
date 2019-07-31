@@ -30,6 +30,18 @@ select {
             border-color: $secondary;
         }
     }
+
+    .no-focus & {
+        &:focus {
+            &:valid {
+                border-color: transparent;
+            }
+
+            &:invalid {
+                border-color: transparent;
+            }
+        }
+    }
 }
 
 input,
