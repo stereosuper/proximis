@@ -1,5 +1,9 @@
-import { superPolyfill, query } from '@stereorepo/sac';
-import { TweenMax } from 'gsap';
+import { superPolyfill, query, forEach } from '@stereorepo/sac';
+import { TweenMax, Power2, TweenLite } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+
+// NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
+const ensureScrollTo = ScrollToPlugin;
 
 class ReferencesSlider {
     constructor() {
@@ -32,9 +36,14 @@ class ReferencesSlider {
                 callback();
             });
     }
-    checkLoadingCall() {
-        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
-
+    selectFollowingElement({ id = null }) {
+        if (id !== null) {
+            this.newReferenceId = id;
+        } else {
+            this.findFollowingElement();
+        }
+    }
+    findFollowingElement() {
         const idIndex = this.idsList.indexOf(this.currentReferenceId);
 
         if (this.type === 'next') {
@@ -48,7 +57,9 @@ class ReferencesSlider {
                     ? this.idsList.slice(-1)
                     : this.idsList.slice(idIndex - 1, idIndex - 2);
         }
-
+    }
+    checkLoadingCall() {
+        if (this.newReferenceId === this.currentReferenceId) return;
         const [slide] = query({
             selector: `.js-ref-id-${this.newReferenceId}`
         });
@@ -150,6 +161,8 @@ class ReferencesSlider {
         if (this.idsList.length < 2) return;
 
         [this.currentSlide] = query({ selector: '.js-ref-current-slide' });
+        this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
+
         const [prevButton, nextButton] = query({
             selector: '.js-button-hexagon',
             ctx: this.currentSlide
@@ -162,6 +175,7 @@ class ReferencesSlider {
             'click',
             () => {
                 this.type = 'prev';
+                this.findFollowingElement();
                 this.checkLoadingCall();
             },
             false
@@ -170,13 +184,43 @@ class ReferencesSlider {
             'click',
             () => {
                 this.type = 'next';
+                this.findFollowingElement();
                 this.checkLoadingCall();
             },
             false
         );
     }
+    initializeCaseStudyClickEvent() {
+        const caseStudies = query({ selector: '.js-case-study' });
+
+        forEach(caseStudies, caseStudy => {
+            caseStudy.addEventListener(
+                'click',
+                event => {
+                    event.preventDefault();
+                    const selectedId = parseInt(caseStudy.dataset.refId, 10);
+
+                    const offset =
+                        window.scrollY +
+                        this.referenceSlider.getBoundingClientRect().top;
+
+                    TweenLite.to(window, 0.5, {
+                        scrollTo: {
+                            y: offset
+                        },
+                        ease: Power2.easeInOut
+                    });
+
+                    this.selectFollowingElement({ id: selectedId });
+                    this.checkLoadingCall();
+                },
+                false
+            );
+        });
+    }
     initialize() {
         this.getAllSlideIds(() => {
+            this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
         });
     }

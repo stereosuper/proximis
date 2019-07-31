@@ -1565,10 +1565,10 @@ div.wpcf7-mail-sent-ng {
     max-width: 80%;
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out; }
-a.ref:hover:after, a.ref:focus:after {
+.ref.clickable:hover:after, .ref.clickable:focus:after {
   -webkit-transform: scale(0.9);
           transform: scale(0.9); }
-a.ref:hover img, a.ref:focus img {
+.ref.clickable:hover img, .ref.clickable:focus img {
   -webkit-transform: scale(0.97);
           transform: scale(0.97); }
 .container-ref {
@@ -1679,7 +1679,7 @@ a.ref:hover img, a.ref:focus img {
     -webkit-transform: rotate(30deg);
             transform: rotate(30deg); }
 .btn-hexagon .hexagon::before, .btn-hexagon .hexagon::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -2688,4 +2688,4 @@ a.ref:hover img, a.ref:focus img {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?91bb59c6689edd2b24c842e0ff7255ab*/
+/*# sourceMappingURL=main.css.map?3711a8f98f1db7e682a6b841812c31b5*/
