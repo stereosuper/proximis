@@ -86,7 +86,21 @@
     }
 }
 
+.wrapper-blog-list {
+    position: relative;
+    padding: #{$line-height*2} 0 #{$line-height*7};
+
+    .pagination {
+        position: absolute;
+        bottom: #{$line-height*5};
+        left: 0;
+        right: 0;
+    }
+}
+
 .blog-list {
+    margin: 0;
+
     >li {
         display: inline-block;
         width: 30%;

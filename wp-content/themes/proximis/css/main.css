@@ -1504,7 +1504,7 @@ div.wpcf7-mail-sent-ng {
             justify-content: center;
     width: 40px;
     height: 40px;
-    margin: 3px;
+    margin: 8px;
     border-radius: 50%;
     font-family: "ibmplex_semibold", "ibmplex", sans-serif;
     text-decoration: none; }
@@ -2734,15 +2734,25 @@ div.wpcf7-mail-sent-ng {
     transition:  color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .blog-cats-list a:hover {
       color: #55c4da; }
+.wrapper-blog-list {
+  position: relative;
+  padding: 56px 0 196px; }
+.wrapper-blog-list .pagination {
+    position: absolute;
+    bottom: 140px;
+    left: 0;
+    right: 0; }
+.blog-list {
+  margin: 0; }
 .blog-list > li {
-  display: inline-block;
-  width: 30%; }
+    display: inline-block;
+    width: 30%; }
 .blog-list > li:before {
-    content: none; }
+      content: none; }
 .blog-list .book {
-  padding: 35px 30px 30px; }
+    padding: 35px 30px 30px; }
 .blog-list .book h2 {
-    margin: 20px 0 0; }
+      margin: 20px 0 0; }
 .post {
   padding: 0 0 28px;
   border-bottom: 1px solid #5c6370; }
@@ -2940,4 +2950,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?768bd3330831156aa7dff487ce4f0acc*/
+/*# sourceMappingURL=main.css.map?7676a25c8de194d231b117e543e9f28f*/

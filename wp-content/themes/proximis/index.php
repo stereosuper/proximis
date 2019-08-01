@@ -90,77 +90,78 @@
 		</div>
 
 		<?php if ( $wp_query->have_posts() ) : $countPosts = 0; ?>
+			<div class="wrapper-blog-list">
+				<ul class='blog-list' id='blog'>
 
-			<ul class='blog-list' id='blog'>
+					<?php while ( $wp_query->have_posts() ) : the_post(); $countPosts ++; ?>
 
-				<?php while ( $wp_query->have_posts() ) : the_post(); $countPosts ++; ?>
+						<?php if( $book && $book['display'] && $countPosts == $book['pos'] ) : ?>
+							<li class='book'>
+								<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
+								<h2><?php echo $book['title']; ?></h2>
+								<p><?php echo $book['text']; ?></p>
+								<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
+							</li>
+						<?php 
+						$countPosts++;
+						endif; 
+						?>
 
-					<?php if( $book && $book['display'] && $countPosts == $book['pos'] ) : ?>
-						<li class='book'>
-							<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
-							<h2><?php echo $book['title']; ?></h2>
-							<p><?php echo $book['text']; ?></p>
-							<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
-						</li>
-					<?php 
-					$countPosts++;
-					endif; 
-					?>
+						<?php if( $newsletter && $newsletter['display'] && $countPosts == $newsletter['pos'] ) : ?>
+							<li class="newsletter-in-list">
+								<?php get_template_part('includes/newsletter'); ?>
+							</li>
+						<?php 
+						$countPosts++;
+						endif; 
+						?>
+						
+						<li class='post'>
+							<?php if( has_post_thumbnail() ) : ?>
+								<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("full"); ?>)'></a>
+							<?php endif; ?>
 
-					<?php if( $newsletter && $newsletter['display'] && $countPosts == $newsletter['pos'] ) : ?>
-						<li class="newsletter-in-list">
-							<?php get_template_part('includes/newsletter'); ?>
-						</li>
-					<?php 
-					$countPosts++;
-					endif; 
-					?>
-					
-					<li class='post'>
-						<?php if( has_post_thumbnail() ) : ?>
-							<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("full"); ?>)'></a>
-						<?php endif; ?>
+							<header class='post-head'>
+								<?php $author = get_the_author(); ?>
+								<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>' class='logo-link'>
+									<span class="img author-img"><?php echo get_avatar( $author ); ?></span>
+									<?php echo $author; ?>
+								</a>
+								<time class="related-date"><?php echo get_the_date(); ?></time>
+							</header>
 
-						<header class='post-head'>
-							<?php $author = get_the_author(); ?>
-							<a href='<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>' class='logo-link'>
-								<span class="img author-img"><?php echo get_avatar( $author ); ?></span>
-								<?php echo $author; ?>
+							<a class="post-content-link" href='<?php the_permalink(); ?>'>
+								<h2 class="related-title"><?php the_title(); ?></h2>
+								<?php the_excerpt(); ?>
 							</a>
-							<time class="related-date"><?php echo get_the_date(); ?></time>
-						</header>
 
-						<a class="post-content-link" href='<?php the_permalink(); ?>'>
-							<h2 class="related-title"><?php the_title(); ?></h2>
-							<?php the_excerpt(); ?>
-						</a>
+							<footer class='post-footer'>
+								<div class='cats'>
+									<?php $cats = get_the_category(); if( $cats ) :
+										$count = 0;
+										foreach( $cats as $cat ) :
+											$count ++;
+											if( $count > 1 ) echo ', ';
+											echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
+										endforeach;
+									endif; ?>
+								</div>
+								<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
+							</footer>
+						</li>
+					
+					<?php endwhile; ?>
 
-						<footer class='post-footer'>
-							<div class='cats'>
-								<?php $cats = get_the_category(); if( $cats ) :
-									$count = 0;
-									foreach( $cats as $cat ) :
-										$count ++;
-										if( $count > 1 ) echo ', ';
-										echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->cat_name . '</a>';
-									endforeach;
-								endif; ?>
-							</div>
-							<?php echo do_shortcode('[rt_reading_time postfix="min" postfix_singular="min"]'); ?>
-						</footer>
-					</li>
-				
-				<?php endwhile; ?>
+				</ul>
 
-			</ul>
-
-			<div class='pagination'>
-				<?php echo paginate_links(
-					array(
-						'prev_next' => false,
-						'end_size' => 2
-					)
-				); ?>
+				<div class='pagination'>
+					<?php echo paginate_links(
+						array(
+							'prev_next' => false,
+							'end_size' => 2
+						)
+					); ?>
+				</div>
 			</div>
 		
 		<?php else : ?>

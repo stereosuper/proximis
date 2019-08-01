@@ -265,59 +265,6 @@ __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerat
 
 /***/ }),
 
-/***/ "./node_modules/@stereorepo/sac/src/async.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@stereorepo/sac/src/async.js ***!
-  \***************************************************/
-/*! exports provided: fetchData, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchData", function() { return fetchData; });
-const fetchDataFactory = () => {
-    const fetchSomeData = ({
-        url,
-        method,
-        fetchParams = {},
-        headersContent = {},
-        data = {},
-        cb
-    }) => {
-        const headers = new Headers({
-            ...headersContent
-        });
-
-        const params = {
-            method,
-            ...fetchParams,
-            headers
-        };
-
-        if (method === 'POST' || method === 'PUT') {
-            params.body = JSON.stringify(data);
-        }
-
-        fetch(url, params)
-            .then(response => response.json())
-            .then(response => {
-                if (cb) {
-                    cb(response);
-                }
-            });
-    };
-    return Object.freeze({
-        fetch: fetchSomeData
-    });
-};
-
-const fetchData = fetchDataFactory();
-
-/* harmony default export */ __webpack_exports__["default"] = ({ fetchData });
-
-
-/***/ }),
-
 /***/ "./node_modules/@stereorepo/sac/src/components/Error.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@stereorepo/sac/src/components/Error.js ***!
@@ -1054,12 +1001,11 @@ const bodyRouter = ({ identifier, callback }) => {
 /*!***************************************************!*\
   !*** ./node_modules/@stereorepo/sac/src/index.js ***!
   \***************************************************/
-/*! exports provided: fetchData, bodyRouter, createCrossBrowserEvent, forEach, isDisplayed, nodeIndex, query, requestAnimFrame, supportsWebp, throttle, camalize, reverseString, roundNumbers, SuperError, superFallback, superLoad, superPolyfill, superScroll, superSnif, superWindow, default */
+/*! exports provided: bodyRouter, createCrossBrowserEvent, forEach, isDisplayed, nodeIndex, query, requestAnimFrame, supportsWebp, throttle, camalize, reverseString, roundNumbers, SuperError, superFallback, superLoad, superPolyfill, superScroll, superSnif, superWindow, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchData", function() { return fetchData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bodyRouter", function() { return bodyRouter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCrossBrowserEvent", function() { return createCrossBrowserEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
@@ -1079,18 +1025,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superScroll", function() { return superScroll; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superSnif", function() { return superSnif; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "superWindow", function() { return superWindow; });
-/* harmony import */ var _async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./async */ "./node_modules/@stereorepo/sac/src/async.js");
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core */ "./node_modules/@stereorepo/sac/src/core.js");
-/* harmony import */ var _parsing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parsing */ "./node_modules/@stereorepo/sac/src/parsing.js");
-/* harmony import */ var _math__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./math */ "./node_modules/@stereorepo/sac/src/math.js");
-/* harmony import */ var _components_Error__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Error */ "./node_modules/@stereorepo/sac/src/components/Error.js");
-/* harmony import */ var _components_Fallback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Fallback */ "./node_modules/@stereorepo/sac/src/components/Fallback.js");
-/* harmony import */ var _components_LoadHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/LoadHandler */ "./node_modules/@stereorepo/sac/src/components/LoadHandler.js");
-/* harmony import */ var _components_Polyfill__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Polyfill */ "./node_modules/@stereorepo/sac/src/components/Polyfill.js");
-/* harmony import */ var _components_Scroll__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Scroll */ "./node_modules/@stereorepo/sac/src/components/Scroll.js");
-/* harmony import */ var _components_Snif__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Snif */ "./node_modules/@stereorepo/sac/src/components/Snif.js");
-/* harmony import */ var _components_Window__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Window */ "./node_modules/@stereorepo/sac/src/components/Window.js");
-
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./node_modules/@stereorepo/sac/src/core.js");
+/* harmony import */ var _parsing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parsing */ "./node_modules/@stereorepo/sac/src/parsing.js");
+/* harmony import */ var _math__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./math */ "./node_modules/@stereorepo/sac/src/math.js");
+/* harmony import */ var _components_Error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Error */ "./node_modules/@stereorepo/sac/src/components/Error.js");
+/* harmony import */ var _components_Fallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Fallback */ "./node_modules/@stereorepo/sac/src/components/Fallback.js");
+/* harmony import */ var _components_LoadHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/LoadHandler */ "./node_modules/@stereorepo/sac/src/components/LoadHandler.js");
+/* harmony import */ var _components_Polyfill__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Polyfill */ "./node_modules/@stereorepo/sac/src/components/Polyfill.js");
+/* harmony import */ var _components_Scroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Scroll */ "./node_modules/@stereorepo/sac/src/components/Scroll.js");
+/* harmony import */ var _components_Snif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Snif */ "./node_modules/@stereorepo/sac/src/components/Snif.js");
+/* harmony import */ var _components_Window__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Window */ "./node_modules/@stereorepo/sac/src/components/Window.js");
 
 
 
@@ -1106,39 +1050,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const { fetchData } = _async__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { bodyRouter } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { createCrossBrowserEvent } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { forEach } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { isDisplayed } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { nodeIndex } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { query } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { requestAnimFrame } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { supportsWebp } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
+const { throttle } = _core__WEBPACK_IMPORTED_MODULE_0__["default"];
 
-const { bodyRouter } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { createCrossBrowserEvent } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { forEach } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { isDisplayed } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { nodeIndex } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { query } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { requestAnimFrame } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { supportsWebp } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
-const { throttle } = _core__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { camalize } = _parsing__WEBPACK_IMPORTED_MODULE_1__["default"];
+const { reverseString } = _parsing__WEBPACK_IMPORTED_MODULE_1__["default"];
 
-const { camalize } = _parsing__WEBPACK_IMPORTED_MODULE_2__["default"];
-const { reverseString } = _parsing__WEBPACK_IMPORTED_MODULE_2__["default"];
-
-const { roundNumbers } = _math__WEBPACK_IMPORTED_MODULE_3__["default"];
+const { roundNumbers } = _math__WEBPACK_IMPORTED_MODULE_2__["default"];
 
 // Components classes exports
-const SuperError = _components_Error__WEBPACK_IMPORTED_MODULE_4__["default"];
+const SuperError = _components_Error__WEBPACK_IMPORTED_MODULE_3__["default"];
 
 // Components instances exports
-const superFallback = _components_Fallback__WEBPACK_IMPORTED_MODULE_5__["default"];
-const superLoad = _components_LoadHandler__WEBPACK_IMPORTED_MODULE_6__["default"];
-const superPolyfill = _components_Polyfill__WEBPACK_IMPORTED_MODULE_7__["default"];
-const superScroll = _components_Scroll__WEBPACK_IMPORTED_MODULE_8__["default"];
-const superSnif = _components_Snif__WEBPACK_IMPORTED_MODULE_9__["default"];
-const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_10__["default"];
+const superFallback = _components_Fallback__WEBPACK_IMPORTED_MODULE_4__["default"];
+const superLoad = _components_LoadHandler__WEBPACK_IMPORTED_MODULE_5__["default"];
+const superPolyfill = _components_Polyfill__WEBPACK_IMPORTED_MODULE_6__["default"];
+const superScroll = _components_Scroll__WEBPACK_IMPORTED_MODULE_7__["default"];
+const superSnif = _components_Snif__WEBPACK_IMPORTED_MODULE_8__["default"];
+const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_9__["default"];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     bodyRouter,
     camalize,
     createCrossBrowserEvent,
-    fetchData,
     forEach,
     isDisplayed,
     nodeIndex,
@@ -22823,13 +22764,10 @@ var ShapePropertyFactory = (function(){
     }
 
     function processEffectsSequence() {
-        if (this.elem.globalData.frameId === this.frameId) {
-            return;
-        } else if (!this.effectsSequence.length) {
-            this._mdf = false;
+        if(this.elem.globalData.frameId === this.frameId || !this.effectsSequence.length) {
             return;
         }
-        if (this.lock) {
+        if(this.lock) {
             this.setVValue(this.pv);
             return;
         }
@@ -23235,13 +23173,11 @@ function ShapeModifier(){}
 ShapeModifier.prototype.initModifierProperties = function(){};
 ShapeModifier.prototype.addShapeToModifier = function(){};
 ShapeModifier.prototype.addShape = function(data){
-    if (!this.closed) {
-        // Adding shape to dynamic properties. It covers the case where a shape has no effects applied, to reset it's _mdf state on every tick.
-        data.sh.container.addDynamicProperty(data.sh);
+    if(!this.closed){
         var shapeData = {shape:data.sh, data: data, localShapeCollection:shapeCollection_pool.newShapeCollection()};
         this.shapes.push(shapeData);
         this.addShapeToModifier(shapeData);
-        if (this._isAnimated) {
+        if(this._isAnimated) {
             data.setAsAnimated();
         }
     }
@@ -28224,7 +28160,7 @@ SVGTextElement.prototype.buildNewText = function(){
         this.layerElement.setAttribute('font-style', fStyle);
         this.layerElement.setAttribute('font-weight', fWeight);
     }
-    this.layerElement.setAttribute('aria-label', documentData.t);
+    this.layerElement.setAttribute('arial-label', documentData.t);
 
     var letters = documentData.l || [];
     var usesGlyphs = !!this.globalData.fontManager.chars;
@@ -28377,7 +28313,6 @@ SVGTextElement.prototype.renderInnerContent = function(){
         }
     }
 };
-
 function SVGShapeElement(data,globalData,comp){
     //List of drawable elements
     this.shapes = [];
@@ -33463,7 +33398,6 @@ var ShapeExpressionInterface = (function(){
             },
             '_name': { value: shape.nm },
             'ix': { value: shape.ix },
-            'propertyIndex': { value: shape.ix },
             'mn': { value: shape.mn }
         });
         return interfaceFunction;
@@ -34288,7 +34222,7 @@ GroupEffect.prototype.init = function(data,element){
     lottiejs.unfreeze = animationManager.unfreeze;
     lottiejs.getRegisteredAnimations = animationManager.getRegisteredAnimations;
     lottiejs.__getFactory = getFactory;
-    lottiejs.version = '5.5.7';
+    lottiejs.version = '5.5.6';
 
     function checkReady() {
         if (document.readyState === "complete") {
@@ -36409,4 +36343,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?11b0857fdd5ac4358baaa4c8c6b4cb37
+//# sourceMappingURL=main.js.map?6d752b00c86c7a2a693fe30225ed4287
