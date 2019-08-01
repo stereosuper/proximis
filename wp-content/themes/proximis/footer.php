@@ -35,7 +35,7 @@
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
-                        <button type="button" class="simple-link">S'inscrire à la newsletter</button>
+                        <button type="button" class="simple-link"><?php the_field('signup_news', 'options'); ?></button>
                         <p><?php the_field('footerTextSmall2', 'options'); ?></p>
                         <?php if( have_rows('footerLinks', 'options') ) : ?>
                             <ul class='footer-menu'>
@@ -54,9 +54,7 @@
             <div class="wrapper-modal">
                 <div class="modal">
                     <button type="button" class="btn-circle btn-close-modal"><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></button>
-                    <div class='newsletter'>
-                        <?php echo do_shortcode('[contact-form-7 id="250" title="Newsletter"]'); ?>
-                    </div>
+                    <?php get_template_part('/includes/newsletter') ?>
                 </div>
             </div>
         </div>

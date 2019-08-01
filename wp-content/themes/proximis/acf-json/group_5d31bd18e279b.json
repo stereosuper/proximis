@@ -39,6 +39,25 @@
             "maxlength": "",
             "rows": 2,
             "new_lines": ""
+        },
+        {
+            "key": "field_5d42fcab8d8e2",
+            "label": "Texte d'inscription",
+            "name": "signup_news",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -58,5 +77,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1563540846
+    "modified": 1564671177
 }
