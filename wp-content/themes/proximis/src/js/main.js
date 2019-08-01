@@ -104,6 +104,24 @@ const preloadCallback = () => {
                 cats.classList.remove('off') :
                 cats.classList.add('off');
         });
+
+        document.addEventListener('click', (e) => {
+            let targetElement = e.target;
+
+            do {
+                if (targetElement == cats) {
+                    // This is a click inside. Do nothing, just return.
+                    return;
+                }
+                // Go up the DOM
+                targetElement = targetElement.parentNode;
+            } while (targetElement);
+
+            // This is a click outside.
+            if (!cats.classList.contains('off')) {
+                cats.classList.add('off');
+            }
+        });
     }
 };
 

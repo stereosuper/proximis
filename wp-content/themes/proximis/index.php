@@ -45,17 +45,17 @@
 		?>
 
 		<div class="wrapper-cat-search">
-			<div class="blog-categories">
+			<div id="cats" class="blog-categories off">
 				<?php if (!$current_category_id): ?>
-					<button class="js-category-select-button" type="button">
+					<button id="category-select-button" class="category-select-button js-category-select-button" type="button">
 						<?php _e('Display all posts', 'proximis'); ?>
 					</button>
 				<?php else: ?>
-					<button class="js-category-select-button" type="button">
+					<button class="category-select-button js-category-select-button" type="button">
 						<?php echo $current_category->name ?>
 					</button>
 				<?php endif; ?>
-				<ul id="cats" class='blog-cats-list off'>
+				<ul class="blog-cats-list">
 					<?php if ($current_category_id): ?>
 						<li>
 							<a href="<?php echo get_permalink($blog); ?>">
