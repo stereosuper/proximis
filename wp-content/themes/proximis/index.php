@@ -9,23 +9,37 @@
 		<h1 class='blog-title'>
 			<?php
 				if( is_category() ) {
-
-					global $wp_query;
+					$category_title = single_cat_title('', false);
+					$args = array(  
+						'post_status' => 'publish',
+						'post_type' => 'post',
+						'category_name' => $category_title,
+						'paged' => 10
+					);
+					$wp_query = new WP_Query($args);
+					
 					$results = $wp_query->found_posts . ' ';
 					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
 					$type = __('in the category');
-					echo "$results $type \"".single_cat_title('', false).'"'; 
+					echo "$results $type \"".$category_title.'"'; 
 					
 				} else if( is_search() ) {
-					
-					global $wp_query;
+					$search_query = get_search_query();
+
+					$args = array(  
+						'post_status' => 'publish',
+						'post_type' => 'post',
+						's' => $search_query,
+						'paged' => 10
+					);
+					$wp_query = new WP_Query($args);
+
 					$results = $wp_query->found_posts . ' ';
 					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
 					$type = __('found for');
-					echo "$results $type \"".get_search_query().'"'; 
+					echo "$results $type \"".$search_query.'"'; 
 
 				} else if( is_author() ) {
-
 					echo __('Posts published by ') . get_the_author();
 
 				} else {
@@ -39,7 +53,7 @@
 			$book = get_field('book', $blog);
 			$newsletter = get_field('newsletter', $blog);
 			$current_category = get_queried_object();
-			$current_category_id = $current_category->term_id;
+			$current_category_id = $current_category ? $current_category->term_id : null;
 			
 			the_field('text', $blog);
 		?>
@@ -75,11 +89,11 @@
 			<?php get_search_form(); ?>
 		</div>
 
-		<?php if ( have_posts() ) : $countPosts = 0; ?>
+		<?php if ( $wp_query->have_posts() ) : $countPosts = 0; ?>
 
 			<ul class='blog-list' id='blog'>
 
-				<?php while ( have_posts() ) : the_post(); $countPosts ++; ?>
+				<?php while ( $wp_query->have_posts() ) : the_post(); $countPosts ++; ?>
 
 					<?php if( $book && $book['display'] && $countPosts == $book['pos'] ) : ?>
 						<li class='book'>
@@ -141,7 +155,12 @@
 			</ul>
 
 			<div class='pagination'>
-				<?php echo paginate_links( array( 'prev_text' => '<b>‹</b> <span>' . 'Précédent' . '</span>', 'next_text'  => '<span>' . 'Suivant' . '</span> <b>›</b>' ) ); ?>
+				<?php echo paginate_links(
+					array(
+						'prev_next' => false,
+						'end_size' => 2
+					)
+				); ?>
 			</div>
 		
 		<?php else : ?>
