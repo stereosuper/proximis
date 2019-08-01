@@ -460,6 +460,13 @@ function proximis_register_required_plugins(){
             'force_activation' => false
         ),
         array(
+            'name'        => 'WP Multisite Content Copier Pro',
+            'slug'        => 'wp-multisite-content-copier-pro',
+            'source'     => get_template_directory_uri() . '/plugins/wp-multisite-content-copier-pro.zip',
+            'required'    => true,
+            'force_activation' => false
+        ),
+        array(
             'name'        => 'Yoast SEO',
             'slug'        => 'wordpress-seo',
             'required'    => false,
