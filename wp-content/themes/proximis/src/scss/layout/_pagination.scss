@@ -37,6 +37,17 @@
             border-radius: 50%;
             background: $primary;
             z-index: -1;
+            transform-origin: 50% 50%;
+            transition: transition((transform: '#{$short-duration}'
+                ),
+                $ease-in-out-timing-function);
+        }
+
+        &:hover,
+        &:focus {
+            &:after {
+                transform: scale(0.95);
+            }
         }
     }
 }

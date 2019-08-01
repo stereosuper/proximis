@@ -1526,7 +1526,16 @@ div.wpcf7-mail-sent-ng {
       left: 0;
       border-radius: 50%;
       background: #55c4da;
-      z-index: -1; }
+      z-index: -1;
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
+.pagination > a:hover:after, .pagination > a:focus:after {
+      -webkit-transform: scale(0.95);
+              transform: scale(0.95); }
 @media (min-width: 580px) {
   .pagination > span,
   .pagination > a {
@@ -2970,4 +2979,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?94c0a9652765723bc185cd4331fbb533*/
+/*# sourceMappingURL=main.css.map?71cd281e58d4329166809546fb5faad8*/
