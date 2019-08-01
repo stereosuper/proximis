@@ -1,0 +1,28 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >span,
+    >a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: 3px;
+        border-radius: 50%;
+        font-family: $ibm-bold;
+        text-decoration: none;
+    }
+
+    >span {
+        background: $white;
+        color: $primary;
+    }
+
+    >a {
+        background: $primary;
+        color: $white;
+    }
+}

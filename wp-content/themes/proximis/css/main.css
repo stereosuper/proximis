@@ -1481,6 +1481,39 @@ div.wpcf7-mail-sent-ng {
       font-size: 2.8rem; }
     .team ul {
       width: 75%; } }
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+.pagination > span,
+  .pagination > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    border-radius: 50%;
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+    text-decoration: none; }
+.pagination > span {
+    background: #fff;
+    color: #55c4da; }
+.pagination > a {
+    background: #55c4da;
+    color: #fff; }
 /* Buttons */
 .btn {
   display: inline-block;
@@ -2907,4 +2940,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?442f01d42f6e7308baa9e5e84116aaff*/
+/*# sourceMappingURL=main.css.map?768bd3330831156aa7dff487ce4f0acc*/
