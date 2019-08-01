@@ -2,12 +2,19 @@ import { superPolyfill, query, forEach } from '@stereorepo/sac';
 import { TweenMax, Power2, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
+import { easing } from '../global';
+
 // NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
 const ensureScrollTo = ScrollToPlugin;
 
 class ReferencesSlider {
     constructor() {
+        this.state = {
+            transitioning: false
+        };
+
         this.referenceSlider = null;
+        this.loader = null;
         this.idsList = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -71,6 +78,8 @@ class ReferencesSlider {
         }
     }
     startLoadingAction() {
+        this.loader.classList.add('loading');
+
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
@@ -124,11 +133,13 @@ class ReferencesSlider {
             xPercent
         });
 
-        TweenMax.to(oldSlide, 0.3, {
+        TweenMax.to(oldSlide, 0.5, {
             xPercent: -xPercent,
-            onComplete: () => {
-                TweenMax.to(followingSlide, 0.3, {
+            ease: easing.easeInOut,
+            onStart: () => {
+                TweenMax.to(followingSlide, 0.5, {
                     xPercent: 0,
+                    ease: easing.easeInOut,
                     onComplete: this.resetContext()
                 });
             }
@@ -149,11 +160,14 @@ class ReferencesSlider {
         followingSlide.classList.remove('js-ref-following-slide');
         followingSlide.classList.add('js-ref-current-slide');
 
+        this.loader.classList.remove('loading');
+
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
         this.currentSlide = null;
 
+        this.state.transitioning = false;
         this.setCurrentContext();
     }
     setCurrentContext() {
@@ -168,12 +182,18 @@ class ReferencesSlider {
         });
 
         const { height } = this.currentSlide.getBoundingClientRect();
-        TweenMax.to(this.referenceSlider, 0.3, { height: `${height}px` });
+        TweenMax.to(this.referenceSlider, 0.3, {
+            height: `${height}px`,
+            ease: easing.easeInOut
+        });
 
         prevButton.addEventListener(
             'click',
             () => {
+                if (this.state.transitioning) return;
+
                 this.type = 'prev';
+                this.state.transitioning = true;
                 this.findFollowingElement();
                 this.checkLoadingCall();
             },
@@ -182,7 +202,10 @@ class ReferencesSlider {
         nextButton.addEventListener(
             'click',
             () => {
+                if (this.state.transitioning) return;
+
                 this.type = 'next';
+                this.state.transitioning = true;
                 this.findFollowingElement();
                 this.checkLoadingCall();
             },
@@ -197,6 +220,7 @@ class ReferencesSlider {
                 'click',
                 event => {
                     event.preventDefault();
+                    if (this.state.transitioning) return;
                     const selectedId = parseInt(caseStudy.dataset.refId, 10);
 
                     const offset =
@@ -207,7 +231,7 @@ class ReferencesSlider {
                         scrollTo: {
                             y: offset
                         },
-                        ease: Power2.easeInOut
+                        ease: easing.easeInOut
                     });
 
                     this.selectFollowingElement({ id: selectedId });
@@ -220,6 +244,10 @@ class ReferencesSlider {
     initialize() {
         [this.referenceSlider] = query({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
+        [this.loader] = query({
+            selector: '.js-loader',
+            ctx: this.referenceSlider
+        });
 
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();

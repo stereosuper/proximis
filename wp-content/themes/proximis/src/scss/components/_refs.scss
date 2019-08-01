@@ -212,7 +212,15 @@
         content: none;
     }
     &:hover {
-        // transform: scale3d(1, 1, 1, )
+        .hexagon {
+            transform: scale3d(0.9, 0.9, 1) rotate(30deg);
+            transition: transition(
+                (
+                    transform: '#{$medium-duration}'
+                ),
+                $ease-in-out-timing-function
+            );
+        }
     }
     .hexagon {
         display: block;
@@ -223,6 +231,12 @@
         border-radius: 5px;
         background: $primary;
         transform: rotate(30deg);
+        transition: transition(
+            (
+                transform: '#{$short-duration}'
+            ),
+            $ease-out-timing-function
+        );
         &::before,
         &::after {
             content: '';
