@@ -35,9 +35,7 @@
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
-                        <div class='newsletter'>
-                            <?php echo do_shortcode('[contact-form-7 id="250" title="Newsletter"]'); ?>
-                        </div>
+                        <button type="button" class="simple-link">S'inscrire à la newsletter</button>
                         <p><?php the_field('footerTextSmall2', 'options'); ?></p>
                         <?php if( have_rows('footerLinks', 'options') ) : ?>
                             <ul class='footer-menu'>
@@ -53,10 +51,23 @@
                     </div>
                 </div>
             </footer>
+            <div class="wrapper-modal">
+                <div class="modal">
+                    <button type="button" class="btn-circle btn-close-modal"><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></button>
+                    <div class='newsletter'>
+                        <?php echo do_shortcode('[contact-form-7 id="250" title="Newsletter"]'); ?>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
+                <symbol id="icon-close" viewBox="0 0 32 32">
+                    <title>Close</title>
+                    <path d="M9.714 7.2l15.086 15.086-2.514 2.514-15.086-15.086 2.514-2.514z"></path>
+                    <path d="M24.8 9.714l-15.086 15.086-2.514-2.514 15.086-15.086 2.514 2.514z"></path>
+                </symbol>
                 <symbol id="icon-search" viewBox="0 0 34 32">
                     <title>Search</title>
                     <path d="M21.376 22.879l9.212 8.556c0.843 0.783 2.173 0.747 2.971-0.081s0.761-2.134-0.083-2.917l-9.3-8.638c1.3-1.999 2.054-4.374 2.054-6.922 0-7.112-5.872-12.877-13.115-12.877s-13.115 5.765-13.115 12.877c0 7.112 5.872 12.877 13.115 12.877 3.131 0 6.006-1.077 8.261-2.875zM22.026 12.877c0 4.832-3.99 8.75-8.911 8.75s-8.911-3.918-8.911-8.75c0-4.832 3.99-8.75 8.911-8.75s8.911 3.918 8.911 8.75z"></path>

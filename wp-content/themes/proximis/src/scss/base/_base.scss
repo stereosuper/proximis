@@ -39,7 +39,7 @@ h6 {
     font-weight: 400;
 
     &.no-margin-bottom {
-        + p {
+        +p {
             margin-top: 0;
         }
     }
@@ -75,7 +75,7 @@ h1 {
     &.small-margin-bottom {
         margin-bottom: 0.4em;
 
-        + p {
+        +p {
             margin-top: 0;
         }
     }
@@ -102,7 +102,7 @@ h2 {
     }
 
     &:not(.title) {
-        > span {
+        >span {
             display: block;
             color: $grey;
         }
@@ -159,7 +159,7 @@ blockquote {
     font-size: 2.4rem;
     color: $grey;
 
-    > p {
+    >p {
         &:before {
             content: '“';
             color: $primary;
@@ -204,7 +204,7 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    > li {
+    >li {
         counter-increment: ol-counter;
 
         &:before {
@@ -215,7 +215,7 @@ ol {
 }
 
 ul {
-    > li {
+    >li {
         &:before {
             width: 8px;
             height: 8px;
@@ -260,20 +260,16 @@ hr {
 
 /******* LIENS / BOUTONS *******/
 
-a {
+a,
+.simple-link {
     position: relative;
     font-family: $ibm-bold;
     line-height: $line-height;
     color: $primary;
     text-decoration: underline;
-    transition: transition(
-        (
-            text-decoration-color: (
-                '#{$short-duration}'
-            )
-        ),
-        $ease-in-out-timing-function
-    );
+    transition: transition((text-decoration-color: ('#{$short-duration}'
+            )),
+        $ease-in-out-timing-function);
 
     &::before {
         content: '';
@@ -398,6 +394,7 @@ a {
 }
 
 .wp-block-image {
+
     .alignright,
     .alignleft {
         float: none;
@@ -418,6 +415,7 @@ a {
 }
 
 @media (min-width: $phone-small) {
+
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -427,6 +425,7 @@ a {
 }
 
 @media (min-width: $phone) {
+
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -525,7 +524,7 @@ a {
         color: $grey;
         background: #fff;
 
-        > p {
+        >p {
             margin: 0;
         }
 
@@ -562,6 +561,7 @@ a {
 }
 
 @media (min-width: $desktop) {
+
     .highlighted,
     .book-highlighted,
     .newsletter-highlighted {

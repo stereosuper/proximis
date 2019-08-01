@@ -406,7 +406,8 @@ hr {
   margin: 3em auto 5em;
   background: #000; }
 /******* LIENS / BOUTONS *******/
-a {
+a,
+.simple-link {
   position: relative;
   font-family: "ibmplex_semibold", "ibmplex", sans-serif;
   line-height: 28px;
@@ -416,21 +417,28 @@ a {
   transition:  -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
   transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
   transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
-a::before {
+a::before,
+  .simple-link::before {
     content: '';
     position: absolute;
     top: -10px;
     left: -10px;
     right: -10px;
     bottom: -10px; }
-a:hover, a:focus {
+a:hover, a:focus,
+  .simple-link:hover,
+  .simple-link:focus {
     -webkit-text-decoration-color: transparent;
             text-decoration-color: transparent; }
-.is-ie a:hover, .is-ie a:focus {
+.is-ie a:hover, .is-ie a:focus, .is-ie
+    .simple-link:hover, .is-ie
+    .simple-link:focus {
       text-decoration: none; }
-a:focus {
+a:focus,
+  .simple-link:focus {
     outline: 0; }
-a:active {
+a:active,
+  .simple-link:active {
     -webkit-filter: saturate(200%);
             filter: saturate(200%); }
 /******* CLASSES GENERALES  *******/
@@ -1543,6 +1551,40 @@ div.wpcf7-mail-sent-ng {
     height: 40px;
     margin: 8px;
     font-size: 1.6rem; } }
+.wrapper-modal {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; }
+.wrapper-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #18162b;
+    opacity: 0.5; }
+.modal {
+  position: relative;
+  width: 90%;
+  max-width: 488px;
+  padding: 56px 50px;
+  background: #fff; }
+.btn-close-modal {
+  position: absolute;
+  top: -11px;
+  right: -11px; }
 /* Buttons */
 .btn {
   display: inline-block;
@@ -1575,6 +1617,24 @@ div.wpcf7-mail-sent-ng {
     display: block;
     padding: 20px;
     text-align: center; }
+.btn-circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #18162b;
+  border-radius: 50%; }
+.btn-circle .icon {
+    width: 12px;
+    height: 12px;
+    fill: #fff; }
 .link {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -2979,4 +3039,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?71cd281e58d4329166809546fb5faad8*/
+/*# sourceMappingURL=main.css.map?d3bd8bbf243d7dac7254d5c30ad5540c*/
