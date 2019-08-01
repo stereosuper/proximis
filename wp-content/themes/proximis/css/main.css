@@ -1490,7 +1490,9 @@ div.wpcf7-mail-sent-ng {
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 .pagination > span,
   .pagination > a {
     display: -webkit-box;
@@ -1502,18 +1504,36 @@ div.wpcf7-mail-sent-ng {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin: 8px;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
     border-radius: 50%;
     font-family: "ibmplex_semibold", "ibmplex", sans-serif;
+    font-size: 1.4rem;
     text-decoration: none; }
 .pagination > span {
     background: #fff;
     color: #55c4da; }
 .pagination > a {
-    background: #55c4da;
+    position: relative;
     color: #fff; }
+.pagination > a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      background: #55c4da;
+      z-index: -1; }
+@media (min-width: 580px) {
+  .pagination > span,
+  .pagination > a {
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    font-size: 1.6rem; } }
 /* Buttons */
 .btn {
   display: inline-block;
@@ -2950,4 +2970,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?7676a25c8de194d231b117e543e9f28f*/
+/*# sourceMappingURL=main.css.map?94c0a9652765723bc185cd4331fbb533*/
