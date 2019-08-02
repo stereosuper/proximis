@@ -1182,9 +1182,11 @@ div.wpcf7-mail-sent-ng {
 .footer-title + .link {
     font-size: 1.6rem; }
 .footer-big > p {
-  margin-bottom: 4em; }
+  margin-bottom: 56px; }
 .footer-small {
   font-size: 1.1rem; }
+.footer-small p {
+    margin: 0; }
 .footer-menu,
 .footer-social {
   display: -webkit-box;
@@ -1197,7 +1199,7 @@ div.wpcf7-mail-sent-ng {
   .footer-social a {
     color: #f8f5f1; }
 .footer-social {
-  margin: 0 0 3.5em; }
+  margin: 0 0 28px; }
 .footer-social > li {
     padding: 0 30px 0 0; }
 .footer-social > li:last-child {
@@ -1262,7 +1264,9 @@ div.wpcf7-mail-sent-ng {
   .footer-menu {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
-            justify-content: flex-end; } }
+            justify-content: flex-end; }
+  .footer-social {
+    margin: 0; } }
 .header-page {
   padding: 180px 0 7vh;
   position: relative;
@@ -3079,4 +3083,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?7691b31a7069c5d3c45a5c3e5203103a*/
+/*# sourceMappingURL=main.css.map?f3cde6d1aaf3fb85d6d70689b686fd25*/
