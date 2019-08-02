@@ -5,6 +5,7 @@
     "dependencies": {
         "@stereorepo/sac": "^1.4.10",
         "browser-sync-webpack-plugin": "^2.2.2",
+        "collant": "^1.3.0",
         "intersection-observer": "^0.7.0",
         "lottie-web": "^5.5.5",
         "macy": "^2.5.0",

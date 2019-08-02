@@ -516,6 +516,12 @@ a:active,
           box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05); }
 .no-margin-bottom {
   margin-bottom: 0; }
+.wrapper-collant {
+  position: relative; }
+.collant {
+  position: fixed !important; }
+.collant-stuck {
+  position: absolute; }
 @media (min-width: 400px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
@@ -3083,4 +3089,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?f3cde6d1aaf3fb85d6d70689b686fd25*/
+/*# sourceMappingURL=main.css.map?583f3a883e209e42fee11a029698aa83*/

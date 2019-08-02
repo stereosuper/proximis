@@ -1,10 +1,10 @@
 <article class="container-ref">
-    <div class="container ref-first-part">
+    <div class="container ref-first-part wrapper-collant">
         <div class="container-small">
             <div class="wrapper-ref-illus">
                 <?php echo wp_get_attachment_image(get_field('img'), 'medium'); ?>
             </div>
-            <div class="wrapper-btn-infos">
+            <div class="wrapper-btn-infos" id="btn-infos">
                 <div class="content-btn-infos">
                     <div class="nav-btn">
                         <button type="button" class="btn-hexagon js-button-hexagon">

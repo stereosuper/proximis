@@ -414,6 +414,18 @@ a,
     margin-bottom: 0;
 }
 
+.wrapper-collant {
+    position: relative;
+}
+
+.collant {
+    position: fixed !important;
+}
+
+.collant-stuck {
+    position: absolute;
+}
+
 @media (min-width: $phone-small) {
 
     .post-thumbnail,
