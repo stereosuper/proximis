@@ -35,7 +35,7 @@
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
-                        <button type="button" class="simple-link"><?php the_field('signup_news', 'options'); ?></button>
+                        <button type="button" class="simple-link js-modal" data-modal="modal-newsletter"><?php the_field('signup_news', 'options'); ?></button>
                         <p><?php the_field('footerTextSmall2', 'options'); ?></p>
                         <?php if( have_rows('footerLinks', 'options') ) : ?>
                             <ul class='footer-menu'>
@@ -51,9 +51,10 @@
                     </div>
                 </div>
             </footer>
-            <div class="wrapper-modal">
+            <div id="modal-newsletter" class="wrapper-modal">
+                <div class="modal-bg js-close-modal"></div>
                 <div class="modal">
-                    <button type="button" class="btn-circle btn-close-modal"><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></button>
+                    <button type="button" class="btn-circle btn-close-modal js-close-modal"><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></button>
                     <?php get_template_part('/includes/newsletter') ?>
                 </div>
             </div>

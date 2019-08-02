@@ -1,5 +1,5 @@
 .wrapper-modal {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -8,25 +8,33 @@
     bottom: 0;
     left: 0;
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: transition((opacity: '#{$short-duration}', visibility: '#{$short-duration}'), $ease-out-timing-function);
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        background: $text;
-        opacity: 0.5;
+    &.on {
+        opacity: 1;
+        visibility: visible;
+        transition: transition((opacity: '#{$short-duration}', visibility: '0s'), $ease-in-timing-function);
     }
+}
+
+.modal-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: $text;
+    opacity: 0.5;
 }
 
 .modal {
     position: relative;
     width: 90%;
     max-width: 488px;
-    padding: #{2*$line-height} 50px;
+    padding: #{$line-height} 30px;
     background: $white;
 }
 
@@ -34,4 +42,10 @@
     position: absolute;
     top: -11px;
     right: -11px;
+}
+
+@media (min-width: $tablet) {
+    .modal {
+        padding: #{2 * $line-height} 50px;
+    }
 }

@@ -440,15 +440,16 @@ a,
 }
 
 @media (min-width: $tablet) {
-    // body {
-    //     font-size: 1.8em;
-    // }
 
     h1,
     .home h1,
     .home h2,
     .h1 {
         font-size: 5.4rem;
+    }
+
+    .home .modal h2 {
+        font-size: 2.8rem;
     }
 
     h2,

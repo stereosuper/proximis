@@ -45,13 +45,44 @@
     justify-content: center;
     width: 22px;
     height: 22px;
-    background: $text;
-    border-radius: 50%;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $text;
+        border-radius: 50%;
+        z-index: -1;
+        transform-origin: 50% 50%;
+        transition: transition((transform: '#{$short-duration}'
+            ),
+            $ease-in-out-timing-function);
+    }
 
     .icon {
         width: 12px;
         height: 12px;
         fill: $white;
+    }
+
+    &:hover,
+    &:focus {
+        &::after {
+            transform: scale(0.95);
+        }
     }
 }
 

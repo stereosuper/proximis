@@ -533,6 +533,8 @@ a:active,
   .home h2,
   .h1 {
     font-size: 5.4rem; }
+  .home .modal h2 {
+    font-size: 2.8rem; }
   h2,
   .home h3 {
     font-size: 2.8rem; }
@@ -1541,7 +1543,7 @@ div.wpcf7-mail-sent-ng {
       transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
       transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
       transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
-.pagination > a:hover:after, .pagination > a:focus:after {
+.pagination > a:hover::after, .pagination > a:focus::after {
       -webkit-transform: scale(0.95);
               transform: scale(0.95); }
 @media (min-width: 580px) {
@@ -1552,7 +1554,9 @@ div.wpcf7-mail-sent-ng {
     margin: 8px;
     font-size: 1.6rem; } }
 .wrapper-modal {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1564,27 +1568,38 @@ div.wpcf7-mail-sent-ng {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100; }
-.wrapper-modal::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background: #18162b;
-    opacity: 0.5; }
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition:  opacity 0.3s cubic-bezier(0, 0.15, 0.1, 0.85), visibility 0.3s cubic-bezier(0, 0.15, 0.1, 0.85);
+  transition:  opacity 0.3s cubic-bezier(0, 0.15, 0.1, 0.85), visibility 0.3s cubic-bezier(0, 0.15, 0.1, 0.85); }
+.wrapper-modal.on {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition:  opacity 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), visibility 0s cubic-bezier(0.42, 0.08, 0.45, 0.09);
+    transition:  opacity 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), visibility 0s cubic-bezier(0.42, 0.08, 0.45, 0.09); }
+.modal-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #18162b;
+  opacity: 0.5; }
 .modal {
   position: relative;
   width: 90%;
   max-width: 488px;
-  padding: 56px 50px;
+  padding: 28px 30px;
   background: #fff; }
 .btn-close-modal {
   position: absolute;
   top: -11px;
   right: -11px; }
+@media (min-width: 780px) {
+  .modal {
+    padding: 56px 50px; } }
 /* Buttons */
 .btn {
   display: inline-block;
@@ -1629,12 +1644,37 @@ div.wpcf7-mail-sent-ng {
           justify-content: center;
   width: 22px;
   height: 22px;
-  background: #18162b;
-  border-radius: 50%; }
+  z-index: 1; }
+.btn-circle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px; }
+.btn-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #18162b;
+    border-radius: 50%;
+    z-index: -1;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .btn-circle .icon {
     width: 12px;
     height: 12px;
     fill: #fff; }
+.btn-circle:hover::after, .btn-circle:focus::after {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95); }
 .link {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -3039,4 +3079,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?d3bd8bbf243d7dac7254d5c30ad5540c*/
+/*# sourceMappingURL=main.css.map?7691b31a7069c5d3c45a5c3e5203103a*/
