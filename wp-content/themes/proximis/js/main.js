@@ -36366,21 +36366,18 @@ const stickReference = () => {
         selector: '.js-nav-btn',
         box: '.js-ref-first-part',
         offsetTop: '100px'
-        // offsetTop: '10vh'
     });
 
     const collantDownloadButton = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
         selector: '.js-btn-download',
         box: '.js-ref-content-wrapper',
         offsetTop: '160px'
-        // offsetTop: '10vh'
     });
 
     const collantInfoData = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
         selector: '.js-infos-datas',
         box: '.js-content-btn-infos',
-        offsetTop: '20px'
-        // offsetTop: '10vh'
+        offsetTop: '25px'
     });
 
     collantArrows.stickIt();
@@ -36668,4 +36665,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?54287a0adc9af19515f342930bf3f2c9
+//# sourceMappingURL=main.js.map?6ef417dd1630a39df1d5a54d0df37bf8
