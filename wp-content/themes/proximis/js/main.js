@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"referencesSlider":"referencesSlider"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"ReferencesSlider":"ReferencesSlider"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -35693,6 +35693,14 @@ if (!self.fetch) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./ReferencesSlider": [
+		"./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
+		"ReferencesSlider"
+	],
+	"./ReferencesSlider.js": [
+		"./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
+		"ReferencesSlider"
+	],
 	"./Slider": [
 		"./wp-content/themes/proximis/src/js/components/Slider.js"
 	],
@@ -35728,14 +35736,6 @@ var map = {
 	],
 	"./newsletter.js": [
 		"./wp-content/themes/proximis/src/js/components/newsletter.js"
-	],
-	"./referencesSlider": [
-		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
-		"referencesSlider"
-	],
-	"./referencesSlider.js": [
-		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
-		"referencesSlider"
 	],
 	"./searchHandler": [
 		"./wp-content/themes/proximis/src/js/components/searchHandler.js"
@@ -36521,4 +36521,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?673859f9ff7e13caa23b282313c37503
+//# sourceMappingURL=main.js.map?ab21c32f405c94d174d2873d68324563

@@ -72,7 +72,7 @@ get_header(); ?>
 							<?php endif; ?>
 						</ul>
 
-						<?php the_sub_field('text'); ?>
+						<div class='offers-desc'><?php the_sub_field('text'); ?></div>
 					</div>
 				</div>
 			</section>
@@ -81,17 +81,21 @@ get_header(); ?>
 
 	<?php if( have_rows('quotes') ) : ?>
 		<div class='container'>
-			<ul>
+			<ul class='team-testimonials'>
 				<?php while( have_rows('quotes') ) : the_row(); ?>
 					<li>
 						<blockquote>
 							<?php the_sub_field('text'); ?>
 						</blockquote>
-						<p>
-							<?php echo wp_get_attachment_image(get_sub_field('img')); ?>
-							<?php the_sub_field('name'); ?>
-							<?php the_sub_field('job'); ?>
-						</p>
+						<div class="team-member">
+							<div class="img">
+								<?php echo wp_get_attachment_image(get_sub_field('img')); ?>
+							</div>
+							<p>
+								<strong><?php the_sub_field('name'); ?></strong>
+								<span><?php the_sub_field('job'); ?></span>
+							</p>
+						</div>
 					</li>
 				<?php endwhile; ?>
 			</ul>

@@ -3213,6 +3213,71 @@ div.wpcf7-mail-sent-ng {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto; }
+.offers-desc {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; }
+.team-testimonials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 112px 0 0; }
+.team-testimonials > li {
+    margin: 0 0 56px;
+    padding: 0; }
+.team-testimonials > li::before {
+      content: none; }
+.team-testimonials blockquote {
+    position: relative;
+    margin: 0;
+    font-size: 1.6rem; }
+.team-testimonials blockquote::before, .team-testimonials blockquote::after {
+      font-family: "ibmplex", sans-serif;
+      font-size: 2.4rem;
+      color: #55c4da; }
+.team-testimonials blockquote::before {
+      content: "“";
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transform: translate3d(calc(-100% - 3px), 0, 0);
+              transform: translate3d(calc(-100% - 3px), 0, 0); }
+.team-testimonials blockquote::after {
+      content: "”"; }
+.team-member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 28px 0 0 0; }
+.team-member .img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 20px 0 0; }
+.team-member img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1; }
+.team-member p {
+    margin: 0; }
+.team-member strong,
+  .team-member span {
+    display: block; }
+.team-member span {
+    font-size: 1.4rem; }
 @media (min-width: 780px) {
   .job-offer {
     -webkit-box-orient: horizontal;
@@ -3230,11 +3295,22 @@ div.wpcf7-mail-sent-ng {
     .job-details > span {
       text-align: center; }
       .job-details > span.wrapper-job-more {
-        min-width: 85px; } }
+        min-width: 85px; }
+  .team-testimonials {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+    .team-testimonials > li {
+      width: 50%;
+      margin-bottom: 112px;
+      padding-left: 8.33333%; } }
 @media (min-width: 960px) {
   .job-offer::before {
     right: -6.25%;
-    left: -6.25%; } }
+    left: -6.25%; }
+  .team-testimonials > li {
+    width: 33.3333%; } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3254,4 +3330,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?45131d6a74ac45816155268c5b27a75f*/
+/*# sourceMappingURL=main.css.map?272f40ef1e5c9d76ac77f18421f38681*/

@@ -99,6 +99,87 @@
     }
 }
 
+.offers-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-testimonials {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: #{4*$line-height} 0 0;
+
+    >li {
+        margin: 0 0 #{2*$line-height};
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    blockquote {
+        position: relative;
+        margin: 0;
+        font-size: 1.6rem;
+
+        &::before,
+        &::after {
+            font-family: $ibm;
+            font-size: 2.4rem;
+            color: $primary;
+        }
+
+        &::before {
+            content: "“";
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate3d(calc(-100% - 3px), 0, 0);
+        }
+
+        &::after {
+            content: "”";
+        }
+    }
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    margin: $line-height 0 0 0;
+
+    .img {
+        flex: 0 0 auto;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin: 0 20px 0 0;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    strong,
+    span {
+        display: block;
+    }
+
+    span {
+        font-size: 1.4rem;
+    }
+}
+
 @media (min-width: $tablet) {
     .job-offer {
         flex-direction: row;
@@ -121,6 +202,16 @@
             }
         }
     }
+
+    .team-testimonials {
+        flex-direction: row;
+
+        >li {
+            width: 50%;
+            margin-bottom: #{4*$line-height};
+            padding-left: percentage(1/12);
+        }
+    }
 }
 
 @media (min-width: $desktop-small) {
@@ -129,6 +220,13 @@
         &::before {
             right: percentage(-0.5/8);
             left: percentage(-0.5/8);
+        }
+    }
+
+    .team-testimonials {
+
+        >li {
+            width: 33.3333%;
         }
     }
 
