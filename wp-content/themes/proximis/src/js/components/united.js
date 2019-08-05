@@ -1,4 +1,4 @@
-import { TweenLite, Linear } from 'gsap';
+import { TweenMax, TimelineMax, Linear } from 'gsap';
 import { superScroll, superPolyfill } from '@stereorepo/sac';
 
 const unitedAnimHandler = () => {
@@ -22,12 +22,17 @@ const unitedAnimHandler = () => {
         oScrollTop = 0;
 
     const init = () => {
-        const tween = TweenLite.to(words, 1, {
-            x: 0,
-            y: 0,
-            paused: true,
-            ease: Linear.easeNone
-        });
+        const tl = new TimelineMax({ paused: true });
+        tl.staggerTo(
+            words,
+            0.93,
+            {
+                x: 0,
+                y: 0,
+                ease: Linear.easeNone
+            },
+            0.07
+        );
         let progress = 0;
 
         animLaunched = true;
@@ -35,7 +40,7 @@ const unitedAnimHandler = () => {
 
         superScroll.addScrollFunction(() => {
             progress = (superScroll.scrollTop - oScrollTop) / windowHeight;
-            if (progress >= 0) tween.progress(progress);
+            if (progress >= 0) tl.progress(progress);
         });
     };
 
