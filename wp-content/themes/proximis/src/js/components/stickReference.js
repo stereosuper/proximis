@@ -1,7 +1,5 @@
 import collant from 'collant';
-import {
-    query
-} from '@stereorepo/sac';
+import { query } from '@stereorepo/sac';
 
 const stickReference = () => {
     const [btnInfos] = query({

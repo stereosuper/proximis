@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"ReferencesSlider":"ReferencesSlider"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"referencesSlider":"referencesSlider"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -35693,14 +35693,6 @@ if (!self.fetch) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./ReferencesSlider": [
-		"./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
-		"ReferencesSlider"
-	],
-	"./ReferencesSlider.js": [
-		"./wp-content/themes/proximis/src/js/components/ReferencesSlider.js",
-		"ReferencesSlider"
-	],
 	"./Slider": [
 		"./wp-content/themes/proximis/src/js/components/Slider.js"
 	],
@@ -35736,6 +35728,14 @@ var map = {
 	],
 	"./newsletter.js": [
 		"./wp-content/themes/proximis/src/js/components/newsletter.js"
+	],
+	"./referencesSlider": [
+		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
+		"referencesSlider"
+	],
+	"./referencesSlider.js": [
+		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
+		"referencesSlider"
 	],
 	"./searchHandler": [
 		"./wp-content/themes/proximis/src/js/components/searchHandler.js"
@@ -36091,7 +36091,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 
 
-const modal = (triggers) => {
+const modal = triggers => {
     if (!triggers.length) return;
     let closeModal = null;
     let modalTarget = null;
@@ -36100,7 +36100,7 @@ const modal = (triggers) => {
     };
 
     Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(triggers, elt => {
-        elt.addEventListener('click', (e) => {
+        elt.addEventListener('click', e => {
             let modalData = e.target.dataset.modal;
             [modalTarget] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
                 selector: '#' + modalData
@@ -36122,6 +36122,7 @@ const modal = (triggers) => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
+
 
 /***/ }),
 
@@ -36212,6 +36213,7 @@ const searchHandler = () => {
 
 /* harmony default export */ __webpack_exports__["default"] = (searchHandler);
 
+
 /***/ }),
 
 /***/ "./wp-content/themes/proximis/src/js/components/stickReference.js":
@@ -36241,6 +36243,7 @@ const stickReference = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (stickReference);
+
 
 /***/ }),
 
@@ -36370,14 +36373,9 @@ __webpack_require__.r(__webpack_exports__);
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
-const dynamicLoading = ({
-    name,
-    isClass = false
-}) => async () => {
+const dynamicLoading = ({ name, isClass = false }) => async () => {
     // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
-    const {
-        default: defaultFunction
-    } = await __webpack_require__("./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$")(`./${name}`);
+    const { default: defaultFunction } = await __webpack_require__("./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$")(`./${name}`);
     if (isClass) {
         return defaultFunction;
     } else {
@@ -36457,12 +36455,12 @@ const preloadCallback = () => {
 
     if (cats) {
         cats.addEventListener('click', () => {
-            cats.classList.contains('off') ?
-                cats.classList.remove('off') :
-                cats.classList.add('off');
+            cats.classList.contains('off')
+                ? cats.classList.remove('off')
+                : cats.classList.add('off');
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', e => {
             let targetElement = e.target;
 
             do {
@@ -36504,8 +36502,10 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
     preloadCallback,
     loadCallback,
     animationsCallback,
-    noTransElementsClass: '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
+    noTransElementsClass:
+        '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
 });
+
 
 /***/ }),
 
@@ -36521,4 +36521,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?07fe6f9f83595cccb9f1e1a3ba8b5a4a
+//# sourceMappingURL=main.js.map?673859f9ff7e13caa23b282313c37503

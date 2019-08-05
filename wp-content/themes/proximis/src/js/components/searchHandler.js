@@ -1,6 +1,4 @@
-import {
-    query
-} from '@stereorepo/sac';
+import { query } from '@stereorepo/sac';
 
 const searchHandler = () => {
     const [form] = query({

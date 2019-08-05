@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ReferencesSlider"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["referencesSlider"],{
 
 /***/ "./node_modules/gsap/ScrollToPlugin.js":
 /*!*********************************************!*\
@@ -197,9 +197,9 @@ var _doc = (_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["_gsScope"].document || {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/components/ReferencesSlider.js":
+/***/ "./wp-content/themes/proximis/src/js/components/referencesSlider.js":
 /*!**************************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/ReferencesSlider.js ***!
+  !*** ./wp-content/themes/proximis/src/js/components/referencesSlider.js ***!
   \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -892,4 +892,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 }]);
-//# sourceMappingURL=ReferencesSlider.js.map?e17c1e29225bcfd61507c31cfc5e5d76
+//# sourceMappingURL=referencesSlider.js.map?d511e330e6d0a3d1c92f171d951f131c
