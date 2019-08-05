@@ -1100,12 +1100,14 @@ div.wpcf7-mail-sent-ng {
       .home .nav .btn,
       .page-template-services .nav .btn,
       .page-template-about .nav .btn,
-      .page-template-customers .nav .btn {
+      .page-template-customers .nav .btn,
+      .page-template-solution .nav .btn {
         color: #18162b; }
         .home .nav .btn:after,
         .page-template-services .nav .btn:after,
         .page-template-about .nav .btn:after,
-        .page-template-customers .nav .btn:after {
+        .page-template-customers .nav .btn:after,
+        .page-template-solution .nav .btn:after {
           background: #fff; }
   .menu-main {
     display: -webkit-box;
@@ -1135,10 +1137,12 @@ div.wpcf7-mail-sent-ng {
         .home .menu-main a:before,
         .page-template-services .menu-main a:before,
         .page-template-about .menu-main a:before,
-        .page-template-customers .menu-main a:before, .home .menu-main a:after,
+        .page-template-customers .menu-main a:before,
+        .page-template-solution .menu-main a:before, .home .menu-main a:after,
         .page-template-services .menu-main a:after,
         .page-template-about .menu-main a:after,
-        .page-template-customers .menu-main a:after {
+        .page-template-customers .menu-main a:after,
+        .page-template-solution .menu-main a:after {
           background: #fff; }
       .menu-main a:before {
         height: 60px;
@@ -1230,8 +1234,8 @@ div.wpcf7-mail-sent-ng {
       content: '';
       width: 1px;
       position: absolute;
-      top: 5px;
-      bottom: 2px;
+      top: 9px;
+      bottom: 7px;
       right: 0;
       background: currentColor; }
 .footer-menu > li:last-child {
@@ -1804,6 +1808,41 @@ div.wpcf7-mail-sent-ng {
     font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
 .ref.number::after {
       background: #55c4da; }
+.ref.clickable::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    border: 1px solid #55c4da;
+    border-radius: 50%; }
+.ref.clickable .btn-hexagon {
+    position: absolute;
+    bottom: 12px;
+    right: -4px;
+    width: 30px;
+    height: 28px; }
+.ref.clickable .btn-hexagon .hexagon {
+      width: 20px;
+      height: 28px; }
+.ref.clickable .btn-hexagon .icon.icon-small-arrow {
+      width: 8px;
+      height: 12px;
+      margin: -5px 0 0 -4px; }
+.ref.clickable .btn-hexagon .icon.icon-small-arrow.down {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg); }
+.ref.clickable:hover::after, .ref.clickable:focus::after {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9); }
+.ref.clickable:hover img, .ref.clickable:focus img {
+    -webkit-transform: scale(0.97);
+            transform: scale(0.97);
+    -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+    transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .ref .nb {
     display: block;
     font-family: "recoleta_bold", "ibmplex", sans-serif;
@@ -1815,41 +1854,6 @@ div.wpcf7-mail-sent-ng {
     transition:  -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93); }
-.ref.clickable::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  border: 1px solid #55c4da;
-  border-radius: 50%; }
-.ref.clickable .btn-hexagon {
-  position: absolute;
-  bottom: 12px;
-  right: -4px;
-  width: 30px;
-  height: 28px; }
-.ref.clickable .btn-hexagon .hexagon {
-    width: 20px;
-    height: 28px; }
-.ref.clickable .btn-hexagon .icon.icon-small-arrow {
-    width: 8px;
-    height: 12px;
-    margin: -5px 0 0 -4px; }
-.ref.clickable .btn-hexagon .icon.icon-small-arrow.down {
-      -webkit-transform: rotate(90deg);
-              transform: rotate(90deg); }
-.ref.clickable:hover::after, .ref.clickable:focus::after {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9); }
-.ref.clickable:hover img, .ref.clickable:focus img {
-  -webkit-transform: scale(0.97);
-          transform: scale(0.97);
-  -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .container-ref {
   position: relative;
   padding: 50px 0 100px;
@@ -3117,4 +3121,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?59a31f95b722b1ab713d611084c1d6e9*/
+/*# sourceMappingURL=main.css.map?8c443bdb75b5d336a94b980f8df8bf7a*/

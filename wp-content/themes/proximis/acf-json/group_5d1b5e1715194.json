@@ -136,6 +136,13 @@
                 "operator": "==",
                 "value": "customers.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "solution.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -146,5 +153,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1563808734
+    "modified": 1565000545
 }

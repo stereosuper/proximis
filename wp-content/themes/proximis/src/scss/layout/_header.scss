@@ -275,7 +275,8 @@
             .home &,
             .page-template-services &,
             .page-template-about &,
-            .page-template-customers & {
+            .page-template-customers &,
+            .page-template-solution & {
                 color: $text;
 
                 &:after {
@@ -310,7 +311,8 @@
                 .home &,
                 .page-template-services &,
                 .page-template-about &,
-                .page-template-customers & {
+                .page-template-customers &,
+                .page-template-solution & {
                     background: #fff;
                 }
             }

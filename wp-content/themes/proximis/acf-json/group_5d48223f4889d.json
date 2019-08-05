@@ -1,11 +1,11 @@
 {
-    "key": "group_5d1e041e879e6",
-    "title": "[page] Footer",
+    "key": "group_5d48223f4889d",
+    "title": "[page] Map",
     "fields": [
         {
-            "key": "field_5d1e04325ff1d",
-            "label": "Bas de page",
-            "name": "bottom",
+            "key": "field_5d4822607c767",
+            "label": "Carte",
+            "name": "map",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -18,9 +18,71 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5d1e04425ff1e",
-                    "label": "Titre",
-                    "name": "title",
+                    "key": "field_5d4822737c768",
+                    "label": "Image",
+                    "name": "img",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5d4822907c769",
+                    "label": "Première partie du titre",
+                    "name": "title1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d4822a47c76a",
+                    "label": "Deuxième partie du titre",
+                    "name": "title2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d4822ba7c76b",
+                    "label": "Texte",
+                    "name": "text",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -35,40 +97,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_5d1e044c5ff1f",
-                    "label": "Texte",
-                    "name": "text",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
-                },
-                {
-                    "key": "field_5d1e04685ff20",
-                    "label": "Lien",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
                 }
             ]
         }
@@ -78,14 +106,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "about.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "services.php"
+                "value": "customers.php"
             }
         ],
         [
@@ -96,7 +117,7 @@
             }
         ]
     ],
-    "menu_order": 1000,
+    "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -104,5 +125,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565000566
+    "modified": 1565008575
 }

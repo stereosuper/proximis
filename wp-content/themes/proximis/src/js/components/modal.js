@@ -1,9 +1,6 @@
-import {
-    query,
-    forEach
-} from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 
-const modal = (triggers) => {
+const modal = triggers => {
     if (!triggers.length) return;
     let closeModal = null;
     let modalTarget = null;
@@ -12,7 +9,7 @@ const modal = (triggers) => {
     };
 
     forEach(triggers, elt => {
-        elt.addEventListener('click', (e) => {
+        elt.addEventListener('click', e => {
             let modalData = e.target.dataset.modal;
             [modalTarget] = query({
                 selector: '#' + modalData
