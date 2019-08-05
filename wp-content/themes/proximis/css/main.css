@@ -2021,7 +2021,7 @@ div.wpcf7-mail-sent-ng {
         -webkit-transform: rotate(90deg);
                 transform: rotate(90deg); }
 .btn-hexagon .plus::before {
-    content: "+";
+    content: '+';
     font-family: "ibmplex_semibold", "ibmplex", sans-serif;
     font-size: 2rem;
     text-align: center;
@@ -2035,6 +2035,10 @@ div.wpcf7-mail-sent-ng {
 @media (min-width: 780px) {
   .container-ref {
     padding: 100px 0 160px; }
+  .ref-content-wrapper {
+    position: relative; }
+  .ref-first-part {
+    position: relative; }
   .wrapper-ref-illus {
     margin-left: 10%; }
   .title-text {
@@ -2077,22 +2081,29 @@ div.wpcf7-mail-sent-ng {
     position: absolute;
     top: 120px;
     left: 0;
-    right: 0; }
+    right: 0;
+    bottom: 0; }
     .wrapper-btn-infos .content-btn-infos {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
       max-width: 1350px;
+      height: 100%;
       padding: 0 20px;
-      margin: 0 auto; }
-  .content-btn-infos {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
+      margin: 0 auto;
+      position: relative; }
   .infos-datas {
+    position: absolute;
+    top: 0;
+    left: 66.66667%;
     width: 25%;
-    margin: 0 8.33333% 0 0; }
+    margin: 0 0 0; }
   .nav-btn {
     position: absolute;
     top: 75px;
@@ -2100,14 +2111,17 @@ div.wpcf7-mail-sent-ng {
     right: 20px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between; }
+            justify-content: space-between;
+    z-index: 1; }
     .nav-btn + .wrapper-btn-download {
       margin-top: 0; }
   .wrapper-btn-download {
     position: absolute;
-    top: 135px;
+    top: 255px;
     left: 0;
-    right: 0; }
+    right: 0;
+    bottom: 0;
+    z-index: 1; }
   .content-btn-download {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3254,4 +3268,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?45131d6a74ac45816155268c5b27a75f*/
+/*# sourceMappingURL=main.css.map?0c754677bd91adfb4d70debb5ac29cd0*/

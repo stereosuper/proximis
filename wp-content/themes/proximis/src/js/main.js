@@ -131,7 +131,6 @@ const preloadCallback = () => {
 
 const loadCallback = () => {
     searchHandler();
-    stickReference();
 
     bodyRouter({
         identifier: '.page-template-customers',
@@ -141,6 +140,8 @@ const loadCallback = () => {
                 const referenceSlider = new ReferenceSlider();
                 referenceSlider.initialize();
             });
+
+            stickReference();
         }
     });
 };
