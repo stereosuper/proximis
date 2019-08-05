@@ -7,11 +7,11 @@
             <div class="wrapper-btn-infos" id="btn-infos">
                 <div class="content-btn-infos">
                     <div class="nav-btn">
-                        <button type="button" class="btn-hexagon js-button-hexagon">
+                        <button type="button" class="btn-hexagon animated js-button-hexagon">
                             <span class="hexagon"></span>
                             <svg class="icon icon-small-arrow prev"><use xlink:href="#icon-small-arrow"></use></svg>
                         </button>
-                        <button type="button" class="btn-hexagon js-button-hexagon">
+                        <button type="button" class="btn-hexagon animated js-button-hexagon">
                             <span class="hexagon"></span>
                             <svg class="icon icon-small-arrow next"><use xlink:href="#icon-small-arrow"></use></svg>
                         </button>
@@ -19,7 +19,7 @@
                     <?php if( get_field('pdf') ) : ?>
                         <div class="wrapper-btn-download">
                             <div class="content-btn-download">
-                                <a class="btn-hexagon btn-download" href="<?php the_field('pdf'); ?>"">
+                                <a class="btn-hexagon animated btn-download" href="<?php the_field('pdf'); ?>"">
                                     <span class="hexagon"></span>
                                     <svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>
                                     <span class="visually-hidden"><?php _e('Télécharger'); ?></span>

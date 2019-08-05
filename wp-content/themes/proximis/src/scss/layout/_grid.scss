@@ -20,7 +20,8 @@
 @media (min-width: $desktop-small) {
 
     .container-tiny,
-    .container-small {
+    .container-small,
+    .container-xsmall {
         margin: 0 $col;
     }
 
@@ -32,5 +33,9 @@
 @media (min-width: $desktop) {
     .container-tiny {
         margin: 0 $col*3 0 $col;
+    }
+
+    .container-xsmall {
+        margin: 0 $col*2;
     }
 }

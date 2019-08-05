@@ -46,23 +46,34 @@ get_header(); ?>
 		<?php while( have_rows('offers') ) : the_row(); ?>
 			<section id='offers'>
 				<div class='container'>
-					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='container-xsmall'>
+						<h2 class='h1'><?php the_sub_field('title'); ?></h2>
 
-					<ul>
-						<?php if( have_rows('links') ) : ?>
-							<?php while( have_rows('links') ) : the_row(); ?>
-								<li>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>'><?php echo $link['title']; ?>
-										<span><?php the_sub_field('job_type'); ?></span>
-										<span><?php the_sub_field('place'); ?></span>
-									</a>
-								</li>
-							<?php endwhile; ?>
-						<?php endif; ?>
-					</ul>
+						<ul class='offers-list'>
+							<?php if( have_rows('links') ) : ?>
+								<?php while( have_rows('links') ) : the_row(); ?>
+									<li>
+										<?php $link = get_sub_field('link'); ?>
+										<a class='job-offer' href='<?php echo $link['url']; ?>'>
+											<span class='job-title'><?php echo $link['title']; ?></span>
+											<span class='job-details'>
+												<span class='job-type'><?php the_sub_field('job_type'); ?></span>
+												<span class='job-place'><?php the_sub_field('place'); ?></span>
+												<span class='wrapper-job-more'>
+													<span class="btn-hexagon small">
+														<span class="hexagon"></span>
+														<span class="plus"></span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</ul>
 
-					<?php the_sub_field('text'); ?>
+						<?php the_sub_field('text'); ?>
+					</div>
 				</div>
 			</section>
 		<?php endwhile; ?>
