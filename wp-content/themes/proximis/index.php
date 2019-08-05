@@ -88,9 +88,9 @@
 			</div>
 			<?php get_search_form(); ?>
 		</div>
-
-		<?php if ( $wp_query->have_posts() ) : $countPosts = 0; ?>
-			<div class="wrapper-blog-list">
+		<div class="wrapper-blog-list">
+			<?php if ( $wp_query->have_posts() ) : $countPosts = 0; ?>
+				
 				<ul class='blog-list' id='blog'>
 
 					<?php while ( $wp_query->have_posts() ) : the_post(); $countPosts ++; ?>
@@ -162,13 +162,13 @@
 						)
 					); ?>
 				</div>
-			</div>
 		
-		<?php else : ?>
-					
-			<p><?php _e('There are no posts here', 'proximis'); ?></p>
+			<?php else : ?>
+						
+				<p><?php _e('There are no posts here', 'proximis'); ?></p>
 
-		<?php endif; ?>
+			<?php endif; ?>
+		</div>
 
 	</div>
 
