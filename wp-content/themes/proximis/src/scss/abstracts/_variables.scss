@@ -25,13 +25,13 @@ $recoleta-bold: 'recoleta_bold', $ibm;
 // Mediaqueries
 $retina: 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)';
 
-$desktop-big: '1400px';
-$container: 1350;
-$desktop: '1100px';
-$desktop-small: '960px';
-$tablet: '780px';
-$phone: '580px';
-$phone-small: '400px';
+$desktop-big: 1400px;
+$container: 1350px;
+$desktop: 1100px;
+$desktop-small: 960px;
+$tablet: 780px;
+$phone: 580px;
+$phone-small: 400px;
 
 // Grid
 $col: 100/12 * 1%;

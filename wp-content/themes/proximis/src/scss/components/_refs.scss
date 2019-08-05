@@ -223,7 +223,7 @@
     width: 40px;
     height: 44px;
     border: 0;
-
+    pointer-events: all;
     &.small {
         width: 30px;
         height: 28px;
@@ -426,27 +426,38 @@
             display: flex;
             justify-content: flex-end;
             align-items: flex-start;
-            max-width: 1350px;
+            max-width: $container;
             height: 100%;
-            padding: 0 $gutter;
             margin: 0 auto;
             position: relative;
+            pointer-events: none;
         }
     }
 
     .infos-datas {
+        max-width: $container;
+        width: 100%;
+        margin: 0 auto;
         position: absolute;
         top: 0;
-        left: percentage(8/12);
-        width: percentage(3/12);
-        margin: 0 0 0;
+        left: 0;
+        right: 0;
+    }
+
+    .title-ref,
+    .wrapper-data {
+        margin-left: percentage(8/12);
+        margin-right: percentage(1/12);
     }
 
     .nav-btn {
+        max-width: $container;
+        margin: 0 auto;
+        padding: 0 $gutter;
         position: absolute;
         top: 75px;
-        left: $gutter;
-        right: $gutter;
+        left: 0;
+        right: 0;
         justify-content: space-between;
         z-index: 1;
         + .wrapper-btn-download {
@@ -461,12 +472,13 @@
         right: 0;
         bottom: 0;
         z-index: 1;
+        pointer-events: none;
     }
 
     .content-btn-download {
         display: flex;
         justify-content: flex-end;
-        max-width: 1350px;
+        max-width: $container;
         padding: 0 $gutter;
         margin: 0 auto;
     }

@@ -1939,7 +1939,8 @@ div.wpcf7-mail-sent-ng {
   position: relative;
   width: 40px;
   height: 44px;
-  border: 0; }
+  border: 0;
+  pointer-events: all; }
 .btn-hexagon.small {
     width: 30px;
     height: 28px; }
@@ -2095,20 +2096,29 @@ div.wpcf7-mail-sent-ng {
               align-items: flex-start;
       max-width: 1350px;
       height: 100%;
-      padding: 0 20px;
       margin: 0 auto;
-      position: relative; }
+      position: relative;
+      pointer-events: none; }
   .infos-datas {
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
     position: absolute;
     top: 0;
-    left: 66.66667%;
-    width: 25%;
-    margin: 0 0 0; }
+    left: 0;
+    right: 0; }
+  .title-ref,
+  .wrapper-data {
+    margin-left: 66.66667%;
+    margin-right: 8.33333%; }
   .nav-btn {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 20px;
     position: absolute;
     top: 75px;
-    left: 20px;
-    right: 20px;
+    left: 0;
+    right: 0;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -2121,7 +2131,8 @@ div.wpcf7-mail-sent-ng {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; }
+    z-index: 1;
+    pointer-events: none; }
   .content-btn-download {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3348,4 +3359,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b180bfa6232a9e5d362daa4dcf0aac17*/
+/*# sourceMappingURL=main.css.map?b84bd01d4d2c2bc1c4e3973767e267d8*/

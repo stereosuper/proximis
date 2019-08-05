@@ -10,7 +10,7 @@
 /******/ 		var moduleId, chunkId, i = 0, resolves = [];
 /******/ 		for(;i < chunkIds.length; i++) {
 /******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 				resolves.push(installedChunks[chunkId][0]);
 /******/ 			}
 /******/ 			installedChunks[chunkId] = 0;
@@ -606,8 +606,10 @@ class Scroll {
             this.onScrollEnd();
         }, 66);
 
-        this.scrollFunctions.forEach(scrollfunction => {
-            scrollfunction();
+        this.scrollFunctions.forEach(scrollFunction => {
+            if (scrollFunction) {
+                scrollFunction();
+            }
         });
     }
     launchScroll(event) {
@@ -639,15 +641,27 @@ class Scroll {
     onScrollEnd() {
         this.scrollEnd = true;
         this.endFunctions.forEach(f => {
-            f();
+            if (f) {
+                f();
+            }
         });
     }
     addScrollFunction(scrollFunction, onEnd = false) {
         this.scrollFunctions.push(scrollFunction);
-        if (onEnd) this.endFunctions.push(scrollFunction);
+        if (onEnd) {
+            this.endFunctions.push(scrollFunction);
+        }
+        return this.scrollFunctions.length - 1;
     }
     addEndFunction(endFunction) {
         this.endFunctions.push(endFunction);
+        return this.endFunctions.length - 1;
+    }
+    removeScrollFunction(id) {
+        this.scrollFunctions[id] = null;
+    }
+    removeEndFunction(id) {
+        this.endFunctions[id] = null;
     }
 }
 
@@ -753,7 +767,6 @@ class Snif {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./node_modules/@stereorepo/sac/src/core.js");
 
-// import io from './Io';
 
 class Window {
     constructor() {
@@ -762,8 +775,8 @@ class Window {
             horizontal: null,
             vertical: null
         };
-        this.w = null;
-        this.h = null;
+        this.windowWidth = null;
+        this.windowHeight = null;
         this.rtime = null;
         this.timeoutWindow = false;
         this.delta = 500;
@@ -786,7 +799,9 @@ class Window {
                 return el;
             });
             Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeEndFunctions, f => {
-                f();
+                if (f) {
+                    f();
+                }
             });
         }
     }
@@ -806,16 +821,13 @@ class Window {
             }, this.delta);
         }
     }
-    // ioResize() {
-    //     if (!this.io.resized) this.io.resized = true;
-    // }
     setBreakpointsToDOM() {
         if (!this.breakpoints.horizontal) return;
 
         let currentBreakpoint = '';
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints.horizontal), breakpoint => {
             const [name, value] = breakpoint;
-            if (this.w > value) {
+            if (this.windowWidth > value) {
                 currentBreakpoint = name;
             }
         });
@@ -836,11 +848,13 @@ class Window {
         this.setBreakpointsToDOM();
     }
     resizeHandler() {
-        this.w = window.innerWidth;
-        this.h = window.innerHeight;
+        this.windowWidth = window.innerWidth;
+        this.windowHeight = window.innerHeight;
 
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeFunctions, f => {
-            f();
+            if (f) {
+                f();
+            }
         });
 
         this.setBreakpointsToDOM();
@@ -849,9 +863,17 @@ class Window {
     }
     addResizeFunction(resizeFunction) {
         this.resizeFunctions.push(resizeFunction);
+        return this.resizeFunctions.length - 1;
     }
     addResizeEndFunction(resizeEndFunction) {
         this.resizeEndFunctions.push(resizeEndFunction);
+        return this.resizeEndFunctions.length - 1;
+    }
+    removeResizeFunction(id) {
+        this.resizeFunctions[id] = null;
+    }
+    removeResizeEndFunction(id) {
+        this.resizeEndFunctions[id] = null;
     }
     launchWindow() {
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(() => {
@@ -998,7 +1020,7 @@ async function supportsWebp() {
     return createImageBitmap(blob).then(() => true, () => false);
 }
 
-const throttle = (callback, delay) => {
+const throttle = ({ callback, delay }) => {
     let last;
     let timer;
 
@@ -1163,8 +1185,8 @@ const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_10__["default"];
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roundNumbers", function() { return roundNumbers; });
-const roundNumbers = (number, decimalNumber) => {
-    const decimalsFactor = 10 ** decimalNumber;
+const roundNumbers = ({ number, decimalOffset }) => {
+    const decimalsFactor = 10 ** decimalOffset;
     return Math.round(number * decimalsFactor) / decimalsFactor;
 };
 
@@ -35787,15 +35809,21 @@ __webpack_require__.r(__webpack_exports__);
 
 class Collant {
     constructor({
+        ctx = null,
         selector = '.js-collant-selector',
         box = '.js-collant-box',
         offsetTop = '0px',
         offsetBottom = '0px'
     }) {
+        this.contextElement = ctx;
         this.collantSelector = selector;
         this.boxSelector = box;
         this.rawOffset = offsetBottom !== '0px' ? offsetBottom : offsetTop;
         this.offsetPosition = offsetBottom !== '0px' ? 'bottom' : 'top';
+
+        this.state = {
+            resizing: false
+        };
 
         this.collantElement = null;
         this.boxElement = null;
@@ -35806,6 +35834,7 @@ class Collant {
         this.offset = 0;
 
         this.scrollHandler = this.scrollHandler.bind(this);
+        this.resizeHandler = this.resizeHandler.bind(this);
         this.stickIt = this.stickIt.bind(this);
     }
     computeOffsetPx() {
@@ -35813,7 +35842,7 @@ class Collant {
     }
     computeOffsetVh() {
         this.offset =
-            (parseInt(this.rawOffset.replace('vh', ''), 10) * _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h) /
+            (parseInt(this.rawOffset.replace('vh', ''), 10) * _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight) /
             100;
     }
     computeOffset() {
@@ -35851,8 +35880,18 @@ class Collant {
         this.collantElement.style.removeProperty('bottom');
         this.collantElement.style.removeProperty('position');
     }
-    handleTopOffset() {
-        const scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
+    handleOffset() {
+        let scrollOffset = 0;
+        if (this.offsetPosition === 'top') {
+            scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
+        } else if (this.offsetPosition === 'bottom') {
+            scrollOffset =
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop +
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h -
+                this.collantBoundings.height -
+                this.offset;
+        }
+
         const bottomDelimiter =
             this.boxBoundings.y +
             this.boxBoundings.height +
@@ -35865,26 +35904,34 @@ class Collant {
             this.collantElement.style.bottom = '0px';
             this.collantElement.style.position = 'absolute';
         } else if (scrollOffset > this.collantDelimiter) {
-            this.collantElement.style.top = `${this.offset}px`;
+            if (this.offsetPosition === 'top') {
+                this.collantElement.style.top = `${this.offset}px`;
+                this.collantElement.style.bottom = 'auto';
+            } else if (this.offsetPosition === 'bottom') {
+                this.collantElement.style.top = 'auto';
+                this.collantElement.style.bottom = `${this.offset}px`;
+            }
             this.collantElement.style.position = 'fixed';
         }
     }
-    handleBottomOffset() {}
     scrollHandler() {
-        if (this.offsetPosition === 'top') {
-            this.handleTopOffset();
-        } else if (this.offsetPosition === 'bottom') {
-            this.handleBottomOffset();
-        }
+        if (this.state.resizing) return;
+        this.handleOffset();
     }
     resizeHandler() {
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(() => {
-            this.getWindowPosition();
-            this.setBoundings();
-        });
+        this.resetCollantProperties();
+        this.getWindowPosition();
+        this.setBoundings();
+
+        this.collantDelimiter = this.getOffsetParents(this.collantElement);
+
+        this.state.resizing = false;
     }
     stickIt() {
-        [this.boxElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: this.boxSelector });
+        [this.boxElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: this.boxSelector,
+            ctx: this.contextElement
+        });
         if (!this.boxElement) return;
 
         [this.collantElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
@@ -35900,9 +35947,22 @@ class Collant {
         this.collantDelimiter = this.getOffsetParents(this.collantElement);
 
         this.scrollHandler();
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].addScrollFunction(() => {
+        this.scrollFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].addScrollFunction(() => {
             this.scrollHandler();
         });
+
+        this.resizeFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeFunction(() => {
+            this.state.resizing = true;
+        });
+
+        this.resizeEndFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(
+            this.resizeHandler
+        );
+    }
+    ripIt() {
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].removeScrollFunction(this.scrollFunctionId);
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeFunction(this.resizeFunctionId);
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeEndFunction(this.resizeEndFunctionId);
     }
 }
 
@@ -36361,29 +36421,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
 
 
-const stickReference = () => {
-    const collantArrows = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-nav-btn',
-        box: '.js-ref-first-part',
-        offsetTop: '100px'
-    });
-
-    const collantDownloadButton = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-btn-download',
-        box: '.js-ref-content-wrapper',
-        offsetTop: '160px'
-    });
-
-    const collantInfoData = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-infos-datas',
-        box: '.js-content-btn-infos',
-        offsetTop: '25px'
-    });
-
-    collantArrows.stickIt();
-    collantDownloadButton.stickIt();
-    collantInfoData.stickIt();
-};
+const stickReference = () => {};
 
 /* harmony default export */ __webpack_exports__["default"] = (stickReference);
 
@@ -36425,17 +36463,12 @@ const unitedAnimHandler = () => {
         oScrollTop = 0;
 
     const init = () => {
-        const tl = new gsap__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"]({ paused: true });
-        tl.staggerTo(
-            words,
-            0.93,
-            {
-                x: 0,
-                y: 0,
-                ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
-            },
-            0.07
-        );
+        const tween = gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
+            x: 0,
+            y: 0,
+            paused: true,
+            ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
+        });
         let progress = 0;
 
         animLaunched = true;
@@ -36443,7 +36476,7 @@ const unitedAnimHandler = () => {
 
         _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].addScrollFunction(() => {
             progress = (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop - oScrollTop) / windowHeight;
-            if (progress >= 0) tl.progress(progress);
+            if (progress >= 0) tween.progress(progress);
         });
     };
 
@@ -36670,4 +36703,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?fee8ba9d3cd1ec4f775e1baa4fdb08ad
+//# sourceMappingURL=main.js.map?94c4e8a46a8eceb2e6e871af447ae98e

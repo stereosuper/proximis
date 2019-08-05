@@ -209,7 +209,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
-/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../global */ "./wp-content/themes/proximis/src/js/global/index.js");
+/* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global */ "./wp-content/themes/proximis/src/js/global/index.js");
+
 
 
 
@@ -222,12 +224,14 @@ const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["default
 class ReferencesSlider {
     constructor() {
         this.state = {
-            transitioning: false
+            transitioning: false,
+            stickySlides: {}
         };
 
         this.referenceSlider = null;
         this.loader = null;
         this.idsList = [];
+        this.collants = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
@@ -289,6 +293,40 @@ class ReferencesSlider {
             this.startLoadingAction();
         }
     }
+    stickElements() {
+        this.collants = [
+            ...this.collants,
+            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+                ctx: this.currentSlide,
+                selector: '.js-nav-btn',
+                box: '.js-ref-first-part',
+                offsetTop: '100px'
+            }),
+            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+                ctx: this.currentSlide,
+                selector: '.js-btn-download',
+                box: '.js-ref-content-wrapper',
+                offsetTop: '160px'
+            }),
+            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+                ctx: this.currentSlide,
+                selector: '.js-infos-datas',
+                box: '.js-content-btn-infos',
+                offsetTop: '25px'
+            })
+        ];
+
+        Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.collants, collant => {
+            collant.stickIt();
+        });
+    }
+    unstickElements() {
+        Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.collants, collant => {
+            collant.ripIt();
+        });
+
+        this.collant = [];
+    }
     startLoadingAction() {
         this.loader.classList.add('loading');
 
@@ -347,12 +385,14 @@ class ReferencesSlider {
 
         gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.5, {
             xPercent: -xPercent,
-            ease: _global__WEBPACK_IMPORTED_MODULE_3__["easing"].easeInOut,
+            ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
             onStart: () => {
                 gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.5, {
                     xPercent: 0,
-                    ease: _global__WEBPACK_IMPORTED_MODULE_3__["easing"].easeInOut,
-                    onComplete: this.resetContext()
+                    ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
+                    onComplete: () => {
+                        this.resetContext();
+                    }
                 });
             }
         });
@@ -385,6 +425,8 @@ class ReferencesSlider {
     setCurrentContext() {
         if (this.idsList.length < 2) return;
 
+        this.unstickElements();
+
         [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
         this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
 
@@ -396,7 +438,7 @@ class ReferencesSlider {
         const { height } = this.currentSlide.getBoundingClientRect();
         gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.referenceSlider, 0.3, {
             height: `${height}px`,
-            ease: _global__WEBPACK_IMPORTED_MODULE_3__["easing"].easeInOut
+            ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut
         });
 
         prevButton.addEventListener(
@@ -423,6 +465,8 @@ class ReferencesSlider {
             },
             false
         );
+
+        this.stickElements();
     }
     initializeCaseStudyClickEvent() {
         const caseStudies = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-case-study' });
@@ -443,7 +487,7 @@ class ReferencesSlider {
                         scrollTo: {
                             y: offset
                         },
-                        ease: _global__WEBPACK_IMPORTED_MODULE_3__["easing"].easeInOut
+                        ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut
                     });
 
                     this.selectFollowingElement({ id: selectedId });
@@ -892,4 +936,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 }]);
-//# sourceMappingURL=ReferencesSlider.js.map?e17c1e29225bcfd61507c31cfc5e5d76
+//# sourceMappingURL=ReferencesSlider.js.map?0231a676d5a54bd04311ebf5ed3bccbc
