@@ -20,9 +20,12 @@
         z-index: -1;
         border-radius: 50%;
         background: #fff;
-        transition: transition((transform: '#{$medium-duration}'
+        transition: transition(
+            (
+                transform: '#{$medium-duration}'
             ),
-            $ease-in-out-timing-function);
+            $ease-in-out-timing-function
+        );
     }
 
     &.number {
@@ -50,25 +53,6 @@
             position: absolute;
             bottom: 12px;
             right: -4px;
-            width: 30px;
-            height: 28px;
-
-            .hexagon {
-                width: 20px;
-                height: 28px;
-            }
-
-            .icon {
-                &.icon-small-arrow {
-                    width: 8px;
-                    height: 12px;
-                    margin: -5px 0 0 -4px;
-
-                    &.down {
-                        transform: rotate(90deg);
-                    }
-                }
-            }
         }
 
         &:hover,
@@ -79,9 +63,12 @@
 
             img {
                 transform: scale(0.97);
-                transition: transition((transform: '#{$short-duration}'
+                transition: transition(
+                    (
+                        transform: '#{$short-duration}'
                     ),
-                    $ease-in-out-timing-function);
+                    $ease-in-out-timing-function
+                );
             }
         }
     }
@@ -95,10 +82,15 @@
 
     img {
         max-width: 80%;
-        transition: transition((transform: ('#{$short-duration}',
+        transition: transition(
+            (
+                transform: (
+                    '#{$short-duration}',
                     '#{$short-duration * 0.5}'
-                )),
-            $ease-in-out-timing-function);
+                )
+            ),
+            $ease-in-out-timing-function
+        );
     }
 }
 
@@ -139,7 +131,7 @@
     border-radius: 50%;
     background: $primary;
 
-    >span {
+    > span {
         position: relative;
         top: 0.15em;
     }
@@ -155,7 +147,7 @@
         color: $grey;
     }
 
-    >ul {
+    > ul {
         margin: 0;
     }
 
@@ -200,7 +192,7 @@
     margin: 0 0 $line-height;
     overflow: hidden;
 
-    >img {
+    > img {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -212,7 +204,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    >* {
+    > * {
         margin-right: 16px;
 
         &:last-child {
@@ -220,7 +212,7 @@
         }
     }
 
-    +.wrapper-btn-download {
+    + .wrapper-btn-download {
         margin-top: 16px;
     }
 }
@@ -229,19 +221,52 @@
     display: block;
     position: relative;
     width: 40px;
-    height: 40px;
+    height: 44px;
     border: 0;
+
+    &.small {
+        width: 30px;
+        height: 28px;
+
+        .hexagon {
+            width: 20px;
+            height: 28px;
+        }
+
+        .icon {
+            &.icon-small-arrow {
+                width: 8px;
+                height: 12px;
+                margin: -5px 0 0 -4px;
+
+                &.down {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+
+        .plus {
+            &::before {
+                line-height: 26px;
+            }
+        }
+    }
 
     &::before {
         content: none;
     }
 
-    &:hover {
-        .hexagon {
-            transform: scale3d(0.9, 0.9, 1) rotate(30deg);
-            transition: transition((transform: '#{$medium-duration}'
-                ),
-                $ease-in-out-timing-function);
+    &.animated {
+        &:hover {
+            .hexagon {
+                transform: scale3d(0.9, 0.9, 1) rotate(30deg);
+                transition: transition(
+                    (
+                        transform: '#{$medium-duration}'
+                    ),
+                    $ease-in-out-timing-function
+                );
+            }
         }
     }
 
@@ -254,9 +279,12 @@
         border-radius: 5px;
         background: $primary;
         transform: rotate(30deg);
-        transition: transition((transform: '#{$short-duration}'
+        transition: transition(
+            (
+                transform: '#{$short-duration}'
             ),
-            $ease-out-timing-function);
+            $ease-out-timing-function
+        );
 
         &::before,
         &::after {
@@ -314,11 +342,35 @@
             }
         }
     }
+
+    .plus {
+        &::before {
+            content: '+';
+            font-family: $ibm-bold;
+            font-size: 2rem;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            line-height: 40px;
+            color: $white;
+        }
+    }
 }
 
 @media (min-width: $tablet) {
     .container-ref {
         padding: 100px 0 160px;
+    }
+
+    .ref-content-wrapper {
+        position: relative;
+    }
+
+    .ref-first-part {
+        position: relative;
     }
 
     .wrapper-ref-illus {
@@ -330,7 +382,7 @@
         align-items: flex-start;
         width: percentage(6/10);
 
-        >* {
+        > * {
             flex: 0 0 auto;
         }
     }
@@ -350,7 +402,7 @@
         align-items: flex-start;
         width: 100%;
 
-        >* {
+        > * {
             flex: 0 0 auto;
         }
     }
@@ -368,23 +420,26 @@
         top: 120px;
         left: 0;
         right: 0;
+        bottom: 0;
 
         .content-btn-infos {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
             max-width: 1350px;
+            height: 100%;
             padding: 0 $gutter;
             margin: 0 auto;
+            position: relative;
         }
     }
 
-    .content-btn-infos {
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-    }
-
     .infos-datas {
+        position: absolute;
+        top: 0;
+        left: percentage(8/12);
         width: percentage(3/12);
-        margin: 0 percentage(1/12) 0 0;
+        margin: 0 0 0;
     }
 
     .nav-btn {
@@ -393,17 +448,19 @@
         left: $gutter;
         right: $gutter;
         justify-content: space-between;
-
-        +.wrapper-btn-download {
+        z-index: 1;
+        + .wrapper-btn-download {
             margin-top: 0;
         }
     }
 
     .wrapper-btn-download {
         position: absolute;
-        top: 135px;
+        top: 255px;
         left: 0;
         right: 0;
+        bottom: 0;
+        z-index: 1;
     }
 
     .content-btn-download {

@@ -40,7 +40,7 @@ $caseStudyQuery = new WP_Query(array(
                                 <?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
                                 <?php if( get_field('studycase') ) : ?>
                                     <button class="ref clickable js-case-study" type="button" data-ref-id="<?php the_ID() ?>">
-                                        <span class="btn-hexagon">
+                                        <span class="btn-hexagon small">
                                             <span class="hexagon"></span>
                                             <svg class="icon icon-small-arrow down"><use xlink:href="#icon-small-arrow"></use></svg>
                                         </span>

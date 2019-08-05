@@ -1,15 +1,27 @@
-import collant from 'collant';
-import { query } from '@stereorepo/sac';
+import Collant from './Collant';
 
 const stickReference = () => {
-    const [btnInfos] = query({
-        selector: '#btn-infos'
+    const collantArrows = new Collant({
+        selector: '.js-nav-btn',
+        box: '.js-ref-first-part',
+        offsetTop: '100px'
     });
 
-    // collant(btnInfos, 120, {
-    //     unit: 'px',
-    //     minimuWidth: 780
-    // });
+    const collantDownloadButton = new Collant({
+        selector: '.js-btn-download',
+        box: '.js-ref-content-wrapper',
+        offsetTop: '160px'
+    });
+
+    const collantInfoData = new Collant({
+        selector: '.js-infos-datas',
+        box: '.js-content-btn-infos',
+        offsetTop: '25px'
+    });
+
+    collantArrows.stickIt();
+    collantDownloadButton.stickIt();
+    collantInfoData.stickIt();
 };
 
 export default stickReference;
