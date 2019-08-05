@@ -36282,12 +36282,17 @@ const unitedAnimHandler = () => {
         oScrollTop = 0;
 
     const init = () => {
-        const tween = gsap__WEBPACK_IMPORTED_MODULE_0__["TweenLite"].to(words, 1, {
-            x: 0,
-            y: 0,
-            paused: true,
-            ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
-        });
+        const tl = new gsap__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"]({ paused: true });
+        tl.staggerTo(
+            words,
+            0.93,
+            {
+                x: 0,
+                y: 0,
+                ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
+            },
+            0.07
+        );
         let progress = 0;
 
         animLaunched = true;
@@ -36295,7 +36300,7 @@ const unitedAnimHandler = () => {
 
         _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].addScrollFunction(() => {
             progress = (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop - oScrollTop) / windowHeight;
-            if (progress >= 0) tween.progress(progress);
+            if (progress >= 0) tl.progress(progress);
         });
     };
 
@@ -36521,4 +36526,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?673859f9ff7e13caa23b282313c37503
+//# sourceMappingURL=main.js.map?6eab7dd165ce19aa7814a26c9950f744
