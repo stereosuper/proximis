@@ -3243,6 +3243,10 @@ div.wpcf7-mail-sent-ng {
       flex-wrap: wrap;
   margin: 112px 0 0; }
 .team-testimonials > li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%;
     margin: 0 0 56px;
     padding: 0; }
 .team-testimonials > li::before {
@@ -3324,7 +3328,7 @@ div.wpcf7-mail-sent-ng {
     right: -6.25%;
     left: -6.25%; }
   .team-testimonials > li {
-    width: 33.3333%; } }
+    width: 33.33333%; } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3344,4 +3348,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?755f4bf4bd5b64ac30347c53fe51c9e8*/
+/*# sourceMappingURL=main.css.map?b180bfa6232a9e5d362daa4dcf0aac17*/
