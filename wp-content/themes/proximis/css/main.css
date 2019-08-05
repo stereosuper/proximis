@@ -1785,7 +1785,7 @@ div.wpcf7-mail-sent-ng {
   z-index: 1;
   line-height: 1.2;
   text-align: center; }
-.ref:after {
+.ref::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1802,7 +1802,7 @@ div.wpcf7-mail-sent-ng {
 .ref.number {
     padding: 20px;
     font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
-.ref.number:after {
+.ref.number::after {
       background: #55c4da; }
 .ref .nb {
     display: block;
@@ -1815,7 +1815,32 @@ div.wpcf7-mail-sent-ng {
     transition:  -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s 0.15s cubic-bezier(0.38, 0, 0.45, 0.93); }
-.ref.clickable:hover:after, .ref.clickable:focus:after {
+.ref.clickable::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  border: 1px solid #55c4da;
+  border-radius: 50%; }
+.ref.clickable .btn-hexagon {
+  position: absolute;
+  bottom: 12px;
+  right: -4px;
+  width: 30px;
+  height: 28px; }
+.ref.clickable .btn-hexagon .hexagon {
+    width: 20px;
+    height: 28px; }
+.ref.clickable .btn-hexagon .icon.icon-small-arrow {
+    width: 8px;
+    height: 12px;
+    margin: -5px 0 0 -4px; }
+.ref.clickable .btn-hexagon .icon.icon-small-arrow.down {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
+.ref.clickable:hover::after, .ref.clickable:focus::after {
   -webkit-transform: scale(0.9);
           transform: scale(0.9); }
 .ref.clickable:hover img, .ref.clickable:focus img {
@@ -1982,6 +2007,9 @@ div.wpcf7-mail-sent-ng {
         left: calc(50% - 1px);
         -webkit-transform: rotate(180deg);
                 transform: rotate(180deg); }
+.btn-hexagon .icon.icon-small-arrow.down {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg); }
 @media (min-width: 780px) {
   .container-ref {
     padding: 100px 0 160px; }
@@ -2516,7 +2544,7 @@ div.wpcf7-mail-sent-ng {
 .home-ref-list > li {
     width: 14%;
     min-width: 180px;
-    padding: 0 0 10px; }
+    padding: 0 0 15px; }
 .home-ref-list > li:before {
       content: none; }
 @media (min-width: 780px) {
@@ -3089,4 +3117,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?583f3a883e209e42fee11a029698aa83*/
+/*# sourceMappingURL=main.css.map?59a31f95b722b1ab713d611084c1d6e9*/
