@@ -89,7 +89,7 @@ get_header(); ?>
 						</blockquote>
 						<div class="team-member">
 							<div class="img">
-								<?php echo wp_get_attachment_image(get_sub_field('img')); ?>
+								<?php echo wp_get_attachment_image(get_sub_field('photo')); ?>
 							</div>
 							<p>
 								<strong><?php the_sub_field('name'); ?></strong>
