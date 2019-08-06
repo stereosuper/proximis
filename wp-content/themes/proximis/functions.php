@@ -351,10 +351,17 @@ function get_references_ids() {
         return $carry;
     }
 
+    function filter_by_slug($carry, $item) {
+        $carry[] = $item->post_name;
+        return $carry;
+    }
+
     $ids = array_reduce($query_all_references->posts, 'filter_by_id', []);
+    $slugs = array_reduce($query_all_references->posts, 'filter_by_slug', []);
 
     $response = array(
         'ids' => $ids,
+        'slugs' => $slugs,
     );
 
     echo json_encode($response);
@@ -380,8 +387,9 @@ function load_references() {
     if ($query_the_reference->have_posts()) { 
         while ($query_the_reference->have_posts()) {
             $query_the_reference->the_post();
+            $post_slug = get_post_field('post_name', get_post()); 
             ?>
-            <div class="ref-slide js-ref-following-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>">
+            <div class="ref-slide js-ref-following-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>" data-ref-slug="<?php echo $post_slug ?>">
                 <?php get_template_part('/includes/reference'); ?>
             </div>
             <?php

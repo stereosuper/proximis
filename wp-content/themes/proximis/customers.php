@@ -81,11 +81,14 @@ $caseStudyQuery = new WP_Query(array(
             </div>
             <?php if ($caseStudyQuery->have_posts()) :?>
             <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
-            <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>">
-                <?php 
-                    get_template_part('/includes/reference');
+                <?php
+                $post_slug = get_post_field('post_name', get_post());
                 ?>
-            </div>
+                <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>" data-ref-slug="<?php echo $post_slug ?>">
+                    <?php 
+                        get_template_part('/includes/reference');
+                    ?>
+                </div>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
