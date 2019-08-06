@@ -1,5 +1,5 @@
 #offers {
-    padding: 3*$line-height 0;
+    padding: #{3*$line-height} 0;
     background: $white;
 
     h2 {
@@ -8,9 +8,55 @@
     }
 }
 
+.hero-offers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+        margin: 0 0 #{$line-height};
+    }
+
+    p {
+        margin: #{$line-height} 0;
+    }
+}
+
+.travel-guides {
+    display: none;
+}
+
+.values {
+    position: relative;
+    margin: 2*$line-height 0 4*$line-height;
+
+    h2 {
+        margin: 0;
+
+        &+p {
+            margin: 0;
+            color: $grey;
+        }
+    }
+}
+
+.wrapper-values {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        margin: #{$line-height} 0 0;
+        color: $text;
+    }
+
+    p {
+        margin: 0 0 #{$line-height};
+    }
+}
+
 .offers-list {
     width: calc(100% + #{$gutter});
-    margin: 3*$line-height 0 2*$line-height #{-$gutter/2};
+    margin: #{3*$line-height} 0 #{2*$line-height} #{-$gutter/2};
 
     >li {
         padding: 0;
@@ -27,7 +73,7 @@
     flex-direction: column;
     align-items: baseline;
     justify-content: space-between;
-    padding: $line-height 0;
+    padding: #{$line-height} 0;
     text-decoration: none;
     z-index: 1;
 
@@ -151,7 +197,7 @@
 .team-member {
     display: flex;
     align-items: center;
-    margin: $line-height 0 0 0;
+    margin: #{$line-height} 0 0 0;
 
     .img {
         flex: 0 0 auto;
@@ -217,6 +263,122 @@
 }
 
 @media (min-width: $desktop-small) {
+    .hero-offers {
+        flex-direction: row;
+        align-items: flex-end;
+
+        .intro {
+            flex: 0 0 auto;
+            width: percentage(5/12);
+        }
+    }
+
+    .values {
+        margin: 4*$line-height 0;
+        padding-left: percentage(1/12);
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+        }
+
+        &::before {
+            top: calc(#{-3*$line-height} - 1px);
+            right: calc(#{percentage(11/12)} + 60px);
+            width: 75px;
+            height: calc(#{4*$line-height} - 7px);
+            border-top: 1px dashed $primary;
+            border-right: 1px dashed $primary;
+            border-top-right-radius: 75px;
+        }
+
+        &::after {
+            display: block;
+            width: 10px;
+            height: 10px;
+            top: 12px;
+            right: calc(#{percentage(11/12)} + 55px);
+            border-radius: 50%;
+            background: $primary;
+        }
+    }
+
+    .wrapper-values {
+        flex-direction: row;
+        width: calc(100% + #{$gutter});
+        margin-left: #{-$gutter/2};
+
+        >div {
+            margin: 0 #{$gutter/2};
+        }
+
+
+        h3 {
+            margin: #{2*$line-height} 0 #{$line-height};
+        }
+
+        p {
+            margin: #{$line-height} 0;
+        }
+    }
+
+    .travel-guides {
+        position: relative;
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0 0 #{4*$line-height} 20px;
+
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: #{-$line-height};
+        }
+
+        &::before {
+            height: #{4*$line-height};
+            left: calc(10% + 50px);
+            right: #{-$line-height/2};
+            border: 1px dashed $primary;
+            border-left-width: 0;
+            border-top-right-radius: 75px;
+            border-bottom-right-radius: 75px;
+        }
+
+        &::after {
+            right: calc(90% - 50px);
+            width: 100vw;
+            border-top: 1px dashed $primary;
+        }
+
+        >li {
+            flex: 0 0 auto;
+            position: relative;
+            width: calc(20% - 15px);
+            max-width: none;
+            margin: 0 0 0 15px;
+            padding: 0;
+
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                top: auto;
+                bottom: calc(#{-$line-height} - 5px);
+                left: 50%;
+                margin-left: -5px;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
     .job-offer {
 
         &::before {
@@ -232,4 +394,33 @@
         }
     }
 
+}
+
+@media (min-width: $desktop) {
+    .hero-offers {
+        .intro {
+            padding-left: percentage(1/12);
+        }
+    }
+
+    .travel-guides {
+        padding-left: 40px;
+
+        >li {
+            width: calc(20% - 25px);
+            margin-left: 25px;
+        }
+    }
+
+    .values {
+        padding-left: percentage(2/12);
+
+        &::before {
+            right: calc(#{percentage(10/12)} + 60px);
+        }
+
+        &::after {
+            right: calc(#{percentage(10/12)} + 55px);
+        }
+    }
 }

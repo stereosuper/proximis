@@ -11,35 +11,41 @@ get_header(); ?>
 
 		<?php if( function_exists('yoast_breadcrumb') ){ yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumbs">','</p>' ); } ?>
 		
-		<div class='container-medium'>
-			<h1><?php the_title(); ?></h1>
+		<div class="hero-offers">
+			<div class="intro">
+				<h1><?php the_title(); ?></h1>
+				<?php the_content(); ?>
+			</div>
+			<ul class="travel-guides">
+				<?php if( have_rows('travelguides') ) : ?>
+					<?php while( have_rows('travelguides') ) : the_row(); ?>
+						<li>
+							<?php echo wp_get_attachment_image(get_sub_field('img'), 'full'); ?>
+						</li>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</ul>
+		</div>
 
-			<?php the_content(); ?>
+		<?php if( have_rows('values') ) : ?>
+			<?php while( have_rows('values') ) : the_row(); ?>
+				<div class="values">
+					<h2><?php the_sub_field('title'); ?></h2>
+					<p><?php the_sub_field('text'); ?></p>
 
-			<?php if( have_rows('travelguides') ) : ?>
-				<?php while( have_rows('travelguides') ) : the_row(); ?>
-					<?php echo wp_get_attachment_image(get_sub_field('img')); ?>
-				<?php endwhile; ?>
-			<?php endif; ?>
-
-			<?php if( have_rows('values') ) : ?>
-				<?php while( have_rows('values') ) : the_row(); ?>
-					<div>
-						<h2><?php the_sub_field('title'); ?></h2>
-						<p><?php the_sub_field('text'); ?></p>
-
-						<?php if( have_rows('cols') ) : ?>
+					<?php if( have_rows('cols') ) : ?>
+						<div class="wrapper-values">
 							<?php while( have_rows('cols') ) : the_row(); ?>
 								<div>
 									<h3><?php the_sub_field('title'); ?></h3>
 									<?php the_sub_field('text'); ?>
 								</div>
 							<?php endwhile; ?>
-						<?php endif; ?>
-					</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
-		</div>
+						</div>
+					<?php endif; ?>
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
 	</div>
 
 	<?php if( have_rows('offers') ) : ?>
