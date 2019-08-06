@@ -36409,63 +36409,28 @@ const unitedAnimHandler = () => {
 
     if (!united) return;
 
-    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superPolyfill"].initializeIntersectionObserver();
-
     const words = united.querySelectorAll('.js-word');
 
-    let windowHeight = window.innerHeight * 0.65;
+    const unitedHeight = united.getBoundingClientRect().height;
+    const unitedTop = united.offsetTop;
 
-    // Constants used to create the intersection observer threshold array
-    const samplesNumber = 100;
-    const thresholdSamples = [];
-    let index = 0;
-    let observer = null;
+    let progress = 0;
+    const tl = new gsap__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"]({ paused: true });
 
-    let animLaunched = false,
-        oScrollTop = 0;
+    const scrollHandler = () => {
+        const scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop + _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].h * 0.75;
+        const scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
-    const init = () => {
-        const tl = new gsap__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"]({ paused: true });
-        tl.staggerTo(
-            words,
-            0.93,
-            {
-                x: 0,
-                y: 0,
-                ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone
-            },
-            0.07
-        );
-        let progress = 0;
+        if (scrollProgress < 0) return;
 
-        animLaunched = true;
-        windowHeight += oScrollTop;
-
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].addScrollFunction(() => {
-            progress = (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop - oScrollTop) / windowHeight;
-            if (progress >= 0) tl.progress(progress);
-        });
+        progress = scrollProgress / (unitedHeight * 0.6);
+        tl.progress(progress);
     };
 
-    const intersectionCallback = entries => {
-        entries.forEach(entry => {
-            if (entry.intersectionRatio < 0.2 || animLaunched) return;
-            oScrollTop = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop;
-            init();
-        });
-    };
+    tl.staggerTo(words, 0.93, { x: 0, y: 0, ease: gsap__WEBPACK_IMPORTED_MODULE_0__["Linear"].easeNone }, 0.07);
 
-    for (index; index <= samplesNumber; index++) {
-        thresholdSamples[index] = index / samplesNumber;
-    }
-
-    observer = new IntersectionObserver(intersectionCallback, {
-        root: null,
-        rootMargin: '0px',
-        threshold: thresholdSamples
-    });
-
-    observer.observe(united);
+    scrollHandler();
+    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].addScrollFunction(scrollHandler);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (unitedAnimHandler);
@@ -36670,4 +36635,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?3f201eb7b07e66efb765925cb799c34b
+//# sourceMappingURL=main.js.map?17890f173ef0b448a0440675ae9e8a03
