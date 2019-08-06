@@ -585,6 +585,8 @@ a:active,
       margin: 0; }
     .highlighted .line {
       top: 52px; }
+    .highlighted a {
+      font-family: inherit; }
   .book-highlighted h2,
   .newsletter-highlighted h2 {
     margin: 20px 0 30px; }
@@ -3507,4 +3509,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?90ffa298faa9ab6e72a936ef7d275ac8*/
+/*# sourceMappingURL=main.css.map?79bbd2c8a3051ac25249bddc61a6d41b*/
