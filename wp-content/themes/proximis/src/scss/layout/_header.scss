@@ -354,6 +354,7 @@
         margin: 0;
         position: relative;
         .switcher-button {
+            padding-right: 15px;
             position: relative;
             pointer-events: all;
             &::after {
@@ -362,17 +363,16 @@
                 border-width: 4px 3px 0 3px;
                 border-color: $black transparent transparent transparent;
                 position: absolute;
-                right: -15px;
+                right: 0;
                 top: 50%;
                 transform: translateY(-50%);
             }
         }
         .lang-list {
-            padding: 10px $gutter * 0.5;
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translate3d(-50%, -10px, 0);
+            left: 0;
+            transform: translate3d(0, -10px, 0);
             opacity: 0;
             visibility: hidden;
             transition: transition(
@@ -387,7 +387,7 @@
                 $ease-in-timing-function
             );
             &.activated {
-                transform: translate3d(-50%, 0, 0);
+                transform: translate3d(0, 0, 0);
                 opacity: 1;
                 visibility: visible;
                 transition: transition(

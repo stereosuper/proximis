@@ -1205,6 +1205,7 @@ div.wpcf7-mail-sent-ng {
     margin: 0;
     position: relative; }
     .lang-switcher .switcher-button {
+      padding-right: 15px;
       position: relative;
       pointer-events: all; }
       .lang-switcher .switcher-button::after {
@@ -1213,17 +1214,16 @@ div.wpcf7-mail-sent-ng {
         border-width: 4px 3px 0 3px;
         border-color: #000 transparent transparent transparent;
         position: absolute;
-        right: -15px;
+        right: 0;
         top: 50%;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%); }
     .lang-switcher .lang-list {
-      padding: 10px 10px;
       position: absolute;
       top: 100%;
-      left: 50%;
-      -webkit-transform: translate3d(-50%, -10px, 0);
-              transform: translate3d(-50%, -10px, 0);
+      left: 0;
+      -webkit-transform: translate3d(0, -10px, 0);
+              transform: translate3d(0, -10px, 0);
       opacity: 0;
       visibility: hidden;
       -webkit-transition:  opacity 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), visibility 0s 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), -webkit-transform 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09);
@@ -1231,8 +1231,8 @@ div.wpcf7-mail-sent-ng {
       transition:  transform 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), opacity 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), visibility 0s 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09);
       transition:  transform 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), opacity 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), visibility 0s 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09), -webkit-transform 0.3s cubic-bezier(0.42, 0.08, 0.45, 0.09); }
       .lang-switcher .lang-list.activated {
-        -webkit-transform: translate3d(-50%, 0, 0);
-                transform: translate3d(-50%, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
         opacity: 1;
         visibility: visible;
         -webkit-transition:  opacity 0.3s cubic-bezier(0, 0.15, 0.1, 0.85), visibility 0s cubic-bezier(0, 0.15, 0.1, 0.85), -webkit-transform 0.3s cubic-bezier(0, 0.15, 0.1, 0.85);
@@ -3742,8 +3742,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-<<<<<<< HEAD
-/*# sourceMappingURL=main.css.map?0584646da3628c8cf3a76d85df6629c8*/
-=======
-/*# sourceMappingURL=main.css.map?897a0aa17703213a0721245f4cd54e34*/
->>>>>>> 💄lang switcher desktop
+/*# sourceMappingURL=main.css.map?b95079ee821f7612e08efa79b6a017af*/
