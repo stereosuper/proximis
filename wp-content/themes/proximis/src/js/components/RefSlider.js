@@ -1,8 +1,8 @@
 import { superPolyfill, query, forEach } from '@stereorepo/sac';
+import { Collant } from '@stereorepo/collant';
 import { TweenMax, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import Collant from './Collant';
 import { easing } from '../global';
 
 // NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked

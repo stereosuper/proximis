@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"RefSlider":"RefSlider"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"vendors~RefSlider":"vendors~RefSlider","RefSlider":"RefSlider"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -35704,18 +35704,14 @@ if (!self.fetch) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./Collant": [
-		"./wp-content/themes/proximis/src/js/components/Collant.js"
-	],
-	"./Collant.js": [
-		"./wp-content/themes/proximis/src/js/components/Collant.js"
-	],
 	"./RefSlider": [
 		"./wp-content/themes/proximis/src/js/components/RefSlider.js",
+		"vendors~RefSlider",
 		"RefSlider"
 	],
 	"./RefSlider.js": [
 		"./wp-content/themes/proximis/src/js/components/RefSlider.js",
+		"vendors~RefSlider",
 		"RefSlider"
 	],
 	"./Slider": [
@@ -35799,176 +35795,10 @@ module.exports = webpackAsyncContext;
 /*!*****************************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/components/Collant.js ***!
   \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
-
-
-class Collant {
-    constructor({
-        ctx = null,
-        selector = '.js-collant-selector',
-        box = '.js-collant-box',
-        offsetTop = '0px',
-        offsetBottom = '0px'
-    }) {
-        this.contextElement = ctx;
-        this.collantSelector = selector;
-        this.boxSelector = box;
-        this.rawOffset = offsetBottom !== '0px' ? offsetBottom : offsetTop;
-        this.offsetPosition = offsetBottom !== '0px' ? 'bottom' : 'top';
-
-        this.state = {
-            resizing: false
-        };
-
-        this.collantElement = null;
-        this.boxElement = null;
-
-        this.boxBoundings = null;
-        this.collantBoundings = null;
-        this.windowPositions = null;
-        this.offset = 0;
-
-        this.scrollHandler = this.scrollHandler.bind(this);
-        this.resizeHandler = this.resizeHandler.bind(this);
-        this.stickIt = this.stickIt.bind(this);
-    }
-    computeOffsetPx() {
-        this.offset = parseInt(this.rawOffset.replace('px', ''), 10);
-    }
-    computeOffsetVh() {
-        this.offset =
-            (parseInt(this.rawOffset.replace('vh', ''), 10) *
-                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight) /
-            100;
-    }
-    computeOffset() {
-        switch (true) {
-            case /px$/.test(this.rawOffset):
-                this.computeOffsetPx();
-                break;
-            case /vh$/.test(this.rawOffset):
-                this.computeOffsetVh();
-                break;
-
-            default:
-                break;
-        }
-    }
-    getOffsetParents(element) {
-        const { offsetParent } = element;
-        let offset = element.offsetTop;
-        if (offsetParent) {
-            offset += this.getOffsetParents(offsetParent);
-        }
-        return offset;
-    }
-    setBoundings() {
-        this.boxBoundings = this.boxElement.getBoundingClientRect();
-        this.collantBoundings = this.collantElement.getBoundingClientRect();
-    }
-    getWindowPosition() {
-        this.windowPositions = {
-            y: window.scrollY
-        };
-    }
-    resetCollantProperties() {
-        this.collantElement.style.removeProperty('top');
-        this.collantElement.style.removeProperty('bottom');
-        this.collantElement.style.removeProperty('position');
-    }
-    handleOffset() {
-        let scrollOffset = 0;
-        if (this.offsetPosition === 'top') {
-            scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
-        } else if (this.offsetPosition === 'bottom') {
-            scrollOffset =
-                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop +
-                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h -
-                this.collantBoundings.height -
-                this.offset;
-        }
-
-        const bottomDelimiter =
-            this.boxBoundings.y +
-            this.boxBoundings.height +
-            this.windowPositions.y -
-            this.collantBoundings.height;
-
-        this.resetCollantProperties();
-        if (scrollOffset > bottomDelimiter) {
-            this.collantElement.style.top = 'auto';
-            this.collantElement.style.bottom = '0px';
-            this.collantElement.style.position = 'absolute';
-        } else if (scrollOffset > this.collantDelimiter) {
-            if (this.offsetPosition === 'top') {
-                this.collantElement.style.top = `${this.offset}px`;
-                this.collantElement.style.bottom = 'auto';
-            } else if (this.offsetPosition === 'bottom') {
-                this.collantElement.style.top = 'auto';
-                this.collantElement.style.bottom = `${this.offset}px`;
-            }
-            this.collantElement.style.position = 'fixed';
-        }
-    }
-    scrollHandler() {
-        if (this.state.resizing) return;
-        this.handleOffset();
-    }
-    resizeHandler() {
-        this.resetCollantProperties();
-        this.getWindowPosition();
-        this.setBoundings();
-
-        this.collantDelimiter = this.getOffsetParents(this.collantElement);
-
-        this.state.resizing = false;
-    }
-    stickIt() {
-        [this.boxElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector: this.boxSelector,
-            ctx: this.contextElement
-        });
-        if (!this.boxElement) return;
-
-        [this.collantElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
-            selector: this.collantSelector,
-            ctx: this.boxElement
-        });
-        if (!this.collantElement) return;
-
-        this.computeOffset();
-        this.getWindowPosition();
-        this.setBoundings();
-
-        this.collantDelimiter = this.getOffsetParents(this.collantElement);
-
-        this.scrollHandler();
-        this.scrollFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].addScrollFunction(() => {
-            this.scrollHandler();
-        });
-
-        this.resizeFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeFunction(() => {
-            this.state.resizing = true;
-        });
-
-        this.resizeEndFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(
-            this.resizeHandler
-        );
-    }
-    ripIt() {
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].removeScrollFunction(this.scrollFunctionId);
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeFunction(this.resizeFunctionId);
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeEndFunction(this.resizeEndFunctionId);
-    }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Collant);
-
+throw new Error("Module build failed (from ./node_modules/eslint-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/albanmezino/Documents/www/stereosuper/proximis/wp-content/themes/proximis/src/js/components/Collant.js'");
 
 /***/ }),
 
@@ -36420,6 +36250,7 @@ const searchHandler = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
+/* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Collant__WEBPACK_IMPORTED_MODULE_0__);
 
 
 const stickReference = () => {};
@@ -36457,7 +36288,8 @@ const unitedAnimHandler = () => {
     const tl = new gsap__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"]({ paused: true });
 
     const scrollHandler = () => {
-        const scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop + _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].h * 0.75;
+        const scrollOffset =
+            _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superScroll"].scrollTop + _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].windowHeight * 0.75;
         const scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
         if (scrollProgress < 0) return;
@@ -36579,6 +36411,19 @@ const preloadCallback = () => {
         slider.play();
     }
 
+    Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["bodyRouter"])({
+        identifier: '.page-template-customers',
+        callback: () => {
+            const referenceSliderPromise = referencesSliderImport();
+            referenceSliderPromise.then(ReferenceSlider => {
+                const referenceSlider = new ReferenceSlider();
+                referenceSlider.initialize();
+            });
+
+            Object(_components_stickReference__WEBPACK_IMPORTED_MODULE_13__["default"])();
+        }
+    });
+
     Object(_components_united__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
     [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
@@ -36634,19 +36479,6 @@ const preloadCallback = () => {
 
 const loadCallback = () => {
     Object(_components_searchHandler__WEBPACK_IMPORTED_MODULE_11__["default"])();
-
-    Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["bodyRouter"])({
-        identifier: '.page-template-customers',
-        callback: () => {
-            const referenceSliderPromise = referencesSliderImport();
-            referenceSliderPromise.then(ReferenceSlider => {
-                const referenceSlider = new ReferenceSlider();
-                referenceSlider.initialize();
-            });
-
-            Object(_components_stickReference__WEBPACK_IMPORTED_MODULE_13__["default"])();
-        }
-    });
 };
 
 const animationsCallback = () => {};
@@ -36674,4 +36506,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?33e9f9ff8337125b5cf1261fe5bb56a9
+//# sourceMappingURL=main.js.map?8440d4319d164158eef66acdfb580363

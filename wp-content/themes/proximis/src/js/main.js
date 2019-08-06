@@ -76,6 +76,19 @@ const preloadCallback = () => {
         slider.play();
     }
 
+    bodyRouter({
+        identifier: '.page-template-customers',
+        callback: () => {
+            const referenceSliderPromise = referencesSliderImport();
+            referenceSliderPromise.then(ReferenceSlider => {
+                const referenceSlider = new ReferenceSlider();
+                referenceSlider.initialize();
+            });
+
+            stickReference();
+        }
+    });
+
     united();
 
     [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
@@ -131,19 +144,6 @@ const preloadCallback = () => {
 
 const loadCallback = () => {
     searchHandler();
-
-    bodyRouter({
-        identifier: '.page-template-customers',
-        callback: () => {
-            const referenceSliderPromise = referencesSliderImport();
-            referenceSliderPromise.then(ReferenceSlider => {
-                const referenceSlider = new ReferenceSlider();
-                referenceSlider.initialize();
-            });
-
-            stickReference();
-        }
-    });
 };
 
 const animationsCallback = () => {};
