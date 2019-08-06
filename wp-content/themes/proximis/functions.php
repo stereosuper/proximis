@@ -300,6 +300,16 @@ function proximis_post_type(){
         'menu_icon' => 'dashicons-portfolio',
         'show_in_rest' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+        'rewrite' => array('with_front' => false)
+    ));
+    register_post_type( 'job', array(
+        'label' => 'Offres',
+        'singular_label' => 'Offre',
+        'public' => true,
+        'menu_icon' => 'dashicons-businessman',
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+        'rewrite' => array('with_front' => false)
     ));
 }
 add_action( 'init', 'proximis_post_type' );

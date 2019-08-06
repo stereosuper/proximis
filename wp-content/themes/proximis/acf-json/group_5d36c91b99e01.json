@@ -196,80 +196,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d36caf753003",
-                    "label": "Liens",
-                    "name": "links",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "block",
-                    "button_label": "Ajouter une offre",
-                    "sub_fields": [
-                        {
-                            "key": "field_5d36cb1053004",
-                            "label": "Lien",
-                            "name": "link",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        },
-                        {
-                            "key": "field_5d36cb2753005",
-                            "label": "Type de poste",
-                            "name": "job_type",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5d36cb3a53006",
-                            "label": "Lieu",
-                            "name": "place",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
-                },
-                {
                     "key": "field_5d36cb8753007",
                     "label": "Texte",
                     "name": "text",
@@ -410,5 +336,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1563872284
+    "modified": 1565097917
 }
