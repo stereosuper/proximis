@@ -55,28 +55,26 @@ get_header(); ?>
 					<div class='container-xsmall'>
 						<h2 class='h1'><?php the_sub_field('title'); ?></h2>
 
-						<ul class='offers-list'>
-							<?php if( have_rows('links') ) : ?>
-								<?php while( have_rows('links') ) : the_row(); ?>
+						<?php $jobQuery = new WP_Query(array('post_type' => 'job', 'posts_per_page' => -1)); if( $jobQuery->have_posts() ) : ?>
+							<ul class='offers-list'>
+								<?php while( $jobQuery->have_posts() ) : $jobQuery->the_post(); ?>
 									<li>
-										<?php $link = get_sub_field('link'); ?>
-										<a class='job-offer' href='<?php echo $link['url']; ?>'>
-											<span class='job-title'><?php echo $link['title']; ?></span>
+										<a class='job-offer' href='<?php the_permalink(); ?>'>
+											<span class='job-title'><?php the_title(); ?></span>
 											<span class='job-details'>
-												<span class='job-type'><?php the_sub_field('job_type'); ?></span>
-												<span class='job-place'><?php the_sub_field('place'); ?></span>
+												<span class='job-type'><?php the_field('contract'); ?></span>
+												<span class='job-place'><?php the_field('place'); ?></span>
 												<span class='wrapper-job-more'>
 													<span class="btn-hexagon small">
-														<span class="hexagon"></span>
-														<span class="plus"></span>
+														<span class="hexagon"></span><span class="plus"></span>
 													</span>
 												</span>
 											</span>
 										</a>
 									</li>
 								<?php endwhile; ?>
-							<?php endif; ?>
-						</ul>
+							</ul>
+						<?php wp_reset_postdata(); endif; ?>
 
 						<div class='offers-desc'><?php the_sub_field('text'); ?></div>
 					</div>

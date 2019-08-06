@@ -301,6 +301,14 @@ function proximis_post_type(){
         'show_in_rest' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
     ));
+    register_post_type( 'job', array(
+        'label' => 'Offres',
+        'singular_label' => 'Offre',
+        'public' => true,
+        'menu_icon' => 'dashicons-businessman',
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+    ));
 }
 add_action( 'init', 'proximis_post_type' );
 

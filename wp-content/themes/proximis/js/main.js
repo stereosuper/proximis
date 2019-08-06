@@ -10,7 +10,7 @@
 /******/ 		var moduleId, chunkId, i = 0, resolves = [];
 /******/ 		for(;i < chunkIds.length; i++) {
 /******/ 			chunkId = chunkIds[i];
-/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 			if(installedChunks[chunkId]) {
 /******/ 				resolves.push(installedChunks[chunkId][0]);
 /******/ 			}
 /******/ 			installedChunks[chunkId] = 0;
@@ -606,10 +606,8 @@ class Scroll {
             this.onScrollEnd();
         }, 66);
 
-        this.scrollFunctions.forEach(scrollFunction => {
-            if (scrollFunction) {
-                scrollFunction();
-            }
+        this.scrollFunctions.forEach(scrollfunction => {
+            scrollfunction();
         });
     }
     launchScroll(event) {
@@ -641,27 +639,15 @@ class Scroll {
     onScrollEnd() {
         this.scrollEnd = true;
         this.endFunctions.forEach(f => {
-            if (f) {
-                f();
-            }
+            f();
         });
     }
     addScrollFunction(scrollFunction, onEnd = false) {
         this.scrollFunctions.push(scrollFunction);
-        if (onEnd) {
-            this.endFunctions.push(scrollFunction);
-        }
-        return this.scrollFunctions.length - 1;
+        if (onEnd) this.endFunctions.push(scrollFunction);
     }
     addEndFunction(endFunction) {
         this.endFunctions.push(endFunction);
-        return this.endFunctions.length - 1;
-    }
-    removeScrollFunction(id) {
-        this.scrollFunctions[id] = null;
-    }
-    removeEndFunction(id) {
-        this.endFunctions[id] = null;
     }
 }
 
@@ -767,6 +753,7 @@ class Snif {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./node_modules/@stereorepo/sac/src/core.js");
 
+// import io from './Io';
 
 class Window {
     constructor() {
@@ -775,8 +762,8 @@ class Window {
             horizontal: null,
             vertical: null
         };
-        this.windowWidth = null;
-        this.windowHeight = null;
+        this.w = null;
+        this.h = null;
         this.rtime = null;
         this.timeoutWindow = false;
         this.delta = 500;
@@ -799,9 +786,7 @@ class Window {
                 return el;
             });
             Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeEndFunctions, f => {
-                if (f) {
-                    f();
-                }
+                f();
             });
         }
     }
@@ -821,13 +806,16 @@ class Window {
             }, this.delta);
         }
     }
+    // ioResize() {
+    //     if (!this.io.resized) this.io.resized = true;
+    // }
     setBreakpointsToDOM() {
         if (!this.breakpoints.horizontal) return;
 
         let currentBreakpoint = '';
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(Object.entries(this.breakpoints.horizontal), breakpoint => {
             const [name, value] = breakpoint;
-            if (this.windowWidth > value) {
+            if (this.w > value) {
                 currentBreakpoint = name;
             }
         });
@@ -848,13 +836,11 @@ class Window {
         this.setBreakpointsToDOM();
     }
     resizeHandler() {
-        this.windowWidth = window.innerWidth;
-        this.windowHeight = window.innerHeight;
+        this.w = window.innerWidth;
+        this.h = window.innerHeight;
 
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.resizeFunctions, f => {
-            if (f) {
-                f();
-            }
+            f();
         });
 
         this.setBreakpointsToDOM();
@@ -863,17 +849,9 @@ class Window {
     }
     addResizeFunction(resizeFunction) {
         this.resizeFunctions.push(resizeFunction);
-        return this.resizeFunctions.length - 1;
     }
     addResizeEndFunction(resizeEndFunction) {
         this.resizeEndFunctions.push(resizeEndFunction);
-        return this.resizeEndFunctions.length - 1;
-    }
-    removeResizeFunction(id) {
-        this.resizeFunctions[id] = null;
-    }
-    removeResizeEndFunction(id) {
-        this.resizeEndFunctions[id] = null;
     }
     launchWindow() {
         Object(_core__WEBPACK_IMPORTED_MODULE_0__["requestAnimFrame"])(() => {
@@ -1020,7 +998,7 @@ async function supportsWebp() {
     return createImageBitmap(blob).then(() => true, () => false);
 }
 
-const throttle = ({ callback, delay }) => {
+const throttle = (callback, delay) => {
     let last;
     let timer;
 
@@ -1185,8 +1163,8 @@ const superWindow = _components_Window__WEBPACK_IMPORTED_MODULE_10__["default"];
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roundNumbers", function() { return roundNumbers; });
-const roundNumbers = ({ number, decimalOffset }) => {
-    const decimalsFactor = 10 ** decimalOffset;
+const roundNumbers = (number, decimalNumber) => {
+    const decimalsFactor = 10 ** decimalNumber;
     return Math.round(number * decimalsFactor) / decimalsFactor;
 };
 
@@ -36674,4 +36652,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?33e9f9ff8337125b5cf1261fe5bb56a9
+//# sourceMappingURL=main.js.map?f9254de171fcc301d24c4f63e2ef7587
