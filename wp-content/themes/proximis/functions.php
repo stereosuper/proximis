@@ -230,10 +230,13 @@ if( function_exists('acf_register_block_type') ) {
 register_nav_menus( array('primary' => 'Primary Menu') );
 
 // Cleanup WP Menu html
-function proximis_css_attributes_filter($var){
+function proximis_css_attributes_filter($var, $item){
+    if( ( is_post_type_archive('job') || is_singular('job') || is_post_type_archive('reference') || is_singular('reference') ) && get_post_meta( $item->ID, '_menu_item_object_id', true ) == get_option( 'page_for_posts' ) ){
+        $var = array_diff( $var, array( 'current_page_parent' ) );
+    }
     return is_array($var) ? array_intersect($var, array('current-menu-item', 'current_page_parent')) : '';
 }
-add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter' );
+add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter', 10, 2 );
 
 function mlp_navigation() {
     function language_first_part($lang) {

@@ -36737,8 +36737,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-<<<<<<< HEAD
-//# sourceMappingURL=main.js.map?f52e4b7dc7b19eeb7829a10eab372eb1
-=======
-//# sourceMappingURL=main.js.map?4e50ea184543b811de5033fb04ce28b0
->>>>>>> 💄✨ lang switcher
+//# sourceMappingURL=main.js.map?d20227b7ac164e769cc419c5cbea8bb1
