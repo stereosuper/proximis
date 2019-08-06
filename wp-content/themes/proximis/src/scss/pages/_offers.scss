@@ -228,6 +228,13 @@
     }
 }
 
+.job-wrapper{
+    padding-bottom: 70px;
+    .container-tiny{
+        padding-bottom: 10px;
+    }
+}
+
 @media (min-width: $tablet) {
     .job-offer {
         flex-direction: row;

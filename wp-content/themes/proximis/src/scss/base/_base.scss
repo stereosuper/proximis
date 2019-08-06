@@ -387,6 +387,39 @@ a,
     display: none;
 }
 
+.highlighted {
+    font-family: $recoleta;
+    font-size: 2rem;
+    line-height: $line-height;
+    color: $grey;
+    background: #fff;
+
+    .single-job & {
+        display: block;
+        padding: 25px 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        br {
+            display: none;
+        }
+    }
+
+    >p {
+        margin: 0;
+    }
+
+    .line {
+        top: 52px;
+    }
+
+    a {
+        font-family: inherit;
+    }
+}
+
 .highlighted,
 .book-highlighted {
     padding: 40px;
@@ -590,6 +623,20 @@ a,
         position: absolute;
         right: 0;
         margin: -38px 0 0;
+    }
+
+    .highlighted {
+        .single-job & {
+            padding: 40px;
+            top: 200px;
+            margin: 0;
+            left: auto;
+            bottom: auto;
+
+            br {
+                display: block;
+            }
+        }
     }
 
     .alignright {

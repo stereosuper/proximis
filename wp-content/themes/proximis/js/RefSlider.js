@@ -207,7 +207,7 @@ var _doc = (_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["_gsScope"].document || {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stereorepo/collant */ "./node_modules/@stereorepo/collant/src/index.js");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global */ "./wp-content/themes/proximis/src/js/global/index.js");
@@ -334,19 +334,19 @@ class ReferencesSlider {
     stickElements() {
         this.collants = [
             ...this.collants,
-            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
                 ctx: this.currentSlide,
                 selector: '.js-nav-btn',
                 box: '.js-ref-first-part',
                 offsetTop: '100px'
             }),
-            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
                 ctx: this.currentSlide,
                 selector: '.js-btn-download',
                 box: '.js-ref-content-wrapper',
                 offsetTop: '160px'
             }),
-            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
                 ctx: this.currentSlide,
                 selector: '.js-infos-datas',
                 box: '.js-content-btn-infos',
@@ -968,4 +968,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?5498bd01df3bdf6da75d4c7800c49124
+//# sourceMappingURL=RefSlider.js.map?3a2b68a3fd0ed5e0fefd9d40207114a8

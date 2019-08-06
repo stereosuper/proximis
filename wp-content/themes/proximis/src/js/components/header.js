@@ -1,15 +1,48 @@
+import { query } from '@stereorepo/sac';
+
 const headerHandler = () => {
-    const body = document.getElementsByTagName('body')[0];
-    const burger = document.getElementById('burger');
-    const close = document.getElementById('close-menu');
+    const { body } = document;
+    const [burger] = query({ selector: '#burger' });
+    const [close] = query({ selector: '#close-menu' });
 
-    burger.addEventListener('click', () => {
-        body.classList.add('menu-open');
+    const [langSwitcherButton] = query({
+        selector: '.js-lang-switcher-button'
+    });
+    const [langSwitcherList] = query({
+        selector: '.js-lang-list'
     });
 
-    close.addEventListener('click', () => {
-        body.classList.remove('menu-open');
-    });
+    if (burger) {
+        burger.addEventListener(
+            'click',
+            () => {
+                body.classList.add('menu-open');
+            },
+            false
+        );
+    }
+
+    if (close) {
+        close.addEventListener(
+            'click',
+            () => {
+                body.classList.remove('menu-open');
+            },
+            false
+        );
+    }
+
+    if (langSwitcherButton) {
+        langSwitcherButton.addEventListener(
+            'click',
+            () => {
+                if (langSwitcherList) {
+                    langSwitcherList.classList.toggle('activated');
+                }
+            },
+            false
+        );
+    }
 };
 
 export default headerHandler;

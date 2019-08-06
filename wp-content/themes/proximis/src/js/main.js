@@ -9,13 +9,12 @@ import io from './components/io';
 
 import header from './components/header';
 import Slider from './components/Slider';
-import united from './components/united';
 import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import blog from './components/blog';
-//import job from './components/job';
+import job from './components/job';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -36,6 +35,10 @@ const dynamicLoading = ({ name, isClass = false }) => async () => {
 const referencesSliderImport = dynamicLoading({
     name: 'RefSlider',
     isClass: true
+});
+
+const unitedHomeAnimation = dynamicLoading({
+    name: 'united'
 });
 
 const preloadCallback = () => {
@@ -69,7 +72,7 @@ const preloadCallback = () => {
     form();
     newsletter();
     modal(modals);
-    //job();
+    job();
     blog();
 
     if (wrapperSlider) {
@@ -88,8 +91,6 @@ const preloadCallback = () => {
         }
     });
 
-    united();
-
     [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
         lottie.loadAnimation({
             container: elt,
@@ -105,7 +106,12 @@ const loadCallback = () => {
     searchHandler();
 };
 
-const animationsCallback = () => {};
+const animationsCallback = () => {
+    bodyRouter({
+        identifier: '.home',
+        callback: unitedHomeAnimation
+    });
+};
 
 superLoad.initializeLoadingShit({
     preloadCallback,
