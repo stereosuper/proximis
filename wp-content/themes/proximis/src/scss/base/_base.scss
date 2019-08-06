@@ -568,23 +568,6 @@ a,
 
     .highlighted {
         display: block;
-        font-family: $recoleta;
-        font-size: 2rem;
-        line-height: $line-height;
-        color: $grey;
-        background: #fff;
-
-        >p {
-            margin: 0;
-        }
-
-        .line {
-            top: 52px;
-        }
-
-        a {
-            font-family: inherit;
-        }
     }
 
     .book-highlighted,
