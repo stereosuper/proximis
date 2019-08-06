@@ -28,24 +28,31 @@ get_header(); ?>
 	<?php endwhile; endif; ?>
 
 	<?php $testimony = get_field('testimony'); if( $testimony ) : ?>
-		<section class='container'>
-			<blockquote>
-				<?php echo $testimony['quote']; ?>
-			</blockquote>
-			<h2><?php echo $testimony['title']; ?></h2>
-			<?php echo $testimony['text']; ?>
-			<?php echo $testimony['anim_text']; ?>
+		<section class='wrapper-quote-solution'>
+			<div class='container'>
+				<div class='container-xsmall'>
+					<blockquote>
+						<?php echo $testimony['quote']; ?>
+					</blockquote>
+				</div>
+				<div class='container-small'>
+					<h2 class='x-small'><?php echo $testimony['title']; ?></h2>
+					<?php echo $testimony['text']; ?>
+				</div>
+				<?php echo $testimony['anim_text']; ?>
+			</div>
 		</section>
 	<?php endif; ?>
 
 	<?php if( have_rows('technos') ) : while( have_rows('technos') ) : the_row(); ?>
-		<section>
+		<section class='wrapper-techno'>
 			<div class='container'>
 				<h2><?php the_sub_field('title'); ?></h2>
 				<?php if( have_rows('tech') ) : ?>
-					<ul>
+					<ul class='techno'>
 						<?php while( have_rows('tech') ) : the_row(); ?>
 							<li>
+								<div class='js-lottie lottie' id='<?php the_sub_field('picto'); ?>' data-path='<?php echo get_template_directory_uri() . '/json/' . get_sub_field('picto') . '.json'; ?>'></div>
 								<?php the_sub_field('text'); ?>
 							</li>
 						<?php endwhile; ?>

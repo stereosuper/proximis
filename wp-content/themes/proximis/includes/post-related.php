@@ -28,7 +28,7 @@
 	if( $relatedQuery->have_posts() ) :
 		?>
 		<div class="related-posts reversed">
-			<h2 class="x-small"><?php echo __('You may also like...', 'proximis'); ?></h2>
+			<h2 class="x-small alter-font"><?php echo __('You may also like...', 'proximis'); ?></h2>
 			<ul class="related">
 		<?php
 			while( $relatedQuery->have_posts() ) : $relatedQuery->the_post(); ?>

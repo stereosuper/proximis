@@ -41,6 +41,77 @@
     }
 }
 
+.wrapper-quote-solution {
+    padding: #{2*$line-height} 0 #{2*$line-height};
+
+    blockquote {
+        position: relative;
+        margin: 0 0 #{2*$line-height};
+        font-size: 2.2rem;
+        text-align: center;
+
+        &::before,
+        &::after {
+            font-family: $ibm;
+            font-size: 1.8rem;
+            color: $primary;
+        }
+
+        &::before {
+            content: "“";
+            position: absolute;
+            top: 0;
+            transform: translate3d(calc(-100% - 3px), 0, 0);
+        }
+
+        &::after {
+            content: "”";
+        }
+    }
+
+    h2 {
+        margin: 0 0 #{$line-height*2};
+    }
+}
+
+.wrapper-techno {
+    padding: #{2*$line-height} 0;
+    background: $white;
+
+    h2 {
+        margin: 0 0 #{2*$line-height};
+    }
+}
+
+.techno {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    >li {
+        display: flex;
+        align-items: center;
+        margin: 0 0 #{$line-height};
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .lottie {
+        flex: 0 0 auto;
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        overflow: hidden;
+    }
+}
+
 @media (min-width: $tablet) {
     .wrapper-data-intro {
         padding: #{$line-height*4} 0;
@@ -61,6 +132,24 @@
         .list-datas {
             padding-left: percentage(0.5/12);
         }
+    }
+
+    .wrapper-quote-solution {
+        padding: #{4*$line-height} 0 #{3*$line-height};
+
+        blockquote {
+            margin-bottom: #{4*$line-height};
+            font-size: 2.8rem;
+
+            &::before,
+            &::after {
+                font-size: 2.4rem;
+            }
+        }
+    }
+
+    .wrapper-techno {
+        padding: #{4*$line-height} 0;
     }
 }
 
@@ -91,6 +180,29 @@
 
         .data-text {
             padding-left: 104px;
+        }
+    }
+
+    .wrapper-techno {
+        h2 {
+            width: 50%;
+            margin: 0 0 #{-3*$line-height};
+            padding-left: percentage(1/12);
+        }
+    }
+
+    .techno {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        >li {
+            width: 50%;
+            margin: 0 0 #{2*$line-height};
+            padding-left: percentage(1/12);
+
+            &:first-child {
+                margin-left: 50%;
+            }
         }
     }
 }

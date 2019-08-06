@@ -191,7 +191,7 @@
 		<div class="container">
 		<?php while (have_rows('they_talk_about_us')): the_row(); ?>
 			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
-				<h2 class="x-small"><?php echo $they_talk_about_us_title ?></h2>
+				<h2 class="x-small alter-font"><?php echo $they_talk_about_us_title ?></h2>
 				<?php if (have_rows('they_talk_about_us_items')): ?>
 				<ul class="related">
 				<?php while (have_rows('they_talk_about_us_items')): the_row();

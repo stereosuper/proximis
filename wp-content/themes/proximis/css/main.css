@@ -300,9 +300,10 @@ h2 {
 h2.big {
     font-size: 2.4rem; }
 .home h2.x-small, h2.x-small {
-    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
     font-size: 2rem;
-    line-height: 28px;
+    line-height: 28px; }
+.home h2.alter-font, h2.alter-font {
+    font-family: "ibmplex_semibold", "ibmplex", sans-serif;
     color: #5c6370; }
 h2:not(.title) > span {
     display: block;
@@ -3528,6 +3529,62 @@ div.wpcf7-mail-sent-ng {
 .list-datas .data-text {
     margin: 0;
     padding-left: 84px; }
+.wrapper-quote-solution {
+  padding: 56px 0 56px; }
+.wrapper-quote-solution blockquote {
+    position: relative;
+    margin: 0 0 56px;
+    font-size: 2.2rem;
+    text-align: center; }
+.wrapper-quote-solution blockquote::before, .wrapper-quote-solution blockquote::after {
+      font-family: "ibmplex", sans-serif;
+      font-size: 1.8rem;
+      color: #55c4da; }
+.wrapper-quote-solution blockquote::before {
+      content: "“";
+      position: absolute;
+      top: 0;
+      -webkit-transform: translate3d(calc(-100% - 3px), 0, 0);
+              transform: translate3d(calc(-100% - 3px), 0, 0); }
+.wrapper-quote-solution blockquote::after {
+      content: "”"; }
+.wrapper-quote-solution h2 {
+    margin: 0 0 56px; }
+.wrapper-techno {
+  padding: 56px 0;
+  background: #fff; }
+.wrapper-techno h2 {
+    margin: 0 0 56px; }
+.techno {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0; }
+.techno > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 0 28px;
+    padding: 0; }
+.techno > li::before {
+      content: none; }
+.techno p {
+    margin: 0; }
+.techno .lottie {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    overflow: hidden; }
 @media (min-width: 780px) {
   .wrapper-data-intro {
     padding: 112px 0; }
@@ -3544,7 +3601,16 @@ div.wpcf7-mail-sent-ng {
     .data-intro h2 {
       padding-right: 4.16667%; }
     .data-intro .list-datas {
-      padding-left: 4.16667%; } }
+      padding-left: 4.16667%; }
+  .wrapper-quote-solution {
+    padding: 112px 0 84px; }
+    .wrapper-quote-solution blockquote {
+      margin-bottom: 112px;
+      font-size: 2.8rem; }
+      .wrapper-quote-solution blockquote::before, .wrapper-quote-solution blockquote::after {
+        font-size: 2.4rem; }
+  .wrapper-techno {
+    padding: 112px 0; } }
 @media (min-width: 960px) {
   .data-intro h2 {
     padding-right: 8.33333%; }
@@ -3559,7 +3625,24 @@ div.wpcf7-mail-sent-ng {
     margin-top: -42px;
     font-size: 2.3rem; }
   .list-datas .data-text {
-    padding-left: 104px; } }
+    padding-left: 104px; }
+  .wrapper-techno h2 {
+    width: 50%;
+    margin: 0 0 -84px;
+    padding-left: 8.33333%; }
+  .techno {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .techno > li {
+      width: 50%;
+      margin: 0 0 56px;
+      padding-left: 8.33333%; }
+      .techno > li:first-child {
+        margin-left: 50%; } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3579,4 +3662,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?4d7aa1ebad7005169b927605427c6db5*/
+/*# sourceMappingURL=main.css.map?66aff1b01e735d320072caa4e69de5b4*/

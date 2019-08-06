@@ -95,9 +95,13 @@ h2 {
 
     .home &.x-small,
     &.x-small {
-        font-family: $ibm-bold;
         font-size: 2rem;
         line-height: $line-height;
+    }
+
+    .home &.alter-font,
+    &.alter-font {
+        font-family: $ibm-bold;
         color: $grey;
     }
 
@@ -545,7 +549,7 @@ a,
             top: 52px;
         }
 
-        a{
+        a {
             font-family: inherit;
         }
     }
