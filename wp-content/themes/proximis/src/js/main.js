@@ -34,7 +34,7 @@ const dynamicLoading = ({ name, isClass = false }) => async () => {
 // ⚠️ DO NOT REMOVE ⚠️
 
 const referencesSliderImport = dynamicLoading({
-    name: 'ReferencesSlider',
+    name: 'RefSlider',
     isClass: true
 });
 

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"referencesSlider":"referencesSlider"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"RefSlider":"RefSlider"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -35710,6 +35710,14 @@ var map = {
 	"./Collant.js": [
 		"./wp-content/themes/proximis/src/js/components/Collant.js"
 	],
+	"./RefSlider": [
+		"./wp-content/themes/proximis/src/js/components/RefSlider.js",
+		"RefSlider"
+	],
+	"./RefSlider.js": [
+		"./wp-content/themes/proximis/src/js/components/RefSlider.js",
+		"RefSlider"
+	],
 	"./Slider": [
 		"./wp-content/themes/proximis/src/js/components/Slider.js"
 	],
@@ -35745,14 +35753,6 @@ var map = {
 	],
 	"./newsletter.js": [
 		"./wp-content/themes/proximis/src/js/components/newsletter.js"
-	],
-	"./referencesSlider": [
-		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
-		"referencesSlider"
-	],
-	"./referencesSlider.js": [
-		"./wp-content/themes/proximis/src/js/components/referencesSlider.js",
-		"referencesSlider"
 	],
 	"./searchHandler": [
 		"./wp-content/themes/proximis/src/js/components/searchHandler.js"
@@ -35842,7 +35842,8 @@ class Collant {
     }
     computeOffsetVh() {
         this.offset =
-            (parseInt(this.rawOffset.replace('vh', ''), 10) * _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight) /
+            (parseInt(this.rawOffset.replace('vh', ''), 10) *
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight) /
             100;
     }
     computeOffset() {
@@ -36536,7 +36537,7 @@ const dynamicLoading = ({ name, isClass = false }) => async () => {
 // ⚠️ DO NOT REMOVE ⚠️
 
 const referencesSliderImport = dynamicLoading({
-    name: 'ReferencesSlider',
+    name: 'RefSlider',
     isClass: true
 });
 
@@ -36673,4 +36674,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?1405b7b4c47496d5f883f6aa18b7a58a
+//# sourceMappingURL=main.js.map?33e9f9ff8337125b5cf1261fe5bb56a9

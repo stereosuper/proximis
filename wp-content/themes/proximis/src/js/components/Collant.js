@@ -35,7 +35,8 @@ class Collant {
     }
     computeOffsetVh() {
         this.offset =
-            (parseInt(this.rawOffset.replace('vh', ''), 10) * superWindow.windowHeight) /
+            (parseInt(this.rawOffset.replace('vh', ''), 10) *
+                superWindow.windowHeight) /
             100;
     }
     computeOffset() {
