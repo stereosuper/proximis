@@ -1,16 +1,26 @@
 import { Collant } from '@stereorepo/collant';
+import { superWindow } from '@stereorepo/sac';
 
 const jobHandler = () => {
     const mail = document.getElementById('job-mail');
 
     if (!mail) return;
 
-    const collant = new Collant({
-        //ctx: '.container-tiny',
-        selector: '.highlighted',
-        box: '.main',
-        offsetTop: '100px'
-    });
+    let collant;
+
+    if (superWindow.windowWidth < 1100) {
+        collant = new Collant({
+            selector: '.highlighted',
+            box: '.main',
+            offsetBottom: '0px'
+        });
+    } else {
+        collant = new Collant({
+            selector: '.highlighted',
+            box: '.main',
+            offsetTop: '200px'
+        });
+    }
 
     collant.stickIt();
 };

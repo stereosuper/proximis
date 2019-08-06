@@ -36373,6 +36373,8 @@ const io = function() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/collant */ "./node_modules/@stereorepo/collant/src/index.js");
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
+
 
 
 const jobHandler = () => {
@@ -36380,12 +36382,21 @@ const jobHandler = () => {
 
     if (!mail) return;
 
-    const collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
-        //ctx: '.container-tiny',
-        selector: '.highlighted',
-        box: '.main',
-        offsetTop: '100px'
-    });
+    let collant;
+
+    if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].windowWidth < 1100) {
+        collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
+            selector: '.highlighted',
+            box: '.main',
+            offsetBottom: '0px'
+        });
+    } else {
+        collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
+            selector: '.highlighted',
+            box: '.main',
+            offsetTop: '200px'
+        });
+    }
 
     collant.stickIt();
 };
@@ -36692,4 +36703,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?19042f51ce1f03e81beb0faa8851e2e1
+//# sourceMappingURL=main.js.map?f52e4b7dc7b19eeb7829a10eab372eb1

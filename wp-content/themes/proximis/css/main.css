@@ -508,7 +508,7 @@ a:active,
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -32px; }
+    bottom: 0; }
 .single-job .highlighted br {
       display: none; }
 .highlighted > p {
@@ -626,7 +626,7 @@ a:active,
     margin: -38px 0 0; }
   .single-job .highlighted {
     padding: 40px;
-    top: 0;
+    top: 200px;
     margin: 0;
     left: auto;
     bottom: auto; }
@@ -3363,7 +3363,9 @@ div.wpcf7-mail-sent-ng {
 .team-member span {
     font-size: 1.4rem; }
 .job-wrapper {
-  position: relative; }
+  padding-bottom: 70px; }
+.job-wrapper .container-tiny {
+    padding-bottom: 10px; }
 @media (min-width: 780px) {
   .job-offer {
     -webkit-box-orient: horizontal;
@@ -3596,4 +3598,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b9678f53ab0331bc05631058fd82f876*/
+/*# sourceMappingURL=main.css.map?ef8b65a70954165c41948f1913797e56*/

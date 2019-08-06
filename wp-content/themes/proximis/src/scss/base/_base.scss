@@ -394,7 +394,7 @@ a,
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -32px;
+        bottom: 0;
         br{
             display: none;
         }
@@ -603,7 +603,7 @@ a,
     .highlighted{
         .single-job &{
             padding: 40px;
-            top: 0;
+            top: 200px;
             margin: 0;
             left: auto;
             bottom: auto;

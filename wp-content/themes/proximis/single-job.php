@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<article class='container'>
+<article class='container job-wrapper'>
 
 	<?php if ( have_posts() ) : the_post(); $thumbnail = has_post_thumbnail(); ?>
 
