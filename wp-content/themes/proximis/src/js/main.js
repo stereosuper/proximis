@@ -15,7 +15,7 @@ import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import blog from './components/blog';
-//import job from './components/job';
+import job from './components/job';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -69,7 +69,7 @@ const preloadCallback = () => {
     form();
     newsletter();
     modal(modals);
-    //job();
+    job();
     blog();
 
     if (wrapperSlider) {

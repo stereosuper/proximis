@@ -228,6 +228,10 @@
     }
 }
 
+.job-wrapper{
+    position: relative;
+}
+
 @media (min-width: $tablet) {
     .job-offer {
         flex-direction: row;

@@ -494,9 +494,29 @@ a:active,
   color: #55c4da; }
 .has-thumbnail .has-drop-cap:before {
   content: none; }
-.highlighted,
-.img-shape {
+.highlighted, .img-shape {
   display: none; }
+.highlighted {
+  font-family: "recoleta", "ibmplex", sans-serif;
+  font-size: 2rem;
+  line-height: 28px;
+  color: #5c6370;
+  background: #fff; }
+.single-job .highlighted {
+    display: block;
+    padding: 25px 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -32px; }
+.single-job .highlighted br {
+      display: none; }
+.highlighted > p {
+    margin: 0; }
+.highlighted .line {
+    top: 52px; }
+.highlighted a {
+    font-family: inherit; }
 .highlighted,
 .book-highlighted {
   padding: 40px; }
@@ -575,18 +595,7 @@ a:active,
     float: left;
     margin-right: 1em; }
   .highlighted {
-    display: block;
-    font-family: "recoleta", "ibmplex", sans-serif;
-    font-size: 2rem;
-    line-height: 28px;
-    color: #5c6370;
-    background: #fff; }
-    .highlighted > p {
-      margin: 0; }
-    .highlighted .line {
-      top: 52px; }
-    .highlighted a {
-      font-family: inherit; }
+    display: block; }
   .book-highlighted h2,
   .newsletter-highlighted h2 {
     margin: 20px 0 30px; }
@@ -615,6 +624,14 @@ a:active,
     position: absolute;
     right: 0;
     margin: -38px 0 0; }
+  .single-job .highlighted {
+    padding: 40px;
+    top: 0;
+    margin: 0;
+    left: auto;
+    bottom: auto; }
+    .single-job .highlighted br {
+      display: block; }
   .alignright {
     margin-right: -45%; }
   .wp-block-image .alignright {
@@ -634,6 +651,8 @@ a:active,
     margin-top: -60px; } }
 /* Placeholders */
 /* Grid */
+.main {
+  position: relative; }
 .wrapper {
   overflow: hidden; }
 .container {
@@ -3347,6 +3366,8 @@ div.wpcf7-mail-sent-ng {
     display: block; }
 .team-member span {
     font-size: 1.4rem; }
+.job-wrapper {
+  position: relative; }
 @media (min-width: 780px) {
   .job-offer {
     -webkit-box-orient: horizontal;
@@ -3509,4 +3530,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?79bbd2c8a3051ac25249bddc61a6d41b*/
+/*# sourceMappingURL=main.css.map?3963bd2bc1f42b59396befbd3a1a8a5d*/

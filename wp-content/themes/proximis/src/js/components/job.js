@@ -5,12 +5,14 @@ const jobHandler = () => {
 
     if (!mail) return;
 
-    new Collant({
-        //ctx: mail,
-        selector: mail,
-        box: '.container-tiny',
+    const collant = new Collant({
+        //ctx: '.container-tiny',
+        selector: '.highlighted',
+        box: '.main',
         offsetTop: '100px'
     });
+
+    collant.stickIt();
 };
 
 export default jobHandler;

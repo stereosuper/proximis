@@ -10,12 +10,14 @@
 
 		<div class='container-tiny'>
 			<?php the_content(); ?>
-			<?php if( get_field('mail') ) : ?>
-				<div class='highlighted' id='job-mail'>
-					<?php the_field('mail'); ?>
-				</div>
-			<?php endif; ?>
 		</div>
+
+		<?php if( get_field('mail') ) : ?>
+			<div class='highlighted' data-io='highlighted' id='job-mail'>
+				<span class="line"></span>
+				<?php the_field('mail'); ?>
+			</div>
+		<?php endif; ?>
 		
 	<?php endif; ?>
 
