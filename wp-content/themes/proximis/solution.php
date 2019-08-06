@@ -8,17 +8,17 @@ get_header(); ?>
 <?php if ( have_posts() ) : the_post(); ?>
 
 	<?php get_template_part('includes/header-page'); ?>
-
+	
 	<?php if( have_rows('numbers') ) : while( have_rows('numbers') ) : the_row(); ?>
-		<section>
-			<div class='container'>
+		<section class='wrapper-data-intro'>
+			<div class='data-intro container'>
 				<h2><?php the_sub_field('title'); ?></h2>
 				<?php if( have_rows('nbs') ) : ?>
-					<ul>
+					<ul class='list-datas'>
 						<?php while( have_rows('nbs') ) : the_row(); ?>
 							<li>
-								<?php the_sub_field('number'); ?>
-								<?php the_sub_field('text'); ?>
+								<div class='data-number'><span><?php the_sub_field('number'); ?></span></div>
+								<div class='data-text'><?php the_sub_field('text'); ?></div>
 							</li>
 						<?php endwhile; ?>
 					</ul>

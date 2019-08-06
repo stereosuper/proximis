@@ -13,7 +13,7 @@
 
 .wrapper-logo {
     flex: 0 0 auto;
-    width: calc(#{3*$col} - 20px);
+    width: calc(#{3 * $col} - 20px);
 }
 
 .logo {
@@ -27,7 +27,7 @@
         content: none;
     }
 
-    >svg {
+    > svg {
         position: absolute;
         top: 0;
         left: 0;
@@ -162,7 +162,7 @@
 .menu-main {
     margin: 6vh 0;
 
-    >li {
+    > li {
         padding: 0;
 
         &:before {
@@ -188,43 +188,28 @@
     }
 }
 
-.mlp-language-box {
-
-    ul {
+.lang-switcher {
+    .lang-list {
         margin: 35px 0 0;
     }
-
-    li {
+    .language {
         display: inline;
         padding: 0;
-
         &:before {
             content: none;
         }
+        > a {
+            text-decoration-color: transparent;
+            font-family: $recoleta;
+            color: $text;
 
-        &:after {
-            content: ' / ';
-        }
-
-        &:last-child {
-            &:after {
-                content: none;
+            &:hover,
+            &:focus {
+                text-decoration-color: currentColor;
             }
         }
     }
-
-    a {
-        text-decoration-color: transparent;
-        font-family: $recoleta;
-        color: $text;
-
-        &:hover,
-        &:focus {
-            text-decoration-color: currentColor;
-        }
-    }
-
-    .current-language-item {
+    .switcher-button {
         font-family: $recoleta-bold;
     }
 }
@@ -337,7 +322,7 @@
 
         .current-menu-item,
         .current_page_parent {
-            >a {
+            > a {
                 font-family: $ibm-bold;
 
                 &:before,

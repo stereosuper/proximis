@@ -235,6 +235,37 @@ function proximis_css_attributes_filter($var){
 }
 add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter' );
 
+function mlp_navigation() {
+    function language_first_part($lang) {
+        return ucfirst(strtok($lang, '_'));
+    }
+    
+    $current_language = language_first_part(mlp_get_current_blog_language());
+    $current_language_element = "<button class='switcher-button js-switcher-button' type='button'>$current_language</button>";
+    
+    $available_languages = '';
+    $other_languages = (array) mlp_get_interlinked_permalinks();
+    
+    if (sizeof($other_languages)) {
+        $items = array ();
+        foreach ( $other_languages as $language ) {
+            $link = sprintf(
+                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
+                esc_url( $language['permalink'] ),
+                esc_attr( $language['lang'] ),
+                language_first_part($language['lang'])
+            );
+            $items[] = "<li class='language'>$link</li>";
+        }
+    
+        $available_languages = '<ul class="lang-list js-lang-list">'. join('', $items) .'</ul>';
+    }
+
+    $language_switcher = "<div class='lang-switcher'>$current_language_element$available_languages</div>";
+
+    return $language_switcher;
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Blog
