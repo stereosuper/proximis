@@ -11,18 +11,20 @@ const ensureScrollTo = ScrollToPlugin;
 class ReferencesSlider {
     constructor() {
         this.state = {
-            transitioning: false,
-            stickySlides: {}
+            transitioning: false
         };
 
         this.referenceSlider = null;
         this.loader = null;
         this.idsList = [];
+        this.slugsList = [];
         this.collants = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
         this.currentSlide = null;
+
+        this.resetContext = this.resetContext.bind(this);
 
         superPolyfill.initializeWhatwgFetch();
     }
@@ -40,8 +42,9 @@ class ReferencesSlider {
             .then(res => {
                 return res.json();
             })
-            .then(({ ids }) => {
+            .then(({ ids, slugs }) => {
                 this.idsList = [...ids];
+                this.slugsList = [...slugs];
                 callback();
             });
     }
@@ -67,17 +70,52 @@ class ReferencesSlider {
                     : this.idsList.slice(idIndex - 1, idIndex - 2);
         }
     }
-    checkLoadingCall() {
-        if (this.newReferenceId === this.currentReferenceId) return;
-        const [slide] = query({
-            selector: `.js-ref-id-${this.newReferenceId}`
-        });
+    scrollToReference() {
+        const offset =
+            window.scrollY + this.referenceSlider.getBoundingClientRect().top;
 
-        if (slide) {
-            slide.classList.add('js-ref-following-slide');
-            this.slideAnimation();
+        TweenLite.to(window, 0.5, {
+            scrollTo: {
+                y: offset
+            },
+            ease: easing.easeInOut
+        });
+    }
+    changeLocationHash(followingSlide) {
+        const slug = followingSlide.dataset.refSlug;
+
+        window.location.hash = slug;
+    }
+    checkLocationHash() {
+        const { hash } = window.location;
+        if (hash) {
+            if (this.state.transitioning) return;
+
+            const slugIndex = this.slugsList.indexOf(hash.replace('#', ''));
+            this.newReferenceId = this.idsList[slugIndex];
+
+            this.type = 'next';
+            this.state.transitioning = true;
+            this.scrollToReference();
+            this.checkLoadingCall();
+        }
+    }
+    checkLoadingCall() {
+        if (this.newReferenceId !== this.currentReferenceId) {
+            const [slide] = query({
+                selector: `.js-ref-id-${this.newReferenceId}`
+            });
+
+            if (slide) {
+                slide.classList.add('js-ref-following-slide');
+                this.slideAnimation();
+            } else {
+                this.startLoadingAction();
+            }
         } else {
-            this.startLoadingAction();
+            this.newReferenceId = null;
+            this.type = null;
+            this.state.transitioning = false;
         }
     }
     stickElements() {
@@ -160,6 +198,8 @@ class ReferencesSlider {
             ctx: this.referenceSlider
         });
 
+        this.changeLocationHash(followingSlide);
+
         oldSlide.classList.remove('ref-slide-init');
 
         TweenMax.set(followingSlide, {
@@ -177,9 +217,7 @@ class ReferencesSlider {
                 TweenMax.to(followingSlide, 0.5, {
                     xPercent: 0,
                     ease: easing.easeInOut,
-                    onComplete: () => {
-                        this.resetContext();
-                    }
+                    onComplete: this.resetContext
                 });
             }
         });
@@ -200,6 +238,8 @@ class ReferencesSlider {
         followingSlide.classList.add('js-ref-current-slide');
 
         this.loader.classList.remove('loading');
+
+        TweenMax.set(followingSlide, { clearProps: 'all' });
 
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -234,9 +274,7 @@ class ReferencesSlider {
                 if (this.state.transitioning) return;
 
                 this.type = 'prev';
-                this.state.transitioning = true;
-                this.findFollowingElement();
-                this.checkLoadingCall();
+                this.changeSlide();
             },
             false
         );
@@ -246,14 +284,17 @@ class ReferencesSlider {
                 if (this.state.transitioning) return;
 
                 this.type = 'next';
-                this.state.transitioning = true;
-                this.findFollowingElement();
-                this.checkLoadingCall();
+                this.changeSlide();
             },
             false
         );
 
         this.stickElements();
+    }
+    changeSlide() {
+        this.state.transitioning = true;
+        this.findFollowingElement();
+        this.checkLoadingCall();
     }
     initializeCaseStudyClickEvent() {
         const caseStudies = query({ selector: '.js-case-study' });
@@ -266,17 +307,7 @@ class ReferencesSlider {
                     if (this.state.transitioning) return;
                     const selectedId = parseInt(caseStudy.dataset.refId, 10);
 
-                    const offset =
-                        window.scrollY +
-                        this.referenceSlider.getBoundingClientRect().top;
-
-                    TweenLite.to(window, 0.5, {
-                        scrollTo: {
-                            y: offset
-                        },
-                        ease: easing.easeInOut
-                    });
-
+                    this.scrollToReference();
                     this.selectFollowingElement({ id: selectedId });
                     this.checkLoadingCall();
                 },
@@ -295,6 +326,7 @@ class ReferencesSlider {
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
+            this.checkLocationHash();
         });
     }
 }
