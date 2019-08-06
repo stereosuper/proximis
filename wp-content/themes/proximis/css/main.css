@@ -3488,6 +3488,76 @@ div.wpcf7-mail-sent-ng {
       right: calc(83.33333% + 60px); }
     .values::after {
       right: calc(83.33333% + 55px); } }
+.wrapper-data-intro {
+  padding: 56px 0;
+  background: #fff; }
+.data-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+.data-intro h2 {
+    margin: 0 0 56px; }
+.list-datas {
+  margin: 0; }
+.list-datas > li {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 56px;
+    margin: 0 0 28px;
+    padding: 0; }
+.list-datas > li::before {
+      content: none; }
+.list-datas .data-number {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px; }
+.list-datas .data-text {
+    margin: 0;
+    padding-left: 84px; }
+@media (min-width: 780px) {
+  .wrapper-data-intro {
+    padding: 112px 0; }
+  .data-intro {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+    .data-intro > * {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+      width: 50%; }
+    .data-intro h2 {
+      padding-right: 4.16667%; }
+    .data-intro .list-datas {
+      padding-left: 4.16667%; } }
+@media (min-width: 960px) {
+  .data-intro h2 {
+    padding-right: 8.33333%; }
+  .data-intro .list-datas {
+    padding-right: 8.33333%;
+    padding-left: 0; }
+  .list-datas > li {
+    margin-bottom: 56px; }
+  .list-datas .data-number {
+    width: 84px;
+    height: 84px;
+    margin-top: -42px;
+    font-size: 2.3rem; }
+  .list-datas .data-text {
+    padding-left: 104px; } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3507,4 +3577,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?90ffa298faa9ab6e72a936ef7d275ac8*/
+/*# sourceMappingURL=main.css.map?53c64808f212281d17651420e29ab327*/
