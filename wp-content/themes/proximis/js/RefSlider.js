@@ -207,9 +207,9 @@ var _doc = (_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["_gsScope"].document || {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
-/* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/ScrollToPlugin */ "./node_modules/gsap/ScrollToPlugin.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global */ "./wp-content/themes/proximis/src/js/global/index.js");
 
 
@@ -219,7 +219,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
-const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__["default"];
+const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__["default"];
 
 class ReferencesSlider {
     constructor() {
@@ -287,7 +287,7 @@ class ReferencesSlider {
         const offset =
             window.scrollY + this.referenceSlider.getBoundingClientRect().top;
 
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenLite"].to(window, 0.5, {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenLite"].to(window, 0.5, {
             scrollTo: {
                 y: offset
             },
@@ -334,19 +334,19 @@ class ReferencesSlider {
     stickElements() {
         this.collants = [
             ...this.collants,
-            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
                 ctx: this.currentSlide,
                 selector: '.js-nav-btn',
                 box: '.js-ref-first-part',
                 offsetTop: '100px'
             }),
-            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
                 ctx: this.currentSlide,
                 selector: '.js-btn-download',
                 box: '.js-ref-content-wrapper',
                 offsetTop: '160px'
             }),
-            new _Collant__WEBPACK_IMPORTED_MODULE_3__["default"]({
+            new !(function webpackMissingModule() { var e = new Error("Cannot find module '@stereorepo/collant'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
                 ctx: this.currentSlide,
                 selector: '.js-infos-datas',
                 box: '.js-content-btn-infos',
@@ -415,19 +415,19 @@ class ReferencesSlider {
 
         oldSlide.classList.remove('ref-slide-init');
 
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].set(followingSlide, {
             xPercent
         });
 
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].set(followingSlide, {
             xPercent
         });
 
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(oldSlide, 0.5, {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(oldSlide, 0.5, {
             xPercent: -xPercent,
             ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
             onStart: () => {
-                gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(followingSlide, 0.5, {
+                gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(followingSlide, 0.5, {
                     xPercent: 0,
                     ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
                     onComplete: this.resetContext
@@ -452,7 +452,7 @@ class ReferencesSlider {
 
         this.loader.classList.remove('loading');
 
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].set(followingSlide, { clearProps: 'all' });
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].set(followingSlide, { clearProps: 'all' });
 
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
@@ -476,7 +476,7 @@ class ReferencesSlider {
         });
 
         const { height } = this.currentSlide.getBoundingClientRect();
-        gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"].to(this.referenceSlider, 0.3, {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(this.referenceSlider, 0.3, {
             height: `${height}px`,
             ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut
         });
@@ -968,4 +968,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?3f4759ca210bc45d854be0166d2d4c3c
+//# sourceMappingURL=RefSlider.js.map?5498bd01df3bdf6da75d4c7800c49124

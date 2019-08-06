@@ -15,7 +15,8 @@ const unitedAnimHandler = () => {
     const tl = new TimelineMax({ paused: true });
 
     const scrollHandler = () => {
-        const scrollOffset = superScroll.scrollTop + superWindow.h * 0.75;
+        const scrollOffset =
+            superScroll.scrollTop + superWindow.windowHeight * 0.75;
         const scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
         if (scrollProgress < 0) return;

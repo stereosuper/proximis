@@ -15,7 +15,6 @@ import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
-import stickReference from './components/stickReference';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -76,6 +75,17 @@ const preloadCallback = () => {
         slider.play();
     }
 
+    bodyRouter({
+        identifier: '.page-template-customers',
+        callback: () => {
+            const referenceSliderPromise = referencesSliderImport();
+            referenceSliderPromise.then(ReferenceSlider => {
+                const referenceSlider = new ReferenceSlider();
+                referenceSlider.initialize();
+            });
+        }
+    });
+
     united();
 
     [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
@@ -131,19 +141,6 @@ const preloadCallback = () => {
 
 const loadCallback = () => {
     searchHandler();
-
-    bodyRouter({
-        identifier: '.page-template-customers',
-        callback: () => {
-            const referenceSliderPromise = referencesSliderImport();
-            referenceSliderPromise.then(ReferenceSlider => {
-                const referenceSlider = new ReferenceSlider();
-                referenceSlider.initialize();
-            });
-
-            stickReference();
-        }
-    });
 };
 
 const animationsCallback = () => {};
