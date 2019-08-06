@@ -1,7 +1,8 @@
 import { superPolyfill, query, forEach } from '@stereorepo/sac';
-import { TweenMax, Power2, TweenLite } from 'gsap';
+import { TweenMax, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
+import Collant from './Collant';
 import { easing } from '../global';
 
 // NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
@@ -10,12 +11,14 @@ const ensureScrollTo = ScrollToPlugin;
 class ReferencesSlider {
     constructor() {
         this.state = {
-            transitioning: false
+            transitioning: false,
+            stickySlides: {}
         };
 
         this.referenceSlider = null;
         this.loader = null;
         this.idsList = [];
+        this.collants = [];
         this.currentReferenceId = 0;
         this.newReferenceId = 0;
         this.type = null;
@@ -76,6 +79,40 @@ class ReferencesSlider {
         } else {
             this.startLoadingAction();
         }
+    }
+    stickElements() {
+        this.collants = [
+            ...this.collants,
+            new Collant({
+                ctx: this.currentSlide,
+                selector: '.js-nav-btn',
+                box: '.js-ref-first-part',
+                offsetTop: '100px'
+            }),
+            new Collant({
+                ctx: this.currentSlide,
+                selector: '.js-btn-download',
+                box: '.js-ref-content-wrapper',
+                offsetTop: '160px'
+            }),
+            new Collant({
+                ctx: this.currentSlide,
+                selector: '.js-infos-datas',
+                box: '.js-content-btn-infos',
+                offsetTop: '25px'
+            })
+        ];
+
+        forEach(this.collants, collant => {
+            collant.stickIt();
+        });
+    }
+    unstickElements() {
+        forEach(this.collants, collant => {
+            collant.ripIt();
+        });
+
+        this.collant = [];
     }
     startLoadingAction() {
         this.loader.classList.add('loading');
@@ -140,7 +177,9 @@ class ReferencesSlider {
                 TweenMax.to(followingSlide, 0.5, {
                     xPercent: 0,
                     ease: easing.easeInOut,
-                    onComplete: this.resetContext()
+                    onComplete: () => {
+                        this.resetContext();
+                    }
                 });
             }
         });
@@ -172,6 +211,8 @@ class ReferencesSlider {
     }
     setCurrentContext() {
         if (this.idsList.length < 2) return;
+
+        this.unstickElements();
 
         [this.currentSlide] = query({ selector: '.js-ref-current-slide' });
         this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
@@ -211,6 +252,8 @@ class ReferencesSlider {
             },
             false
         );
+
+        this.stickElements();
     }
     initializeCaseStudyClickEvent() {
         const caseStudies = query({ selector: '.js-case-study' });

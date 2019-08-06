@@ -35787,15 +35787,21 @@ __webpack_require__.r(__webpack_exports__);
 
 class Collant {
     constructor({
+        ctx = null,
         selector = '.js-collant-selector',
         box = '.js-collant-box',
         offsetTop = '0px',
         offsetBottom = '0px'
     }) {
+        this.contextElement = ctx;
         this.collantSelector = selector;
         this.boxSelector = box;
         this.rawOffset = offsetBottom !== '0px' ? offsetBottom : offsetTop;
         this.offsetPosition = offsetBottom !== '0px' ? 'bottom' : 'top';
+
+        this.state = {
+            resizing: false
+        };
 
         this.collantElement = null;
         this.boxElement = null;
@@ -35806,6 +35812,7 @@ class Collant {
         this.offset = 0;
 
         this.scrollHandler = this.scrollHandler.bind(this);
+        this.resizeHandler = this.resizeHandler.bind(this);
         this.stickIt = this.stickIt.bind(this);
     }
     computeOffsetPx() {
@@ -35813,7 +35820,7 @@ class Collant {
     }
     computeOffsetVh() {
         this.offset =
-            (parseInt(this.rawOffset.replace('vh', ''), 10) * _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h) /
+            (parseInt(this.rawOffset.replace('vh', ''), 10) * _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight) /
             100;
     }
     computeOffset() {
@@ -35851,8 +35858,18 @@ class Collant {
         this.collantElement.style.removeProperty('bottom');
         this.collantElement.style.removeProperty('position');
     }
-    handleTopOffset() {
-        const scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
+    handleOffset() {
+        let scrollOffset = 0;
+        if (this.offsetPosition === 'top') {
+            scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
+        } else if (this.offsetPosition === 'bottom') {
+            scrollOffset =
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop +
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h -
+                this.collantBoundings.height -
+                this.offset;
+        }
+
         const bottomDelimiter =
             this.boxBoundings.y +
             this.boxBoundings.height +
@@ -35865,26 +35882,34 @@ class Collant {
             this.collantElement.style.bottom = '0px';
             this.collantElement.style.position = 'absolute';
         } else if (scrollOffset > this.collantDelimiter) {
-            this.collantElement.style.top = `${this.offset}px`;
+            if (this.offsetPosition === 'top') {
+                this.collantElement.style.top = `${this.offset}px`;
+                this.collantElement.style.bottom = 'auto';
+            } else if (this.offsetPosition === 'bottom') {
+                this.collantElement.style.top = 'auto';
+                this.collantElement.style.bottom = `${this.offset}px`;
+            }
             this.collantElement.style.position = 'fixed';
         }
     }
-    handleBottomOffset() {}
     scrollHandler() {
-        if (this.offsetPosition === 'top') {
-            this.handleTopOffset();
-        } else if (this.offsetPosition === 'bottom') {
-            this.handleBottomOffset();
-        }
+        if (this.state.resizing) return;
+        this.handleOffset();
     }
     resizeHandler() {
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(() => {
-            this.getWindowPosition();
-            this.setBoundings();
-        });
+        this.resetCollantProperties();
+        this.getWindowPosition();
+        this.setBoundings();
+
+        this.collantDelimiter = this.getOffsetParents(this.collantElement);
+
+        this.state.resizing = false;
     }
     stickIt() {
-        [this.boxElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: this.boxSelector });
+        [this.boxElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: this.boxSelector,
+            ctx: this.contextElement
+        });
         if (!this.boxElement) return;
 
         [this.collantElement] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
@@ -35900,9 +35925,22 @@ class Collant {
         this.collantDelimiter = this.getOffsetParents(this.collantElement);
 
         this.scrollHandler();
-        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].addScrollFunction(() => {
+        this.scrollFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].addScrollFunction(() => {
             this.scrollHandler();
         });
+
+        this.resizeFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeFunction(() => {
+            this.state.resizing = true;
+        });
+
+        this.resizeEndFunctionId = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(
+            this.resizeHandler
+        );
+    }
+    ripIt() {
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].removeScrollFunction(this.scrollFunctionId);
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeFunction(this.resizeFunctionId);
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].removeResizeEndFunction(this.resizeEndFunctionId);
     }
 }
 
@@ -36361,29 +36399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
 
 
-const stickReference = () => {
-    const collantArrows = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-nav-btn',
-        box: '.js-ref-first-part',
-        offsetTop: '100px'
-    });
-
-    const collantDownloadButton = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-btn-download',
-        box: '.js-ref-content-wrapper',
-        offsetTop: '160px'
-    });
-
-    const collantInfoData = new _Collant__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        selector: '.js-infos-datas',
-        box: '.js-content-btn-infos',
-        offsetTop: '25px'
-    });
-
-    collantArrows.stickIt();
-    collantDownloadButton.stickIt();
-    collantInfoData.stickIt();
-};
+const stickReference = () => {};
 
 /* harmony default export */ __webpack_exports__["default"] = (stickReference);
 
@@ -36635,4 +36651,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?17890f173ef0b448a0440675ae9e8a03
+//# sourceMappingURL=main.js.map?5f847d9b177e15807e298af58ad7a893

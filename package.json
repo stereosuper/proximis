@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "main": "index.js",
     "dependencies": {
-        "@stereorepo/sac": "^1.4.10",
+        "@stereorepo/sac": "^1.5.0",
         "browser-sync-webpack-plugin": "^2.2.2",
         "intersection-observer": "^0.7.0",
         "lottie-web": "^5.5.5",
