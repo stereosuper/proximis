@@ -260,24 +260,6 @@ function mlp_navigation() {
             );
             $items[] = "<li class='language'>$link</li>";
         }
-        foreach ( $other_languages as $language ) {
-            $link = sprintf(
-                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
-                esc_url( $language['permalink'] ),
-                esc_attr( $language['lang'] ),
-                language_first_part($language['lang'])
-            );
-            $items[] = "<li class='language'>$link</li>";
-        }
-        foreach ( $other_languages as $language ) {
-            $link = sprintf(
-                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
-                esc_url( $language['permalink'] ),
-                esc_attr( $language['lang'] ),
-                language_first_part($language['lang'])
-            );
-            $items[] = "<li class='language'>$link</li>";
-        }
     
         $available_languages = '<ul class="lang-list js-lang-list">'. join('', $items) .'</ul>';
     }

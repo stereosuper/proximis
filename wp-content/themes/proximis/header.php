@@ -112,10 +112,7 @@
 						<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
 					<?php endif; ?>
 
-					<?php 
-					echo mlp_navigation()
-					//mlp_show_linked_elements( array( 'link_text' => 'text', 'echo' => false, 'sort' => 'blogid', 'show_current_blog' => TRUE ) ); 
-					?>
+					<?php echo mlp_navigation() ?>
 				</nav>
 
 			</header>
