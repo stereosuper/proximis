@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./wp-content/themes/proximis/src/js/components/referencesAjaxLoad.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AAAA;;AAEe,wFAAyB,EAAC","file":"referencesAjaxLoad.js","sourcesContent":["const referencesAjaxLoadHandler = () => {};\n\nexport default referencesAjaxLoadHandler;\n"],"sourceRoot":""}

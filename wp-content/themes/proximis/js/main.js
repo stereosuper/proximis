@@ -35756,12 +35756,6 @@ var map = {
 	"./searchHandler.js": [
 		"./wp-content/themes/proximis/src/js/components/searchHandler.js"
 	],
-	"./stickReference": [
-		"./wp-content/themes/proximis/src/js/components/stickReference.js"
-	],
-	"./stickReference.js": [
-		"./wp-content/themes/proximis/src/js/components/stickReference.js"
-	],
 	"./united": [
 		"./wp-content/themes/proximis/src/js/components/united.js"
 	],
@@ -35788,17 +35782,6 @@ webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 };
 webpackAsyncContext.id = "./wp-content/themes/proximis/src/js/components lazy recursive ^\\.\\/.*$";
 module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ "./wp-content/themes/proximis/src/js/components/Collant.js":
-/*!*****************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/Collant.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/eslint-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/albanmezino/Documents/www/stereosuper/proximis/wp-content/themes/proximis/src/js/components/Collant.js'");
 
 /***/ }),
 
@@ -36240,26 +36223,6 @@ const searchHandler = () => {
 
 /***/ }),
 
-/***/ "./wp-content/themes/proximis/src/js/components/stickReference.js":
-/*!************************************************************************!*\
-  !*** ./wp-content/themes/proximis/src/js/components/stickReference.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Collant */ "./wp-content/themes/proximis/src/js/components/Collant.js");
-/* harmony import */ var _Collant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Collant__WEBPACK_IMPORTED_MODULE_0__);
-
-
-const stickReference = () => {};
-
-/* harmony default export */ __webpack_exports__["default"] = (stickReference);
-
-
-/***/ }),
-
 /***/ "./wp-content/themes/proximis/src/js/components/united.js":
 /*!****************************************************************!*\
   !*** ./wp-content/themes/proximis/src/js/components/united.js ***!
@@ -36335,11 +36298,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_newsletter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/newsletter */ "./wp-content/themes/proximis/src/js/components/newsletter.js");
 /* harmony import */ var _components_searchHandler__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/searchHandler */ "./wp-content/themes/proximis/src/js/components/searchHandler.js");
 /* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/modal */ "./wp-content/themes/proximis/src/js/components/modal.js");
-/* harmony import */ var _components_stickReference__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/stickReference */ "./wp-content/themes/proximis/src/js/components/stickReference.js");
 
 
 // @babel/polyfill is necessary for async imports
-
 
 
 
@@ -36419,8 +36380,6 @@ const preloadCallback = () => {
                 const referenceSlider = new ReferenceSlider();
                 referenceSlider.initialize();
             });
-
-            Object(_components_stickReference__WEBPACK_IMPORTED_MODULE_13__["default"])();
         }
     });
 
@@ -36506,4 +36465,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?8440d4319d164158eef66acdfb580363
+//# sourceMappingURL=main.js.map?5223089f185e5eabdf5367f1e0e3d841

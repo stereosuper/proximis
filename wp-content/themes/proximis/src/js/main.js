@@ -15,7 +15,6 @@ import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
-import stickReference from './components/stickReference';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -84,8 +83,6 @@ const preloadCallback = () => {
                 const referenceSlider = new ReferenceSlider();
                 referenceSlider.initialize();
             });
-
-            stickReference();
         }
     });
 

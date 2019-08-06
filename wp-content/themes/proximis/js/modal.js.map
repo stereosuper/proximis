@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./wp-content/themes/proximis/src/js/components/modal.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AAAA;;AAEA;;AAEe,oEAAK,E","file":"modal.js","sourcesContent":["const modal = () => {\n\n};\n\nexport default modal;"],"sourceRoot":""}
