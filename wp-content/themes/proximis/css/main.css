@@ -1062,23 +1062,41 @@ div.wpcf7-mail-sent-ng {
     font-family: "ibmplex", sans-serif;
     text-decoration: none;
     color: #18162b; }
-.lang-switcher .lang-list {
-  margin: 35px 0 0; }
-.lang-switcher .language {
-  display: inline;
-  padding: 0; }
-.lang-switcher .language:before {
-    content: none; }
-.lang-switcher .language > a {
-    -webkit-text-decoration-color: transparent;
-            text-decoration-color: transparent;
-    font-family: "recoleta", "ibmplex", sans-serif;
-    color: #18162b; }
-.lang-switcher .language > a:hover, .lang-switcher .language > a:focus {
-      -webkit-text-decoration-color: currentColor;
-              text-decoration-color: currentColor; }
+.lang-switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 28px 0 0; }
 .lang-switcher .switcher-button {
-  font-family: "recoleta_bold", "ibmplex", sans-serif; }
+    font-family: "recoleta_bold", "ibmplex", sans-serif;
+    pointer-events: none; }
+.lang-switcher .switcher-button::after {
+      content: '/';
+      margin: 0 2px; }
+.lang-switcher .lang-list {
+    margin: 0;
+    font-size: 1.5rem; }
+.lang-switcher .language {
+    display: inline;
+    padding: 0; }
+.lang-switcher .language::before {
+      content: none; }
+.lang-switcher .language::after {
+      content: '/';
+      margin: 0 2px; }
+.lang-switcher .language:last-child::after {
+      content: none; }
+.lang-switcher .language > a {
+      -webkit-text-decoration-color: transparent;
+              text-decoration-color: transparent;
+      font-family: "ibmplex", sans-serif;
+      color: #18162b; }
+.lang-switcher .language > a:hover, .lang-switcher .language > a:focus {
+        -webkit-text-decoration-color: currentColor;
+                text-decoration-color: currentColor; }
 @media (min-width: 1100px) {
   .header {
     margin-top: 50px; }
@@ -1181,8 +1199,32 @@ div.wpcf7-mail-sent-ng {
       .menu-main .current_page_parent > a:after {
         -webkit-transform: scaleY(1);
                 transform: scaleY(1); }
-  .mlp-language-box ul {
-    margin: 0; } }
+  .lang-switcher {
+    margin: 0;
+    position: relative; }
+    .lang-switcher .switcher-button {
+      pointer-events: all; }
+      .lang-switcher .switcher-button::after {
+        content: '';
+        border-style: solid;
+        border-width: 8px 6px 0 6px;
+        border-color: #55c4da transparent transparent transparent; }
+    .lang-switcher .lang-list {
+      padding: 10px 10px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      border-radius: 4px;
+      background: #fff;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%); }
+    .lang-switcher .language {
+      display: block;
+      margin-bottom: 5px; }
+      .lang-switcher .language::after {
+        content: none; }
+      .lang-switcher .language:last-child {
+        margin-bottom: 0; } }
 @media (min-width: 1400px) {
   .nav .btn {
     margin-right: 60px; } }
@@ -3598,4 +3640,8 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
+<<<<<<< HEAD
 /*# sourceMappingURL=main.css.map?ef8b65a70954165c41948f1913797e56*/
+=======
+/*# sourceMappingURL=main.css.map?3c1c0c819af3049d74abf5b67e7fd77e*/
+>>>>>>> 💄✨ lang switcher

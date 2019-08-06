@@ -36268,18 +36268,52 @@ const formHandler = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @stereorepo/sac */ "./node_modules/@stereorepo/sac/src/index.js");
+
+
 const headerHandler = () => {
-    const body = document.getElementsByTagName('body')[0];
-    const burger = document.getElementById('burger');
-    const close = document.getElementById('close-menu');
+    const { body } = document;
+    const [burger] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '#burger' });
+    const [close] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '#close-menu' });
 
-    burger.addEventListener('click', () => {
-        body.classList.add('menu-open');
+    const [langSwitcherButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+        selector: '.js-lang-switcher-button'
+    });
+    const [langSwitcherList] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+        selector: '.js-lang-list'
     });
 
-    close.addEventListener('click', () => {
-        body.classList.remove('menu-open');
-    });
+    if (burger) {
+        burger.addEventListener(
+            'click',
+            () => {
+                body.classList.add('menu-open');
+            },
+            false
+        );
+    }
+
+    if (close) {
+        close.addEventListener(
+            'click',
+            () => {
+                body.classList.remove('menu-open');
+            },
+            false
+        );
+    }
+
+    if (langSwitcherButton) {
+        langSwitcherButton.addEventListener(
+            'click',
+            () => {
+                if (langSwitcherList) {
+                    langSwitcherList.classList.toggle('activated');
+                }
+            },
+            false
+        );
+    }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (headerHandler);
@@ -36703,4 +36737,8 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
+<<<<<<< HEAD
 //# sourceMappingURL=main.js.map?f52e4b7dc7b19eeb7829a10eab372eb1
+=======
+//# sourceMappingURL=main.js.map?4e50ea184543b811de5033fb04ce28b0
+>>>>>>> 💄✨ lang switcher

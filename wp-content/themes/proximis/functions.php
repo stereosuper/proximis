@@ -241,13 +241,31 @@ function mlp_navigation() {
     }
     
     $current_language = language_first_part(mlp_get_current_blog_language());
-    $current_language_element = "<button class='switcher-button js-switcher-button' type='button'>$current_language</button>";
+    $current_language_element = "<button class='switcher-button js-lang-switcher-button' type='button'>$current_language</button>";
     
     $available_languages = '';
     $other_languages = (array) mlp_get_interlinked_permalinks();
     
     if (sizeof($other_languages)) {
         $items = array ();
+        foreach ( $other_languages as $language ) {
+            $link = sprintf(
+                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
+                esc_url( $language['permalink'] ),
+                esc_attr( $language['lang'] ),
+                language_first_part($language['lang'])
+            );
+            $items[] = "<li class='language'>$link</li>";
+        }
+        foreach ( $other_languages as $language ) {
+            $link = sprintf(
+                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
+                esc_url( $language['permalink'] ),
+                esc_attr( $language['lang'] ),
+                language_first_part($language['lang'])
+            );
+            $items[] = "<li class='language'>$link</li>";
+        }
         foreach ( $other_languages as $language ) {
             $link = sprintf(
                 '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',

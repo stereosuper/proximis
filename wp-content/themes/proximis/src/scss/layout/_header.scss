@@ -189,28 +189,45 @@
 }
 
 .lang-switcher {
+    display: flex;
+    justify-content: center;
+    margin: $line-height 0 0;
+    .switcher-button {
+        font-family: $recoleta-bold;
+        pointer-events: none;
+        &::after {
+            content: '/';
+            margin: 0 2px;
+        }
+    }
     .lang-list {
-        margin: 35px 0 0;
+        margin: 0;
+        font-size: 1.5rem;
     }
     .language {
         display: inline;
         padding: 0;
-        &:before {
+        &::before {
             content: none;
+        }
+        &::after {
+            content: '/';
+            margin: 0 2px;
+        }
+        &:last-child {
+            &::after {
+                content: none;
+            }
         }
         > a {
             text-decoration-color: transparent;
-            font-family: $recoleta;
+            font-family: $ibm;
             color: $text;
-
             &:hover,
             &:focus {
                 text-decoration-color: currentColor;
             }
         }
-    }
-    .switcher-button {
-        font-family: $recoleta-bold;
     }
 }
 
@@ -333,9 +350,36 @@
         }
     }
 
-    .mlp-language-box {
-        ul {
-            margin: 0;
+    .lang-switcher {
+        margin: 0;
+        position: relative;
+        .switcher-button {
+            pointer-events: all;
+            &::after {
+                content: '';
+                border-style: solid;
+                border-width: 8px 6px 0 6px;
+                border-color: $primary transparent transparent transparent;
+            }
+        }
+        .lang-list {
+            padding: 10px $gutter * 0.5;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            border-radius: 4px;
+            background: $white;
+            transform: translateX(-50%);
+        }
+        .language {
+            display: block;
+            margin-bottom: 5px;
+            &::after {
+                content: none;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
