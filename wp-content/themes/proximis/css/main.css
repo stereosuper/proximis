@@ -3151,6 +3151,44 @@ div.wpcf7-mail-sent-ng {
 #offers h2 {
     margin: 0;
     text-align: center; }
+.hero-offers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+.hero-offers h1 {
+    margin: 0 0 28px; }
+.hero-offers p {
+    margin: 28px 0; }
+.travel-guides {
+  display: none; }
+.values {
+  position: relative;
+  margin: 56px 0 112px; }
+.values h2 {
+    margin: 0; }
+.values h2 + p {
+      margin: 0;
+      color: #5c6370; }
+.wrapper-values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+.wrapper-values h3 {
+    margin: 28px 0 0;
+    color: #18162b; }
+.wrapper-values p {
+    margin: 0 0 28px; }
 .offers-list {
   width: calc(100% + 20px);
   margin: 84px 0 56px -10px; }
@@ -3335,11 +3373,121 @@ div.wpcf7-mail-sent-ng {
       margin-bottom: 112px;
       padding-left: 8.33333%; } }
 @media (min-width: 960px) {
+  .hero-offers {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    .hero-offers .intro {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+      width: 41.66667%; }
+  .values {
+    margin: 112px 0;
+    padding-left: 8.33333%; }
+    .values::before, .values::after {
+      content: "";
+      position: absolute; }
+    .values::before {
+      top: calc(-84px - 1px);
+      right: calc(91.66667% + 60px);
+      width: 75px;
+      height: calc(112px - 7px);
+      border-top: 1px dashed #55c4da;
+      border-right: 1px dashed #55c4da;
+      border-top-right-radius: 75px; }
+    .values::after {
+      display: block;
+      width: 10px;
+      height: 10px;
+      top: 12px;
+      right: calc(91.66667% + 55px);
+      border-radius: 50%;
+      background: #55c4da; }
+  .wrapper-values {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: calc(100% + 20px);
+    margin-left: -10px; }
+    .wrapper-values > div {
+      margin: 0 10px; }
+    .wrapper-values h3 {
+      margin: 56px 0 28px; }
+    .wrapper-values p {
+      margin: 28px 0; }
+  .travel-guides {
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0;
+    padding: 0 0 112px 20px; }
+    .travel-guides::before, .travel-guides::after {
+      content: '';
+      position: absolute;
+      bottom: -28px; }
+    .travel-guides::before {
+      height: 112px;
+      left: calc(10% + 50px);
+      right: -14px;
+      border: 1px dashed #55c4da;
+      border-left-width: 0;
+      border-top-right-radius: 75px;
+      border-bottom-right-radius: 75px; }
+    .travel-guides::after {
+      right: calc(90% - 50px);
+      width: 100vw;
+      border-top: 1px dashed #55c4da; }
+    .travel-guides > li {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+      position: relative;
+      width: calc(20% - 15px);
+      max-width: none;
+      margin: 0 0 0 15px;
+      padding: 0; }
+      .travel-guides > li::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        top: auto;
+        bottom: calc(-28px - 5px);
+        left: 50%;
+        margin-left: -5px; }
+    .travel-guides img {
+      width: 100%; }
   .job-offer::before {
     right: -6.25%;
     left: -6.25%; }
   .team-testimonials > li {
     width: 33.33333%; } }
+@media (min-width: 1100px) {
+  .hero-offers .intro {
+    padding-left: 8.33333%; }
+  .travel-guides {
+    padding-left: 40px; }
+    .travel-guides > li {
+      width: calc(20% - 25px);
+      margin-left: 25px; }
+  .values {
+    padding-left: 16.66667%; }
+    .values::before {
+      right: calc(83.33333% + 60px); }
+    .values::after {
+      right: calc(83.33333% + 55px); } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3359,4 +3507,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b84bd01d4d2c2bc1c4e3973767e267d8*/
+/*# sourceMappingURL=main.css.map?90ffa298faa9ab6e72a936ef7d275ac8*/
