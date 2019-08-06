@@ -241,7 +241,7 @@ function mlp_navigation() {
     }
     
     $current_language = language_first_part(mlp_get_current_blog_language());
-    $current_language_element = "<span>$current_language</span>";
+    $current_language_element = "<button class='switcher-button js-switcher-button' type='button'>$current_language</button>";
     
     $available_languages = '';
     $other_languages = (array) mlp_get_interlinked_permalinks();
@@ -258,7 +258,7 @@ function mlp_navigation() {
             $items[] = "<li class='language'>$link</li>";
         }
     
-        $available_languages = '<ul >'. join('', $items) .'</ul>';
+        $available_languages = '<ul class="lang-list js-lang-list">'. join('', $items) .'</ul>';
     }
 
     $language_switcher = "<div class='lang-switcher'>$current_language_element$available_languages</div>";

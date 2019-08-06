@@ -1043,26 +1043,22 @@ div.wpcf7-mail-sent-ng {
     font-family: "ibmplex", sans-serif;
     text-decoration: none;
     color: #18162b; }
-.mlp-language-box ul {
+.lang-switcher .lang-list {
   margin: 35px 0 0; }
-.mlp-language-box li {
+.lang-switcher .language {
   display: inline;
   padding: 0; }
-.mlp-language-box li:before {
+.lang-switcher .language:before {
     content: none; }
-.mlp-language-box li:after {
-    content: ' / '; }
-.mlp-language-box li:last-child:after {
-    content: none; }
-.mlp-language-box a {
-  -webkit-text-decoration-color: transparent;
-          text-decoration-color: transparent;
-  font-family: "recoleta", "ibmplex", sans-serif;
-  color: #18162b; }
-.mlp-language-box a:hover, .mlp-language-box a:focus {
-    -webkit-text-decoration-color: currentColor;
-            text-decoration-color: currentColor; }
-.mlp-language-box .current-language-item {
+.lang-switcher .language > a {
+    -webkit-text-decoration-color: transparent;
+            text-decoration-color: transparent;
+    font-family: "recoleta", "ibmplex", sans-serif;
+    color: #18162b; }
+.lang-switcher .language > a:hover, .lang-switcher .language > a:focus {
+      -webkit-text-decoration-color: currentColor;
+              text-decoration-color: currentColor; }
+.lang-switcher .switcher-button {
   font-family: "recoleta_bold", "ibmplex", sans-serif; }
 @media (min-width: 1100px) {
   .header {
@@ -3579,4 +3575,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?4d7aa1ebad7005169b927605427c6db5*/
+/*# sourceMappingURL=main.css.map?026bce0f95f93dbd770e9ed1b66ecf6a*/
