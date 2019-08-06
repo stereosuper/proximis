@@ -3,7 +3,6 @@ import '../scss/main.scss';
 // @babel/polyfill is necessary for async imports
 import '@babel/polyfill';
 import { superLoad, superWindow, query, bodyRouter } from '@stereorepo/sac';
-import Macy from 'macy';
 import lottie from 'lottie-web';
 
 import io from './components/io';
@@ -15,6 +14,8 @@ import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
+import blog from './components/blog';
+//import job from './components/job';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -58,7 +59,6 @@ const preloadCallback = () => {
     });
 
     let slider = null;
-    const cats = document.getElementById('cats');
 
     const modals = query({
         selector: '.js-modal'
@@ -69,6 +69,8 @@ const preloadCallback = () => {
     form();
     newsletter();
     modal(modals);
+    //job();
+    blog();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
@@ -97,46 +99,6 @@ const preloadCallback = () => {
             path: elt.getAttribute('data-path')
         });
     });
-
-    if (document.getElementById('blog')) {
-        Macy({
-            container: '#blog',
-            trueOrder: true,
-            waitForImages: true,
-            margin: 80,
-            columns: 3,
-            breakAt: {
-                960: 2,
-                580: 1
-            }
-        });
-    }
-
-    if (cats) {
-        cats.addEventListener('click', () => {
-            cats.classList.contains('off')
-                ? cats.classList.remove('off')
-                : cats.classList.add('off');
-        });
-
-        document.addEventListener('click', e => {
-            let targetElement = e.target;
-
-            do {
-                if (targetElement == cats) {
-                    // This is a click inside. Do nothing, just return.
-                    return;
-                }
-                // Go up the DOM
-                targetElement = targetElement.parentNode;
-            } while (targetElement);
-
-            // This is a click outside.
-            if (!cats.classList.contains('off')) {
-                cats.classList.add('off');
-            }
-        });
-    }
 };
 
 const loadCallback = () => {
