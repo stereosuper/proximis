@@ -1990,7 +1990,7 @@ div.wpcf7-mail-sent-ng {
 .infos-datas {
   margin-bottom: 84px; }
 .title-ref {
-  margin-bottom: 56px; }
+  margin: 0.6em 0 56px; }
 .use-case-title {
   color: #18162b; }
 .wrapper-data {
@@ -4048,4 +4048,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?aae4397c90bb1b6376b1031abf01a16c*/
+/*# sourceMappingURL=main.css.map?a1978b4bc23961cbb901287d33064522*/

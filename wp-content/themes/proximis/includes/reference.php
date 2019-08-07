@@ -29,7 +29,7 @@
                             </button>
                         </div>
                         <div class="infos-datas js-infos-datas">
-                            <h1 class="title-ref"><?php the_title(); ?></h1>
+                            <h2 class="h1 title-ref"><?php the_title(); ?></h2>
                             <?php if( have_rows('datas') ) : ?>
                                 <?php while( have_rows('datas') ) : the_row(); ?>
                                     <div class="wrapper-data">
