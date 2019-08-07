@@ -112,6 +112,62 @@
     }
 }
 
+.schema-wrapper{
+    padding: 40px 0 0;
+}
+.schema{
+    display: none;
+}
+.beyonce{
+    width: 77px;
+    margin: 0 0 -50px 50px;
+}
+.schema-svg{
+    max-width: 100%;
+    .schema-btn{
+        cursor: help;
+    }
+}
+.schema-desc{
+    max-width: 440px;
+    padding: 65px 60px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(#000, 0.14);
+    pointer-events: none;
+    opacity: 0;
+    &.on{
+        opacity: 1;
+    }
+    p{
+        margin: 0;
+        font-size: 1.4rem;
+        color: $grey;
+    }
+    h3{
+        font-size: 2rem;
+        margin: 0;
+        color: inherit;
+    }
+}
+
+
+@media (min-width: $phone){
+    .schema{
+        display: block;
+        min-width: 490px;
+        max-width: 520px;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .schema-img{
+        display: none;
+    }
+}
+
 @media (min-width: $tablet) {
     .wrapper-data-intro {
         padding: #{$line-height*4} 0;
@@ -204,5 +260,29 @@
                 margin-left: 50%;
             }
         }
+    }
+}
+
+@media (min-width: $desktop){
+    .schema-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .schema-text{
+        width: 41.88%;
+        margin: 0 0 0 8.5%;
+    }
+
+    .schema{
+        width: 50%;
+    }
+}
+
+@media (min-width: $desktop-big){
+    .schema-text{
+        width: 33.33%;
+        margin: 0 8.5%;
     }
 }
