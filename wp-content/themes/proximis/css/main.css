@@ -1998,6 +1998,8 @@ div.wpcf7-mail-sent-ng {
   position: relative;
   padding: 50px 0 100px;
   background: #fff; }
+.ref-content-wrapper {
+  padding: 0 40px; }
 .infos-datas {
   margin-bottom: 84px; }
 .title-ref {
@@ -2181,51 +2183,51 @@ div.wpcf7-mail-sent-ng {
     right: 0;
     line-height: 40px;
     color: #fff; }
-@media (min-width: 780px) {
+@media (min-width: 960px) {
   .container-ref {
     padding: 100px 0 160px; }
   .ref-content-wrapper {
-    position: relative; }
+    position: relative;
+    padding: 0; }
+  .ref-first-part,
+  .wrapper-results-awards {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto; }
   .ref-first-part {
     position: relative; }
   .wrapper-ref-illus {
     margin-left: 10%; }
-  .title-text {
+  .title-text,
+  .results {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    width: 60%; }
-    .title-text > * {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 auto;
-              flex: 0 0 auto; }
+    width: 50%;
+    margin: 0 8.33333%; }
   .use-case-title {
-    width: 33.33333%; }
+    width: 33.33333%;
+    padding-left: 10px; }
   .use-case-content {
     width: 66.66667%;
-    padding-left: 20px; }
+    padding: 0 10px; }
   .wrapper-results-awards {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: flex-start;
-    width: 100%; }
-    .wrapper-results-awards > * {
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 auto;
-              flex: 0 0 auto; }
-  .results {
-    width: 60%; }
+            align-items: flex-start; }
   .awards {
-    width: 30%; }
+    width: 25%;
+    padding: 0 10px;
+    margin: 0 8.33333% 0 0; }
   .wrapper-btn-infos {
     position: absolute;
     top: 120px;
@@ -2257,8 +2259,18 @@ div.wpcf7-mail-sent-ng {
     right: 0; }
   .title-ref,
   .wrapper-data {
+    padding: 0 10px;
     margin-left: 66.66667%;
     margin-right: 8.33333%; }
+  .data-text {
+    width: 66.66667%;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: 0; }
+  .data-number {
+    left: auto;
+    right: 66.66667%;
+    margin-right: 10px; }
   .nav-btn {
     max-width: 1350px;
     margin: 0 auto;
@@ -4063,4 +4075,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?3d68d95c48403bec5fd7b88fef17bf8d*/
+/*# sourceMappingURL=main.css.map?b25ddbe1c04bac99ac40b8e046756a78*/

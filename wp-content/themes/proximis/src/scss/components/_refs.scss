@@ -100,6 +100,10 @@
     background: $white;
 }
 
+.ref-content-wrapper {
+    padding: 0 $gutter * 2;
+}
+
 .infos-datas {
     margin-bottom: $line-height * 3;
 }
@@ -360,59 +364,57 @@
     }
 }
 
-@media (min-width: $tablet) {
+@media (min-width: $desktop-small) {
     .container-ref {
         padding: 100px 0 160px;
     }
 
     .ref-content-wrapper {
         position: relative;
+        padding: 0;
     }
 
+    .ref-first-part,
+    .wrapper-results-awards {
+        width: 100%;
+        max-width: $container;
+        margin: 0 auto;
+    }
     .ref-first-part {
         position: relative;
     }
-
     .wrapper-ref-illus {
         margin-left: percentage(1/10);
     }
 
-    .title-text {
+    .title-text,
+    .results {
         display: flex;
         align-items: flex-start;
-        width: percentage(6/10);
-
-        > * {
-            flex: 0 0 auto;
-        }
+        width: percentage(6/12);
+        margin: 0 percentage(1/12);
     }
 
     .use-case-title {
         width: percentage(2/6);
+        padding-left: $gutter * 0.5;
     }
 
     .use-case-content {
         width: percentage(4/6);
-        padding-left: $gutter;
+        padding: 0 $gutter * 0.5;
     }
 
     .wrapper-results-awards {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
-        width: 100%;
-
-        > * {
-            flex: 0 0 auto;
-        }
-    }
-
-    .results {
-        width: percentage(6/10);
     }
 
     .awards {
-        width: percentage(3/10);
+        width: percentage(3/12);
+        padding: 0 $gutter * 0.5;
+        margin: 0 percentage(1/12) 0 0;
     }
 
     .wrapper-btn-infos {
@@ -446,8 +448,21 @@
 
     .title-ref,
     .wrapper-data {
+        padding: 0 $gutter * 0.5;
         margin-left: percentage(8/12);
         margin-right: percentage(1/12);
+    }
+
+    .data-text {
+        width: percentage(2/3);
+        padding: 0 $gutter * 0.5;
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .data-number {
+        left: auto;
+        right: percentage(2/3);
+        margin-right: $gutter * 0.5;
     }
 
     .nav-btn {
