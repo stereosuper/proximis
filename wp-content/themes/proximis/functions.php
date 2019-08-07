@@ -210,6 +210,16 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'scroll-to-button',
+        'title'             => __("Scroll to button"),
+        'description'       => __("Scroll to button"),
+        'render_template'   => 'blocks/scroll-to-button.php',
+        'category'          => 'layout',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'scroll', 'button' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'newsletter',
         'title'             => __("Newsletter"),
         'description'       => __("Newsletter"),

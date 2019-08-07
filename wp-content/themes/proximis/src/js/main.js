@@ -15,6 +15,7 @@ import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
+import scrollToButton from './components/scrollToButton';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -69,9 +70,10 @@ const preloadCallback = () => {
 
     // Components with global use
     header();
+    modal(modals);
+    scrollToButton();
     form();
     newsletter();
-    modal(modals);
     job();
     blog();
 

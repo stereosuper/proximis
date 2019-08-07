@@ -1791,8 +1791,6 @@ div.wpcf7-mail-sent-ng {
     height: 10px;
     position: relative;
     margin: 0 0 0 6px;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
     -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
@@ -1858,6 +1856,17 @@ div.wpcf7-mail-sent-ng {
 .link.small:hover > i, .link.small:focus > i {
     -webkit-transform: scale(0.6) translate3d(-10px, 0, 0);
             transform: scale(0.6) translate3d(-10px, 0, 0); }
+.button-scroll-to > i {
+  width: 7px;
+  min-width: 7px;
+  height: 15px;
+  margin-left: 10px; }
+.button-scroll-to > i::before {
+    width: 2px;
+    height: 15px; }
+.button-scroll-to > i::after {
+    border-width: 7px 5px 0 5px;
+    border-color: #55c4da transparent transparent transparent; }
 .ref {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -3746,4 +3755,8 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
+<<<<<<< HEAD
 /*# sourceMappingURL=main.css.map?4faa039ccc49cede5411a024daefdfde*/
+=======
+/*# sourceMappingURL=main.css.map?035813af5c6a3f3dd90e451c2c1fab32*/
+>>>>>>> ⬆️💄✨ scroll to button + collant fixes
