@@ -1,4 +1,4 @@
-import { forEach } from '@stereorepo/sac';
+import { forEach, query } from '@stereorepo/sac';
 
 const headerHandler = () => {
     const newsletters = document.getElementsByClassName('newsletter');
@@ -7,16 +7,23 @@ const headerHandler = () => {
     if (!newsletters.length) return;
 
     forEach(newsletters, elt => {
-        input = elt.querySelector('.wpcf7-email');
-        email = elt.querySelector('.email');
-
-        input.addEventListener('focus', () => {
-            email.classList.add('on');
+        [input] = query({
+            selector: '.wpcf7-email',
+            ctx: elt
+        });
+        [email] = query({
+            selector: '.email',
+            ctx: elt
         });
 
-        input.addEventListener('blur', () => {
-            if (!input.value) email.classList.remove('on');
-        });
+        if (input) {
+            input.addEventListener('focus', () => {
+                email.classList.add('on');
+            });
+            input.addEventListener('blur', () => {
+                if (!input.value) email.classList.remove('on');
+            });
+        }
     });
 };
 
