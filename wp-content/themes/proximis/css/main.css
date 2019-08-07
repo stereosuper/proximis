@@ -256,6 +256,8 @@ body {
   color: #18162b; }
 body.menu-open {
     overflow-y: hidden; }
+body.error404 {
+    background: #ff737b; }
 h1,
 h2,
 h3,
@@ -1429,6 +1431,8 @@ div.wpcf7-mail-sent-ng {
   line-height: 1;
   font-family: "ibmplex", sans-serif;
   color: #55c4da; }
+.error404 .breadcrumbs {
+    color: #fff; }
 .header-page .breadcrumbs {
     color: #fff; }
 .breadcrumbs:before {
@@ -3759,6 +3763,40 @@ div.wpcf7-mail-sent-ng {
       padding-left: 8.33333%; }
       .techno > li:first-child {
         margin-left: 50%; } }
+.error404 .title {
+  width: 58.33333%;
+  padding: 0 20px 0 0;
+  color: #fff; }
+.error404 .title-part {
+  margin: 0;
+  color: #000; }
+.error404 .error-404-image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+.error404 .error-404-image {
+  width: 37.5%; }
+.error404 .content {
+  width: 50%;
+  padding: 0 20px 112px 0;
+  margin: 0; }
+.error404 .content a {
+    color: #fff; }
+.error404 .content > p {
+    margin-bottom: 0; }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3778,4 +3816,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?3a6e16189a6d1f41f298ad8f60b7e33a*/
+/*# sourceMappingURL=main.css.map?a700dbdfc117967d05eb8b421e2b1422*/

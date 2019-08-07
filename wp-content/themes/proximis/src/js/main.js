@@ -16,6 +16,7 @@ import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
 import scrollToButton from './components/scrollToButton';
+import error404 from './components/error404';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -76,6 +77,7 @@ const preloadCallback = () => {
     newsletter();
     job();
     blog();
+    error404();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
