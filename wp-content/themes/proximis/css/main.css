@@ -1167,13 +1167,15 @@ div.wpcf7-mail-sent-ng {
       .page-template-services .nav .btn,
       .page-template-about .nav .btn,
       .page-template-customers .nav .btn,
-      .page-template-solution .nav .btn {
+      .page-template-solution .nav .btn,
+      .error404 .nav .btn {
         color: #18162b; }
         .home .nav .btn:after,
         .page-template-services .nav .btn:after,
         .page-template-about .nav .btn:after,
         .page-template-customers .nav .btn:after,
-        .page-template-solution .nav .btn:after {
+        .page-template-solution .nav .btn:after,
+        .error404 .nav .btn:after {
           background: #fff; }
   .menu-main {
     display: -webkit-box;
@@ -1204,11 +1206,13 @@ div.wpcf7-mail-sent-ng {
         .page-template-services .menu-main a:before,
         .page-template-about .menu-main a:before,
         .page-template-customers .menu-main a:before,
-        .page-template-solution .menu-main a:before, .home .menu-main a:after,
+        .page-template-solution .menu-main a:before,
+        .error404 .menu-main a:before, .home .menu-main a:after,
         .page-template-services .menu-main a:after,
         .page-template-about .menu-main a:after,
         .page-template-customers .menu-main a:after,
-        .page-template-solution .menu-main a:after {
+        .page-template-solution .menu-main a:after,
+        .error404 .menu-main a:after {
           background: #fff; }
       .menu-main a:before {
         height: 60px;
@@ -3919,39 +3923,47 @@ div.wpcf7-mail-sent-ng {
   .wrapper-partner-form .wrapper-form {
     padding-right: 8.33333%; } }
 .error404 .title {
-  width: 58.33333%;
+  width: 100%;
   padding: 0 20px 0 0;
+  margin: 28px auto 28px 0;
   color: #fff; }
 .error404 .title-part {
   margin: 0;
   color: #000; }
 .error404 .error-404-image-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  width: 100%;
-  max-width: 1350px;
-  margin: 0 auto;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-.error404 .error-404-image {
-  width: 37.5%; }
+  display: none; }
 .error404 .content {
-  width: 50%;
+  width: 100%;
   padding: 0 20px 112px 0;
   margin: 0; }
 .error404 .content a {
     color: #fff; }
 .error404 .content > p {
-    margin-bottom: 0; }
+    margin: 0; }
+@media (min-width: 780px) {
+  .error404 .title {
+    width: 58.33333%; }
+  .error404 .error-404-image-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  .error404 .error-404-image {
+    width: 37.5%; }
+  .error404 .content {
+    width: 50%; } }
 /******* PRINT *******/
 @media print {
   *, *:before {
@@ -3971,4 +3983,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?c15a53af6e4d604cfd0e81d61362685c*/
+/*# sourceMappingURL=main.css.map?56eddca5497b9d2b280c956499a0d371*/

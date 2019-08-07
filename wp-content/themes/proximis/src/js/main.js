@@ -5,8 +5,9 @@ import '@babel/polyfill';
 import { superLoad, superWindow, query, bodyRouter } from '@stereorepo/sac';
 import lottie from 'lottie-web';
 
-import io from './components/io';
+import { breakpoints } from './global';
 
+import io from './components/io';
 import header from './components/header';
 import Slider from './components/Slider';
 import form from './components/form';
@@ -16,7 +17,6 @@ import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
 import scrollToButton from './components/scrollToButton';
-import error404 from './components/error404';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -38,23 +38,15 @@ const referencesSliderImport = dynamicLoading({
     name: 'RefSlider',
     isClass: true
 });
-
 const unitedHomeAnimation = dynamicLoading({
     name: 'united'
 });
+const error404 = dynamicLoading({
+    name: 'error404'
+});
 
 const preloadCallback = () => {
-    superWindow.setBreakpoints({
-        horizontal: {
-            xs: 0,
-            s: 400,
-            m: 580,
-            l: 780,
-            xl: 960,
-            xxl: 1100
-        },
-        vertical: {}
-    });
+    superWindow.setBreakpoints(breakpoints);
 
     // Stéréosuper js library init
     io.init();
@@ -77,7 +69,6 @@ const preloadCallback = () => {
     newsletter();
     job();
     blog();
-    error404();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
@@ -95,14 +86,9 @@ const preloadCallback = () => {
         }
     });
 
-    [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
-        lottie.loadAnimation({
-            container: elt,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: elt.getAttribute('data-path')
-        });
+    bodyRouter({
+        identifier: '.error404',
+        callback: error404
     });
 };
 
@@ -114,6 +100,16 @@ const animationsCallback = () => {
     bodyRouter({
         identifier: '.home',
         callback: unitedHomeAnimation
+    });
+
+    [...document.getElementsByClassName('js-lottie')].forEach(elt => {
+        lottie.loadAnimation({
+            container: elt,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: elt.getAttribute('data-path')
+        });
     });
 };
 

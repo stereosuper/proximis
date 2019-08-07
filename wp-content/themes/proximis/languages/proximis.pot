@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: proximis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 12:41+0000\n"
+"POT-Creation-Date: 2019-08-07 15:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,12 +15,44 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.0; wp-5.2.2"
 
-#: index.php:19
-msgid " results for "
+#: index.php:22 index.php:38
+msgid "posts"
+msgstr ""
+
+#: index.php:22 index.php:38
+msgid "post"
+msgstr ""
+
+#: index.php:65 index.php:76
+msgid "Display all posts"
+msgstr ""
+
+#: index.php:168
+msgid "There are no posts here"
 msgstr ""
 
 #. Name of the template
-msgid "About"
+msgid "Partners"
+msgstr ""
+
+#: partners.php:35
+msgid "Learn more"
+msgstr ""
+
+#. Name of the template
+msgid "Services"
+msgstr ""
+
+#. Name of the template
+msgid "Contact"
+msgstr ""
+
+#: contact.php:74
+msgid "We will get back to you soon."
+msgstr ""
+
+#: contact.php:75
+msgid "Send a new message"
 msgstr ""
 
 #: header.php:68
@@ -28,23 +60,39 @@ msgid "Close menu"
 msgstr ""
 
 #. Name of the template
-msgid "Contact"
+msgid "Sitemap"
 msgstr ""
 
 #. Name of the template
 msgid "Customers"
 msgstr ""
 
-#: index.php:40
-msgid "Display all posts"
+#. Name of the template
+msgid "About"
 msgstr ""
 
-#. Author URI of the theme
-msgid "http://stereosuper.fr"
+#. Name of the template
+msgid "Solution"
+msgstr ""
+
+#: front-page.php:233
+msgid "Read more"
+msgstr ""
+
+#: searchform.php:3
+msgid "Search..."
+msgstr ""
+
+#: searchform.php:6
+msgid "Search"
 msgstr ""
 
 #. Name of the template
 msgid "Offers"
+msgstr ""
+
+#: includes/post-related.php:31
+msgid "You may also like..."
 msgstr ""
 
 #. Name of the theme
@@ -55,30 +103,10 @@ msgstr ""
 msgid "Proximis theme"
 msgstr ""
 
-#: front-page.php:225
-msgid "Read more"
-msgstr ""
-
-#: contact.php:75
-msgid "Send a new message"
-msgstr ""
-
-#. Name of the template
-msgid "Services"
-msgstr ""
-
-#. Name of the template
-msgid "Sitemap"
-msgstr ""
-
 #. Author of the theme
 msgid "Stéréosuper"
 msgstr ""
 
-#: index.php:105
-msgid "There are no posts here"
-msgstr ""
-
-#: contact.php:74
-msgid "We will get back to you soon."
+#. Author URI of the theme
+msgid "http://stereosuper.fr"
 msgstr ""
