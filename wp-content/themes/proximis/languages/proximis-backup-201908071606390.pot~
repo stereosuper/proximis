@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: proximis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 12:41+0000\n"
+"POT-Creation-Date: 2019-08-07 16:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,10 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.0; wp-5.2.2"
-
-#: index.php:19
-msgid " results for "
-msgstr ""
 
 #. Name of the template
 msgid "About"
@@ -35,7 +31,7 @@ msgstr ""
 msgid "Customers"
 msgstr ""
 
-#: index.php:40
+#: index.php:44 index.php:55
 msgid "Display all posts"
 msgstr ""
 
@@ -43,8 +39,20 @@ msgstr ""
 msgid "http://stereosuper.fr"
 msgstr ""
 
+#: partners.php:35
+msgid "Learn more"
+msgstr ""
+
 #. Name of the template
 msgid "Offers"
+msgstr ""
+
+#. Name of the template
+msgid "Partners"
+msgstr ""
+
+#: index.php:22
+msgid "Posts published by"
 msgstr ""
 
 #. Name of the theme
@@ -55,8 +63,16 @@ msgstr ""
 msgid "Proximis theme"
 msgstr ""
 
-#: front-page.php:225
+#: front-page.php:233
 msgid "Read more"
+msgstr ""
+
+#: searchform.php:6
+msgid "Search"
+msgstr ""
+
+#: searchform.php:3
+msgid "Search..."
 msgstr ""
 
 #: contact.php:75
@@ -71,14 +87,22 @@ msgstr ""
 msgid "Sitemap"
 msgstr ""
 
+#. Name of the template
+msgid "Solution"
+msgstr ""
+
 #. Author of the theme
 msgid "Stéréosuper"
 msgstr ""
 
-#: index.php:105
+#: index.php:147
 msgid "There are no posts here"
 msgstr ""
 
 #: contact.php:74
 msgid "We will get back to you soon."
+msgstr ""
+
+#: includes/post-related.php:31
+msgid "You may also like..."
 msgstr ""

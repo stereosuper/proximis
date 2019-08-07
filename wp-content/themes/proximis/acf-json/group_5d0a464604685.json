@@ -348,7 +348,7 @@
                         "id": ""
                     },
                     "collapsed": "",
-                    "min": 3,
+                    "min": 0,
                     "max": 3,
                     "layout": "block",
                     "button_label": "",
@@ -432,9 +432,9 @@
                         },
                         {
                             "key": "field_5d39d5bbcbe05",
-                            "label": "Reference",
-                            "name": "post_reference",
-                            "type": "page_link",
+                            "label": "Reference link",
+                            "name": "post_reference_link",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -443,13 +443,26 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": [
-                                "post"
-                            ],
-                            "taxonomy": "",
-                            "allow_null": 0,
-                            "allow_archives": 1,
-                            "multiple": 0
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_5d4afe1660a76",
+                            "label": "Reference date",
+                            "name": "post_reference_date",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 }
@@ -473,5 +486,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565087941
+    "modified": 1565195931
 }
