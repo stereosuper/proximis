@@ -3140,6 +3140,8 @@ div.wpcf7-mail-sent-ng {
   margin-right: 10px;
   font-family: "ibmplex", sans-serif;
   font-size: 1.4rem; }
+.logo-link span {
+    line-height: 1; }
 .logo-link .img {
     margin-right: 10px; }
 .logo-link .img.author-img {
@@ -3166,6 +3168,9 @@ div.wpcf7-mail-sent-ng {
   color: #18162b;
   -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out; }
+.related-title > a {
+    font-family: inherit;
+    color: inherit; }
 .post-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3983,4 +3988,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?56eddca5497b9d2b280c956499a0d371*/
+/*# sourceMappingURL=main.css.map?470772ee96b5798694f14ffc019bf288*/

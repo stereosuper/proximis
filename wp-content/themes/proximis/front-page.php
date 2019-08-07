@@ -199,9 +199,8 @@
 					$website_link = get_sub_field('website_link');
 					$title = get_sub_field('title');
 					$text = get_sub_field('text');
-					$post_reference_url = get_sub_field('post_reference');
-					$post_reference_id = url_to_postid($post_reference_url);
-					$post_reference = get_post($post_reference_id);
+					$post_reference_link = get_sub_field('post_reference_link');
+					$post_reference_date = get_sub_field('post_reference_date');
 				?>
 					<li>
 						<header class="post-head">
@@ -215,22 +214,22 @@
 									<span><?php echo $website_link['title'] ?></span>
 								</a>
 							<?php endif; ?>
-							<?php if ($post_reference): ?>
-								<time class="related-date"><?php echo date('d F Y', strtotime($post_reference->post_date)) ?></time>
+							<?php if ($post_reference_date): ?>
+								<time class="related-date"><?php echo $post_reference_date ?></time>
 							<?php endif; ?>
 						</header>
-						<a class="post-content-link" href="<?php echo $post_reference_url ?>">
-							<?php if ($title): ?>
-								<h3 class="related-title">
+						<?php if ($title): ?>
+							<h3 class="related-title">
+								<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
 									<?php echo $title ?>
-								</h3>
-							<?php endif; ?>
-							<?php if ($text): ?>
-								<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($text)), 17))) ?>
-							<?php endif; ?>
-						</a>
-						<a href="<?php echo $post_reference_url ?>" class="link">
-							<span><?php _e('Read more', 'proximis') ?></span><i></i>
+								</a>
+							</h3>
+						<?php endif; ?>
+						<?php if ($text): ?>
+							<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($text)), 17))) ?>
+						<?php endif; ?>
+						<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+							<span><?php echo $post_reference_link['title'] ?></span><i></i>
 						</a>
 					</li>
 				<?php endwhile; ?>

@@ -11,21 +11,13 @@
 				global $wp_query;
 				$results = $wp_query->found_posts . ' ';
 				if( is_category() ) {
-					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
-					
-					$type = __('in the category', 'proximis');
-					
 					$category_title = single_cat_title('', false);
-					echo "$results $type \"".$category_title.'"'; 
 					
+					printf(_n('%d post in the category %s', '%d posts in the category %s', $results, 'proximis'), $results, $category_title); 
 				} else if( is_search() ) {
-					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
-					
-					$type = __('found for', 'proximis');
-					
 					$search_query = get_search_query();
 					
-					echo "$results $type \"".$search_query.'"'; 
+					printf(_n('%d post found for "%s"', '%d posts found for "%s"', $results, 'proximis'), $results, $search_query); 
 				} else if( is_author() ) {
 					echo __('Posts published by', 'proximis') .' '. get_the_author();
 

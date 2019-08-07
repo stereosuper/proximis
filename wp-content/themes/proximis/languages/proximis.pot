@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: proximis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-07 15:05+0000\n"
+"POT-Creation-Date: 2019-08-07 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,19 +15,29 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.0; wp-5.2.2"
 
-#: index.php:22 index.php:38
-msgid "posts"
+#: index.php:16
+#, php-format
+msgid "%d post in the category %s"
+msgid_plural "%d posts in the category %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: index.php:20
+#, php-format
+msgid "%d post found for \"%s\""
+msgid_plural "%d posts found for \"%s\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: index.php:22
+msgid "Posts published by"
 msgstr ""
 
-#: index.php:22 index.php:38
-msgid "post"
-msgstr ""
-
-#: index.php:65 index.php:76
+#: index.php:44 index.php:55
 msgid "Display all posts"
 msgstr ""
 
-#: index.php:168
+#: index.php:147
 msgid "There are no posts here"
 msgstr ""
 
