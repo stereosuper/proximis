@@ -2934,7 +2934,8 @@ div.wpcf7-mail-sent-ng {
   margin-bottom: 0; }
 .contact-infos {
   margin: 5em 0 0; }
-.contact-infos h2, .contact-infos p {
+.contact-infos h2,
+  .contact-infos p {
     margin: 0; }
 .contact-infos p + h2 {
     margin-top: 60px; }
@@ -2957,6 +2958,8 @@ div.wpcf7-mail-sent-ng {
         display: none; }
 .contact-infos img {
     width: 100%; }
+.contact-content {
+  margin: 0 0 112px; }
 @media (min-width: 780px) {
   .contact-infos {
     display: -webkit-box;
@@ -2974,7 +2977,8 @@ div.wpcf7-mail-sent-ng {
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between; }
+            justify-content: space-between;
+    margin-bottom: 168px; }
   .contact-form {
     width: 60%; }
   .contact-infos {
@@ -4045,4 +4049,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?d950b9a244846bdc1df30d2881bb2fb9*/
+/*# sourceMappingURL=main.css.map?3ff14be699b0880fff678b3ce1ad0cfe*/

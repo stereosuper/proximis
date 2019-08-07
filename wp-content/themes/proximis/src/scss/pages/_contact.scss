@@ -1,89 +1,108 @@
-.page-template-contact{
-    h1{
+.page-template-contact {
+    h1 {
         margin-bottom: 0;
     }
 }
 
-.contact-infos{
+.contact-infos {
     margin: 5em 0 0;
-    h2, p{
+
+    h2,
+    p {
         margin: 0;
     }
-    p + h2{
+
+    p+h2 {
         margin-top: 60px;
     }
-    > div{
+
+    >div {
         margin: 0 0 $gutter;
         overflow: hidden;
         border-radius: 6px;
         background: #fff;
-        &:first-child{
+
+        &:first-child {
             padding: 40px;
         }
-        &:last-child{
+
+        &:last-child {
             background: $primary;
-            > div{
+
+            >div {
                 padding: 40px;
             }
-            a{
+
+            a {
                 color: #fff;
             }
         }
-        .form-validated &{
+
+        .form-validated & {
             background: none;
-            &:last-child{
+
+            &:last-child {
                 display: none;
             }
         }
     }
-    img{
+
+    img {
         width: 100%;
     }
 }
 
+.contact-content {
+    margin: 0 0 #{$line-height*4};
+}
 
-@media (min-width: $tablet){
-    .contact-infos{
+
+@media (min-width: $tablet) {
+    .contact-infos {
         display: flex;
         justify-content: space-between;
-        > div{
+
+        >div {
             width: 48%;
         }
     }
 }
 
-@media (min-width: $desktop-small){
-    .contact-content{
+@media (min-width: $desktop-small) {
+    .contact-content {
         display: flex;
         justify-content: space-between;
+        margin-bottom: #{$line-height*6};
     }
 
-    .contact-form{
+    .contact-form {
         width: 60%;
     }
 
-    .contact-infos{
+    .contact-infos {
         display: block;
         width: 36%;
         margin: 8.9em 0 0;
-        > div{
+
+        >div {
             width: 100%;
         }
     }
 }
 
-@media (min-width: $desktop){
-    .contact-form{
+@media (min-width: $desktop) {
+    .contact-form {
         width: 55%;
     }
 
-    .contact-infos{
-        > div{
-            &:first-child{
+    .contact-infos {
+        >div {
+            &:first-child {
                 padding: 60px;
             }
-            &:last-child{
-                > div{
+
+            &:last-child {
+                >div {
                     padding: 60px;
                 }
             }
@@ -91,12 +110,12 @@
     }
 }
 
-@media (min-width: $desktop-big){
-    .contact-form{
+@media (min-width: $desktop-big) {
+    .contact-form {
         width: 52.5%;
     }
 
-    .contact-infos{
+    .contact-infos {
         margin-left: 4%;
     }
 }
