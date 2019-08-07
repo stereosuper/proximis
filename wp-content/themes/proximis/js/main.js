@@ -356,16 +356,12 @@ class Collant {
         if (this.offsetPosition === 'top') {
             scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
         } else if (this.offsetPosition === 'bottom') {
-            
             scrollOffset =
                 _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop +
-                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight -
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h -
                 this.collantBoundings.height -
                 this.offset;
         }
-
-        console.log(scrollOffset);
-        
 
         const bottomDelimiter =
             this.boxBoundings.y +
@@ -37430,4 +37426,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?309e550f6c63453a7e050c56d2f11cf7
+//# sourceMappingURL=main.js.map?0280db57313ffa3f05fe5a640effc9c8
