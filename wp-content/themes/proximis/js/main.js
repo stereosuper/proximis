@@ -36625,21 +36625,30 @@ const jobHandler = () => {
 
     let collant;
 
-    if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].windowWidth < 1100) {
-        collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
-            selector: '.highlighted',
-            box: '.main',
-            offsetBottom: '1px'
-        });
-    } else {
-        collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
-            selector: '.highlighted',
-            box: '.main',
-            offsetTop: '200px'
-        });
-    }
+    const stickSidebar = () => {
+        if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].windowWidth < 1100) {
+            collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
+                selector: '.highlighted',
+                box: '.main',
+                offsetBottom: '1px'
+            });
+        } else {
+            collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
+                selector: '.highlighted',
+                box: '.main',
+                offsetTop: '200px'
+            });
+        }
 
-    collant.stickIt();
+        collant.stickIt();
+    };
+
+    stickSidebar();
+
+    _stereorepo_sac__WEBPACK_IMPORTED_MODULE_1__["superWindow"].addResizeEndFunction(() => {
+        collant.ripIt();
+        stickSidebar();
+    });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (jobHandler);
@@ -37421,4 +37430,4 @@ var CustomEase = gsap_TweenLite_js__WEBPACK_IMPORTED_MODULE_0__["globals"].Custo
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?c6d581380963093c54f6480034eeb450
+//# sourceMappingURL=main.js.map?309e550f6c63453a7e050c56d2f11cf7

@@ -634,6 +634,7 @@ a:active,
     margin: -38px 0 0; }
   .single-job .highlighted {
     padding: 40px;
+    position: absolute;
     top: 200px;
     margin: 0;
     left: auto;
@@ -3761,4 +3762,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?0282089b3d4ae05f884a1f9a6a65e595*/
+/*# sourceMappingURL=main.css.map?4aed802c2e2966ba72e3ed6fd4173603*/
