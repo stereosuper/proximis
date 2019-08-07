@@ -42,9 +42,15 @@ get_header(); ?>
 		<?php endif; ?>
 
 		<?php $form = get_field('form'); if( $form ) : ?>
-			<h2><?php echo $form['title']; ?></h2>
-			<?php echo $form['text']; ?>
-			<?php echo do_shortcode($form['shortcode']); ?>
+			<div class="wrapper-partner-form">
+				<div class="title">
+					<h2 class="h1"><?php echo $form['title']; ?></h2>
+					<?php echo $form['text']; ?>
+				</div>
+				<div class="wrapper-form align-items-form">
+					<?php echo do_shortcode($form['shortcode']); ?>
+				</div>
+			</div>
 		<?php endif; ?>
 		
 	<?php endif; ?>

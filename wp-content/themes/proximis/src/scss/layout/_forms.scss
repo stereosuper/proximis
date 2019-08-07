@@ -256,7 +256,9 @@ div.wpcf7-mail-sent-ng {
 
 
 @media (min-width: $phone) {
-    .contact-form {
+
+    .contact-form,
+    .align-items-form {
         label {
             display: flex;
             align-items: flex-start;

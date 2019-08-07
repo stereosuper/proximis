@@ -327,7 +327,7 @@ h5 {
 h6 {
   font-size: 1.8rem; }
 p {
-  margin: 2em 0; }
+  margin: 28px 0; }
 b,
 strong {
   font-family: "ibmplex_semibold", "ibmplex", sans-serif; }
@@ -906,25 +906,33 @@ div.wpcf7-mail-sent-ng {
   font-size: 1.4rem;
   color: #ff737b; }
 @media (min-width: 580px) {
-  .contact-form label {
+  .contact-form label,
+  .align-items-form label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start; }
-    .contact-form label br {
+    .contact-form label br,
+    .align-items-form label br {
       display: none; }
-    .contact-form label > span:first-of-type {
+    .contact-form label > span:first-of-type,
+    .align-items-form label > span:first-of-type {
       width: 14%;
       min-width: 14%;
       text-align: right; }
-    .contact-form label i {
+    .contact-form label i,
+    .align-items-form label i {
       margin: 15px 0 0 20px; }
   .contact-form .wpcf7-submit,
   .contact-form div.wpcf7-validation-errors,
   .contact-form div.wpcf7-acceptance-missing,
-  .contact-form div.wpcf7-mail-sent-ng {
+  .contact-form div.wpcf7-mail-sent-ng,
+  .align-items-form .wpcf7-submit,
+  .align-items-form div.wpcf7-validation-errors,
+  .align-items-form div.wpcf7-acceptance-missing,
+  .align-items-form div.wpcf7-mail-sent-ng {
     margin: 0 0 0 calc(14% + 20px); }
   .wpcf7-form.sent {
     padding: 5%; }
@@ -3820,12 +3828,40 @@ div.wpcf7-mail-sent-ng {
 .partner-name {
   font-family: "recoleta_bold", "ibmplex", sans-serif;
   font-size: 2.8rem; }
+.wrapper-partner-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 56px; }
+.wrapper-partner-form .title {
+    position: relative;
+    padding-top: 56px; }
+.wrapper-partner-form .title::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      border-top: 1px solid #5c6370; }
+.wrapper-partner-form .title h2 {
+      margin: 0 0 28px; }
+.wrapper-partner-form .title p {
+      margin: 0;
+      color: #5c6370; }
+.wrapper-partner-form .wrapper-form {
+    margin-top: 28px; }
 @media (min-width: 580px) {
   .partners > li {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
-            flex-direction: row; } }
+            flex-direction: row; }
+  .partners .text {
+    padding-top: 28px; } }
 @media (min-width: 780px) {
   .partners {
     -webkit-box-orient: horizontal;
@@ -3842,6 +3878,26 @@ div.wpcf7-mail-sent-ng {
               flex-direction: column;
       width: 50%;
       margin-bottom: 112px;
+      padding-left: 8.33333%; }
+    .partners .text {
+      padding-top: 0; } }
+@media (min-width: 960px) {
+  .wrapper-partner-form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-bottom: 112px; }
+    .wrapper-partner-form .title {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+      width: 292px; }
+    .wrapper-partner-form .wrapper-form {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+              flex: 1 1 auto;
+      margin-top: 56px;
       padding-left: 8.33333%; } }
 @media (min-width: 1100px) {
   .partners > li {
@@ -3852,7 +3908,16 @@ div.wpcf7-mail-sent-ng {
   .partners .img {
     width: 162px;
     height: 162px;
-    margin-right: 48px; } }
+    margin-right: 48px; }
+  .partners .text {
+    padding-top: 28px; }
+  .wrapper-partner-form .title {
+    width: calc(8.33333% + 292px);
+    padding-left: 8.33333%; }
+    .wrapper-partner-form .title::before {
+      width: 292px; }
+  .wrapper-partner-form .wrapper-form {
+    padding-right: 8.33333%; } }
 .error404 .title {
   width: 58.33333%;
   padding: 0 20px 0 0;
@@ -3906,4 +3971,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?bb57553ab24a1ca38eb4aad62b47a76b*/
+/*# sourceMappingURL=main.css.map?c15a53af6e4d604cfd0e81d61362685c*/
