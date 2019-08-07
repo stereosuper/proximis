@@ -38,7 +38,8 @@ h6 {
     // line-height: 1.2;
     font-weight: 400;
 
-    &.no-margin-bottom {
+    &.no-margin-bottom,
+    &.small-margin-bottom {
         +p {
             margin-top: 0;
         }
@@ -457,6 +458,10 @@ a,
     margin-bottom: 0;
 }
 
+.small-margin-bottom {
+    margin-bottom: $line-height;
+}
+
 .wrapper-collant {
     position: relative;
 }
@@ -634,7 +639,7 @@ a,
             }
         }
 
-        .line{
+        .line {
             display: block;
         }
     }
