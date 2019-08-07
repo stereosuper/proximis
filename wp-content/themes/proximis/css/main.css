@@ -468,6 +468,8 @@ a:active,
 .no-transition::before, .no-transition::after {
     -webkit-transition: none !important;
     transition: none !important; }
+.bg-white {
+  background: #fff; }
 .has-medium-font-size {
   font-size: 2rem;
   margin-bottom: 4.2em; }
@@ -1404,6 +1406,8 @@ div.wpcf7-mail-sent-ng {
   text-align: center; }
 .page-template-services .footer-page {
     margin: 7em 0 0;
+    background: #fff; }
+.page-template-solution .footer-page {
     background: #fff; }
 .footer-page h2 {
     margin-bottom: 0; }
@@ -3742,8 +3746,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-<<<<<<< HEAD
-/*# sourceMappingURL=main.css.map?0584646da3628c8cf3a76d85df6629c8*/
-=======
-/*# sourceMappingURL=main.css.map?897a0aa17703213a0721245f4cd54e34*/
->>>>>>> 💄lang switcher desktop
+/*# sourceMappingURL=main.css.map?3765494b306f9e9fee9001647db758a5*/
