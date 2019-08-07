@@ -1,0 +1,108 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: proximis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-07 16:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.2"
+
+#. Name of the template
+msgid "About"
+msgstr ""
+
+#: header.php:68
+msgid "Close menu"
+msgstr ""
+
+#. Name of the template
+msgid "Contact"
+msgstr ""
+
+#. Name of the template
+msgid "Customers"
+msgstr ""
+
+#: index.php:44 index.php:55
+msgid "Display all posts"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://stereosuper.fr"
+msgstr ""
+
+#: partners.php:35
+msgid "Learn more"
+msgstr ""
+
+#. Name of the template
+msgid "Offers"
+msgstr ""
+
+#. Name of the template
+msgid "Partners"
+msgstr ""
+
+#: index.php:22
+msgid "Posts published by"
+msgstr ""
+
+#. Name of the theme
+msgid "proximis"
+msgstr ""
+
+#. Description of the theme
+msgid "Proximis theme"
+msgstr ""
+
+#: front-page.php:233
+msgid "Read more"
+msgstr ""
+
+#: searchform.php:6
+msgid "Search"
+msgstr ""
+
+#: searchform.php:3
+msgid "Search..."
+msgstr ""
+
+#: contact.php:75
+msgid "Send a new message"
+msgstr ""
+
+#. Name of the template
+msgid "Services"
+msgstr ""
+
+#. Name of the template
+msgid "Sitemap"
+msgstr ""
+
+#. Name of the template
+msgid "Solution"
+msgstr ""
+
+#. Author of the theme
+msgid "Stéréosuper"
+msgstr ""
+
+#: index.php:147
+msgid "There are no posts here"
+msgstr ""
+
+#: contact.php:74
+msgid "We will get back to you soon."
+msgstr ""
+
+#: includes/post-related.php:31
+msgid "You may also like..."
+msgstr ""

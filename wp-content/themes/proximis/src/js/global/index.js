@@ -6,4 +6,16 @@ export const easing = {
     easeInOut: CustomEase.create('custom', 'M0,0 C0.38,0, 0.45,0.93 1,1')
 };
 
-export default { easing };
+export const breakpoints = {
+    horizontal: {
+        xs: 0,
+        s: 400,
+        m: 580,
+        l: 780,
+        xl: 960,
+        xxl: 1100
+    },
+    vertical: {}
+};
+
+export default { easing, breakpoints };

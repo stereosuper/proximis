@@ -1,13 +1,12 @@
 .blog-title {
     margin-bottom: 0;
 
-    +p:not(.post-meta) {
+    + p:not(.post-meta) {
         width: 50%;
         padding: 0 $gutter 0 0;
         color: $grey;
     }
 }
-
 
 .blog-categories {
     position: relative;
@@ -15,7 +14,7 @@
     max-width: 366px;
     display: inline-flex;
     justify-content: flex-start;
-    height: 2*$line-height;
+    height: 2 * $line-height;
     margin: $line-height 0;
     border-radius: 4px;
     background: $white;
@@ -25,7 +24,13 @@
         .blog-cats-list {
             opacity: 0;
             visibility: hidden;
-            transition: transition((opacity: '#{$short-duration}', visibility: '#{$short-duration}'), $ease-out-timing-function);
+            transition: transition(
+                (
+                    opacity: '#{$short-duration}',
+                    visibility: '#{$short-duration}'
+                ),
+                $ease-out-timing-function
+            );
         }
     }
 
@@ -60,9 +65,15 @@
     background: $white;
     opacity: 1;
     visibility: visible;
-    transition: transition((opacity: '#{$short-duration}', visibility: '0s'), $ease-in-timing-function);
+    transition: transition(
+        (
+            opacity: '#{$short-duration}',
+            visibility: '0s'
+        ),
+        $ease-in-timing-function
+    );
 
-    >li {
+    > li {
         padding: 0;
 
         &::before {
@@ -76,9 +87,14 @@
         font-family: $ibm;
         color: $text;
         text-decoration: none;
-        transition: transition((color: ('#{$short-duration}'
-                )),
-            $ease-in-out-timing-function);
+        transition: transition(
+            (
+                color: (
+                    '#{$short-duration}'
+                )
+            ),
+            $ease-in-out-timing-function
+        );
 
         &:hover {
             color: $primary;
@@ -88,11 +104,11 @@
 
 .wrapper-blog-list {
     position: relative;
-    padding: #{$line-height*2} 0 #{$line-height*7};
+    padding: #{$line-height * 2} 0 #{$line-height * 7};
 
     .pagination {
         position: absolute;
-        bottom: #{$line-height*5};
+        bottom: #{$line-height * 5};
         left: 0;
         right: 0;
     }
@@ -101,7 +117,7 @@
 .blog-list {
     margin: 0;
 
-    >li {
+    > li {
         display: inline-block;
         width: 30%;
 
@@ -147,10 +163,11 @@
     margin-right: 10px;
     font-family: $ibm;
     font-size: 1.4rem;
-
+    span {
+        line-height: 1;
+    }
     .img {
         margin-right: 10px;
-
         &.author-img {
             width: 21px;
             height: 21px;
@@ -189,6 +206,10 @@
     font-size: 2.4rem;
     color: $text;
     transition: color $transition;
+    > a {
+        font-family: inherit;
+        color: inherit;
+    }
 }
 
 .post-footer {
@@ -295,7 +316,7 @@
 
 .content-search {
     .js & {
-        transform: translate3d(calc(-100% + #{$line-height*2}), 0, 0);
+        transform: translate3d(calc(-100% + #{$line-height * 2}), 0, 0);
         transition: transform $transition;
     }
 }
@@ -308,7 +329,7 @@
     top: 0;
     bottom: 0;
     right: 0;
-    width: 2*$line-height;
+    width: 2 * $line-height;
     border-radius: 4px;
 
     .icon {

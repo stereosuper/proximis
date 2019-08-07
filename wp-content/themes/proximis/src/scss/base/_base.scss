@@ -27,6 +27,7 @@ body {
     &.menu-open {
         overflow-y: hidden;
     }
+
     &.error404 {
         background: $secondary;
     }
@@ -41,8 +42,9 @@ h6 {
     // line-height: 1.2;
     font-weight: 400;
 
-    &.no-margin-bottom {
-        + p {
+    &.no-margin-bottom,
+    &.small-margin-bottom {
+        +p {
             margin-top: 0;
         }
     }
@@ -78,7 +80,7 @@ h1 {
     &.small-margin-bottom {
         margin-bottom: 0.4em;
 
-        + p {
+        +p {
             margin-top: 0;
         }
     }
@@ -109,7 +111,7 @@ h2 {
     }
 
     &:not(.title) {
-        > span {
+        >span {
             display: block;
             color: $grey;
         }
@@ -136,7 +138,7 @@ h6 {
 }
 
 p {
-    margin: 2em 0;
+    margin: $line-height 0;
 }
 
 b,
@@ -166,7 +168,7 @@ blockquote {
     font-size: 2.4rem;
     color: $grey;
 
-    > p {
+    >p {
         &:before {
             content: '“';
             color: $primary;
@@ -211,7 +213,7 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    > li {
+    >li {
         counter-increment: ol-counter;
 
         &:before {
@@ -222,7 +224,7 @@ ol {
 }
 
 ul {
-    > li {
+    >li {
         &:before {
             width: 8px;
             height: 8px;
@@ -274,14 +276,9 @@ a,
     line-height: $line-height;
     color: $primary;
     text-decoration: underline;
-    transition: transition(
-        (
-            text-decoration-color: (
-                '#{$short-duration}'
-            )
-        ),
-        $ease-in-out-timing-function
-    );
+    transition: transition((text-decoration-color: ('#{$short-duration}'
+            )),
+        $ease-in-out-timing-function);
 
     &::before {
         content: '';
@@ -420,7 +417,7 @@ a,
         }
     }
 
-    > p {
+    >p {
         margin: 0;
     }
 
@@ -445,6 +442,7 @@ a,
 }
 
 .wp-block-image {
+
     .alignright,
     .alignleft {
         float: none;
@@ -464,6 +462,10 @@ a,
     margin-bottom: 0;
 }
 
+.small-margin-bottom {
+    margin-bottom: $line-height;
+}
+
 .wrapper-collant {
     position: relative;
 }
@@ -477,6 +479,7 @@ a,
 }
 
 @media (min-width: $phone-small) {
+
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -492,6 +495,7 @@ a,
 }
 
 @media (min-width: $phone) {
+
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -506,6 +510,7 @@ a,
 }
 
 @media (min-width: $tablet) {
+
     h1,
     .home h1,
     .home h2,
@@ -614,6 +619,7 @@ a,
 }
 
 @media (min-width: $desktop) {
+
     .highlighted,
     .book-highlighted,
     .newsletter-highlighted {

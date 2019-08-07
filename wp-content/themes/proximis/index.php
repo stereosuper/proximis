@@ -8,39 +8,18 @@
 
 		<h1 class='blog-title'>
 			<?php
+				global $wp_query;
+				$results = $wp_query->found_posts . ' ';
 				if( is_category() ) {
 					$category_title = single_cat_title('', false);
-					$args = array(  
-						'post_status' => 'publish',
-						'post_type' => 'post',
-						'category_name' => $category_title,
-						'paged' => 10
-					);
-					$wp_query = new WP_Query($args);
 					
-					$results = $wp_query->found_posts . ' ';
-					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
-					$type = __('in the category');
-					echo "$results $type \"".$category_title.'"'; 
-					
+					printf(_n('%d post in the category %s', '%d posts in the category %s', $results, 'proximis'), $results, $category_title); 
 				} else if( is_search() ) {
 					$search_query = get_search_query();
-
-					$args = array(  
-						'post_status' => 'publish',
-						'post_type' => 'post',
-						's' => $search_query,
-						'paged' => 10
-					);
-					$wp_query = new WP_Query($args);
-
-					$results = $wp_query->found_posts . ' ';
-					$results .= $results > 1 ? __('posts', 'proximis') : __('post', 'proximis');
-					$type = __('found for');
-					echo "$results $type \"".$search_query.'"'; 
-
+					
+					printf(_n('%d post found for "%s"', '%d posts found for "%s"', $results, 'proximis'), $results, $search_query); 
 				} else if( is_author() ) {
-					echo __('Posts published by ') . get_the_author();
+					echo __('Posts published by', 'proximis') .' '. get_the_author();
 
 				} else {
 					single_post_title();

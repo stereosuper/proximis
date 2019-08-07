@@ -1,7 +1,7 @@
 @charset 'utf-8';
 
 @import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins',
-    'abstracts/animations';
+'abstracts/animations';
 
 @import 'base/reset', 'base/fonts', 'base/base';
 
@@ -11,13 +11,16 @@
 @import 'abstracts/placeholders';
 
 @import 'layout/grid', 'layout/forms', 'layout/header', 'layout/footer',
-    'layout/header-page', 'layout/footer-page', 'layout/breadcrumbs',
-    'layout/timeline', 'layout/team', 'layout/pagination', 'layout/modal';
+'layout/header-page', 'layout/footer-page', 'layout/breadcrumbs',
+'layout/timeline', 'layout/team', 'layout/pagination', 'layout/modal';
 
 @import 'components/buttons', 'components/refs', 'components/customers',
-    'components/newsletter', 'components/related', 'components/refs-slider';
+'components/newsletter', 'components/related', 'components/refs-slider';
 
 @import 'pages/home', 'pages/contact', 'pages/services', 'pages/blog',
-    'pages/offers', 'pages/solution', 'pages/404';
+'pages/offers',
+'pages/solution',
+'pages/partners',
+'pages/404';
 
 @import 'base/print';

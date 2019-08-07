@@ -19,5 +19,5 @@ wp-content/uploads
 wp-content/*.php
 wp-admin/**
 wp-includes/**
-/wp-content/themes/proximis/css/*
-/wp-content/themes/proximis/js/*
+/wp-content/themes/proximis/css
+/wp-content/themes/proximis/js
