@@ -117,13 +117,24 @@ function proximis_right_now_custom_post() {
 }
 add_action( 'dashboard_glance_items', 'proximis_right_now_custom_post' );
 
+// Add new styles to wysiwyg
+function proximis_button( $buttons ){
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+add_filter( 'mce_buttons_2', 'proximis_button' );
+function proximis_init_editor_styles(){
+    add_editor_style();
+}
+add_action( 'after_setup_theme', 'proximis_init_editor_styles' );
+
 // Customize a bit the wysiwyg editor
 function proximis_mce_before_init( $styles ){
     $style_formats = array(
         array(
-            'title' => 'Button',
-            'selector' => 'a',
-            'classes' => 'btn'
+            'title' => 'Letterine',
+            'selector' => 'p',
+            'classes' => 'has-drop-cap'
         )
     );
     $styles['style_formats'] = json_encode( $style_formats );

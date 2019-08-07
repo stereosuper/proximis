@@ -27,6 +27,10 @@ body {
     &.menu-open {
         overflow-y: hidden;
     }
+
+    &.error404 {
+        background: $secondary;
+    }
 }
 
 h1,
