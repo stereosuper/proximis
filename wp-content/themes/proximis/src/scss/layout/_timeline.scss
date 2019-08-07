@@ -24,15 +24,6 @@
         align-self: flex-start;
         padding: 2px $gutter 0 0;
         font-family: $recoleta-bold;
-
-        &:after {
-            content: '';
-            display: block;
-            width: 65px;
-            height: 1px;
-            margin: 10px 0 0 10px;
-            background: $primary;
-        }
     }
 
     p {
@@ -60,8 +51,12 @@
             min-width: 20%;
 
             &:after {
-                margin-left: auto;
-                margin-right: auto;
+                content: '';
+                display: block;
+                width: 65px;
+                height: 1px;
+                margin: 10px auto 0;
+                background: $primary;
             }
         }
 
