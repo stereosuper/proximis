@@ -5,8 +5,9 @@ import '@babel/polyfill';
 import { superLoad, superWindow, query, bodyRouter } from '@stereorepo/sac';
 import lottie from 'lottie-web';
 
-import io from './components/io';
+import { breakpoints } from './global';
 
+import io from './components/io';
 import header from './components/header';
 import Slider from './components/Slider';
 import form from './components/form';
@@ -44,17 +45,7 @@ const unitedHomeAnimation = dynamicLoading({
 });
 
 const preloadCallback = () => {
-    superWindow.setBreakpoints({
-        horizontal: {
-            xs: 0,
-            s: 400,
-            m: 580,
-            l: 780,
-            xl: 960,
-            xxl: 1100
-        },
-        vertical: {}
-    });
+    superWindow.setBreakpoints(breakpoints);
 
     // Stéréosuper js library init
     io.init();

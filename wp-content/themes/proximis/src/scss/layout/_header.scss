@@ -278,7 +278,8 @@
             .page-template-services &,
             .page-template-about &,
             .page-template-customers &,
-            .page-template-solution & {
+            .page-template-solution &,
+            .error404 & {
                 color: $text;
 
                 &:after {
@@ -314,7 +315,8 @@
                 .page-template-services &,
                 .page-template-about &,
                 .page-template-customers &,
-                .page-template-solution & {
+                .page-template-solution &,
+                .error404 & {
                     background: #fff;
                 }
             }

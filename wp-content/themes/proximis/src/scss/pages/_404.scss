@@ -1,7 +1,8 @@
 .error404 {
     .title {
-        width: percentage(7/12);
+        width: 100%;
         padding: 0 $gutter 0 0;
+        margin: $line-height auto $line-height 0;
         color: $white;
     }
     .title-part {
@@ -9,29 +10,43 @@
         color: $black;
     }
     .error-404-image-wrapper {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        width: 100%;
-        max-width: $container;
-        margin: 0 auto;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-    .error-404-image {
-        width: percentage(9/24);
+        display: none;
     }
     .content {
-        width: percentage(6/12);
+        width: 100%;
         padding: 0 $gutter $line-height * 4 0;
         margin: 0;
         a {
             color: $white;
         }
         > p {
-            margin-bottom: 0;
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .error404 {
+        .title {
+            width: percentage(7/12);
+        }
+        .error-404-image-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            max-width: $container;
+            margin: 0 auto;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .error-404-image {
+            width: percentage(9/24);
+        }
+        .content {
+            width: percentage(6/12);
         }
     }
 }

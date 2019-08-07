@@ -1,9 +1,9 @@
-import { query } from '@stereorepo/sac';
-import Collant from '@stereorepo/collant/src/components/Collant';
+import { superWindow } from '@stereorepo/sac';
+import { Collant } from '@stereorepo/collant';
+import { breakpoints } from '../global';
 
 const error404Handler = () => {
-    // const [image404] = query({ selector: '.js-404-image' });
-    // if (!image404) return;
+    const state = { sticky: false };
 
     const imageCollant = new Collant({
         selector: '.js-error-404-image-wrapper',
@@ -11,7 +11,27 @@ const error404Handler = () => {
         offsetBottom: '0px'
     });
 
-    imageCollant.stickIt();
+    const handleWindowSize = () => {
+        if (
+            superWindow.windowWidth > breakpoints.horizontal.l &&
+            !state.sticky
+        ) {
+            imageCollant.stickIt();
+            state.sticky = true;
+        } else if (
+            superWindow.windowWidth <= breakpoints.horizontal.l &&
+            state.sticky
+        ) {
+            imageCollant.ripIt();
+            state.sticky = false;
+        }
+    };
+
+    handleWindowSize();
+
+    superWindow.addResizeEndFunction(() => {
+        handleWindowSize();
+    });
 };
 
 export default error404Handler;
