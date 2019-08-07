@@ -20,12 +20,9 @@
         z-index: -1;
         border-radius: 50%;
         background: #fff;
-        transition: transition(
-            (
-                transform: '#{$medium-duration}'
+        transition: transition((transform: '#{$medium-duration}'
             ),
-            $ease-in-out-timing-function
-        );
+            $ease-in-out-timing-function);
     }
 
     &.number {
@@ -63,12 +60,9 @@
 
             img {
                 transform: scale(0.97);
-                transition: transition(
-                    (
-                        transform: '#{$short-duration}'
+                transition: transition((transform: '#{$short-duration}'
                     ),
-                    $ease-in-out-timing-function
-                );
+                    $ease-in-out-timing-function);
             }
         }
     }
@@ -82,15 +76,10 @@
 
     img {
         max-width: 80%;
-        transition: transition(
-            (
-                transform: (
-                    '#{$short-duration}',
+        transition: transition((transform: ('#{$short-duration}',
                     '#{$short-duration * 0.5}'
-                )
-            ),
-            $ease-in-out-timing-function
-        );
+                )),
+            $ease-in-out-timing-function);
     }
 }
 
@@ -131,7 +120,7 @@
     border-radius: 50%;
     background: $primary;
 
-    > span {
+    >span {
         position: relative;
         top: 0.15em;
     }
@@ -147,7 +136,7 @@
         color: $grey;
     }
 
-    > ul {
+    >ul {
         margin: 0;
     }
 
@@ -188,11 +177,10 @@
     width: 254px;
     height: 254px;
     border-radius: 50%;
-    background: $primary;
     margin: 0 0 $line-height;
     overflow: hidden;
 
-    > img {
+    >img {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -204,7 +192,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    > * {
+    >* {
         margin-right: 16px;
 
         &:last-child {
@@ -212,7 +200,7 @@
         }
     }
 
-    + .wrapper-btn-download {
+    +.wrapper-btn-download {
         margin-top: 16px;
     }
 }
@@ -224,6 +212,7 @@
     height: 44px;
     border: 0;
     pointer-events: all;
+
     &.small {
         width: 30px;
         height: 28px;
@@ -260,12 +249,9 @@
         &:hover {
             .hexagon {
                 transform: scale3d(0.9, 0.9, 1) rotate(30deg);
-                transition: transition(
-                    (
-                        transform: '#{$medium-duration}'
+                transition: transition((transform: '#{$medium-duration}'
                     ),
-                    $ease-in-out-timing-function
-                );
+                    $ease-in-out-timing-function);
             }
         }
     }
@@ -279,12 +265,9 @@
         border-radius: 5px;
         background: $primary;
         transform: rotate(30deg);
-        transition: transition(
-            (
-                transform: '#{$short-duration}'
+        transition: transition((transform: '#{$short-duration}'
             ),
-            $ease-out-timing-function
-        );
+            $ease-out-timing-function);
 
         &::before,
         &::after {
@@ -382,7 +365,7 @@
         align-items: flex-start;
         width: percentage(6/10);
 
-        > * {
+        >* {
             flex: 0 0 auto;
         }
     }
@@ -402,7 +385,7 @@
         align-items: flex-start;
         width: 100%;
 
-        > * {
+        >* {
             flex: 0 0 auto;
         }
     }
@@ -460,7 +443,8 @@
         right: 0;
         justify-content: space-between;
         z-index: 1;
-        + .wrapper-btn-download {
+
+        +.wrapper-btn-download {
             margin-top: 0;
         }
     }
