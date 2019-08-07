@@ -3140,6 +3140,8 @@ div.wpcf7-mail-sent-ng {
   margin-right: 10px;
   font-family: "ibmplex", sans-serif;
   font-size: 1.4rem; }
+.logo-link span {
+    line-height: 1; }
 .logo-link .img {
     margin-right: 10px; }
 .logo-link .img.author-img {
@@ -3986,4 +3988,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?a4d0566db1389aba0d7b64ca92c0b49b*/
+/*# sourceMappingURL=main.css.map?470772ee96b5798694f14ffc019bf288*/

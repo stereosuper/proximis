@@ -163,10 +163,11 @@
     margin-right: 10px;
     font-family: $ibm;
     font-size: 1.4rem;
-
+    span {
+        line-height: 1;
+    }
     .img {
         margin-right: 10px;
-
         &.author-img {
             width: 21px;
             height: 21px;
