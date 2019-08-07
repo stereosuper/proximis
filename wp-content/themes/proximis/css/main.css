@@ -1510,13 +1510,6 @@ div.wpcf7-mail-sent-ng {
         align-self: flex-start;
     padding: 2px 20px 0 0;
     font-family: "recoleta_bold", "ibmplex", sans-serif; }
-.timeline time:after {
-      content: '';
-      display: block;
-      width: 65px;
-      height: 1px;
-      margin: 10px 0 0 10px;
-      background: #55c4da; }
 .timeline p {
     margin: 0; }
 .timeline .lottie {
@@ -1538,8 +1531,12 @@ div.wpcf7-mail-sent-ng {
     width: 20%;
     min-width: 20%; }
     .timeline time:after {
-      margin-left: auto;
-      margin-right: auto; }
+      content: '';
+      display: block;
+      width: 65px;
+      height: 1px;
+      margin: 10px auto 0;
+      background: #55c4da; }
   .timeline .lottie {
     -ms-flex-item-align: center;
         align-self: center;
@@ -4048,4 +4045,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?aae4397c90bb1b6376b1031abf01a16c*/
+/*# sourceMappingURL=main.css.map?5e285dd3bfa2b49393d7b53b96a0b1b9*/
