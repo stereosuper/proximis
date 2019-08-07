@@ -17,7 +17,6 @@ import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
 import scrollToButton from './components/scrollToButton';
-import error404 from './components/error404';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -39,9 +38,11 @@ const referencesSliderImport = dynamicLoading({
     name: 'RefSlider',
     isClass: true
 });
-
 const unitedHomeAnimation = dynamicLoading({
     name: 'united'
+});
+const error404 = dynamicLoading({
+    name: 'error404'
 });
 
 const preloadCallback = () => {
@@ -68,7 +69,6 @@ const preloadCallback = () => {
     newsletter();
     job();
     blog();
-    error404();
 
     if (wrapperSlider) {
         slider = new Slider(wrapperSlider);
@@ -86,14 +86,9 @@ const preloadCallback = () => {
         }
     });
 
-    [].slice.call(document.getElementsByClassName('js-lottie')).forEach(elt => {
-        lottie.loadAnimation({
-            container: elt,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: elt.getAttribute('data-path')
-        });
+    bodyRouter({
+        identifier: '.error404',
+        callback: error404
     });
 };
 
@@ -105,6 +100,16 @@ const animationsCallback = () => {
     bodyRouter({
         identifier: '.home',
         callback: unitedHomeAnimation
+    });
+
+    [...document.getElementsByClassName('js-lottie')].forEach(elt => {
+        lottie.loadAnimation({
+            container: elt,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: elt.getAttribute('data-path')
+        });
     });
 };
 
