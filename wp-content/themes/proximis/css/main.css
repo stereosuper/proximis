@@ -1872,6 +1872,8 @@ div.wpcf7-mail-sent-ng {
     width: 2px;
     height: 15px; }
 .button-scroll-to > i::after {
+    top: auto;
+    bottom: 0;
     border-width: 7px 5px 0 5px;
     border-color: #55c4da transparent transparent transparent; }
 .ref {
@@ -3762,4 +3764,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?bb2fb85ab5063c774652d629d48f12e1*/
+/*# sourceMappingURL=main.css.map?06208f05dd18723ac6995e2d11f2ba88*/
