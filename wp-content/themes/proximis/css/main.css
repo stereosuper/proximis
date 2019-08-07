@@ -1438,9 +1438,11 @@ div.wpcf7-mail-sent-ng {
   .header-page img {
     max-width: 43%; }
     .page-template-about .header-page img {
-      max-width: 22%; }
+      max-width: 22%;
+      right: 10%; }
     .page-template-customers .header-page img {
-      max-width: 25%; } }
+      max-width: 25%;
+      right: 5%; } }
 .footer-page {
   padding: 10px 0 100px;
   text-align: center; }
@@ -4061,4 +4063,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?7b6a730ee0ad88be230e7d69b98921ca*/
+/*# sourceMappingURL=main.css.map?3d68d95c48403bec5fd7b88fef17bf8d*/
