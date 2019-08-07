@@ -3166,6 +3166,9 @@ div.wpcf7-mail-sent-ng {
   color: #18162b;
   -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out; }
+.related-title > a {
+    font-family: inherit;
+    color: inherit; }
 .post-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3983,4 +3986,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?56eddca5497b9d2b280c956499a0d371*/
+/*# sourceMappingURL=main.css.map?a4d0566db1389aba0d7b64ca92c0b49b*/

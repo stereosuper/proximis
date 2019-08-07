@@ -221,7 +221,7 @@
 						<?php if ($title): ?>
 							<h3 class="related-title">
 								<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-									<?php echo $post_reference_link['title'] ?>
+									<?php echo $title ?>
 								</a>
 							</h3>
 						<?php endif; ?>
