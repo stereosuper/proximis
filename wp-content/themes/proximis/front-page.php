@@ -186,7 +186,10 @@
 		</div>
 	</section>
 
-	<?php if (have_rows('they_talk_about_us')): ?>
+	<?php 
+		$display = get_field('display_they_talk_about_us');
+		if ($display && have_rows('they_talk_about_us')):
+	?>
 	<section class="wrapper-related">
 		<div class="container">
 		<?php while (have_rows('they_talk_about_us')): the_row(); ?>

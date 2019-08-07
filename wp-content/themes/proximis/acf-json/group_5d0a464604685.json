@@ -301,13 +301,40 @@
             ]
         },
         {
+            "key": "field_5d4b067b24a42",
+            "label": "Display They talk about us",
+            "name": "display_they_talk_about_us",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Display",
+            "ui_off_text": "Hide"
+        },
+        {
             "key": "field_5d39cb2f7a10d",
             "label": "They talk about us",
             "name": "they_talk_about_us",
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d4b067b24a42",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -486,5 +513,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565195931
+    "modified": 1565198368
 }
