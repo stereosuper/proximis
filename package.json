@@ -52,10 +52,5 @@
         "build": "webpack --config ./prod.webpack.config.js --mode production"
     },
     "author": "Stéréosuper",
-    "license": "MIT",
-    "babel": {
-        "presets": [
-            "@babel/preset-env"
-        ]
-    }
+    "license": "MIT"
 }
