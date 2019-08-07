@@ -17,11 +17,7 @@ import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
 import scrollToButton from './components/scrollToButton';
-<<<<<<< HEAD
-import error404 from './components/error404';
 import schema from './components/schema';
-=======
->>>>>>> b2eb17d60481675975b9b85278e0a89de343074e
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -74,7 +70,6 @@ const preloadCallback = () => {
     newsletter();
     job();
     blog();
-    error404();
     schema();
 
     if (wrapperSlider) {
