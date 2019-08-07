@@ -1805,7 +1805,11 @@ div.wpcf7-mail-sent-ng {
 .link > i:before, .link > i:after {
       content: '';
       position: absolute;
-      top: 0; }
+      top: 0;
+      -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 .link > i:before {
       width: 20px;
       height: 2px;
@@ -1814,11 +1818,7 @@ div.wpcf7-mail-sent-ng {
       margin: auto;
       background: #55c4da;
       -webkit-transform-origin: 100% 0;
-              transform-origin: 100% 0;
-      -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-      transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-      transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
+              transform-origin: 100% 0; }
 .link > i:after {
       width: 0;
       height: 0;
@@ -1864,18 +1864,32 @@ div.wpcf7-mail-sent-ng {
     -webkit-transform: scale(0.6) translate3d(-10px, 0, 0);
             transform: scale(0.6) translate3d(-10px, 0, 0); }
 .button-scroll-to > i {
-  width: 7px;
-  min-width: 7px;
+  width: 10px;
+  min-width: 10px;
   height: 15px;
   margin-left: 10px; }
 .button-scroll-to > i::before {
     width: 2px;
-    height: 15px; }
+    height: 10px;
+    left: 4px;
+    border-radius: 1px; }
 .button-scroll-to > i::after {
     top: auto;
     bottom: 0;
     border-width: 7px 5px 0 5px;
     border-color: #55c4da transparent transparent transparent; }
+.button-scroll-to:hover > i {
+  -webkit-transform: none;
+          transform: none; }
+.button-scroll-to:hover > i::before, .button-scroll-to:hover > i::after {
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%; }
+.button-scroll-to:hover > i::before {
+    -webkit-transform: scale3d(1, 1.5, 1);
+            transform: scale3d(1, 1.5, 1); }
+.button-scroll-to:hover > i::after {
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, 75%, 0);
+            transform: scale3d(1, 1, 1) translate3d(0, 75%, 0); }
 .ref {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -3764,4 +3778,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?06208f05dd18723ac6995e2d11f2ba88*/
+/*# sourceMappingURL=main.css.map?3a6e16189a6d1f41f298ad8f60b7e33a*/
