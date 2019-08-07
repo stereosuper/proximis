@@ -1,6 +1,5 @@
 {
     "root": true,
-    "presets": ["@babel/preset-env"],
     "env": {
         "browser": true,
         "node": true,

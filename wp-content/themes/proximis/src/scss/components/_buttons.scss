@@ -209,6 +209,8 @@
             height: 15px;
         }
         &::after {
+            top: auto;
+            bottom: 0;
             border-width: 7px 5px 0 5px;
             border-color: $primary transparent transparent transparent;
         }
