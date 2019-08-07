@@ -1987,7 +1987,7 @@ div.wpcf7-mail-sent-ng {
 .infos-datas {
   margin-bottom: 84px; }
 .title-ref {
-  margin-bottom: 56px; }
+  margin: 0.6em 0 56px; }
 .use-case-title {
   color: #18162b; }
 .wrapper-data {
@@ -2752,7 +2752,7 @@ div.wpcf7-mail-sent-ng {
   .home-united .text {
     width: 50%; }
   .home-united p {
-    margin-left: 27%; }
+    margin-left: 28.5%; }
   .anim-united {
     width: 480px;
     height: 534px;
@@ -4045,4 +4045,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?5e285dd3bfa2b49393d7b53b96a0b1b9*/
+/*# sourceMappingURL=main.css.map?d950b9a244846bdc1df30d2881bb2fb9*/
