@@ -376,7 +376,7 @@ a,
         }
 
         &:first-letter {
-            margin: 0.3em $gutter 0 0;
+            margin: 0.22em $gutter 0 0;
             font-size: 9.7rem;
             line-height: 0.5;
             font-family: $recoleta-bold;
@@ -456,6 +456,10 @@ a,
     border-radius: 50%;
     background: $primary;
     box-shadow: 0 10px 15px rgba(#000, 0.05);
+}
+
+.big-text{
+    font-size: 2rem;
 }
 
 .no-margin-bottom {

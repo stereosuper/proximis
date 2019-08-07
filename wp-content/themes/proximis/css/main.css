@@ -497,7 +497,7 @@ a:active,
 .has-drop-cap:not(:focus):after {
   content: none; }
 .has-drop-cap:not(:focus):first-letter {
-  margin: 0.3em 20px 0 0;
+  margin: 0.22em 20px 0 0;
   font-size: 9.7rem;
   line-height: 0.5;
   font-family: "recoleta_bold", "ibmplex", sans-serif;
@@ -547,6 +547,8 @@ a:active,
   background: #55c4da;
   -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
           box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05); }
+.big-text {
+  font-size: 2rem; }
 .no-margin-bottom {
   margin-bottom: 0; }
 .small-margin-bottom {
@@ -4048,4 +4050,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?d0fc8f833cc6af4087ad2059a3603059*/
+/*# sourceMappingURL=main.css.map?dcd367080e87f654062a70a2fac17b7f*/

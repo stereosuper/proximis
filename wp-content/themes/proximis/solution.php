@@ -37,7 +37,7 @@ get_header(); ?>
 				</div>
 				<div class='container-small'>
 					<h2 class='x-small'><?php the_sub_field('title'); ?></h2>
-					<?php the_sub_field('text'); ?>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
 					<div class='schema-wrapper'>
 						<div class='schema'>
 							<div class='beyonce'><?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?></div>
