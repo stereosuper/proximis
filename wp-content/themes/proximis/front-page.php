@@ -146,7 +146,7 @@
 									<a class="ref clickable" href="<?php echo $permalink; ?>" title="<?php the_title(); ?>">
 										<span class="btn-hexagon small">
                                             <span class="hexagon"></span>
-                                            <svg class="icon icon-small-arrow down"><use xlink:href="#icon-small-arrow"></use></svg>
+                                            <span class="plus"></span>
                                         </span>
 										<?php echo $img; ?>
 									</a>
