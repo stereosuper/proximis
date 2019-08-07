@@ -499,6 +499,7 @@ a:active,
 .img-shape {
   display: none; }
 .highlighted {
+  z-index: 10;
   font-family: "recoleta", "ibmplex", sans-serif;
   font-size: 2rem;
   line-height: 28px;
@@ -506,8 +507,8 @@ a:active,
   background: #fff; }
 .single-job .highlighted {
     display: block;
-    padding: 25px 40px;
-    position: absolute;
+    padding: 25px 20px;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0; }
@@ -516,6 +517,7 @@ a:active,
 .highlighted > p {
     margin: 0; }
 .highlighted .line {
+    display: none;
     top: 52px; }
 .highlighted a {
     font-family: inherit; }
@@ -547,7 +549,9 @@ a:active,
 @media (min-width: 400px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
-    right: 65%; } }
+    right: 65%; }
+  .single-job .highlighted {
+    padding: 25px 40px; } }
 @media (min-width: 580px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
@@ -634,6 +638,8 @@ a:active,
     bottom: auto; }
     .single-job .highlighted br {
       display: block; }
+  .highlighted .line {
+    display: block; }
   .alignright {
     margin-right: -45%; }
   .wp-block-image .alignright {
@@ -3425,7 +3431,7 @@ div.wpcf7-mail-sent-ng {
 .team-member span {
     font-size: 1.4rem; }
 .job-wrapper {
-  padding-bottom: 70px; }
+  padding-bottom: 90px; }
 .job-wrapper .container-tiny {
     padding-bottom: 10px; }
 @media (min-width: 780px) {
@@ -3742,4 +3748,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b95079ee821f7612e08efa79b6a017af*/
+/*# sourceMappingURL=main.css.map?07201f6875bacaeee2fe6511d3e8b0ab*/

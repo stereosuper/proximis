@@ -12,7 +12,7 @@ const jobHandler = () => {
         collant = new Collant({
             selector: '.highlighted',
             box: '.main',
-            offsetBottom: '0px'
+            offsetBottom: '1px'
         });
     } else {
         collant = new Collant({

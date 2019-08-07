@@ -388,6 +388,7 @@ a,
 }
 
 .highlighted {
+    z-index: 10;
     font-family: $recoleta;
     font-size: 2rem;
     line-height: $line-height;
@@ -396,8 +397,8 @@ a,
 
     .single-job & {
         display: block;
-        padding: 25px 40px;
-        position: absolute;
+        padding: 25px 20px;
+        position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
@@ -412,6 +413,7 @@ a,
     }
 
     .line {
+        display: none;
         top: 52px;
     }
 
@@ -469,6 +471,12 @@ a,
     .has-drop-cap {
         &:before {
             right: 65%;
+        }
+    }
+
+    .highlighted {
+        .single-job & {
+            padding: 25px 40px;
         }
     }
 }
@@ -619,6 +627,10 @@ a,
             br {
                 display: block;
             }
+        }
+
+        .line{
+            display: block;
         }
     }
 

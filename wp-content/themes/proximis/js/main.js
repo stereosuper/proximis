@@ -356,12 +356,16 @@ class Collant {
         if (this.offsetPosition === 'top') {
             scrollOffset = _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop + this.offset;
         } else if (this.offsetPosition === 'bottom') {
+            
             scrollOffset =
                 _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superScroll"].scrollTop +
-                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].h -
+                _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowHeight -
                 this.collantBoundings.height -
                 this.offset;
         }
+
+        console.log(scrollOffset);
+        
 
         const bottomDelimiter =
             this.boxBoundings.y +
@@ -36422,7 +36426,7 @@ const jobHandler = () => {
         collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
             selector: '.highlighted',
             box: '.main',
-            offsetBottom: '0px'
+            offsetBottom: '1px'
         });
     } else {
         collant = new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_0__["Collant"]({
@@ -36737,4 +36741,4 @@ _stereorepo_sac__WEBPACK_IMPORTED_MODULE_2__["superLoad"].initializeLoadingShit(
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map?d20227b7ac164e769cc419c5cbea8bb1
+//# sourceMappingURL=main.js.map?7d62f5e8a8fb39f6444c9fbf40c24f7b
