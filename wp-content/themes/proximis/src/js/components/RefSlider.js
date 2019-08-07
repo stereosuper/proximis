@@ -1,9 +1,9 @@
-import { superPolyfill, query, forEach } from '@stereorepo/sac';
+import { superPolyfill, query, forEach, superWindow } from '@stereorepo/sac';
 import { Collant } from '@stereorepo/collant';
 import { TweenMax, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import { easing } from '../global';
+import { easing, breakpoints } from '../global';
 
 // NOTE: We need to use ScrollToPlugin in order to ensure that the plugin won't be tree-shaked
 const ensureScrollTo = ScrollToPlugin;
@@ -25,6 +25,7 @@ class ReferencesSlider {
         this.currentSlide = null;
 
         this.resetContext = this.resetContext.bind(this);
+        this.resizeHandler = this.resizeHandler.bind(this);
 
         superPolyfill.initializeWhatwgFetch();
     }
@@ -119,6 +120,7 @@ class ReferencesSlider {
         }
     }
     stickElements() {
+        if (superWindow.windowWidth <= breakpoints.horizontal.xl) return;
         this.collants = [
             ...this.collants,
             new Collant({
@@ -315,6 +317,15 @@ class ReferencesSlider {
             );
         });
     }
+    resizeHandler() {
+        if (superWindow.windowWidth > breakpoints.horizontal.xl) {
+
+            this.stickElements();
+        } else {
+            this.unstickElements();
+
+        }
+    }
     initialize() {
         [this.referenceSlider] = query({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
@@ -328,6 +339,8 @@ class ReferencesSlider {
             this.setCurrentContext();
             this.checkLocationHash();
         });
+
+        superWindow.addResizeEndFunction(this.resizeHandler);
     }
 }
 

@@ -41,6 +41,7 @@ class ReferencesSlider {
         this.currentSlide = null;
 
         this.resetContext = this.resetContext.bind(this);
+        this.resizeHandler = this.resizeHandler.bind(this);
 
         _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superPolyfill"].initializeWhatwgFetch();
     }
@@ -135,6 +136,7 @@ class ReferencesSlider {
         }
     }
     stickElements() {
+        if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth <= _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl) return;
         this.collants = [
             ...this.collants,
             new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
@@ -331,6 +333,15 @@ class ReferencesSlider {
             );
         });
     }
+    resizeHandler() {
+        if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth > _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl) {
+
+            this.stickElements();
+        } else {
+            this.unstickElements();
+
+        }
+    }
     initialize() {
         [this.referenceSlider] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-slider' });
         if (!this.referenceSlider) return;
@@ -344,6 +355,8 @@ class ReferencesSlider {
             this.setCurrentContext();
             this.checkLocationHash();
         });
+
+        _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].addResizeEndFunction(this.resizeHandler);
     }
 }
 
@@ -353,4 +366,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?3b5956ba1f5d2b0c92f9c5fe0a5135dd
+//# sourceMappingURL=RefSlider.js.map?b5092fa88836594bcec1f2627e12b8c7
