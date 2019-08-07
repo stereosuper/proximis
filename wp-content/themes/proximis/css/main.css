@@ -501,6 +501,7 @@ a:active,
 .img-shape {
   display: none; }
 .highlighted {
+  z-index: 10;
   font-family: "recoleta", "ibmplex", sans-serif;
   font-size: 2rem;
   line-height: 28px;
@@ -508,8 +509,8 @@ a:active,
   background: #fff; }
 .single-job .highlighted {
     display: block;
-    padding: 25px 40px;
-    position: absolute;
+    padding: 25px 20px;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0; }
@@ -518,6 +519,7 @@ a:active,
 .highlighted > p {
     margin: 0; }
 .highlighted .line {
+    display: none;
     top: 52px; }
 .highlighted a {
     font-family: inherit; }
@@ -549,7 +551,9 @@ a:active,
 @media (min-width: 400px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
-    right: 65%; } }
+    right: 65%; }
+  .single-job .highlighted {
+    padding: 25px 40px; } }
 @media (min-width: 580px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
@@ -630,12 +634,15 @@ a:active,
     margin: -38px 0 0; }
   .single-job .highlighted {
     padding: 40px;
+    position: absolute;
     top: 200px;
     margin: 0;
     left: auto;
     bottom: auto; }
     .single-job .highlighted br {
       display: block; }
+  .highlighted .line {
+    display: block; }
   .alignright {
     margin-right: -45%; }
   .wp-block-image .alignright {
@@ -1791,8 +1798,6 @@ div.wpcf7-mail-sent-ng {
     height: 10px;
     position: relative;
     margin: 0 0 0 6px;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
     -webkit-transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  -webkit-transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
     transition:  transform 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
@@ -1858,6 +1863,17 @@ div.wpcf7-mail-sent-ng {
 .link.small:hover > i, .link.small:focus > i {
     -webkit-transform: scale(0.6) translate3d(-10px, 0, 0);
             transform: scale(0.6) translate3d(-10px, 0, 0); }
+.button-scroll-to > i {
+  width: 7px;
+  min-width: 7px;
+  height: 15px;
+  margin-left: 10px; }
+.button-scroll-to > i::before {
+    width: 2px;
+    height: 15px; }
+.button-scroll-to > i::after {
+    border-width: 7px 5px 0 5px;
+    border-color: #55c4da transparent transparent transparent; }
 .ref {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -3429,7 +3445,7 @@ div.wpcf7-mail-sent-ng {
 .team-member span {
     font-size: 1.4rem; }
 .job-wrapper {
-  padding-bottom: 70px; }
+  padding-bottom: 90px; }
 .job-wrapper .container-tiny {
     padding-bottom: 10px; }
 @media (min-width: 780px) {
@@ -3746,4 +3762,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?eabdb377a446b1e8f09f36aedab0d130*/
+/*# sourceMappingURL=main.css.map?bb2fb85ab5063c774652d629d48f12e1*/
