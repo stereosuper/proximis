@@ -24,7 +24,7 @@
 		
 		<?php if( $thumbnail ) : ?>
 			<div class='post-thumbnail'>
-				<?php the_post_thumbnail('full'); ?>
+				<div style='background-image:url(<?php the_post_thumbnail_url('full'); ?>)'></div>
 			</div>
 		<?php endif; ?>
 

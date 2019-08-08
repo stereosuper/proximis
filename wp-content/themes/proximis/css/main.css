@@ -3340,9 +3340,31 @@ div.wpcf7-mail-sent-ng {
     width: 16px;
     height: 16px;
     fill: #5c6370; }
+.post-thumbnail > div {
+  height: 40vh;
+  max-height: 150px;
+  background-size: cover;
+  background-position: 50% 50%; }
+@media (min-width: 400px) {
+  .post-thumbnail > div {
+    max-height: 200px; } }
+@media (min-width: 580px) {
+  .post-thumbnail > div {
+    max-height: 250px; } }
+@media (min-width: 780px) {
+  .post-thumbnail > div {
+    max-height: 300px; } }
 @media (min-width: 960px) {
   .post-thumbnail {
     margin: 0 0 0 8.33333%; } }
+@media (min-width: 1100px) {
+  .post-thumbnail > div {
+    height: 50vh;
+    max-height: 380px; } }
+@media (min-width: 1400px) {
+  .post-thumbnail > div {
+    height: 60vh;
+    max-height: 420px; } }
 #offers {
   padding: 84px 0;
   background: #fff; }
@@ -4125,4 +4147,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?8caf4328cda05c34d4569adef901fd7c*/
+/*# sourceMappingURL=main.css.map?a926700dbfcc346b0e302f7f80c5125a*/

@@ -339,8 +339,60 @@
     }
 }
 
+.post-thumbnail{
+    > div{
+        height: 40vh;
+        max-height: 150px;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}
+
+
+@media (min-width: $phone-small){
+    .post-thumbnail{
+        > div{
+            max-height: 200px;
+        }
+    }
+}
+
+@media (min-width: $phone){
+    .post-thumbnail{
+        > div{
+            max-height: 250px;
+        }
+    }
+}
+
+@media (min-width: $tablet){
+    .post-thumbnail{
+        > div{
+            max-height: 300px;
+        }
+    }
+}
+
 @media (min-width: $desktop-small) {
     .post-thumbnail {
         margin: 0 0 0 $col;
+    }
+}
+
+@media (min-width: $desktop){
+    .post-thumbnail{
+        > div{
+            height: 50vh;
+            max-height: 380px;
+        }
+    }
+}
+
+@media (min-width: $desktop-big){
+    .post-thumbnail{
+        > div{
+            height: 60vh;
+            max-height: 420px;
+        }
     }
 }
