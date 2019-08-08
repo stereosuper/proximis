@@ -421,10 +421,8 @@ a,
   line-height: 28px;
   color: #55c4da;
   text-decoration: underline;
-  -webkit-transition:  -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
-  transition:  text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93), -webkit-text-decoration-color 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
+  -webkit-transition: 0.3s cubic-bezier(0.38, 0, 0.45, 0.93);
+  transition: 0.3s cubic-bezier(0.38, 0, 0.45, 0.93); }
 a::before,
   .simple-link::before {
     content: '';
@@ -4075,4 +4073,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b25ddbe1c04bac99ac40b8e046756a78*/
+/*# sourceMappingURL=main.css.map?ff7d2cbe684ac8608de0922226b234cb*/
