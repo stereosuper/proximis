@@ -7,6 +7,15 @@
 		<meta name='format-detection' content='telephone=no'>
 
 		<link rel='alternate' type='application/rss+xml' title='<?php echo get_bloginfo('sitename') ?> Feed' href='<?php echo get_bloginfo('rss2_url') ?>'>
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=00B0B87QE9">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=00B0B87QE9">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=00B0B87QE9">
+		<link rel="manifest" href="/site.webmanifest?v=00B0B87QE9">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg?v=00B0B87QE9" color="#55c4da">
+		<link rel="shortcut icon" href="/favicon.ico?v=00B0B87QE9">
+		<meta name="msapplication-TileColor" content="#55c4da">
+		<meta name="theme-color" content="#55c4da">
 
 		<?php wp_head(); ?>
 
