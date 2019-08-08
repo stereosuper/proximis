@@ -50,6 +50,18 @@ class ReferencesSlider {
                 callback();
             });
     }
+    checkAnyFollowing() {
+        if (this.idsList.length > 1) {
+            const [navButtons] = query({
+                selector: '.js-nav-btn',
+                ctx: this.form
+            });
+            TweenMax.to(navButtons, 0.3, {
+                autoAlpha: 1,
+                ease: easing.easeInOut
+            });
+        }
+    }
     selectFollowingElement({ id = null }) {
         if (id !== null) {
             this.newReferenceId = id;
@@ -355,6 +367,7 @@ class ReferencesSlider {
         });
 
         this.getAllSlideIds(() => {
+            this.checkAnyFollowing();
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
             this.checkLocationHash();

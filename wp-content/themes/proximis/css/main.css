@@ -2096,6 +2096,9 @@ div.wpcf7-mail-sent-ng {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+.nav-btn.nav-hidden {
+    opacity: 0;
+    visibility: hidden; }
 .nav-btn > * {
     margin-right: 16px; }
 .nav-btn > *:last-child {
@@ -4147,4 +4150,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?a926700dbfcc346b0e302f7f80c5125a*/
+/*# sourceMappingURL=main.css.map?967bc819e138055afc05d46c65c650af*/

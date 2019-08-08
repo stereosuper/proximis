@@ -66,6 +66,18 @@ class ReferencesSlider {
                 callback();
             });
     }
+    checkAnyFollowing() {
+        if (this.idsList.length > 1) {
+            const [navButtons] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+                selector: '.js-nav-btn',
+                ctx: this.form
+            });
+            gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(navButtons, 0.3, {
+                autoAlpha: 1,
+                ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut
+            });
+        }
+    }
     selectFollowingElement({ id = null }) {
         if (id !== null) {
             this.newReferenceId = id;
@@ -371,6 +383,7 @@ class ReferencesSlider {
         });
 
         this.getAllSlideIds(() => {
+            this.checkAnyFollowing();
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
             this.checkLocationHash();
@@ -386,4 +399,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?038890f37db7285e06a6ab585826c137
+//# sourceMappingURL=RefSlider.js.map?2c002bbd342e6bb7abb475177681ef09

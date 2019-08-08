@@ -17,7 +17,7 @@
             </div>
             <div class="wrapper-btn-infos" id="btn-infos">
                 <div class="content-btn-infos js-content-btn-infos">
-                    <div class="nav-btn js-nav-btn">
+                    <div class="nav-btn nav-hidden js-nav-btn">
                         <button type="button" class="btn-hexagon animated js-button-hexagon">
                             <span class="hexagon"></span>
                             <svg class="icon icon-small-arrow prev"><use xlink:href="#icon-small-arrow"></use></svg>
