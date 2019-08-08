@@ -20,12 +20,9 @@
         z-index: -1;
         border-radius: 50%;
         background: #fff;
-        transition: transition(
-            (
-                transform: '#{$medium-duration}'
+        transition: transition((transform: '#{$medium-duration}'
             ),
-            $ease-in-out-timing-function
-        );
+            $ease-in-out-timing-function);
     }
 
     &.number {
@@ -63,12 +60,9 @@
 
             img {
                 transform: scale(0.97);
-                transition: transition(
-                    (
-                        transform: '#{$short-duration}'
+                transition: transition((transform: '#{$short-duration}'
                     ),
-                    $ease-in-out-timing-function
-                );
+                    $ease-in-out-timing-function);
             }
         }
     }
@@ -82,15 +76,10 @@
 
     img {
         max-width: 80%;
-        transition: transition(
-            (
-                transform: (
-                    '#{$short-duration}',
+        transition: transition((transform: ('#{$short-duration}',
                     '#{$short-duration * 0.5}'
-                )
-            ),
-            $ease-in-out-timing-function
-        );
+                )),
+            $ease-in-out-timing-function);
     }
 }
 
@@ -135,7 +124,7 @@
     border-radius: 50%;
     background: $primary;
 
-    > span {
+    >span {
         position: relative;
         top: 0.15em;
     }
@@ -151,7 +140,7 @@
         color: $grey;
     }
 
-    > ul {
+    >ul {
         margin: 0;
     }
 
@@ -195,7 +184,7 @@
     margin: 0 0 $line-height;
     overflow: hidden;
 
-    > img {
+    >img {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -207,7 +196,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    > * {
+    >* {
         margin-right: 16px;
 
         &:last-child {
@@ -215,7 +204,7 @@
         }
     }
 
-    + .wrapper-btn-download {
+    +.wrapper-btn-download {
         margin-top: 16px;
     }
 }
@@ -264,12 +253,9 @@
         &:hover {
             .hexagon {
                 transform: scale3d(0.9, 0.9, 1) rotate(30deg);
-                transition: transition(
-                    (
-                        transform: '#{$medium-duration}'
+                transition: transition((transform: '#{$medium-duration}'
                     ),
-                    $ease-in-out-timing-function
-                );
+                    $ease-in-out-timing-function);
             }
         }
     }
@@ -283,12 +269,9 @@
         border-radius: 5px;
         background: $primary;
         transform: rotate(30deg);
-        transition: transition(
-            (
-                transform: '#{$short-duration}'
+        transition: transition((transform: '#{$short-duration}'
             ),
-            $ease-out-timing-function
-        );
+            $ease-out-timing-function);
 
         &::before,
         &::after {
@@ -324,7 +307,7 @@
         &.icon-download {
             width: 16px;
             height: 16px;
-            margin: -8px 0 0 -8px;
+            margin: -10px 0 0 -8px;
         }
 
         &.icon-small-arrow {
@@ -380,9 +363,11 @@
         max-width: $container;
         margin: 0 auto;
     }
+
     .ref-first-part {
         position: relative;
     }
+
     .wrapper-ref-illus {
         margin-left: percentage(1/10);
     }
@@ -459,6 +444,7 @@
         margin-left: auto;
         margin-right: 0;
     }
+
     .data-number {
         left: auto;
         right: percentage(2/3);
@@ -476,7 +462,7 @@
         justify-content: space-between;
         z-index: 1;
 
-        + .wrapper-btn-download {
+        +.wrapper-btn-download {
             margin-top: 0;
         }
     }

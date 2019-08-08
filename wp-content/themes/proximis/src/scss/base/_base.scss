@@ -454,9 +454,10 @@ a,
     border-radius: 50%;
     background: $primary;
     box-shadow: 0 10px 15px rgba(#000, 0.05);
+    overflow: hidden;
 }
 
-.big-text{
+.big-text {
     font-size: 2rem;
 }
 
@@ -478,6 +479,11 @@ a,
 
 .collant-stuck {
     position: absolute;
+}
+
+.wrapper-type,
+.container.wrapper-type {
+    margin-bottom: #{3*$line-height};
 }
 
 @media (min-width: $phone-small) {
@@ -617,6 +623,11 @@ a,
             transform: scaleX(0);
             transform-origin: 80% 0;
         }
+    }
+
+    .wrapper-type,
+    .container.wrapper-type {
+        margin-bottom: #{5*$line-height};
     }
 }
 

@@ -333,13 +333,11 @@ class ReferencesSlider {
             );
         });
     }
-    resizeHandler() {
+    resizeHandler() {
         if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth > _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl) {
-
             this.stickElements();
         } else {
             this.unstickElements();
-
         }
     }
     initialize() {
@@ -366,4 +364,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?b5092fa88836594bcec1f2627e12b8c7
+//# sourceMappingURL=RefSlider.js.map?c673ad24d4eae9efe8ca3e985043f294

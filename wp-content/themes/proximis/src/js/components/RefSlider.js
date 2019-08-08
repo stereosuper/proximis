@@ -317,13 +317,11 @@ class ReferencesSlider {
             );
         });
     }
-    resizeHandler() {
+    resizeHandler() {
         if (superWindow.windowWidth > breakpoints.horizontal.xl) {
-
             this.stickElements();
         } else {
             this.unstickElements();
-
         }
     }
     initialize() {

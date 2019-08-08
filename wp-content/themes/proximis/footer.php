@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </footer>
-            <div id="modal-newsletter" class="wrapper-modal">
+            <div id="modal-newsletter" class="wrapper-modal js-wrapper-modal">
                 <div class="modal-bg js-close-modal"></div>
                 <div class="modal">
                     <button type="button" class="btn-circle btn-close-modal js-close-modal"><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></button>

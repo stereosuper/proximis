@@ -10,12 +10,24 @@
     z-index: 100;
     opacity: 0;
     visibility: hidden;
-    transition: transition((opacity: '#{$short-duration}', visibility: '#{$short-duration}'), $ease-out-timing-function);
+    transition: transition(
+        (
+            opacity: '#{$short-duration}',
+            visibility: '#{$short-duration}'
+        ),
+        $ease-out-timing-function
+    );
 
     &.on {
         opacity: 1;
         visibility: visible;
-        transition: transition((opacity: '#{$short-duration}', visibility: '0s'), $ease-in-timing-function);
+        transition: transition(
+            (
+                opacity: '#{$short-duration}',
+                visibility: '0s'
+            ),
+            $ease-in-timing-function
+        );
     }
 }
 
@@ -36,6 +48,11 @@
     max-width: 488px;
     padding: #{$line-height} 30px;
     background: $white;
+    .wpcf7-form {
+        &.sent {
+            margin: 0;
+        }
+    }
 }
 
 .btn-close-modal {
