@@ -261,31 +261,51 @@ add_filter( 'nav_menu_css_class', 'proximis_css_attributes_filter', 10, 2 );
 
 function mlp_navigation() {
     function language_first_part($lang) {
-        return ucfirst(strtok($lang, '_'));
+        return strtok($lang, '_');
     }
     
-    $current_language = language_first_part(mlp_get_current_blog_language());
+    $current_language = ucfirst(language_first_part(mlp_get_current_blog_language()));
     $current_language_element = "<button class='switcher-button js-lang-switcher-button' type='button'>$current_language</button>";
     
-    $available_languages = '';
-    $other_languages = (array) mlp_get_interlinked_permalinks();
-    
-    if (sizeof($other_languages)) {
-        $items = array ();
-        foreach ( $other_languages as $language ) {
+    $available_languages_elements = '';
+    $other_languages = array_values((array) mlp_get_interlinked_permalinks());
+
+    function test($lang) {
+        return language_first_part($lang);
+    };
+
+    $available_languages = array_values(mlp_get_available_languages());
+    $available_languages = array_map('test', $available_languages);
+
+    $items = array ();
+    foreach ( $available_languages as $index => $available_language ) {
+        $lang = null;
+        foreach ($other_languages as $other_language) {
+            if ($available_language === $other_language['lang']) {
+                $lang = $other_language;
+            }
+        }
+        if ($lang) {
             $link = sprintf(
                 '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
-                esc_url( $language['permalink'] ),
-                esc_attr( $language['lang'] ),
-                language_first_part($language['lang'])
+                esc_url( $lang['permalink'] ),
+                esc_attr( $lang['lang'] ),
+                ucfirst(language_first_part($lang['lang']))
             );
-            $items[] = "<li class='language'>$link</li>";
+        } else {
+            $link = sprintf(
+                '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
+                "/$available_language",
+                $available_language,
+                ucfirst($available_language)
+            );
         }
-    
-        $available_languages = '<ul class="lang-list js-lang-list">'. join('', $items) .'</ul>';
+        $items[] = "<li class='language'>$link</li>";
     }
 
-    $language_switcher = "<div class='lang-switcher'>$current_language_element$available_languages</div>";
+    $available_languages_elements = '<ul class="lang-list js-lang-list">'. join('', $items) .'</ul>';
+
+    $language_switcher = "<div class='lang-switcher'>$current_language_element$available_languages_elements</div>";
 
     return $language_switcher;
 }
