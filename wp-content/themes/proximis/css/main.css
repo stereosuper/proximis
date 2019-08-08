@@ -547,7 +547,9 @@ a:active,
           box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
   overflow: hidden; }
 .big-text {
-  font-size: 2rem; }
+  font-size: 1.8rem; }
+.big-text .has-drop-cap {
+    font-size: 2rem; }
 .no-margin-bottom {
   margin-bottom: 0; }
 .small-margin-bottom {
@@ -3777,6 +3779,9 @@ div.wpcf7-mail-sent-ng {
   padding: 40px 0 0; }
 .schema {
   display: none; }
+.schema-img > img {
+  display: block;
+  margin: 0 auto; }
 .beyonce {
   width: 77px;
   margin: 0 0 -50px 50px; }
@@ -3784,6 +3789,9 @@ div.wpcf7-mail-sent-ng {
   max-width: 100%; }
 .schema-svg .schema-btn {
     cursor: help; }
+.schema-svg .ext {
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
 .schema-desc {
   width: 85%;
   max-width: 440px;
@@ -3796,6 +3804,14 @@ div.wpcf7-mail-sent-ng {
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
   pointer-events: none;
   opacity: 0; }
+.schema-desc:after {
+    content: '';
+    height: 45px;
+    width: 1px;
+    position: absolute;
+    top: -20px;
+    left: 90px;
+    background: #55c4da; }
 .schema-desc.on {
     opacity: 1; }
 .schema-desc p {
@@ -3806,15 +3822,6 @@ div.wpcf7-mail-sent-ng {
     font-size: 2rem;
     margin: 0;
     color: inherit; }
-@media (min-width: 580px) {
-  .schema {
-    display: block;
-    min-width: 490px;
-    max-width: 520px;
-    position: relative;
-    margin: 0 auto; }
-  .schema-img {
-    display: none; } }
 @media (min-width: 780px) {
   .wrapper-data-intro {
     padding: 112px 0; }
@@ -3840,7 +3847,15 @@ div.wpcf7-mail-sent-ng {
       .wrapper-quote-solution blockquote::before, .wrapper-quote-solution blockquote::after {
         font-size: 2.4rem; }
   .wrapper-techno {
-    padding: 112px 0; } }
+    padding: 112px 0; }
+  .schema {
+    display: block;
+    min-width: 490px;
+    max-width: 520px;
+    position: relative;
+    margin: 0 auto; }
+  .schema-img {
+    display: none; } }
 @media (min-width: 960px) {
   .data-intro h2 {
     padding-right: 8.33333%; }
@@ -4097,4 +4112,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?662d111335fca7f8920e9631754d0e53*/
+/*# sourceMappingURL=main.css.map?4ed7a3c3426db25b66ecdd3ff788a185*/
