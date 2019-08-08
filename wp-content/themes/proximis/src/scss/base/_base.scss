@@ -458,7 +458,10 @@ a,
 }
 
 .big-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    .has-drop-cap{
+        font-size: 2rem;
+    }
 }
 
 .no-margin-bottom {

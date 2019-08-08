@@ -211,10 +211,12 @@ class ReferencesSlider {
         gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(oldSlide, 0.5, {
             xPercent: -xPercent,
             ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
+            force3D: true,
             onStart: () => {
                 gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(followingSlide, 0.5, {
                     xPercent: 0,
                     ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
+                    force3D: true,
                     onComplete: this.resetContext
                 });
             }
@@ -266,7 +268,11 @@ class ReferencesSlider {
         const { height } = this.currentSlide.getBoundingClientRect();
         gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(this.referenceSlider, 0.3, {
             height: `${height}px`,
-            ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut
+            ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
+            force3D: true,
+            onComplete: () => {
+                gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].set(this.referenceSlider, { clearProps: 'transform' });
+            }
         });
 
         prevButton.addEventListener(
@@ -380,4 +386,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?38338c784c35b972c0a81b5f7a620d1e
+//# sourceMappingURL=RefSlider.js.map?038890f37db7285e06a6ab585826c137
