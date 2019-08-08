@@ -3834,9 +3834,12 @@ div.wpcf7-mail-sent-ng {
   .list-datas > li {
     margin-bottom: 56px; }
   .list-datas .data-number {
+    left: 0;
+    right: auto;
     width: 84px;
     height: 84px;
     margin-top: -42px;
+    margin-right: 0;
     font-size: 2.3rem; }
   .list-datas .data-text {
     padding-left: 104px; }
@@ -4078,4 +4081,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?04759cba73c44e26cba1a57dada15474*/
+/*# sourceMappingURL=main.css.map?790b673408e06b320a84a1498fe3d68c*/
