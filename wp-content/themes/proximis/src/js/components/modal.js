@@ -17,7 +17,7 @@ const modal = () => {
     const checkSubmissionPage = () => {
         forEach(modals, modal => {
             const [form] = query({ selector: '.wpcf7-form', ctx: modal });
-            if (!form) return;
+            if (!form || !modal) return;
             const classesToCheck = ['invalid', 'sent'];
 
             const hasClass = classesToCheck.some(className =>
