@@ -276,9 +276,7 @@ a,
     line-height: $line-height;
     color: $primary;
     text-decoration: underline;
-    transition: transition((text-decoration-color: ('#{$short-duration}'
-            )),
-        $ease-in-out-timing-function);
+    transition: $short-duration $ease-in-out-timing-function;
 
     &::before {
         content: '';
