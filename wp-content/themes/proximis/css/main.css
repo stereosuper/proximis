@@ -557,6 +557,9 @@ a:active,
   position: fixed !important; }
 .collant-stuck {
   position: absolute; }
+.wrapper-type,
+.container.wrapper-type {
+  margin-bottom: 84px; }
 @media (min-width: 400px) {
   .post-thumbnail:before,
   .has-drop-cap:before {
@@ -632,7 +635,10 @@ a:active,
       -webkit-transform: scaleX(0);
               transform: scaleX(0);
       -webkit-transform-origin: 80% 0;
-              transform-origin: 80% 0; } }
+              transform-origin: 80% 0; }
+  .wrapper-type,
+  .container.wrapper-type {
+    margin-bottom: 140px; } }
 @media (min-width: 1100px) {
   .highlighted,
   .book-highlighted,
@@ -4079,4 +4085,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?87ac2ca03d81653be8f9a13402a6490c*/
+/*# sourceMappingURL=main.css.map?05adc1fe9254c8233b8b1a7f12c0494b*/
