@@ -2767,8 +2767,8 @@ div.wpcf7-mail-sent-ng {
       flex-wrap: wrap; }
 .home-ref-list > li {
     width: 14%;
-    min-width: 180px;
-    padding: 0 0 15px; }
+    min-width: 195px;
+    padding: 0 0 30px; }
 .home-ref-list > li:before {
       content: none; }
 @media (min-width: 780px) {
@@ -4097,4 +4097,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?662d111335fca7f8920e9631754d0e53*/
+/*# sourceMappingURL=main.css.map?a2074dc1517ff9447154d3c07c578bcd*/
