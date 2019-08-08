@@ -1380,8 +1380,14 @@ div.wpcf7-mail-sent-ng {
             align-items: flex-end; }
     .footer > .container:before {
       top: -51px; }
-  .footer-big > p:last-child {
-    margin-bottom: 0; }
+    .footer > .container > div {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+              flex: 1 1 auto; }
+  .footer-big {
+    margin-right: 20px; }
+    .footer-big > p:last-child {
+      margin-bottom: 0; }
   .footer-title {
     font-size: 2.8rem; }
     .footer-title + .link {
@@ -4097,4 +4103,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?a2074dc1517ff9447154d3c07c578bcd*/
+/*# sourceMappingURL=main.css.map?f76e2dc5489649c294b1a77df34789d9*/

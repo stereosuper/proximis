@@ -145,10 +145,16 @@
             &:before {
                 top: -51px;
             }
+
+            >div {
+                flex: 1 1 auto;
+            }
         }
     }
 
     .footer-big {
+        margin-right: $gutter;
+
         >p {
             &:last-child {
                 margin-bottom: 0;
