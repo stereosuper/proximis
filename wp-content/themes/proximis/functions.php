@@ -290,6 +290,21 @@ function mlp_navigation() {
     return $language_switcher;
 }
 
+function proximis_yoast_breadcrumb( $links ) {
+    global $post;
+
+    if ( is_singular( 'job' ) ) {
+        $breadcrumb[] = array(
+            'url' => get_field('link_jobs', 'options'),
+            'text' => __('Recruitment', 'proximis'),
+        );
+        array_splice( $links, 1, -2, $breadcrumb );
+    }
+
+    return $links;
+}
+add_filter( 'wpseo_breadcrumb_links', 'proximis_yoast_breadcrumb' );
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Blog

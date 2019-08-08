@@ -3785,6 +3785,7 @@ div.wpcf7-mail-sent-ng {
 .schema-svg .schema-btn {
     cursor: help; }
 .schema-desc {
+  width: 85%;
   max-width: 440px;
   padding: 65px 60px;
   position: absolute;
@@ -4096,4 +4097,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?a4853fa232497922c07f77d336e6dc15*/
+/*# sourceMappingURL=main.css.map?662d111335fca7f8920e9631754d0e53*/
