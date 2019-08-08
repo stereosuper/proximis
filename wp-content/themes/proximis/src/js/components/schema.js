@@ -17,7 +17,7 @@ const schemaHandler = () => {
     const btns = schema.querySelectorAll('.schema-btn');
     let desc, bbox;
     const centerRotation = TweenMax.to(int, 50, {rotation: '-=360', transformOrigin: '50% 50%', repeat: -1, ease: Linear.easeNone, paused: true});
-    const schemaLeft = schema.getBoundingClientRect().x;
+    const schemaRect = schema.getBoundingClientRect();
 
 
     const animSchema = () => {
@@ -44,8 +44,8 @@ const schemaHandler = () => {
             desc = document.getElementById(btn.id + '-desc');
             if( !desc ) return;
             bbox = btn.getBoundingClientRect();
-            desc.style.top = (bbox.y + bbox.height + 3) + 'px';
-            desc.style.left = (bbox.x - schemaLeft - 20) + 'px';
+            desc.style.top = (bbox.y - schemaRect.y + bbox.height + 3) + 'px';
+            desc.style.left = (bbox.x - schemaRect.x - 20) + 'px';
             desc.classList.add('on');
         });
 
