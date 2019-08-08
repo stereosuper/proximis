@@ -2601,6 +2601,7 @@ div.wpcf7-mail-sent-ng {
   min-height: 90vh;
   margin: -248px 0 0; }
 .carousel .slide {
+    display: none;
     min-height: 90vh;
     position: absolute;
     top: 0;
@@ -2627,6 +2628,8 @@ div.wpcf7-mail-sent-ng {
         width: 100%;
         padding-right: 30px; }
 .carousel .slide:first-child {
+      display: block;
+      position: relative;
       z-index: 2; }
 .carousel .slide:nth-child(2) {
       z-index: 1;
@@ -4075,4 +4078,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b25ddbe1c04bac99ac40b8e046756a78*/
+/*# sourceMappingURL=main.css.map?04759cba73c44e26cba1a57dada15474*/

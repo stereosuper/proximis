@@ -4,8 +4,14 @@ import { TweenMax } from 'gsap';
 
 function Slider(wrapper) {
     this.wrapper = wrapper;
-    this.slides = query({ selector: '.slide', ctx: this.wrapper });
-    this.dots = query({ selector: '.dot', ctx: this.wrapper });
+    this.slides = query({
+        selector: '.slide',
+        ctx: this.wrapper
+    });
+    this.dots = query({
+        selector: '.dot',
+        ctx: this.wrapper
+    });
     this.activeSlide = 0;
     this.nextSlide = 1;
     this.nbSlides = this.slides.length;
@@ -18,6 +24,13 @@ function Slider(wrapper) {
                 this.kill();
                 this.nextIndex(this, dotIndex);
             }
+        });
+    });
+
+    this.slides.forEach(el => {
+        TweenMax.set(el, {
+            display: 'block',
+            position: 'absolute'
         });
     });
 
