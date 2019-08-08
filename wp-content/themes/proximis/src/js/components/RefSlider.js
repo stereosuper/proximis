@@ -195,10 +195,12 @@ class ReferencesSlider {
         TweenMax.to(oldSlide, 0.5, {
             xPercent: -xPercent,
             ease: easing.easeInOut,
+            force3D: true,
             onStart: () => {
                 TweenMax.to(followingSlide, 0.5, {
                     xPercent: 0,
                     ease: easing.easeInOut,
+                    force3D: true,
                     onComplete: this.resetContext
                 });
             }
@@ -250,7 +252,8 @@ class ReferencesSlider {
         const { height } = this.currentSlide.getBoundingClientRect();
         TweenMax.to(this.referenceSlider, 0.3, {
             height: `${height}px`,
-            ease: easing.easeInOut
+            ease: easing.easeInOut,
+            force3D: true
         });
 
         prevButton.addEventListener(
