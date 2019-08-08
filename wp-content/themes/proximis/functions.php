@@ -270,12 +270,12 @@ function mlp_navigation() {
     $available_languages_elements = '';
     $other_languages = array_values((array) mlp_get_interlinked_permalinks());
 
-    function test($lang) {
+    function map_lang($lang) {
         return language_first_part($lang);
     };
 
     $available_languages = array_values(mlp_get_available_languages());
-    $available_languages = array_map('test', $available_languages);
+    $available_languages = array_map('map_lang', $available_languages);
 
     $items = array ();
     foreach ( $available_languages as $index => $available_language ) {
@@ -295,7 +295,7 @@ function mlp_navigation() {
         } else {
             $link = sprintf(
                 '<a href="%1$s" hreflang="%2$s" rel="alternate">%3$s</a>',
-                "/$available_language",
+                $available_language === 'fr' ? '/' : "/$available_language",
                 $available_language,
                 ucfirst($available_language)
             );
@@ -324,6 +324,18 @@ function proximis_yoast_breadcrumb( $links ) {
     return $links;
 }
 add_filter( 'wpseo_breadcrumb_links', 'proximis_yoast_breadcrumb' );
+
+add_filter( 'wpcf7_form_elements', 'disable_first_select_element' );
+function disable_first_select_element( $content ) {
+	// global $wpcf7_contact_form;
+	
+	$find = '<option value="">';
+	$replace = '<option value="" disabled selected>';
+    $content = str_replace($find, $replace, $content);
+
+    
+	return $content;	
+}
 
 
 /*-----------------------------------------------------------------------------------*/
