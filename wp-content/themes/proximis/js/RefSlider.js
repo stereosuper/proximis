@@ -269,7 +269,10 @@ class ReferencesSlider {
         gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to(this.referenceSlider, 0.3, {
             height: `${height}px`,
             ease: _global__WEBPACK_IMPORTED_MODULE_4__["easing"].easeInOut,
-            force3D: true
+            force3D: true,
+            onComplete: () => {
+                gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].set(this.referenceSlider, { clearProps: 'transform' });
+            }
         });
 
         prevButton.addEventListener(
@@ -383,4 +386,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?223d7c58ae2b75751af0beb7d6855acf
+//# sourceMappingURL=RefSlider.js.map?038890f37db7285e06a6ab585826c137

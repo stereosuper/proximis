@@ -253,7 +253,10 @@ class ReferencesSlider {
         TweenMax.to(this.referenceSlider, 0.3, {
             height: `${height}px`,
             ease: easing.easeInOut,
-            force3D: true
+            force3D: true,
+            onComplete: () => {
+                TweenMax.set(this.referenceSlider, { clearProps: 'transform' });
+            }
         });
 
         prevButton.addEventListener(
