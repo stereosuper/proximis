@@ -2960,9 +2960,10 @@ div.wpcf7-mail-sent-ng {
           -ms-flex-pack: justify;
               justify-content: space-between; } }
 @media (min-width: 1400px) {
-  .home h1,
   .home h2 {
     font-size: 5.4rem; }
+  .home h1 {
+    font-size: 5.3rem; }
   .home-united .text {
     width: 35%;
     margin: 0 0 0 4%; }
@@ -4095,4 +4096,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?deca4aff860d411dfa4f3fce94340c23*/
+/*# sourceMappingURL=main.css.map?a4853fa232497922c07f77d336e6dc15*/

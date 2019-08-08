@@ -474,10 +474,14 @@
 
 @media (min-width: $desktop-big) {
 
-    .home h1,
     .home h2 {
         font-size: 5.4rem;
     }
+
+    .home h1 {
+        font-size: 5.3rem;
+    }
+
 
     .home-united {
         .text {
