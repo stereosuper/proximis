@@ -13,7 +13,7 @@
     li {
         display: flex;
         padding: 0;
-        margin: 0 0 35px;
+        margin: 0 0 #{2*$line-height};
         align-items: center;
 
         &:before {
@@ -43,6 +43,10 @@
     strong,
     span {
         display: block;
+    }
+
+    .job {
+        font-size: 1.4rem;
     }
 
     a {

@@ -51,7 +51,7 @@ get_header(); ?>
 												</div>
 												<p>
 													<strong><?php the_sub_field('name'); ?></strong>
-													<span><?php the_sub_field('job'); ?></span>
+													<span class='job'><?php the_sub_field('job'); ?></span>
 													<?php if( get_sub_field('twitter') ) : ?>
 														<a href='<?php the_sub_field('twitter'); ?>' rel='noreferrer noopener' class='tw'><svg class='icon'><use xlink:href='#icon-tw'></use></svg></a>
 													<?php endif; ?>

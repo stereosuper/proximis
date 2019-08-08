@@ -57,6 +57,7 @@
     "author": "Stéréosuper",
     "license": "MIT",
     "browserslist": [
-        "last 2 versions"
+        "last 2 versions",
+        "ie 11"
     ]
 }
