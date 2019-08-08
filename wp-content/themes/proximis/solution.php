@@ -31,9 +31,7 @@ get_header(); ?>
 		<section class='wrapper-quote-solution'>
 			<div class='container'>
 				<div class='container-xsmall'>
-					<blockquote>
-						<?php the_sub_field('quote'); ?>
-					</blockquote>
+					<blockquote><?php the_sub_field('quote'); ?></blockquote>
 				</div>
 				<div class='container-small'>
 					<h2 class='x-small'><?php the_sub_field('title'); ?></h2>

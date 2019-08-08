@@ -88,9 +88,7 @@ get_header(); ?>
 			<ul class='team-testimonials'>
 				<?php while( have_rows('quotes') ) : the_row(); ?>
 					<li>
-						<blockquote>
-							<?php the_sub_field('text'); ?>
-						</blockquote>
+						<blockquote><?php the_sub_field('text'); ?></blockquote>
 						<div class="team-member">
 							<div class="img">
 								<?php echo wp_get_attachment_image(get_sub_field('photo')); ?>
