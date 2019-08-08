@@ -3499,10 +3499,12 @@ div.wpcf7-mail-sent-ng {
 .team-testimonials blockquote {
     position: relative;
     margin: 0;
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    display: block; }
 .team-testimonials blockquote::before, .team-testimonials blockquote::after {
       font-family: "ibmplex", sans-serif;
       font-size: 2.4rem;
+      line-height: 16px;
       color: #55c4da; }
 .team-testimonials blockquote::before {
       content: "“";
@@ -3512,7 +3514,9 @@ div.wpcf7-mail-sent-ng {
       -webkit-transform: translate3d(calc(-100% - 3px), 0, 0);
               transform: translate3d(calc(-100% - 3px), 0, 0); }
 .team-testimonials blockquote::after {
-      content: "”"; }
+      content: "”";
+      position: relative;
+      top: 0.2em; }
 .team-member {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4119,4 +4123,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?ab0fa934c15a59ee6096348be51d1cba*/
+/*# sourceMappingURL=main.css.map?b61a3e8aa42201cafdae57fec1c6e092*/

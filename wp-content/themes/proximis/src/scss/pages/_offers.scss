@@ -172,11 +172,13 @@
         position: relative;
         margin: 0;
         font-size: 1.6rem;
+        display: block;
 
         &::before,
         &::after {
             font-family: $ibm;
             font-size: 2.4rem;
+            line-height: 16px;
             color: $primary;
         }
 
@@ -190,6 +192,8 @@
 
         &::after {
             content: "”";
+            position: relative;
+            top: 0.2em;
         }
     }
 }
@@ -228,9 +232,10 @@
     }
 }
 
-.job-wrapper{
+.job-wrapper {
     padding-bottom: 90px;
-    .container-tiny{
+
+    .container-tiny {
         padding-bottom: 10px;
     }
 }

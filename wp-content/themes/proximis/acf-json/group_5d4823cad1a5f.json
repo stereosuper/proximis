@@ -552,6 +552,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_5d4c29dbb50c4",
+                    "label": "Customers page link",
+                    "name": "customers_page_link",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 1,
+                    "multiple": 0
+                },
+                {
                     "key": "field_5d48240f5f98a",
                     "label": "Lien",
                     "name": "link",
@@ -586,5 +605,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565191138
+    "modified": 1565272751
 }

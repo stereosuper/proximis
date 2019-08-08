@@ -31,9 +31,7 @@ get_header(); ?>
 		<section class='wrapper-quote-solution'>
 			<div class='container'>
 				<div class='container-xsmall'>
-					<blockquote>
-						<?php the_sub_field('quote'); ?>
-					</blockquote>
+					<blockquote><?php the_sub_field('quote'); ?></blockquote>
 				</div>
 				<div class='container-small'>
 					<h2 class='x-small'><?php the_sub_field('title'); ?></h2>
@@ -246,6 +244,7 @@ get_header(); ?>
 			<p><?php the_sub_field('text'); ?></p>
 
 			<?php
+				$customer_page = get_sub_field('customers_page_link');
 				if( have_rows('numbers', 'options') ) : $numbers = [];
 					while( have_rows('numbers', 'options') ) : the_row();
 						$numbers[] = [get_sub_field('textBottom'), get_sub_field('text'), get_sub_field('number')];
@@ -257,10 +256,14 @@ get_header(); ?>
 				<ul class='home-ref-list'>
 					<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
 						<li>
-							<?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
+							<?php 
+								$img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title()));
+								$post_slug = get_post_field('post_name', get_post());
+								$permalink = $customer_page .'#'. $post_slug;
+							?>
 
 							<?php if( get_field('studycase') ) : ?>
-								<a class="ref clickable" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<a class="ref clickable" href="<?php echo $permalink ?>" title="<?php the_title(); ?>">
 									<span class="btn-hexagon small">
 										<span class="hexagon"></span>
 										<span class="plus"></span>
