@@ -11,7 +11,8 @@ const ensureScrollTo = ScrollToPlugin;
 class ReferencesSlider {
     constructor() {
         this.state = {
-            transitioning: false
+            transitioning: false,
+            sticky: false
         };
 
         this.referenceSlider = null;
@@ -120,28 +121,7 @@ class ReferencesSlider {
         }
     }
     stickElements() {
-        if (superWindow.windowWidth <= breakpoints.horizontal.xl) return;
-        this.collants = [
-            ...this.collants,
-            new Collant({
-                ctx: this.currentSlide,
-                selector: '.js-nav-btn',
-                box: '.js-ref-first-part',
-                offsetTop: '100px'
-            }),
-            new Collant({
-                ctx: this.currentSlide,
-                selector: '.js-btn-download',
-                box: '.js-ref-content-wrapper',
-                offsetTop: '160px'
-            }),
-            new Collant({
-                ctx: this.currentSlide,
-                selector: '.js-infos-datas',
-                box: '.js-content-btn-infos',
-                offsetTop: '25px'
-            })
-        ];
+        this.state.sticky = true;
 
         forEach(this.collants, collant => {
             collant.stickIt();
@@ -152,7 +132,7 @@ class ReferencesSlider {
             collant.ripIt();
         });
 
-        this.collant = [];
+        this.state.sticky = false;
     }
     startLoadingAction() {
         this.loader.classList.add('loading');
@@ -255,8 +235,11 @@ class ReferencesSlider {
         if (this.idsList.length < 2) return;
 
         this.unstickElements();
+        this.collants = [];
 
-        [this.currentSlide] = query({ selector: '.js-ref-current-slide' });
+        [this.currentSlide] = query({
+            selector: '.js-ref-current-slide'
+        });
         this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
 
         const [prevButton, nextButton] = query({
@@ -291,7 +274,34 @@ class ReferencesSlider {
             false
         );
 
-        this.stickElements();
+        if (
+            !this.state.sticky &&
+            superWindow.windowWidth > breakpoints.horizontal.xl
+        ) {
+            this.collants = [
+                ...this.collants,
+                new Collant({
+                    ctx: this.currentSlide,
+                    selector: '.js-nav-btn',
+                    box: '.js-ref-first-part',
+                    offsetTop: '100px'
+                }),
+                new Collant({
+                    ctx: this.currentSlide,
+                    selector: '.js-btn-download',
+                    box: '.js-ref-content-wrapper',
+                    offsetTop: '160px'
+                }),
+                new Collant({
+                    ctx: this.currentSlide,
+                    selector: '.js-infos-datas',
+                    box: '.js-content-btn-infos',
+                    offsetTop: '25px'
+                })
+            ];
+
+            this.stickElements();
+        }
     }
     changeSlide() {
         this.state.transitioning = true;
@@ -318,9 +328,15 @@ class ReferencesSlider {
         });
     }
     resizeHandler() {
-        if (superWindow.windowWidth > breakpoints.horizontal.xl) {
+        if (
+            !this.state.sticky &&
+            superWindow.windowWidth > breakpoints.horizontal.xl
+        ) {
             this.stickElements();
-        } else {
+        } else if (
+            this.state.sticky &&
+            superWindow.windowWidth <= breakpoints.horizontal.xl
+        ) {
             this.unstickElements();
         }
     }

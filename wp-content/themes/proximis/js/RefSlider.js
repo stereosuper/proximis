@@ -27,7 +27,8 @@ const ensureScrollTo = gsap_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__["default
 class ReferencesSlider {
     constructor() {
         this.state = {
-            transitioning: false
+            transitioning: false,
+            sticky: false
         };
 
         this.referenceSlider = null;
@@ -136,28 +137,7 @@ class ReferencesSlider {
         }
     }
     stickElements() {
-        if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth <= _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl) return;
-        this.collants = [
-            ...this.collants,
-            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
-                ctx: this.currentSlide,
-                selector: '.js-nav-btn',
-                box: '.js-ref-first-part',
-                offsetTop: '100px'
-            }),
-            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
-                ctx: this.currentSlide,
-                selector: '.js-btn-download',
-                box: '.js-ref-content-wrapper',
-                offsetTop: '160px'
-            }),
-            new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
-                ctx: this.currentSlide,
-                selector: '.js-infos-datas',
-                box: '.js-content-btn-infos',
-                offsetTop: '25px'
-            })
-        ];
+        this.state.sticky = true;
 
         Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["forEach"])(this.collants, collant => {
             collant.stickIt();
@@ -168,7 +148,7 @@ class ReferencesSlider {
             collant.ripIt();
         });
 
-        this.collant = [];
+        this.state.sticky = false;
     }
     startLoadingAction() {
         this.loader.classList.add('loading');
@@ -271,8 +251,11 @@ class ReferencesSlider {
         if (this.idsList.length < 2) return;
 
         this.unstickElements();
+        this.collants = [];
 
-        [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({ selector: '.js-ref-current-slide' });
+        [this.currentSlide] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
+            selector: '.js-ref-current-slide'
+        });
         this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
 
         const [prevButton, nextButton] = Object(_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["query"])({
@@ -307,7 +290,34 @@ class ReferencesSlider {
             false
         );
 
-        this.stickElements();
+        if (
+            !this.state.sticky &&
+            _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth > _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl
+        ) {
+            this.collants = [
+                ...this.collants,
+                new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
+                    ctx: this.currentSlide,
+                    selector: '.js-nav-btn',
+                    box: '.js-ref-first-part',
+                    offsetTop: '100px'
+                }),
+                new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
+                    ctx: this.currentSlide,
+                    selector: '.js-btn-download',
+                    box: '.js-ref-content-wrapper',
+                    offsetTop: '160px'
+                }),
+                new _stereorepo_collant__WEBPACK_IMPORTED_MODULE_1__["Collant"]({
+                    ctx: this.currentSlide,
+                    selector: '.js-infos-datas',
+                    box: '.js-content-btn-infos',
+                    offsetTop: '25px'
+                })
+            ];
+
+            this.stickElements();
+        }
     }
     changeSlide() {
         this.state.transitioning = true;
@@ -334,9 +344,15 @@ class ReferencesSlider {
         });
     }
     resizeHandler() {
-        if (_stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth > _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl) {
+        if (
+            !this.state.sticky &&
+            _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth > _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl
+        ) {
             this.stickElements();
-        } else {
+        } else if (
+            this.state.sticky &&
+            _stereorepo_sac__WEBPACK_IMPORTED_MODULE_0__["superWindow"].windowWidth <= _global__WEBPACK_IMPORTED_MODULE_4__["breakpoints"].horizontal.xl
+        ) {
             this.unstickElements();
         }
     }
@@ -364,4 +380,4 @@ class ReferencesSlider {
 /***/ })
 
 }]);
-//# sourceMappingURL=RefSlider.js.map?c673ad24d4eae9efe8ca3e985043f294
+//# sourceMappingURL=RefSlider.js.map?38338c784c35b972c0a81b5f7a620d1e
