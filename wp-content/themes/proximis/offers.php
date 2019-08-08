@@ -53,9 +53,8 @@ get_header(); ?>
 			<section id='offers'>
 				<div class='container'>
 					<div class='container-xsmall'>
-						<h2 class='h1'><?php the_sub_field('title'); ?></h2>
-
 						<?php $jobQuery = new WP_Query(array('post_type' => 'job', 'posts_per_page' => -1)); if( $jobQuery->have_posts() ) : ?>
+							<h2 class='h1'><?php the_sub_field('title'); ?></h2>
 							<ul class='offers-list'>
 								<?php while( $jobQuery->have_posts() ) : $jobQuery->the_post(); ?>
 									<li>
