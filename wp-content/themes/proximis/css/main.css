@@ -1603,6 +1603,8 @@ div.wpcf7-mail-sent-ng {
 .team strong,
   .team span {
     display: block; }
+.team .job {
+    font-size: 1.4rem; }
 .team a {
     display: inline-block;
     border: 0;
@@ -4123,4 +4125,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?b61a3e8aa42201cafdae57fec1c6e092*/
+/*# sourceMappingURL=main.css.map?4e9e51eba59ecf31edc2c6b4491531d7*/
