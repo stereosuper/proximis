@@ -16,7 +16,9 @@ const schemaHandler = () => {
     const texts = schema.querySelectorAll('.btn-text');
     const btns = schema.querySelectorAll('.schema-btn');
     let desc, bbox;
-    const tl = new TimelineMax();
+    const centerRotation = TweenMax.to(int, 50, {rotation: '-=360', transformOrigin: '50% 50%', repeat: -1, ease: Linear.easeNone, paused: true});
+    const schemaLeft = schema.getBoundingClientRect().x;
+
 
     const animSchema = () => {
         TweenMax.to(indic, 0.3, {opacity: 1});
@@ -32,26 +34,23 @@ const schemaHandler = () => {
         TweenMax.to(circle, 0.3, {stroke: '#18162B', strokeWidth: 1, strokeDasharray: '2, 2', delay: 4.2});
     }
 
-    TweenMax.to(int, 50, {rotation: '-=360', transformOrigin: '50% 50%', repeat: -1, ease: Linear.easeNone});
+    centerRotation.play();
     TweenMax.set(ext, {rotation: 60, transformOrigin: '50% 50%'});
     animSchema();
 
     forEach(btns, btn => {
-        desc = document.getElementById(btn.id + '-desc');
-        bbox = btn.getBBox();
-
-        if( desc ){
-            desc.style.top = (bbox.y + bbox.height + 3) + 'px';
-            desc.style.left = (bbox.x - 20) + 'px';
-        }
-
         btn.addEventListener('mouseenter', () => {
+            centerRotation.pause();
             desc = document.getElementById(btn.id + '-desc');
             if( !desc ) return;
+            bbox = btn.getBoundingClientRect();
+            desc.style.top = (bbox.y + bbox.height + 3) + 'px';
+            desc.style.left = (bbox.x - schemaLeft - 20) + 'px';
             desc.classList.add('on');
         });
 
         btn.addEventListener('mouseleave', () => {
+            centerRotation.resume();
             desc = document.getElementById(btn.id + '-desc');
             if( !desc ) return;
             desc.classList.remove('on');
