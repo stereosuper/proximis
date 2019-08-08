@@ -833,6 +833,7 @@ input[type=email] {
 textarea {
   width: 100%;
   max-width: 500px;
+  height: 280px;
   padding-top: 13px;
   padding-bottom: 13px;
   font-family: "ibmplex_italic", "ibmplex", sans-serif;
@@ -4118,4 +4119,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?56d37f0ac99e1dacb4af556ae4e654f4*/
+/*# sourceMappingURL=main.css.map?ab0fa934c15a59ee6096348be51d1cba*/
