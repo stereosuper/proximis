@@ -1738,6 +1738,8 @@ div.wpcf7-mail-sent-ng {
   max-width: 488px;
   padding: 28px 30px;
   background: #fff; }
+.modal .wpcf7-form.sent {
+    margin: 0; }
 .btn-close-modal {
   position: absolute;
   top: -11px;
@@ -4085,4 +4087,4 @@ div.wpcf7-mail-sent-ng {
     page-break-after: avoid; } }
 
 
-/*# sourceMappingURL=main.css.map?05adc1fe9254c8233b8b1a7f12c0494b*/
+/*# sourceMappingURL=main.css.map?f98e6cc3f520a4dfe017357cf460c62c*/

@@ -58,13 +58,9 @@ const preloadCallback = () => {
 
     let slider = null;
 
-    const modals = query({
-        selector: '.js-modal'
-    });
-
     // Components with global use
     header();
-    modal(modals);
+    modal();
     scrollToButton();
     form();
     newsletter();
