@@ -25,7 +25,7 @@ const blogHandler = () => {
         if (!cats) return;
 
         document.addEventListener('click', event => {
-            let { target: targetElement, path } = event;
+            let { path } = event;
 
             const isClicked = path.some(element => {
                 return element.id === 'cats';
