@@ -136,16 +136,25 @@
     }
 }
 
-.schema-desc{
-    display: none;
-
-    p {
-        font-size: 1.4rem;
-        color: $grey;
+.schema-text{
+    .schema-title{
+        margin-top: $line-height*2;
     }
+}
 
+.schema-title{
+    font-family: $ibm;
+    font-size: 1.8rem;
+    color: $grey;
+}
+
+.schema-desc{
+    margin: 0 0 $line-height*2;
+    p {
+        margin: 0;
+    }
     h3 {
-        font-size: 2rem;
+        margin: 0;
         color: inherit;
     }
 }
@@ -195,45 +204,9 @@
         min-width: 490px;
     }
 
-    .schema-svg{
-        .schema-btn {
-            cursor: help;
-        }
-    }
-
     .schema-desc{
-        display: block;
-        width: 85%;
-        max-width: 440px;
-        padding: 65px 60px;
-        position: absolute;
-        top: 50%;
-        left: 20%;
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(#000, 0.14);
-        pointer-events: none;
-        opacity: 0;
-    
-        &:after{
-            content: '';
-            height: 45px;
-            width: 1px;
-            position: absolute;
-            top: -20px;
-            left: 90px;
-            background: $primary;
-        }
-    
-        &.on {
-            opacity: 1;
-        }
-    
-        p {
-            margin: 0;
-        }
-    
         h3 {
-            margin: 0;
+            font-size: 2.8rem;
         }
     }
 }
@@ -298,23 +271,22 @@
 @media (min-width: $desktop) {
     .schema-wrapper {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
     }
 
     .schema-text {
-        width: 41.88%;
-        margin: 0 0 0 8.5%;
+        width: 50%;
+        margin: 0 0 0 9.5%;
+        .intro{
+            padding: 12px $gutter*3 23px;
+            margin: 0 $gutter*-2 0 0;
+            background: #fff;
+        }
     }
 
     .schema {
-        width: 50%;
-    }
-}
-
-@media (min-width: $desktop-big) {
-    .schema-text {
-        width: 33.33%;
-        margin: 0 8.5%;
+        width: calc(50% + #{$gutter*2});
+        margin: 0 0 0 $gutter*-2;
     }
 }

@@ -189,27 +189,16 @@ get_header(); ?>
 									</filter>
 								</defs>
 							</svg>
-							<?php $oms = get_sub_field('oms'); if( $oms ) : ?>
-								<div class='schema-desc' id='oms-desc'>
-									<h3><?php echo $oms['title']; ?></h3>
-									<p><?php echo $oms['text']; ?></p>
-								</div>
-							<?php endif; ?>
-							<?php $datahub = get_sub_field('datahub'); if( $datahub ) : ?>
-								<div class='schema-desc' id='datahub-desc'>
-									<h3><?php echo $datahub['title']; ?></h3>
-									<p><?php echo $datahub['text']; ?></p>
-								</div>
-							<?php endif; ?>
-							<?php $commerce = get_sub_field('commerce'); if( $commerce ) : ?>
-								<div class='schema-desc' id='commerce-desc'>
-									<h3><?php echo $commerce['title']; ?></h3>
-									<p><?php echo $commerce['text']; ?></p>
-								</div>
-							<?php endif; ?>
 						</div>
 						<div class='schema-text big-text'>
-							<?php the_sub_field('anim_text'); ?>
+							<div class='intro'><?php the_sub_field('anim_text'); ?></div>
+							<h2 class='schema-title'><?php the_sub_field('schema_title'); ?></h2>
+							<?php if( have_rows('schema_desc') ) : while( have_rows('schema_desc') ) : the_row(); ?>
+								<div class='schema-desc'>
+									<h3><?php the_sub_field('title'); ?></h3>
+									<p><?php the_sub_field('text'); ?></p>
+								</div>
+							<?php endwhile; endif; ?>
 						</div>
 					</div>
 				</div>

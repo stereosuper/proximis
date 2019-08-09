@@ -1,4 +1,3 @@
-import { forEach } from '@stereorepo/sac';
 import { Linear, TweenMax } from 'gsap';
 
 const schemaHandler = () => {
@@ -14,16 +13,6 @@ const schemaHandler = () => {
     const bg = schema.querySelectorAll('.center-bg');
     const bgLogo = schema.querySelectorAll('.logo-bg');
     const texts = schema.querySelectorAll('.btn-text');
-    const btns = schema.querySelectorAll('.schema-btn');
-    let desc, bbox;
-    const centerRotation = TweenMax.to(int, 50, {
-        rotation: '-=360',
-        transformOrigin: '50% 50%',
-        repeat: -1,
-        ease: Linear.easeNone,
-        paused: true
-    });
-    let schemaRect = {};
 
     const animSchema = () => {
         TweenMax.to(indic, 0.3, { opacity: 1 });
@@ -54,29 +43,16 @@ const schemaHandler = () => {
         });
     };
 
-    centerRotation.play();
-    TweenMax.set(ext, { rotation: 60, transformOrigin: '50% 50%' });
-    animSchema();
-
-    forEach(btns, btn => {
-        btn.addEventListener('mouseenter', () => {
-            centerRotation.pause();
-            desc = document.getElementById(btn.id + '-desc');
-            if (!desc) return;
-            schemaRect = schema.getBoundingClientRect();
-            bbox = btn.getBoundingClientRect();
-            desc.style.top = bbox.y - schemaRect.y + bbox.height + 3 + 'px';
-            desc.style.left = bbox.x - schemaRect.x - 20 + 'px';
-            desc.classList.add('on');
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            centerRotation.resume();
-            desc = document.getElementById(btn.id + '-desc');
-            if (!desc) return;
-            desc.classList.remove('on');
-        });
+    TweenMax.to(int, 50, {
+        rotation: '-=360',
+        transformOrigin: '50% 50%',
+        repeat: -1,
+        ease: Linear.easeNone,
+        paused: true
     });
+    TweenMax.set(ext, { rotation: 60, transformOrigin: '50% 50%' });
+
+    animSchema();
 };
 
 export default schemaHandler;
