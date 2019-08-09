@@ -13,7 +13,7 @@
 		</div>
 
 		<?php if( get_field('mail') ) : ?>
-			<div class='highlighted' data-io='highlighted' id='job-mail'>
+			<div class="highlighted" data-io="highlighted" id="job-mail">
 				<span class="line"></span>
 				<?php the_field('mail'); ?>
 			</div>
