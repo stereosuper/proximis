@@ -39,7 +39,7 @@ get_header(); ?>
 					<div class='schema-wrapper'>
 						<div class='schema'>
 							<div class='beyonce'><?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?></div>
-							<svg width="518" height="529" viewBox="0 0 518 529" fill="none" xmlns="http://www.w3.org/2000/svg" class="schema-svg" id="schema">
+							<svg width="518" viewBox="0 0 518 529" fill="none" xmlns="http://www.w3.org/2000/svg" class="schema-svg" id="schema">
 								<g id="ext" class="ext">
 									<g id="iot">
 										<circle class="dot" r="3" transform="matrix(-1 -1.24133e-08 2.56268e-08 1 433.324 263)" fill="#5C6370"/>
@@ -208,7 +208,6 @@ get_header(); ?>
 								</div>
 							<?php endif; ?>
 						</div>
-						<div class='schema-img'><?php echo wp_get_attachment_image(get_sub_field('schema'), 'full'); ?></div>
 						<div class='schema-text big-text'>
 							<?php the_sub_field('anim_text'); ?>
 						</div>

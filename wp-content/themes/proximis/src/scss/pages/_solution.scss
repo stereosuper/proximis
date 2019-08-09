@@ -117,27 +117,19 @@
 }
 
 .schema {
-    display: none;
-}
-
-.schema-img{
-    > img{
-        display: block;
-        margin: 0 auto;
-    }
+    display: block;
+    max-width: 520px;
+    position: relative;
+    margin: 0 auto;
 }
 
 .beyonce {
-    width: 77px;
-    margin: 0 0 -50px 50px;
+    width: 15%;
+    margin: 0 0 -9.5% 9.5%;
 }
 
 .schema-svg {
     max-width: 100%;
-
-    .schema-btn {
-        cursor: help;
-    }
 
     .ext{
         transform-origin: 50% 50%;
@@ -145,40 +137,15 @@
 }
 
 .schema-desc{
-    width: 85%;
-    max-width: 440px;
-    padding: 65px 60px;
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(#000, 0.14);
-    pointer-events: none;
-    opacity: 0;
-
-    &:after{
-        content: '';
-        height: 45px;
-        width: 1px;
-        position: absolute;
-        top: -20px;
-        left: 90px;
-        background: $primary;
-    }
-
-    &.on {
-        opacity: 1;
-    }
+    display: none;
 
     p {
-        margin: 0;
         font-size: 1.4rem;
         color: $grey;
     }
 
     h3 {
         font-size: 2rem;
-        margin: 0;
         color: inherit;
     }
 }
@@ -224,16 +191,50 @@
         padding: #{4*$line-height} 0;
     }
 
-    .schema {
-        display: block;
+    .schema{
         min-width: 490px;
-        max-width: 520px;
-        position: relative;
-        margin: 0 auto;
     }
 
-    .schema-img {
-        display: none;
+    .schema-svg{
+        .schema-btn {
+            cursor: help;
+        }
+    }
+
+    .schema-desc{
+        display: block;
+        width: 85%;
+        max-width: 440px;
+        padding: 65px 60px;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(#000, 0.14);
+        pointer-events: none;
+        opacity: 0;
+    
+        &:after{
+            content: '';
+            height: 45px;
+            width: 1px;
+            position: absolute;
+            top: -20px;
+            left: 90px;
+            background: $primary;
+        }
+    
+        &.on {
+            opacity: 1;
+        }
+    
+        p {
+            margin: 0;
+        }
+    
+        h3 {
+            margin: 0;
+        }
     }
 }
 
