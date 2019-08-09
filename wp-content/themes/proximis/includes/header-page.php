@@ -15,5 +15,5 @@
 
         <?php the_field('text'); ?>
     </div>
-    <?php the_post_thumbnail('full'); ?>
+    <?php the_post_thumbnail('large'); ?>
 </header>

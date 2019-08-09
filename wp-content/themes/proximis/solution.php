@@ -257,7 +257,7 @@ get_header(); ?>
 					<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
 						<li>
 							<?php 
-								$img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title()));
+								$img = wp_get_attachment_image(get_field('logo'), 'medium', '', array('alt' => get_the_title()));
 								$post_slug = get_post_field('post_name', get_post());
 								$permalink = $customer_page .'#'. $post_slug;
 							?>

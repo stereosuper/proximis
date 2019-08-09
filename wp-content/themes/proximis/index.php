@@ -97,7 +97,7 @@
 						
 						<li class='post'>
 							<?php if( has_post_thumbnail() ) : ?>
-								<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("full"); ?>)'></a>
+								<a href='<?php the_permalink(); ?>' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("medium"); ?>)'></a>
 							<?php endif; ?>
 
 							<header class='post-head'>

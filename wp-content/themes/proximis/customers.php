@@ -37,7 +37,7 @@ $caseStudyQuery = new WP_Query(array(
                     <ul class='home-ref-list'>
                         <?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
                             <li>
-                                <?php $img = wp_get_attachment_image(get_field('logo'), 'full', '', array('alt' => get_the_title())); ?>
+                                <?php $img = wp_get_attachment_image(get_field('logo'), 'medium', '', array('alt' => get_the_title())); ?>
                                 <?php if( get_field('studycase') ) : ?>
                                     <button class="ref clickable js-case-study" type="button" data-ref-id="<?php the_ID() ?>">
                                         <span class="btn-hexagon small">

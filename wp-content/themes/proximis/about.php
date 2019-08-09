@@ -47,7 +47,7 @@ get_header(); ?>
 										<?php while( have_rows('members') ) : the_row(); ?>
 											<li>
 												<div class='img'>
-													<?php echo wp_get_attachment_image(get_sub_field('photo'), 'full'); ?>
+													<?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?>
 												</div>
 												<p>
 													<strong><?php the_sub_field('name'); ?></strong>
