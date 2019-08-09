@@ -2,14 +2,19 @@ import '../scss/main.scss';
 
 // @babel/polyfill is necessary for async imports
 import '@babel/polyfill';
-import { superLoad, superWindow, query, bodyRouter } from '@stereorepo/sac';
+import {
+    superLoad,
+    superWindow,
+    query,
+    forEach,
+    bodyRouter
+} from '@stereorepo/sac';
 import lottie from 'lottie-web';
 
 import { breakpoints } from './global';
 
 import io from './components/io';
 import header from './components/header';
-import Slider from './components/Slider';
 import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
@@ -17,7 +22,6 @@ import modal from './components/modal';
 import blog from './components/blog';
 import job from './components/job';
 import scrollToButton from './components/scrollToButton';
-import schema from './components/schema';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -39,8 +43,15 @@ const referencesSliderImport = dynamicLoading({
     name: 'RefSlider',
     isClass: true
 });
+const sliderImport = dynamicLoading({
+    name: 'Slider',
+    isClass: true
+});
 const unitedHomeAnimation = dynamicLoading({
     name: 'united'
+});
+const schemaAnimation = dynamicLoading({
+    name: 'schema'
 });
 const error404 = dynamicLoading({
     name: 'error404'
@@ -52,12 +63,6 @@ const preloadCallback = () => {
     // Stéréosuper js library init
     io.init();
 
-    const [wrapperSlider] = query({
-        selector: '#slider'
-    });
-
-    let slider = null;
-
     // Components with global use
     header();
     modal();
@@ -66,12 +71,17 @@ const preloadCallback = () => {
     newsletter();
     job();
     blog();
-    schema();
 
-    if (wrapperSlider) {
-        slider = new Slider(wrapperSlider);
-        slider.play();
-    }
+    bodyRouter({
+        identifier: '.home',
+        callback: () => {
+            const sliderPromise = sliderImport();
+            sliderPromise.then(Slider => {
+                const slider = new Slider({ selector: '#slider' });
+                slider.play();
+            });
+        }
+    });
 
     bodyRouter({
         identifier: '.page-template-customers',
@@ -95,19 +105,26 @@ const loadCallback = () => {
 };
 
 const animationsCallback = () => {
+    const lottieElements = query({ selector: '.js-lottie' });
+
+    forEach(lottieElements, element => {
+        lottie.loadAnimation({
+            container: element,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: element.getAttribute('data-path')
+        });
+    });
+
     bodyRouter({
         identifier: '.home',
         callback: unitedHomeAnimation
     });
 
-    [...document.getElementsByClassName('js-lottie')].forEach(elt => {
-        lottie.loadAnimation({
-            container: elt,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: elt.getAttribute('data-path')
-        });
+    bodyRouter({
+        identifier: '.page-template-solution',
+        callback: schemaAnimation
     });
 };
 
