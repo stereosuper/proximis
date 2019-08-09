@@ -1,7 +1,7 @@
 import { forEach, query } from '@stereorepo/sac';
 
 const headerHandler = () => {
-    const newsletters = document.getElementsByClassName('newsletter');
+    const newsletters = query({ selector: '.newsletter' });
     let input, email;
 
     if (!newsletters.length) return;

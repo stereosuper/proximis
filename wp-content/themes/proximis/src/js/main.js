@@ -19,8 +19,6 @@ import form from './components/form';
 import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
-import blog from './components/blog';
-import job from './components/job';
 import scrollToButton from './components/scrollToButton';
 
 // ⚠️ DO NOT REMOVE ⚠️
@@ -53,6 +51,12 @@ const unitedHomeAnimation = dynamicLoading({
 const schemaAnimation = dynamicLoading({
     name: 'schema'
 });
+const job = dynamicLoading({
+    name: 'job'
+});
+const blog = dynamicLoading({
+    name: 'blog'
+});
 const error404 = dynamicLoading({
     name: 'error404'
 });
@@ -65,11 +69,10 @@ const preloadCallback = () => {
 
     // Components with global use
     header();
-    modal();
     scrollToButton();
+    modal();
     form();
     newsletter();
-    job();
     blog();
 
     bodyRouter({
@@ -92,6 +95,16 @@ const preloadCallback = () => {
                 referenceSlider.initialize();
             });
         }
+    });
+
+    bodyRouter({
+        identifier: '.single-job',
+        callback: job
+    });
+
+    bodyRouter({
+        identifier: '.blog, .category, .search-results, .author',
+        callback: blog
     });
 
     bodyRouter({
