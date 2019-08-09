@@ -36,14 +36,6 @@ const schemaHandler = () => {
             delay: 0.6
         });
         TweenMax.to([bgLogo, texts], 0.3, { fill: '#fff', delay: 0.6 });
-        TweenMax.to(ext, 2, {
-            rotation: '+=120',
-            transformOrigin: '50% 50%',
-            onComplete: animSchema,
-            delay: 5
-        });
-        TweenMax.to(indic, 0.3, { opacity: 0, delay: 5 });
-        TweenMax.to(dot, 0.3, { opacity: 0, delay: 4.6 });
         TweenMax.to(bg, 0.3, { fill: '#fff', delay: 4.2 });
         TweenMax.to([bgLogo, texts], 0.3, { fill: '#18162B', delay: 4.2 });
         TweenMax.to(circle, 0.3, {
@@ -51,6 +43,14 @@ const schemaHandler = () => {
             strokeWidth: 1,
             strokeDasharray: '2, 2',
             delay: 4.2
+        });
+        TweenMax.to(dot, 0.3, { opacity: 0, delay: 4.6 });
+        TweenMax.to(indic, 0.3, { opacity: 0, delay: 5 });
+        TweenMax.to(ext, 2, {
+            rotation: '+=120',
+            transformOrigin: '50% 50%',
+            onComplete: animSchema,
+            delay: 5
         });
     };
 
