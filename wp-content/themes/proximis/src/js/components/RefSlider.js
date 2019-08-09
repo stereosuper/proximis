@@ -246,7 +246,7 @@ class ReferencesSlider {
         this.setCurrentContext();
     }
     setCurrentContext() {
-        if (this.idsList.length < 2) return;
+        if (this.idsList.length < 1) return;
 
         this.unstickElements();
         this.collants = [];
