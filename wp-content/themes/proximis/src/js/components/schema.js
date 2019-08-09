@@ -1,4 +1,6 @@
 import { Linear, TweenMax } from 'gsap';
+import { Collant } from '@stereorepo/collant';
+import { superWindow } from '@stereorepo/sac';
 
 const schemaHandler = () => {
     const schema = document.getElementById('schema');
@@ -13,6 +15,8 @@ const schemaHandler = () => {
     const bg = schema.querySelectorAll('.center-bg');
     const bgLogo = schema.querySelectorAll('.logo-bg');
     const texts = schema.querySelectorAll('.btn-text');
+
+    let collant = undefined;
 
     const animSchema = () => {
         TweenMax.to(indic, 0.3, { opacity: 1 });
@@ -43,6 +47,18 @@ const schemaHandler = () => {
         });
     };
 
+    const stickSchema = () => {
+        if (superWindow.windowWidth < 1100) return;
+
+        collant = new Collant({
+            selector: '.schema-container',
+            box: '.schema-wrapper',
+            offsetTop: '0px'
+        });
+
+        collant.stickIt();
+    };
+
     TweenMax.to(int, 50, {
         rotation: '-=360',
         transformOrigin: '50% 50%',
@@ -53,6 +69,17 @@ const schemaHandler = () => {
     TweenMax.set(ext, { rotation: 60, transformOrigin: '50% 50%' });
 
     animSchema();
+
+    stickSchema();
+
+    superWindow.addResizeEndFunction(() => {
+        if (collant) {
+            collant.ripIt();
+            collant = undefined;
+        }
+
+        stickSchema();
+    });
 };
 
 export default schemaHandler;

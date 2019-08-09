@@ -271,7 +271,6 @@
 @media (min-width: $desktop) {
     .schema-wrapper {
         display: flex;
-        align-items: flex-start;
         justify-content: space-between;
     }
 
@@ -286,7 +285,8 @@
     }
 
     .schema {
-        width: calc(50% + #{$gutter*2});
+        width: 520px;
+        min-width: 520px;
         margin: 0 0 0 $gutter*-2;
     }
 }
