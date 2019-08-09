@@ -1,8 +1,8 @@
 import { Collant } from '@stereorepo/collant';
-import { superWindow } from '@stereorepo/sac';
+import { query, superWindow } from '@stereorepo/sac';
 
 const jobHandler = () => {
-    const mail = document.getElementById('job-mail');
+    const mail = query('#job-mail');
 
     if (!mail) return;
 

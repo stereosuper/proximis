@@ -1,8 +1,10 @@
 import Macy from 'macy';
+import { query } from '@stereorepo/sac';
 
 const blogHandler = () => {
     const layout = () => {
-        if (!document.getElementById('blog')) return;
+        const [blog] = query({ selector: '#blog' });
+        if (!blog) return;
 
         Macy({
             container: '#blog',
@@ -18,27 +20,21 @@ const blogHandler = () => {
     };
 
     const cats = () => {
-        const cats = document.getElementById('cats');
+        const [cats] = query({ selector: '#cats' });
 
         if (!cats) return;
 
-        document.addEventListener('click', e => {
-            let targetElement = e.target;
+        document.addEventListener('click', event => {
+            let { path } = event;
 
-            do {
-                if (targetElement == cats) {
-                    // This is a click inside.
-                    cats.classList.contains('off')
-                        ? cats.classList.remove('off')
-                        : cats.classList.add('off');
-                    return;
-                }
-                // Go up the DOM
-                targetElement = targetElement.parentNode;
-            } while (targetElement);
+            const isClicked = path.some(element => {
+                return element.id === 'cats';
+            });
 
-            // This is a click outside.
-            if (!cats.classList.contains('off')) {
+            if (isClicked) {
+                // This is a click inside.
+                cats.classList.remove('off');
+            } else {
                 cats.classList.add('off');
             }
         });

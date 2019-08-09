@@ -1,15 +1,15 @@
-import {
-    query,
-    forEach,
-    superWindow
-} from '@stereorepo/sac';
+import { query, forEach, superWindow } from '@stereorepo/sac';
 
-import {
-    TweenMax
-} from 'gsap';
+import { TweenMax } from 'gsap';
 
-function Slider(wrapper) {
-    this.wrapper = wrapper;
+function Slider({ selector = '#slider' }) {
+    const [wrapperSlider] = query({
+        selector
+    });
+
+    if (!wrapperSlider) return;
+
+    this.wrapper = wrapperSlider;
     this.slides = query({
         selector: '.slide',
         ctx: this.wrapper
@@ -68,8 +68,8 @@ Slider.prototype.calculHeight = function calculHeight(self) {
 };
 
 Slider.prototype.play = function play() {
-    if (this.nbSlides > 1) {
-        TweenMax.delayedCall(20, this.next, [this]);
+    if (this.wrapper && this.nbSlides > 1) {
+        TweenMax.delayedCall(12, this.next, [this]);
     }
 };
 
