@@ -1,6 +1,5 @@
 .wrapper-related {
-    margin-top: 3*$line-height;
-    padding: 3*$line-height 0 3*$line-height;
+    padding: 3*$line-height 0;
     background: $white;
 }
 
@@ -29,7 +28,6 @@
 
 @media (min-width: $desktop-small) {
     .wrapper-related {
-        margin-top: 4*$line-height;
         padding: 4*$line-height 0 6*$line-height;
     }
 
