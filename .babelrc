@@ -1,8 +1,14 @@
 {
-    "presets": ["@babel/preset-env"],
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "include": ["@babel/plugin-transform-spread"]
+            }
+        ]
+    ],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
-        "transform-es2015-spread",
-        "transform-object-rest-spread"
+        "@babel/plugin-transform-spread"
     ]
 }

@@ -1,12 +1,6 @@
-import {
-    query,
-    forEach,
-    superWindow
-} from '@stereorepo/sac';
+import { query, forEach, superWindow } from '@stereorepo/sac';
 
-import {
-    TweenMax
-} from 'gsap';
+import { TweenMax } from 'gsap';
 
 function Slider(wrapper) {
     this.wrapper = wrapper;
