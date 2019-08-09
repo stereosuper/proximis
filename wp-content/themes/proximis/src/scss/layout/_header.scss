@@ -42,10 +42,6 @@
         .wordmark {
             transform: translate3d(0, 5px, 0);
         }
-
-        .baseline {
-            display: none;
-        }
     }
 
     &.logo-menu {
@@ -249,10 +245,6 @@
 
             .wordmark {
                 transform: none;
-            }
-
-            .baseline {
-                display: block;
             }
         }
     }
