@@ -30,7 +30,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -39,6 +39,25 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5d512a4769e5b",
+                    "label": "Citation?",
+                    "name": "title1quote",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
                     "key": "field_5d19fba3f5560",
@@ -49,7 +68,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -60,6 +79,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_5d512a7569e5c",
+                    "label": "Citation?",
+                    "name": "title2quote",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5d19fbaef5561",
                     "label": "Titre 3",
                     "name": "title3",
@@ -68,7 +106,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -77,6 +115,63 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5d512a8d69e5d",
+                    "label": "Citation?",
+                    "name": "title3quote",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5d512c09ccabc",
+                    "label": "Titre 4",
+                    "name": "title4",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d512c14ccabd",
+                    "label": "Citation?",
+                    "name": "title4quote",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
                     "key": "field_5d108db183bce",
@@ -167,5 +262,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1562665163
+    "modified": 1565600803
 }

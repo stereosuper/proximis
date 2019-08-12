@@ -9,9 +9,28 @@
 					<div class='container'>
 						<div class='text'>
 							<h2 class='title'>
-								<?php if( get_sub_field('title1') ){ ?><span><?php the_sub_field('title1'); ?></span><?php } ?>
-								<?php if( get_sub_field('title2') ){ ?><span><?php the_sub_field('title2'); ?></span><?php } ?>
-								<?php if( get_sub_field('title3') ){ ?><q><?php the_sub_field('title3'); ?></q><?php } ?>
+								<?php
+									$title1 = get_sub_field('title1');
+									if( $title1 ){ 
+										$title1 = get_sub_field('title1quote') ? '<q>' . $title1 . '</q>' : '<span>' . $title1 . '</span>';
+										echo $title1;
+									}
+									$title2 = get_sub_field('title2');
+									if( $title2 ){ 
+										$title2 = get_sub_field('title2quote') ? '<q>' . $title2 . '</q>' : '<span>' . $title2 . '</span>';
+										echo $title2;
+									}
+									$title3 = get_sub_field('title3');
+									if( $title3 ){ 
+										$title3 = get_sub_field('title3quote') ? '<q>' . $title3 . '</q>' : '<span>' . $title3 . '</span>';
+										echo $title3;
+									}
+									$title4 = get_sub_field('title4');
+									if( $title4 ){ 
+										$title4 = get_sub_field('title4quote') ? '<q>' . $title4 . '</q>' : '<span>' . $title4 . '</span>';
+										echo $title4;
+									}
+								?>
 							</h2>
 							<?php the_sub_field('text'); ?>
 						</div>
