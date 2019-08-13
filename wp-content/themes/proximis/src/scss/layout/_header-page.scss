@@ -51,6 +51,10 @@
             .page-template-solution &{
                 max-width: 55%;
             }
+
+            .page-template-mission &{
+                max-width: 75%;
+            }
         }
 
         p {
@@ -74,7 +78,7 @@
                 right: 5%;
             }
 
-            .page-template-solution & {
+            .page-template-solution &,  .page-template-mission & {
                 max-width: 30%;
                 right: 5%;
             }
@@ -99,6 +103,10 @@
             .page-template-customers & {
                 max-width: 25%;
                 right: 5%;
+            }
+
+            .page-template-mission &{
+                max-width: 28%;
             }
         }
     }
