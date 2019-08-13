@@ -1,5 +1,9 @@
 .mission{
     counter-reset: ol-counter;
+    
+    h3{
+        color: inherit;
+    }
 }
 
 .mission-section{
@@ -7,17 +11,20 @@
     counter-increment: ol-counter;
 
     h2{
+        padding: 0 0 0 105px;
         position: relative;
         &:before {
             content: '#0' counter(ol-counter);
-            margin: 0 $gutter*2 0 0;
+            position: absolute;
+            top: -4px;
+            left: 0;
             font-size: 4rem;
             color: $primary;
         }
         &:after{
             content: '';
             position: absolute;
-            height: 145px;
+            height: 140px;
             top: -60px;
             left: -50vw;
             right: 85%;
@@ -48,7 +55,6 @@
 
     h3{
         margin: 0;
-        color: inherit;
     }
 
     p{

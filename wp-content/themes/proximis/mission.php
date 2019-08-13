@@ -47,6 +47,38 @@ get_header(); ?>
 				</div>
 			</section>
 		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section2') ) : while( have_rows('section2') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+				</div>
+
+				<div class='container-medium'>
+					<?php the_sub_field('omnicanal'); ?>
+					<?php the_sub_field('united'); ?>
+				</div>
+
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
 	</div>
 
 	<?php get_template_part('includes/footer-page'); ?>
