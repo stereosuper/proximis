@@ -1,0 +1,101 @@
+.mission{
+    counter-reset: ol-counter;
+}
+
+.mission-section{
+    padding-top: 60px;
+    counter-increment: ol-counter;
+
+    h2{
+        position: relative;
+        &:before {
+            content: '#0' counter(ol-counter);
+            margin: 0 $gutter*2 0 0;
+            font-size: 4rem;
+            color: $primary;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            height: 145px;
+            top: -60px;
+            left: -50vw;
+            right: 85%;
+            z-index: -1;
+            background: #fff;
+        }
+    }
+}
+
+.examples{
+    display: flex;
+    justify-content: space-around;
+    margin: $line-height*3 0 $line-height*2;
+}
+
+.example{
+    width: 30%;
+    padding: 30px 35px 110px;
+    background: $secondary;
+
+    &:nth-of-type(2){
+        background: $primary;
+    }
+
+    &:nth-of-type(3){
+        background: $tertiary;
+    }
+
+    h3{
+        margin: 0;
+        color: inherit;
+    }
+
+    p{
+        margin: 0;
+    }
+}
+
+.mission-title{
+    margin-top: $line-height*2;
+    font-family: $recoleta-bold;
+    font-size: 2.4rem;
+}
+
+.mission-links{
+    display: flex;
+    margin: 0 $gutter*-3 0 $gutter*-2;
+    flex-wrap: wrap;
+}
+
+.mission-link{
+    width: calc(33.33% - #{$gutter});
+    padding: 40px 30px 55px; 
+    margin: 0 $gutter/2 $gutter;
+    font-family: inherit;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    .sup-title{
+        color: $grey;
+    }
+    .title{
+        display: block;
+        margin: 0 0 25px;
+        font-size: 2.4rem;
+        font-family: $recoleta-bold;
+    }
+    .link{
+        font-family: $ibm-bold;
+        color: $primary;
+    }
+}
+
+
+@media (min-width: 780px){
+    .example{
+        h3{
+            font-size: 2rem;
+        }
+    }
+}

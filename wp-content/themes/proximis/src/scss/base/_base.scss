@@ -464,6 +464,16 @@ a,
     }
 }
 
+.cols-text{
+    columns: 2;
+    p{
+        margin-top: 0;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
 .no-margin-bottom {
     margin-bottom: 0;
 }
