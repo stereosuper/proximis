@@ -79,6 +79,70 @@ get_header(); ?>
 				</div>
 			</section>
 		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section3') ) : while( have_rows('section3') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+				</div>
+
+				<div class='container-medium'>
+					<?php if( have_rows('cols') ) : ?>
+						<div class='mission-cols'>
+							<?php while( have_rows('cols') ) : the_row(); ?>
+								<div>
+									<h3><?php the_sub_field('title'); ?></h3>
+									<?php the_sub_field('text'); ?>
+								</div>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+
+				<div class='container-small'>
+					<?php $nbTitle = get_sub_field('numbers_title'); if( have_rows('numbers', 'options') ) : ?>
+						<div class='mission-numbers'>
+							<p class='mission-title'><?php echo $nbTitle; ?></p>
+							<div class='mission-nb'>
+								<?php while( have_rows('numbers', 'options') ) : the_row();
+									$numbers = [get_sub_field('textBottom'), get_sub_field('text'), get_sub_field('number')]; ?>
+									<div class='ref number'>
+											<div>
+												<?php if( $numbers[0] ) : ?>
+													<span><?php echo $numbers[1]; ?></span>
+												<?php endif; ?>
+												<span class='nb'><?php echo $numbers[2]; ?></span>
+												<?php if( !$numbers[0] ) : ?>
+													<span><?php echo $numbers[1]; ?></span>
+												<?php endif; ?>
+											</div>
+										</div>
+								<?php endwhile; ?>
+							</div>
+						</div>
+					<?php endif; ?>
+				</div>
+
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
 	</div>
 
 	<?php get_template_part('includes/footer-page'); ?>

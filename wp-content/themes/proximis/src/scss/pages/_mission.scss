@@ -1,6 +1,6 @@
 .mission{
     counter-reset: ol-counter;
-    
+
     h3{
         color: inherit;
     }
@@ -95,6 +95,34 @@
         font-family: $ibm-bold;
         color: $primary;
     }
+}
+
+.mission-cols{
+    display: flex;
+    justify-content: space-between;
+    > div{
+        width: 25.5%;
+    }
+    h3, p{
+        margin: 0;
+    }
+}
+
+.mission-numbers{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: $line-height 0;
+    .mission-title{
+        width: 34%;
+        line-height: $line-height*2;
+        border-bottom: 1px solid rgba($grey, 0.5);
+    }
+}
+.mission-nb{
+    display: flex;
+    width: 55.2%;
+    justify-content: space-between;
 }
 
 
