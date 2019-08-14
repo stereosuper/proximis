@@ -180,6 +180,160 @@ get_header(); ?>
 				</div>
 			</section>
 		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section5') ) : while( have_rows('section5') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<div class='cols-text'><?php the_sub_field('columns'); ?></div>
+				</div>
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section6') ) : while( have_rows('section6') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<div class='cols-text'><?php the_sub_field('columns'); ?></div>
+				</div>
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section7') ) : while( have_rows('section7') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<?php if( have_rows('steps') ) : ?>
+						<ol>
+							<?php while( have_rows('steps') ) : the_row(); ?>
+								<li>
+									<?php the_sub_field('text'); ?>
+								</li>
+							<?php endwhile; ?>
+						</ol>
+					<?php endif ?>
+				</div>
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section8') ) : while( have_rows('section8') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<div class='cols-text'><?php the_sub_field('columns'); ?></div>
+				</div>
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
+		<?php if( have_rows('section9') ) : while( have_rows('section9') ) : the_row(); ?>
+			<section class='mission-section'>
+				<div class='container-tiny'>
+					<h2><?php the_sub_field('title'); ?></h2>
+					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<div class='cols-text'><?php the_sub_field('columns'); ?></div>
+				</div>
+				<div class='container-medium'>
+					<?php if( have_rows('articles') ) : ?>
+						<?php while( have_rows('articles') ) : the_row(); ?>
+							<div>
+								<time><?php the_sub_field('date'); ?></time>
+								<h3><?php the_sub_field('titre'); ?></h3>
+								<p><?php the_sub_field('text'); ?></p>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+				<div class='container-tiny'>
+					<?php if( have_rows('links') ) : ?>
+						<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
+						<div class='mission-links'>
+							<?php while( have_rows('links') ) : the_row(); ?>
+								<?php $link = get_sub_field('link'); ?>
+								<a href='<?php echo $link['url']; ?>' class='mission-link'>
+									<span class='sup-title'><?php the_sub_field('cat'); ?></span>
+									<span class='title'><?php the_sub_field('title'); ?></span>
+									<span class='link small'>
+										<span><?php echo $link['title']; ?></span><i></i>
+									</span>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
 	</div>
 
 	<?php get_template_part('includes/footer-page'); ?>
