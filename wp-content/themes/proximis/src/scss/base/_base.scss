@@ -218,6 +218,8 @@ ol {
 
         &:before {
             content: counter(ol-counter) '.';
+            top: 2px;
+            font-family: $recoleta-bold;
             color: $primary;
         }
     }
@@ -228,6 +230,7 @@ ul {
         &:before {
             width: 8px;
             height: 8px;
+            top: 10px;
             background: $primary;
             border-radius: 50%;
         }
@@ -241,7 +244,6 @@ li {
     &:before {
         content: '';
         position: absolute;
-        top: 10px;
         left: $gutter;
     }
 }
@@ -564,7 +566,7 @@ a,
             }
         }
     }
-    
+
 }
 
 @media (min-width: $desktop-small) {

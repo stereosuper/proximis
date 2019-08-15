@@ -190,7 +190,10 @@ get_header(); ?>
 				<div class='container-tiny'>
 					<h2><?php the_sub_field('title'); ?></h2>
 					<div class='big-text'><?php the_sub_field('text'); ?></div>
-					<div class='cols-text'><?php the_sub_field('columns'); ?></div>
+					<div class='cols-text'>
+						<?php the_sub_field('columns'); ?>
+						<?php //echo wp_get_attachment_image(get_sub_field('img'), 'medium'); ?>
+					</div>
 				</div>
 				<div class='container-tiny'>
 					<?php if( have_rows('links') ) : ?>
@@ -244,8 +247,10 @@ get_header(); ?>
 				<div class='container-tiny'>
 					<h2><?php the_sub_field('title'); ?></h2>
 					<div class='big-text'><?php the_sub_field('text'); ?></div>
+				</div>
+				<div class='container-steps'>
 					<?php if( have_rows('steps') ) : ?>
-						<ol>
+						<ol class='mission-steps'>
 							<?php while( have_rows('steps') ) : the_row(); ?>
 								<li>
 									<?php the_sub_field('text'); ?>
