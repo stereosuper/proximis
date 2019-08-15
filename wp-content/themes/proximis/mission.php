@@ -20,8 +20,12 @@ get_header(); ?>
 				<?php if( have_rows('examples') ) : ?>
 					<div class='examples'>
 						<?php while( have_rows('examples') ) : the_row(); ?>
-							<div class='example'>
+							<div class='example clearfix'>
 								<h3><?php the_sub_field('title'); ?></h3>
+								<?php
+									$img = wp_get_attachment_image_url(get_sub_field('img'), 'medium');
+									echo wp_get_attachment_image(get_sub_field('img'), 'medium', false, array('class' => 'img-shape', 'style' => 'shape-outside:url(' . $img . ')'));
+								?>
 								<p><?php the_sub_field('text'); ?></p>
 							</div>
 						<?php endwhile; ?>

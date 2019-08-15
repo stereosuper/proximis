@@ -8,6 +8,7 @@
 
 .mission-section{
     padding-top: 60px;
+    margin: 0 0 8em;
     counter-increment: ol-counter;
 
     h2{
@@ -35,14 +36,12 @@
 }
 
 .examples{
-    display: flex;
-    justify-content: space-around;
     margin: $line-height*3 0 $line-height*2;
 }
 
 .example{
-    width: 30%;
-    padding: 30px 35px 110px;
+    padding: 30px 35px;
+    margin: 0 0 $line-height;
     background: $secondary;
 
     &:nth-of-type(2){
@@ -54,6 +53,7 @@
     }
 
     h3{
+        max-width: 90%;
         margin: 0;
     }
 
@@ -70,12 +70,12 @@
 
 .mission-links{
     display: flex;
-    margin: 0 $gutter*-3 0 $gutter*-2;
+    margin: 0 -10px;
     flex-wrap: wrap;
 }
 
 .mission-link{
-    width: calc(33.33% - #{$gutter});
+    width: calc(100% - #{$gutter});
     padding: 40px 30px 55px; 
     margin: 0 $gutter/2 $gutter;
     font-family: inherit;
@@ -88,7 +88,7 @@
     .title{
         display: block;
         margin: 0 0 25px;
-        font-size: 2.4rem;
+        font-size: 2rem;
         font-family: $recoleta-bold;
     }
     .link{
@@ -126,10 +126,88 @@
 }
 
 
-@media (min-width: 780px){
+@media (min-width: $phone){
+    .example{
+        padding-bottom: 0;
+        .img-shape{
+            display: block;
+            width: 200px;
+            float: right;
+            margin: 0 -60px 0 0;
+            shape-margin: 50px;
+        }
+    }
+
+    .mission-link{
+        width: calc(50% - #{$gutter});
+    }
+}
+
+@media (min-width: $tablet){
     .example{
         h3{
             font-size: 2rem;
+        }
+        .img-shape{
+            margin-top: -60px;
+        }
+    }
+
+    .mission-link{
+        width: calc(33.33% - #{$gutter});
+    }
+}
+
+@media (min-width: $desktop-small){
+    .examples{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+    }
+
+    .example{
+        width: 32%;
+        margin: 0;
+        h3{
+            max-width: 100%;
+        }
+        .img-shape{
+            shape-margin: 15px;
+            margin-top: 140px;
+        }
+    }
+
+    .mission-links{
+        margin: 0 $gutter*-3 0 $gutter*-2;
+    }
+
+    .mission-link{
+        .title{
+            font-size: 2.4rem;
+        }
+    }
+}
+
+@media (min-width: $desktop){
+    .examples{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .example{
+        width: 30%;
+        .img-shape{
+            margin-top: 130px;
+        }
+    }
+}
+
+@media (min-width: $container){
+    .example{
+        .img-shape{
+            margin-top: 100px;
         }
     }
 }
