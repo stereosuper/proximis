@@ -122,6 +122,35 @@
     }
 }
 
+.mission-articles{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: $line-height*3 0 0;
+}
+
+.mission-article{
+    margin: 0 0 $line-height*2;
+    .meta{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: #{$line-height - 5px} 0 $line-height;
+        font-size: 1.4rem;
+    }
+    h3{
+        margin-bottom: 0;
+        a{
+            font-family: inherit;
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+    p{
+        margin: 0;
+    }
+}
+
 
 @media (min-width: $phone){
     .example{
@@ -174,6 +203,10 @@
         .ref{
             display: inline-flex;
         }
+    }
+
+    .mission-article{
+        width: 40%;
     }
 }
 
@@ -279,6 +312,10 @@
             }
         }
     }
+
+    .mission-article{
+        width: 28.5%;
+    }
 }
 
 @media (min-width: $desktop){
@@ -317,6 +354,10 @@
         margin-left: 3%;
         margin-right: 3%;
     }
+
+    .mission-article{
+        width: 25.5%;
+    }
 }
 
 @media (min-width: $container){
@@ -332,6 +373,9 @@
 
     .mission-steps{
         font-size: 1.4rem;
+        &:before{
+            left: 18%;
+        }
         > li{
             width: 16%;
         }
