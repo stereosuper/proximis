@@ -98,10 +98,9 @@
 }
 
 .mission-cols{
-    display: flex;
-    justify-content: space-between;
+    margin: $line-height*2 0 0;
     > div{
-        width: 25.5%;
+        margin: 0 0 $line-height;
     }
     h3, p{
         margin: 0;
@@ -109,20 +108,18 @@
 }
 
 .mission-numbers{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: $line-height 0;
     .mission-title{
-        width: 34%;
         line-height: $line-height*2;
         border-bottom: 1px solid rgba($grey, 0.5);
     }
 }
 .mission-nb{
-    display: flex;
-    width: 55.2%;
-    justify-content: space-between;
+    .ref{
+        display: flex;
+        min-width: 165px;
+        margin: 0 auto 10px;
+    }
 }
 
 
@@ -141,6 +138,12 @@
     .mission-link{
         width: calc(50% - #{$gutter});
     }
+
+    .mission-nb{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 $gutter*-1;
+    }
 }
 
 @media (min-width: $tablet){
@@ -155,6 +158,22 @@
 
     .mission-link{
         width: calc(33.33% - #{$gutter});
+    }
+
+    .mission-cols{
+        display: flex;
+        justify-content: space-between;
+        > div{
+            width: 28%;
+        }
+    }
+
+    .mission-nb{
+        width: 80%;
+        margin: 0;
+        .ref{
+            display: inline-flex;
+        }
     }
 }
 
@@ -202,6 +221,25 @@
             margin-top: 130px;
         }
     }
+
+    .mission-cols{
+        > div{
+            width: 25.5%;
+        }
+    }
+
+    .mission-numbers{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .mission-title{
+            width: 34%;
+        }
+    }
+
+    .mission-nb{
+        width: 62%;
+    }
 }
 
 @media (min-width: $container){
@@ -209,5 +247,9 @@
         .img-shape{
             margin-top: 100px;
         }
+    }
+
+    .mission-nb{
+        width: 55.2%;
     }
 }
