@@ -146,6 +146,5 @@ superLoad.initializeLoadingShit({
     loadCallback,
     animationsCallback,
     noTransElementsClass:
-        '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn',
-    initFallbacks: true
+        '.element-without-transition-on-resize, .menu-main > li > a, .nav .btn'
 });
