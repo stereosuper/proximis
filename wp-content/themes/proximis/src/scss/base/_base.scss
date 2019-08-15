@@ -491,6 +491,13 @@ a,
     margin-bottom: #{3*$line-height};
 }
 
+.cols-text{
+    img{
+        display: none;
+    }
+}
+
+
 @media (min-width: $phone-small) {
 
     .post-thumbnail,
@@ -684,6 +691,17 @@ a,
     .wp-block-image {
         .alignright {
             margin-right: -45%;
+        }
+    }
+
+    .cols-text{
+        position: relative;
+        img{
+            display: block;
+            position: absolute;
+            max-width: 260px;
+            right: -260px;
+            bottom: -50px;
         }
     }
 }

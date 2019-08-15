@@ -192,7 +192,7 @@ get_header(); ?>
 					<div class='big-text'><?php the_sub_field('text'); ?></div>
 					<div class='cols-text'>
 						<?php the_sub_field('columns'); ?>
-						<?php //echo wp_get_attachment_image(get_sub_field('img'), 'medium'); ?>
+						<?php echo wp_get_attachment_image(get_sub_field('img'), 'medium'); ?>
 					</div>
 				</div>
 				<div class='container-tiny'>
