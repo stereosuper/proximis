@@ -139,6 +139,11 @@ const animationsCallback = () => {
         identifier: '.page-template-solution',
         callback: schemaAnimation
     });
+
+    bodyRouter({
+        identifier: '.page-template-mission',
+        callback: schemaAnimation
+    });
 };
 
 superLoad.initializeLoadingShit({
