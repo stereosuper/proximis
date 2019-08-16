@@ -4,7 +4,7 @@
             <h2 class='h1'><?php echo $bottom['title']; ?></h2>
             <?php echo $bottom['text']; ?>
             <?php if( $bottom['link'] ) : ?>
-                <p><a href="<?php echo $bottom['link']['url']; ?>" class='link'><span><?php echo $bottom['link']['title']; ?></span><i></i></a></p>
+                <p><a href="<?php echo $bottom['link']['url']; ?>" class='link small'><span><?php echo $bottom['link']['title']; ?></span><i></i></a></p>
             <?php endif; ?>
         </div>
     </footer>
