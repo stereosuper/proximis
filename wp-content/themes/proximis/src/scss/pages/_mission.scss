@@ -12,21 +12,21 @@
     counter-increment: mission-counter;
 
     h2{
-        padding: 0 0 0 105px;
+        padding: 0 0 0 3.75em;
         position: relative;
         &:before {
             content: '#0' counter(mission-counter);
             position: absolute;
             top: -4px;
             left: 0;
-            font-size: 4rem;
+            font-size: 1.43em;
             color: $primary;
         }
         &:after{
             content: '';
             position: absolute;
-            height: 140px;
-            top: -60px;
+            height: 5em;
+            top: -2.1em;
             left: -50vw;
             right: 85%;
             z-index: -1;
