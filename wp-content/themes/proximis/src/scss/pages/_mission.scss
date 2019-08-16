@@ -151,6 +151,13 @@
     }
 }
 
+.mission-united{
+    margin: $line-height*2 0 0;
+}
+.schema2{
+    max-width: 100%;
+}
+
 
 @media (min-width: $phone){
     .example{
@@ -207,6 +214,16 @@
 
     .mission-article{
         width: 40%;
+    }
+
+    .mission-schema-wrapper{
+        display: flex;
+        max-width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+        > div{
+            width: 45%;
+        }
     }
 }
 
@@ -361,6 +378,34 @@
 
     .mission-schema-text{
         width: 44%;
+    }
+
+    .mission-united{
+        margin: $line-height*4 0 $line-height*3;
+    }
+
+    .mission-schema-wrapper{
+        display: block;
+        > div{
+            width: 100%;
+        }
+    }
+    .last-schema{
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+    }
+    .mission-schema{
+        transition: opacity $transition;
+        &.off{
+            opacity: 0;
+        }
+        &.on{
+            opacity: 1;
+        }
+    }
+    .schema2{
+        margin: 70px 0 0;
     }
 }
 
