@@ -160,6 +160,7 @@
 }
 
 .mission-nav{
+    display: none;
     height: 156px;
     position: absolute;
     top: calc(50vh - 78px);
@@ -391,6 +392,10 @@
 
     .mission-article{
         width: 28.5%;
+    }
+
+    .mission-nav{
+        display: block;
     }
 }
 

@@ -25,6 +25,8 @@ const navHandler = () => {
     };
 
     const scrollHandler = () => {
+        if( superWindow.windowWidth < 960) return;
+        
         forEach(btns, btn => {
             if( superScroll.scrollTop <= elts[[].slice.call(btns).indexOf(btn)].offset ) return;
             setActive(btn);
@@ -65,6 +67,7 @@ const navHandler = () => {
         selector: '.mission-nav',
         box: '.mission',
         offsetTop: (superWindow.windowHeight/2 - 78) + 'px'
+        // 78 = moitié de la hauteur de la nav
     });
 
     collant.stickIt();
