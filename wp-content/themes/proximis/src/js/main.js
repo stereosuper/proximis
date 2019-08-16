@@ -20,6 +20,7 @@ import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import scrollToButton from './components/scrollToButton';
+//import missionNav from './components/missionNav';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -59,6 +60,9 @@ const blog = dynamicLoading({
 });
 const error404 = dynamicLoading({
     name: 'error404'
+});
+const missionNav = dynamicLoading({
+    name: 'missionNav'
 });
 
 const preloadCallback = () => {
@@ -110,6 +114,11 @@ const preloadCallback = () => {
     bodyRouter({
         identifier: '.error404',
         callback: error404
+    });
+
+    bodyRouter({
+        identifier: '.page-template-mission',
+        callback: missionNav
     });
 };
 
