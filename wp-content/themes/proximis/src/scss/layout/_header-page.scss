@@ -1,10 +1,24 @@
 .header-page {
     //min-height: 90vh;
-    padding: 180px 0 7vh;
+    padding: 180px 0 0;
     position: relative;
     margin: -248px 0 0;
+    line-height: 1;
+    text-align: right;
     overflow: hidden;
     background: $primary;
+
+    .page-template-services &{
+        padding-bottom: 7vh;
+        img{
+            display: none;
+        }
+    }
+
+    .container{
+        line-height: $line-height;
+        text-align: left;
+    }
 
     h1 {
         max-width: 100%;
@@ -22,7 +36,8 @@
     }
 
     img {
-        display: none;
+        max-width: 300px;
+        margin: 0 10% 0 0;
     }
 }
 
@@ -45,8 +60,9 @@
     }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $desktop-small) {
     .header-page {
+        padding-bottom: 7vh;
         h1{
             .page-template-solution &{
                 max-width: 55%;
@@ -62,17 +78,11 @@
         }
 
         img {
-            display: block;
             max-width: 25%;
             position: absolute;
             bottom: 0;
             right: 0;
-
-            .page-template-services &{
-                max-width: 40%;
-                top: 0;
-                bottom: auto;
-            }
+            margin: 0;
 
             .page-template-about & {
                 right: 5%;
@@ -81,6 +91,19 @@
             .page-template-solution &,  .page-template-mission & {
                 max-width: 30%;
                 right: 5%;
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .header-page {
+        img {
+            .page-template-services &{
+                display: block;
+                max-width: 40%;
+                top: 0;
+                bottom: auto;
             }
         }
     }
