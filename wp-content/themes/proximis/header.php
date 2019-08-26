@@ -126,7 +126,7 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
 
 					<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
-						<a href='<?php echo $btn['url'] ?>' class='btn'><?php echo $btn['title']; ?></a>
+						<a href='<?php echo $btn['url'] ?>' onClick="ga('send', 'event', 'Contact', 'Click Header-button', 'proximis.com/.');" class='btn'><?php echo $btn['title']; ?></a>
 					<?php endif; ?>
 
 					<?php echo mlp_navigation() ?>
