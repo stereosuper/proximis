@@ -46,21 +46,7 @@ get_header(); ?>
 					<?php endif; ?>
 					<div class='container-tiny'>
 						<?php the_sub_field('text2'); ?>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -397,21 +383,7 @@ get_header(); ?>
 					</div>
 
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -444,16 +416,16 @@ get_header(); ?>
 									<?php while( have_rows('numbers', 'options') ) : the_row();
 										$numbers = [get_sub_field('textBottom'), get_sub_field('text'), get_sub_field('number')]; ?>
 										<div class='ref number'>
-												<div>
-													<?php if( $numbers[0] ) : ?>
-														<span><?php echo $numbers[1]; ?></span>
-													<?php endif; ?>
-													<span class='nb'><?php echo $numbers[2]; ?></span>
-													<?php if( !$numbers[0] ) : ?>
-														<span><?php echo $numbers[1]; ?></span>
-													<?php endif; ?>
-												</div>
+											<div>
+												<?php if( $numbers[0] ) : ?>
+													<span><?php echo $numbers[1]; ?></span>
+												<?php endif; ?>
+												<span class='nb'><?php echo $numbers[2]; ?></span>
+												<?php if( !$numbers[0] ) : ?>
+													<span><?php echo $numbers[1]; ?></span>
+												<?php endif; ?>
 											</div>
+										</div>
 									<?php endwhile; ?>
 								</div>
 							</div>
@@ -461,21 +433,7 @@ get_header(); ?>
 					</div>
 
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -502,21 +460,7 @@ get_header(); ?>
 					<?php endif; ?>
 					<div class='container-tiny'>
 						<?php the_sub_field('text2'); ?>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -532,21 +476,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -559,21 +489,7 @@ get_header(); ?>
 						<div class='cols-text'><?php the_sub_field('columns'); ?></div>
 					</div>
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -596,21 +512,7 @@ get_header(); ?>
 						<?php endif ?>
 					</div>
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -626,21 +528,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
@@ -679,21 +567,7 @@ get_header(); ?>
 						<?php endif; ?>
 					</div>
 					<div class='container-tiny'>
-						<?php if( have_rows('links') ) : ?>
-							<p class='mission-title'><?php _e('For further information...', 'proximis'); ?></p>
-							<div class='mission-links'>
-								<?php while( have_rows('links') ) : the_row(); ?>
-									<?php $link = get_sub_field('link'); ?>
-									<a href='<?php echo $link['url']; ?>' class='mission-link'>
-										<span class='sup-title'><?php the_sub_field('cat'); ?></span>
-										<span class='title'><?php the_sub_field('title'); ?></span>
-										<span class='link small'>
-											<span><?php echo $link['title']; ?></span><i></i>
-										</span>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						<?php endif; ?>
+						<?php get_template_part('includes/mission-links'); ?>
 					</div>
 				</section>
 			<?php endwhile; endif; ?>
