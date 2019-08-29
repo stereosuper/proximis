@@ -277,13 +277,15 @@
     }
 
     .mission-schema-wrapper{
-        display: flex;
         max-width: 100%;
+    }
+    .mission-schema-container{
+        display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        > div{
-            width: 45%;
-        }
+    }
+    .mission-schema{
+        width: 45%;
     }
 }
 
@@ -449,11 +451,8 @@
         margin: $line-height*4 0 $line-height*3;
     }
 
-    .mission-schema-wrapper{
+    .mission-schema-container{
         display: block;
-        > div{
-            width: 100%;
-        }
     }
     .last-schema{
         position: absolute;
@@ -461,6 +460,7 @@
         opacity: 0;
     }
     .mission-schema{
+        width: 100%;
         transition: opacity $transition;
         &.off{
             opacity: 0;

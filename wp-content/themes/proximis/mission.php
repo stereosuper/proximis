@@ -64,7 +64,7 @@ get_header(); ?>
 								<?php the_sub_field('omnicanal'); ?>
 								<div class='mission-united'><?php the_sub_field('united'); ?></div>
 							</div>
-							<div class='schema mission-schema-wrapper'>
+							<div class='schema mission-schema-wrapper' id='schema-wrapper'>
 								<div class='mission-schema-container schema-container' id='schema-container'>
 									<svg width="522" viewBox="0 0 522 529" fill="none" xmlns="http://www.w3.org/2000/svg" id='schema2' class='mission-schema schema2'>
 										<g>
@@ -222,10 +222,9 @@ get_header(); ?>
 										</g>
 										</g>
 									</svg>
-								</div>
-								<div class='last-schema mission-schema' id='mission-schema'>
-									<div class='beyonce'><?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?></div>
-									<svg width="518" viewBox="0 0 518 529" fill="none" xmlns="http://www.w3.org/2000/svg" class="schema-svg" id="schema">
+									<div class='last-schema mission-schema' id='mission-schema'>
+										<div class='beyonce'><?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?></div>
+										<svg width="518" viewBox="0 0 518 529" fill="none" xmlns="http://www.w3.org/2000/svg" class="schema-svg" id="schema">
 											<g id="ext" class="ext">
 												<g id="iot">
 													<circle class="dot" r="3" transform="matrix(-1 -1.24133e-08 2.56268e-08 1 433.324 263)" fill="#5C6370"/>
@@ -375,10 +374,10 @@ get_header(); ?>
 												</filter>
 											</defs>
 										</svg>
-							
-								
+									</div>
 								</div>
-							</div>
+								</div>
+								
 						</div>
 					</div>
 

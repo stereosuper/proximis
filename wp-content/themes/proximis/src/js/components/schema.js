@@ -62,15 +62,29 @@ const schemaHandler = () => {
     };
 
     const scrollHandler = () => {
-        if( !schema2 ) return;
+        if (!schema2) return;
 
-        const container = document.getElementById('schema-container');
+        const container = document.getElementById('schema-wrapper');
         const missionSchema = document.getElementById('mission-schema');
 
-        if( container.style.position === 'absolute' ){
+        // if (container.style.position === 'absolute') {
+        //     schema2.classList.add('off');
+        //     missionSchema.classList.add('on');
+        // } else {
+        //     schema2.classList.remove('off');
+        //     missionSchema.classList.remove('on');
+        // }
+
+        const scroll =
+            schema2.getBoundingClientRect().top -
+            container.getBoundingClientRect().top;
+
+        const pos = container.clientHeight / 3;
+
+        if (scroll > pos) {
             schema2.classList.add('off');
             missionSchema.classList.add('on');
-        }else{
+        } else {
             schema2.classList.remove('off');
             missionSchema.classList.remove('on');
         }
