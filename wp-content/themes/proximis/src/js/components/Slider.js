@@ -69,7 +69,7 @@ Slider.prototype.calculHeight = function calculHeight(self) {
 
 Slider.prototype.play = function play() {
     if (this.wrapper && this.nbSlides > 1) {
-        TweenMax.delayedCall(12, this.next, [this]);
+        TweenMax.delayedCall(7, this.next, [this]);
     }
 };
 
