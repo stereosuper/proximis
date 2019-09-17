@@ -18,6 +18,24 @@ get_header(); ?>
 			<div class='contact-content'>
 				<div class='contact-form'>
 					<?php the_content(); ?>
+					<?php if( mlp_get_current_blog_language(true) == 'en' ){ ?>
+						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+						<script>
+						hbspt.forms.create({
+							portalId: "2906533",
+							formId: "2cf680f4-54c0-4f04-9d95-6ec1f370267b"
+						});
+						</script>
+					<?php }else{ ?>
+						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+						<script>
+							hbspt.forms.create({
+								portalId: "2906533",
+								formId: "fd55dfa8-6717-4be8-ac3f-e094d25b79ab"
+							});
+						</script>
+					<?php } ?>
+					
 				</div>
 				<div class='contact-infos'>
 					<div>
@@ -71,8 +89,8 @@ get_header(); ?>
 
 		</div>
 
-		<i class='hidden' id='valid-msg'><?php _e('We will get back to you soon.', 'proximis'); ?></i>
-		<i class='hidden' id='valid-link'><?php _e('Send a new message', 'proximis'); ?></i>
+		<!--<i class='hidden' id='valid-msg'><?php //_e('We will get back to you soon.', 'proximis'); ?></i>
+		<i class='hidden' id='valid-link'><?php //_e('Send a new message', 'proximis'); ?></i>-->
 		
 	<?php endif; ?>
 

@@ -77,7 +77,8 @@ textarea {
         }
     }
 
-    &:invalid,
+    //&:invalid,
+    &.invalid,
     &.wpcf7-not-valid,
     &.has-value.wpcf7-not-valid {
         // FF red borders
@@ -121,6 +122,14 @@ input {
     &[type=email] {
         max-width: 500px;
     }
+
+    &[type=radio], &[type=checkbox]{
+        height: 16px;
+        margin: 0 10px 0 0;
+        + span{
+            cursor: pointer;
+        }
+    }
 }
 
 textarea {
@@ -141,12 +150,18 @@ select {
     &::-ms-expand {
         display: none;
     }
+
+    &.invalid{
+        &:not(:focus) {
+            border-color: $secondary;
+        }
+    }
 }
 
 label {
     font-family: $ibm-bold;
 
-    >span {
+    > span {
         &:first-of-type {
             margin: 15px 0 0;
         }
@@ -211,7 +226,7 @@ label {
     margin: 5px 0;
 }
 
-.wpcf7-submit {
+.wpcf7-submit, .hs-button{
     width: auto;
     padding: 15px 25px;
     font-family: $ibm-bold;
@@ -255,10 +270,63 @@ div.wpcf7-mail-sent-ng {
     color: $secondary;
 }
 
+.contact-form .hs-form{
+    margin: $line-height 0 0;
+    fieldset{
+        max-width: 100%;
+        &.form-columns-2 .hs-form-field{
+            width: auto;
+            float: none;
+        }
+        .hs-form-field{
+            margin: 0 0 $line-height;
+        }
+    }
+    .input{
+        display: inline-block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    label{
+        margin: 15px 0 0;
+    }
+    .hs-field-desc{
+        display: none !important;
+    }
+    ul{
+        margin: 0;
+    }
+    li{
+        padding: 0;
+        &:before{
+            content: none;
+        }
+    }
+    .hs-error-msg{
+        font-family: $ibm;
+        font-size: 1.4rem;
+    }
+    .hs_recaptcha{
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+}
+
+.submitted-message{
+    max-width: 520px;
+    padding: 20px 60px;
+    margin: 60px 0 0 0;
+    border-radius: 6px;
+    background: #ffff;
+    strong, a{
+        display: block;
+    }
+}
+
 
 @media (min-width: $phone) {
 
-    .contact-form,
     .align-items-form {
         label {
             display: flex;
@@ -314,5 +382,9 @@ div.wpcf7-mail-sent-ng {
             padding: 10%;
             margin: 0 0 0 -10%;
         }
+    }
+
+    .submitted-message{
+        margin-left: -60px;
     }
 }
