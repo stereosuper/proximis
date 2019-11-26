@@ -1,18 +1,18 @@
-.mission{
+.mission {
     position: relative;
     counter-reset: mission-counter;
 
-    h3{
+    h3 {
         color: inherit;
     }
 }
 
-.mission-section{
+.mission-section {
     padding-top: 60px;
     margin: 0 0 8em;
     counter-increment: mission-counter;
 
-    h2{
+    h2 {
         padding: 0 0 0 3.75em;
         position: relative;
         &:before {
@@ -23,7 +23,7 @@
             font-size: 1.43em;
             color: $primary;
         }
-        &:after{
+        &:after {
             content: '';
             position: absolute;
             height: 5em;
@@ -36,130 +36,131 @@
     }
 }
 
-.examples{
-    margin: $line-height*3 0 $line-height*2;
+.examples {
+    margin: $line-height * 3 0 $line-height * 2;
 }
 
-.example{
+.example {
     padding: 30px 35px;
     margin: 0 0 $line-height;
     background: $secondary;
 
-    &:nth-of-type(2){
+    &:nth-of-type(2) {
         background: $primary;
     }
 
-    &:nth-of-type(3){
+    &:nth-of-type(3) {
         background: $tertiary;
     }
 
-    h3{
+    h3 {
         max-width: 90%;
         margin: 0;
     }
 
-    p{
+    p {
         margin: 0;
     }
 }
 
-.mission-title{
-    margin-top: $line-height*2;
+.mission-title {
+    margin-top: $line-height * 2;
     font-family: $recoleta-bold;
     font-size: 2.4rem;
 }
 
-.mission-links{
+.mission-links {
     display: flex;
     margin: 0 -10px;
     flex-wrap: wrap;
 }
 
-.mission-link{
+.mission-link {
     width: calc(100% - #{$gutter});
-    padding: 40px 30px 55px; 
+    padding: 40px 30px 55px;
     margin: 0 $gutter/2 $gutter;
     font-family: inherit;
     background: #fff;
     color: inherit;
     text-decoration: none;
-    .sup-title{
+    .sup-title {
         color: $grey;
     }
-    .title{
+    .title {
         display: block;
         margin: 0 0 25px;
         font-size: 2rem;
         font-family: $recoleta-bold;
     }
-    .link{
+    .link {
         font-family: $ibm-bold;
         color: $primary;
     }
 }
 
-.mission-cols{
-    margin: $line-height*2 0 0;
-    > div{
+.mission-cols {
+    margin: $line-height * 2 0 0;
+    > div {
         margin: 0 0 $line-height;
     }
-    h3, p{
+    h3,
+    p {
         margin: 0;
     }
 }
 
-.mission-numbers{
+.mission-numbers {
     margin: $line-height 0;
-    .mission-title{
-        line-height: $line-height*2;
+    .mission-title {
+        line-height: $line-height * 2;
         border-bottom: 1px solid rgba($grey, 0.5);
     }
 }
-.mission-nb{
-    .ref{
+.mission-nb {
+    .ref {
         display: flex;
         min-width: 165px;
         margin: 0 auto 10px;
     }
 }
 
-.mission-articles{
+.mission-articles {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: $line-height*3 0 0;
+    margin: $line-height * 3 0 0;
 }
 
-.mission-article{
-    margin: 0 0 $line-height*2;
-    .meta{
+.mission-article {
+    margin: 0 0 $line-height * 2;
+    .meta {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: #{$line-height - 5px} 0 $line-height;
         font-size: 1.4rem;
     }
-    h3{
+    h3 {
         margin-bottom: 0;
-        a{
+        a {
             font-family: inherit;
             color: inherit;
             text-decoration: none;
         }
     }
-    p{
+    p {
         margin: 0;
     }
 }
 
-.mission-united{
-    margin: $line-height*2 0 0;
+.mission-united {
+    margin: $line-height * 2 0 0;
 }
-.schema2{
+.schema2 {
     max-width: 100%;
 }
 
-.mission-nav{
+.mission-nav {
     display: none;
     height: 156px;
     position: absolute;
@@ -167,20 +168,21 @@
     right: $gutter/2;
     margin: 0;
     font-size: 0;
-    > li{
+    > li {
         padding: 0;
-        &:before{
+        &:before {
             content: none;
         }
     }
-    a{
+    a {
         display: block;
         width: 14px;
         height: 14px;
         margin: 3px 0;
         z-index: 1;
         transition: none;
-        &:before, &:after{
+        &:before,
+        &:after {
             content: '';
             position: absolute;
             display: block;
@@ -205,7 +207,8 @@
             background: currentColor;
         }
 
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
             color: $text;
         }
 
@@ -218,11 +221,10 @@
     }
 }
 
-
-@media (min-width: $phone){
-    .example{
+@media (min-width: $phone) {
+    .example {
         padding-bottom: 0;
-        .img-shape{
+        .img-shape {
             display: block;
             width: 200px;
             float: right;
@@ -231,66 +233,66 @@
         }
     }
 
-    .mission-link{
+    .mission-link {
         width: calc(50% - #{$gutter});
     }
 
-    .mission-nb{
+    .mission-nb {
         display: flex;
         justify-content: space-between;
-        margin: 0 $gutter*-1;
+        margin: 0 $gutter * -1;
     }
 }
 
-@media (min-width: $tablet){
-    .example{
-        h3{
+@media (min-width: $tablet) {
+    .example {
+        h3 {
             font-size: 2rem;
         }
-        .img-shape{
+        .img-shape {
             margin-top: -60px;
         }
     }
 
-    .mission-link{
+    .mission-link {
         width: calc(33.33% - #{$gutter});
     }
 
-    .mission-cols{
+    .mission-cols {
         display: flex;
         justify-content: space-between;
-        > div{
+        > div {
             width: 28%;
         }
     }
 
-    .mission-nb{
+    .mission-nb {
         width: 80%;
         margin: 0;
-        .ref{
+        .ref {
             display: inline-flex;
         }
     }
 
-    .mission-article{
+    .mission-article {
         width: 40%;
     }
 
-    .mission-schema-wrapper{
+    .mission-schema-wrapper {
         max-width: 100%;
     }
-    .mission-schema-container{
+    .mission-schema-container {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
     }
-    .mission-schema{
+    .mission-schema {
         width: 45%;
     }
 }
 
-@media (min-width: $desktop-small){
-    .examples{
+@media (min-width: $desktop-small) {
+    .examples {
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
@@ -298,44 +300,45 @@
         margin-right: -$gutter;
     }
 
-    .example{
+    .example {
         width: 32%;
         margin: 0;
-        h3{
+        h3 {
             max-width: 95%;
             min-height: 84px;
         }
-        .img-shape{
+        .img-shape {
             shape-margin: 15px;
-            margin-top: 140px;
+            margin-top: 280px;
         }
     }
 
-    .mission-links{
-        margin: 0 $gutter*-3 0 $gutter*-2;
+    .mission-links {
+        margin: 0 $gutter * -3 0 $gutter * -2;
     }
 
-    .mission-link{
-        .title{
+    .mission-link {
+        .title {
             font-size: 2.4rem;
         }
     }
 
-    .mission-steps{
+    .mission-steps {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         position: relative;
-        margin: $line-height*4 0 0;
+        margin: $line-height * 4 0 0;
         font-size: 1.35rem;
         line-height: 1.5;
         text-align: center;
-        &:before, &:after{
+        &:before,
+        &:after {
             content: '';
             position: absolute;
             border: 1px dashed #55c4da;
         }
-        &:before{
+        &:before {
             height: 50%;
             top: -5px;
             left: 20%;
@@ -344,28 +347,28 @@
             border-top-right-radius: 75px;
             border-bottom-right-radius: 75px;
         }
-        &:after{
+        &:after {
             width: 20%;
-            height: $line-height*3;
-            top: -$line-height*3;
+            height: $line-height * 3;
+            top: -$line-height * 3;
             left: -2px;
             margin: -4px 0 0;
             border-top-width: 0;
             border-right-width: 0;
             border-bottom-left-radius: 15px;
         }
-        > li{
+        > li {
             width: 19%;
             margin: 5px 0 45px;
             padding: 0;
-            &:before{
+            &:before {
                 content: '0' counter(ol-counter);
                 position: static;
                 display: block;
                 margin: 0 auto;
                 font-size: 2rem;
             }
-            &:after{
+            &:after {
                 content: '';
                 width: 10px;
                 height: 10px;
@@ -377,131 +380,131 @@
                 border-radius: 50%;
                 background: $primary;
             }
-            &:nth-child(6){
+            &:nth-child(6) {
                 margin-right: 10%;
                 order: 9;
             }
-            &:nth-child(7){
+            &:nth-child(7) {
                 order: 8;
             }
-            &:nth-child(8){
+            &:nth-child(8) {
                 order: 7;
             }
-            &:nth-child(9){
+            &:nth-child(9) {
                 margin-left: 10%;
             }
         }
     }
 
-    .mission-article{
+    .mission-article {
         width: 28.5%;
     }
 
-    .mission-nav{
+    .mission-nav {
         display: block;
     }
 }
 
-@media (min-width: $desktop){
-    .examples{
+@media (min-width: $desktop) {
+    .examples {
         margin-left: 0;
         margin-right: 0;
     }
 
-    .example{
+    .example {
         width: 30%;
-        .img-shape{
-            margin-top: 130px;
+        .img-shape {
+            margin-top: 250px;
         }
     }
 
-    .mission-cols{
-        > div{
+    .mission-cols {
+        > div {
             width: 25.5%;
         }
     }
 
-    .mission-numbers{
+    .mission-numbers {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .mission-title{
+        .mission-title {
             width: 34%;
         }
     }
 
-    .mission-nb{
+    .mission-nb {
         width: 62%;
     }
 
-    .mission-steps{
+    .mission-steps {
         margin-left: 3%;
         margin-right: 3%;
     }
 
-    .mission-article{
+    .mission-article {
         width: 25.5%;
     }
 
-    .mission-schema-text{
+    .mission-schema-text {
         width: 44%;
     }
 
-    .mission-united{
-        margin: $line-height*4 0 $line-height*3;
+    .mission-united {
+        margin: $line-height * 4 0 $line-height * 3;
     }
 
-    .mission-schema-container{
+    .mission-schema-container {
         display: block;
         width: 520px;
     }
-    .last-schema{
+    .last-schema {
         position: absolute;
         bottom: 0;
         opacity: 0;
     }
-    .mission-schema{
+    .mission-schema {
         width: 100%;
         transition: opacity $transition;
-        &.off{
+        &.off {
             opacity: 0;
         }
-        &.on{
+        &.on {
             opacity: 1;
         }
     }
-    .schema2{
+    .schema2 {
         margin: 70px 0 0;
     }
 
-    .mission-nav{
+    .mission-nav {
         right: $gutter;
     }
 }
 
-@media (min-width: $container){
-    .example{
-        .img-shape{
-            margin-top: 100px;
+@media (min-width: $container) {
+    .example {
+        .img-shape {
+            margin-top: 150px;
         }
     }
 
-    .mission-nb{
+    .mission-nb {
         width: 55.2%;
     }
 
-    .mission-steps{
+    .mission-steps {
         font-size: 1.4rem;
-        &:before{
+        &:before {
             left: 18%;
         }
-        > li{
+        > li {
             width: 16%;
         }
-        &:nth-child(6){
+        &:nth-child(6) {
             margin-right: 12%;
         }
-        &:nth-child(9){
+        &:nth-child(9) {
             margin-left: 12%;
         }
     }
