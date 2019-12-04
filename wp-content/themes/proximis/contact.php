@@ -18,16 +18,22 @@ get_header(); ?>
 			<div class='contact-content'>
 				<div class='contact-form'>
 					<?php the_content(); ?>
+					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 					<?php if( mlp_get_current_blog_language(true) == 'en' ){ ?>
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 						<script>
 						hbspt.forms.create({
 							portalId: "2906533",
 							formId: "2cf680f4-54c0-4f04-9d95-6ec1f370267b"
 						});
 						</script>
+					<?php }else if( mlp_get_current_blog_language(true) == 'es' ){ ?>
+						<script>
+						hbspt.forms.create({
+							portalId: "2906533",
+							formId: "dcc62e1b-b2a0-43e3-bab8-1be57fd3dcd5"
+						});
+						</script>
 					<?php }else{ ?>
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 						<script>
 							hbspt.forms.create({
 								portalId: "2906533",
