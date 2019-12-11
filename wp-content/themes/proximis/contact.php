@@ -19,25 +19,46 @@ get_header(); ?>
 				<div class='contact-form'>
 					<?php the_content(); ?>
 					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+					<script>
+						// Pseudo-jQuery for Hubspot callbacks
+						// https://www.unstack.com/blog/hubspot-on-form-submit-callbacks-without-jquery
+						(function() {
+							window.jQuery = window.jQuery || function(nodeOrSelector) {
+								if (typeof(nodeOrSelector) == 'string') {
+									return document.querySelector(s);
+								}
+								return nodeOrSelector;
+							};
+						})();
+					</script>
 					<?php if( mlp_get_current_blog_language(true) == 'en' ){ ?>
 						<script>
 						hbspt.forms.create({
 							portalId: "2906533",
-							formId: "2cf680f4-54c0-4f04-9d95-6ec1f370267b"
+							formId: "2cf680f4-54c0-4f04-9d95-6ec1f370267b",
+							onFormSubmitted: function(){
+								gtag('event', 'formulaire', {'event_category': 'contact', 'event_label': 'page-contact'});
+							}
 						});
 						</script>
 					<?php }else if( mlp_get_current_blog_language(true) == 'es' ){ ?>
 						<script>
 						hbspt.forms.create({
 							portalId: "2906533",
-							formId: "dcc62e1b-b2a0-43e3-bab8-1be57fd3dcd5"
+							formId: "dcc62e1b-b2a0-43e3-bab8-1be57fd3dcd5",
+							onFormSubmitted: function(){
+								gtag('event', 'formulaire', {'event_category': 'contact', 'event_label': 'page-contact'});
+							}
 						});
 						</script>
 					<?php }else{ ?>
 						<script>
 							hbspt.forms.create({
 								portalId: "2906533",
-								formId: "fd55dfa8-6717-4be8-ac3f-e094d25b79ab"
+								formId: "fd55dfa8-6717-4be8-ac3f-e094d25b79ab",
+								onFormSubmitted: function(){
+									gtag('event', 'formulaire', {'event_category': 'contact', 'event_label': 'page-contact'});
+								}
 							});
 						</script>
 					<?php } ?>
