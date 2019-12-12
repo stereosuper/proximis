@@ -1,6 +1,6 @@
 import { forEach, query } from '@stereorepo/sac';
 
-const headerHandler = () => {
+const newsHandler = () => {
     const newsletters = query({ selector: '.newsletter' });
     let input, email;
 
@@ -27,4 +27,4 @@ const headerHandler = () => {
     });
 };
 
-export default headerHandler;
+export default newsHandler;

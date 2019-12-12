@@ -17,15 +17,19 @@ const modal = () => {
     const checkSubmissionPage = () => {
         forEach(modals, modal => {
             const [form] = query({ selector: '.wpcf7-form', ctx: modal });
-            if (!form || !modal) return;
-            const classesToCheck = ['invalid', 'sent'];
 
+            if (!form || !modal) return;
+
+            const classesToCheck = ['invalid', 'sent'];
             const hasClass = classesToCheck.some(className =>
                 form.classList.contains(className)
             );
 
             if (hasClass) {
                 modal.classList.add('on');
+                if (form.classList.contains('sent')){
+                    gtag('event', 'newsletter', { 'event_category': 'inscription', 'event_label': 'footer' });
+                }
             }
         });
     };
