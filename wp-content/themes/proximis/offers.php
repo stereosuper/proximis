@@ -74,8 +74,8 @@ get_header(); ?>
 								<?php endwhile; ?>
 							</ul>
 						<?php wp_reset_postdata(); endif; ?>
-
-						<div class='offers-desc'><?php the_sub_field('text'); ?></div>
+						
+						<div class='offers-desc' id='mailto-recruitment'><?php the_sub_field('text'); ?></div>
 					</div>
 				</div>
 			</section>

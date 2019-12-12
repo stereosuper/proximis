@@ -124,6 +124,20 @@ const preloadCallback = () => {
 
 const loadCallback = () => {
     searchHandler();
+
+    const trackMailto = (e, url) => {
+        e.preventDefault();
+        gtag('event', 'recrutement', {
+            'event_category': 'contact',
+            'event_label': 'clic-mailto',
+            'event_callback': () => { window.location.href = url; }
+        });
+    }
+
+    const link = query({ selector: '#mailto-recruitment a[href^=mailto]'});
+    link[0].addEventListener('click', (e) => {
+        trackMailto(e, link[0].href);
+    });
 };
 
 const animationsCallback = () => {

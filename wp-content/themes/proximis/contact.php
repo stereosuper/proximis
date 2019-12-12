@@ -99,7 +99,7 @@ get_header(); ?>
 							<?php if( $applications['img'] ) echo wp_get_attachment_image($applications['img'], 'full'); ?>
 							<div>
 								<h2><?php echo $applications['title']; ?></h2>
-								<p>
+								<p id='mailto-recruitment'>
 									<?php echo $applications['text']; ?>
 									<br>
 									<?php if( $applications['link'] ) : ?>
