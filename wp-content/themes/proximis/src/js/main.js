@@ -128,16 +128,20 @@ const loadCallback = () => {
     const trackMailto = (e, url) => {
         e.preventDefault();
         gtag('event', 'recrutement', {
-            'event_category': 'contact',
-            'event_label': 'clic-mailto',
-            'event_callback': () => { window.location.href = url; }
+            event_category: 'contact',
+            event_label: 'clic-mailto',
+            event_callback: () => {
+                window.location.href = url;
+            }
+        });
+    };
+
+    const link = query({ selector: '#mailto-recruitment a[href^=mailto]' });
+    if (link && link[0]) {
+        link[0].addEventListener('click', e => {
+            trackMailto(e, link[0].href);
         });
     }
-
-    const link = query({ selector: '#mailto-recruitment a[href^=mailto]'});
-    link[0].addEventListener('click', (e) => {
-        trackMailto(e, link[0].href);
-    });
 };
 
 const animationsCallback = () => {
