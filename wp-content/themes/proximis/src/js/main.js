@@ -20,6 +20,7 @@ import newsletter from './components/newsletter';
 import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import scrollToButton from './components/scrollToButton';
+import video from './components/video';
 //import missionNav from './components/missionNav';
 
 // ⚠️ DO NOT REMOVE ⚠️
@@ -78,6 +79,7 @@ const preloadCallback = () => {
     form();
     newsletter();
     blog();
+    video();
 
     bodyRouter({
         identifier: '.home',

@@ -44,7 +44,7 @@ h6 {
 
     &.no-margin-bottom,
     &.small-margin-bottom {
-        +p {
+        + p {
             margin-top: 0;
         }
     }
@@ -80,7 +80,7 @@ h1 {
     &.small-margin-bottom {
         margin-bottom: 0.4em;
 
-        +p {
+        + p {
             margin-top: 0;
         }
     }
@@ -111,7 +111,7 @@ h2 {
     }
 
     &:not(.title) {
-        >span {
+        > span {
             display: block;
             color: $grey;
         }
@@ -168,7 +168,7 @@ blockquote {
     font-size: 2.4rem;
     color: $grey;
 
-    >p {
+    > p {
         &:before {
             content: '“';
             color: $primary;
@@ -213,7 +213,7 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    >li {
+    > li {
         counter-increment: ol-counter;
 
         &:before {
@@ -226,7 +226,7 @@ ol {
 }
 
 ul {
-    >li {
+    > li {
         &:before {
             width: 8px;
             height: 8px;
@@ -417,7 +417,7 @@ a,
         }
     }
 
-    >p {
+    > p {
         margin: 0;
     }
 
@@ -442,7 +442,6 @@ a,
 }
 
 .wp-block-image {
-
     .alignright,
     .alignleft {
         float: none;
@@ -461,7 +460,7 @@ a,
 
 .big-text {
     font-size: 1.8rem;
-    .has-drop-cap{
+    .has-drop-cap {
         font-size: 2rem;
     }
 }
@@ -488,18 +487,89 @@ a,
 
 .wrapper-type,
 .container.wrapper-type {
-    margin-bottom: #{3*$line-height};
+    margin-bottom: #{3 * $line-height};
 }
 
-.cols-text{
-    img{
+.cols-text {
+    img {
         display: none;
     }
 }
 
+.video {
+    height: 0;
+    padding: 0 0 50%;
+    margin: 0 0 110px;
+    position: relative;
+    .cover,
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .cover {
+        display: flex;
+        padding: 0 25px;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        color: #fff;
+        cursor: pointer;
+        background-size: cover;
+        background-position: 50%;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(#18162b, 0.6);
+            z-index: -1;
+        }
+        &:hover {
+            .play {
+                transform: scale(0.9);
+            }
+        }
+    }
+    .play {
+        width: 65px;
+        height: 65px;
+        flex-shrink: 0;
+        position: relative;
+        border-radius: 50%;
+        background: $primary;
+        transform-origin: 50%;
+        transition: $transition;
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 5px;
+            right: 0;
+            margin: auto;
+            border-style: solid;
+            border-width: 18px 0 18px 24px;
+            border-color: transparent transparent transparent #fff;
+        }
+    }
+    p {
+        display: none;
+    }
+    .video-title {
+        display: block;
+        font-family: $recoleta-bold;
+        font-size: 2.8rem;
+    }
+}
 
 @media (min-width: $phone-small) {
-
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -512,10 +582,16 @@ a,
             padding: 25px 40px;
         }
     }
+
+    .video {
+        .play {
+            width: 95px;
+            height: 95px;
+        }
+    }
 }
 
 @media (min-width: $phone) {
-
     .post-thumbnail,
     .has-drop-cap {
         &:before {
@@ -527,10 +603,18 @@ a,
         padding-left: 40px;
         padding-right: 40px;
     }
+
+    .video {
+        .play {
+            margin: 0 25px 0 0;
+        }
+        p {
+            display: block;
+        }
+    }
 }
 
 @media (min-width: $tablet) {
-
     h1,
     .home h1,
     .home h2,
@@ -564,16 +648,15 @@ a,
         }
     }
 
-    .cols-text{
+    .cols-text {
         columns: 2;
-        p{
+        p {
             margin-top: 0;
-            &:last-child{
+            &:last-child {
                 margin-bottom: 0;
             }
         }
     }
-
 }
 
 @media (min-width: $desktop-small) {
@@ -650,12 +733,16 @@ a,
 
     .wrapper-type,
     .container.wrapper-type {
-        margin-bottom: #{5*$line-height};
+        margin-bottom: #{5 * $line-height};
+    }
+
+    .video {
+        padding: 0 0 37%;
+        margin: 0 $col * 2 110px;
     }
 }
 
 @media (min-width: $desktop) {
-
     .highlighted,
     .book-highlighted,
     .newsletter-highlighted {
@@ -694,9 +781,9 @@ a,
         }
     }
 
-    .cols-text{
+    .cols-text {
         position: relative;
-        img{
+        img {
             display: block;
             position: absolute;
             max-width: 260px;
