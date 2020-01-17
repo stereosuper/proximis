@@ -307,6 +307,12 @@ a,
     }
 }
 
+.leadin-resubscribe-link {
+    &:before {
+        content: none;
+    }
+}
+
 /******* CLASSES GENERALES  *******/
 
 .hidden {
