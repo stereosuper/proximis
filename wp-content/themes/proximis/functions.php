@@ -413,18 +413,30 @@ function proximis_post_type(){
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
         'rewrite' => array('with_front' => false)
     ));
+    register_post_type( 'resource', array(
+        'label' => 'Ressources',
+        'singular_label' => 'Ressource',
+        'public' => true,
+        'menu_icon' => 'dashicons-smiley',
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+    ));
 }
 add_action( 'init', 'proximis_post_type' );
 
-// function proximis_taxonomies(){
-//     register_taxonomy( 'resource_cat', array('resource'), array(
-//         'label' => 'Categories',
-//         'singular_label' => 'Category',
-//         'hierarchical' => true,
-//         'show_admin_column' => true
-//     ) );
-// }
-// add_action( 'init', 'proximis_taxonomies' );
+function proximis_taxonomies(){
+    register_taxonomy( 'resource_cat', array('resource'), array(
+        'label' => 'Catégories',
+        'singular_label' => 'Catégorie',
+        'hierarchical' => true,
+        'show_admin_column' => true
+    ) );
+    register_taxonomy( 'resource_tag', array('resource'), array(
+        'label' => 'Etiquettes',
+        'singular_label' => 'Etiquette',
+        'show_admin_column' => true
+    ) );
+}
+add_action( 'init', 'proximis_taxonomies' );
 
 
 /*-----------------------------------------------------------------------------------*/
