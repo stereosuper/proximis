@@ -15,6 +15,15 @@ get_header(); ?>
 			<h1><?php the_title(); ?></h1>
 
 			<?php the_content(); ?>
+
+			<?php $cats = get_terms('resource_cat'); if( $cats ) : ?>
+			<ul>
+				<li><a href=''>Tous</a></li>
+				<?php foreach( $cats as $cat ) :
+					echo '<li><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></li>';
+				endforeach; ?>
+			</ul>
+			<?php endif; ?>
 			
 			<div class="wrapper-blog-list">
 				<?php $resourcesQuery = new WP_Query(array('post_type' => 'resource', 'posts_per_page' => -1)); if( $resourcesQuery->have_posts() ) : ?>
