@@ -140,12 +140,27 @@
     border-bottom: 1px solid $grey;
 }
 
-.post-img {
+.post-main-cat {
+    display: inline-block;
+    margin: 10px 0 25px;
+}
+
+.post-img,
+.post-logo {
     display: block;
     height: 150px;
     margin: 0 0 1.2em;
-    background-size: cover;
     background-position: 50% 50%;
+}
+
+.post-img {
+    background-size: cover;
+}
+
+.post-logo {
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
 }
 
 .post-head {
@@ -339,8 +354,8 @@
     }
 }
 
-.post-thumbnail{
-    > div{
+.post-thumbnail {
+    > div {
         height: 40vh;
         max-height: 150px;
         background-size: cover;
@@ -348,26 +363,25 @@
     }
 }
 
-
-@media (min-width: $phone-small){
-    .post-thumbnail{
-        > div{
+@media (min-width: $phone-small) {
+    .post-thumbnail {
+        > div {
             max-height: 200px;
         }
     }
 }
 
-@media (min-width: $phone){
-    .post-thumbnail{
-        > div{
+@media (min-width: $phone) {
+    .post-thumbnail {
+        > div {
             max-height: 250px;
         }
     }
 }
 
-@media (min-width: $tablet){
-    .post-thumbnail{
-        > div{
+@media (min-width: $tablet) {
+    .post-thumbnail {
+        > div {
             max-height: 300px;
         }
     }
@@ -379,18 +393,18 @@
     }
 }
 
-@media (min-width: $desktop){
-    .post-thumbnail{
-        > div{
+@media (min-width: $desktop) {
+    .post-thumbnail {
+        > div {
             height: 50vh;
             max-height: 380px;
         }
     }
 }
 
-@media (min-width: $desktop-big){
-    .post-thumbnail{
-        > div{
+@media (min-width: $desktop-big) {
+    .post-thumbnail {
+        > div {
             height: 60vh;
             max-height: 420px;
         }
