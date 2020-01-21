@@ -18,16 +18,24 @@ get_header(); ?>
 
 			<?php $cats = get_terms('resource_cat'); if( $cats ) : ?>
 			<ul class='resources-cats'>
-				<li><a href=''>Tous</a></li>
+				<li><a href='<?php the_field('link_resources', 'options'); ?>' <?php if(!isset($_GET['cat']) || !$_GET['cat']) echo "class='on'"; ?>><svg class="icon"><use xlink:href="#icon-all"></use></svg><span>Tous</span></a></li>
 				<?php foreach( $cats as $cat ) :
-					echo '<li><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></li>';
+					$class = isset($_GET['cat']) && $cat->slug == $_GET['cat'] ? 'class="on"' : '';
+					echo '<li><a href="' . get_field('link_resources', 'options') . '?cat=' . $cat->slug . '" ' . $class . '><svg class="icon"><use xlink:href="#icon-' . get_field('icon', 'resource_cat_' . $cat->term_id) . '"></use></svg><span>' . $cat->name . '</span></a></li>';
 				endforeach; ?>
 			</ul>
 			<?php endif; ?>
 			
 			<div class="wrapper-blog-list">
-				<?php $resourcesQuery = new WP_Query(array('post_type' => 'resource', 'posts_per_page' => -1)); if( $resourcesQuery->have_posts() ) : ?>
-					<ul class='blog-list'>
+				<?php
+					$args = array('post_type' => 'resource', 'posts_per_page' => 6, 'paged' => get_query_var('paged') ? get_query_var('paged') : 1);
+					if( isset($_GET['cat']) ){
+						$args['tax_query'] = array(array('taxonomy' => 'resource_cat', 'field' => 'slug', 'terms' => $_GET['cat'])); 
+					}
+				?>
+
+				<?php $resourcesQuery = new WP_Query($args); if( $resourcesQuery->have_posts() ) : ?>
+					<ul class='blog-list' id='blog'>
 						<?php while( $resourcesQuery->have_posts() ) : $resourcesQuery->the_post(); if(get_field('link')) : ?>
 							<li class='post'>
 								<?php if( get_field('logo') ) : ?>
@@ -37,7 +45,7 @@ get_header(); ?>
 								<?php endif; ?>
 
 								<?php $cats = get_the_terms($post, 'resource_cat'); if( $cats ) :
-									echo '<a href="' . get_category_link( $cats[0]->term_id ) . '" class="post-main-cat">' . $cats[0]->name . '</a>';
+									echo '<a href="' . get_field('link_resources', 'options') . '?cat=' . $cats[0]->slug . '" class="post-main-cat"><svg class="icon"><use xlink:href="#icon-' . get_field('icon', 'resource_cat_' . $cats[0]->term_id) . '"></use></svg>' . $cats[0]->name . '</a>';
 								endif; ?>
 
 								<a class="post-content-link" href='<?php the_field('link'); ?>' target='_blank' rel='noopener noreferrer'>
@@ -60,6 +68,17 @@ get_header(); ?>
 							</li>
 						<?php endif; endwhile; ?>
 					</ul>
+
+					<div class='pagination'>
+						<?php echo paginate_links(
+							array(
+								'prev_next' => false,
+								'end_size' => 2,
+								'current' => max( 1, get_query_var('paged') ),
+								'total' => $resourcesQuery->max_num_pages
+							)
+						); ?>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>

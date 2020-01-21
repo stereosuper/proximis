@@ -1,3 +1,59 @@
 .resources-cats {
     display: flex;
+    margin: 3em 0 0.5em;
+    overflow-x: auto;
+    font-size: 1.3rem;
+    text-align: center;
+    > li {
+        padding: 0;
+        margin: 0 5px 1em 0;
+        &:before {
+            content: none;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    a {
+        display: block;
+        min-width: 90px;
+        font-family: $ibm;
+        line-height: 1.5;
+        color: $text;
+        text-decoration: none;
+        &.on {
+            font-family: $ibm-bold;
+        }
+        &:hover,
+        &:focus {
+            .icon {
+                transform: scale(0.9);
+            }
+        }
+    }
+    span {
+        display: block;
+    }
+    .icon {
+        width: 40px;
+        height: 40px;
+        color: $primary;
+        transform-origin: 50% 50%;
+        transition: $transition;
+    }
+}
+
+@media (min-width: $tablet) {
+    .resources-cats {
+        > li {
+            margin-right: 30px;
+        }
+        .icon {
+            width: 60px;
+            height: 60px;
+        }
+        a {
+            line-height: $line-height;
+        }
+    }
 }

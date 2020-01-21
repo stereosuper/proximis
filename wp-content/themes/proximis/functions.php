@@ -417,6 +417,7 @@ function proximis_post_type(){
         'label' => 'Ressources',
         'singular_label' => 'Ressource',
         'public' => true,
+        'publicly_queryable' => false,
         'menu_icon' => 'dashicons-smiley',
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
     ));
