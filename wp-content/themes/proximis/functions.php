@@ -418,7 +418,7 @@ function proximis_post_type(){
         'singular_label' => 'Ressource',
         'public' => true,
         'publicly_queryable' => false,
-        'menu_icon' => 'dashicons-smiley',
+        'menu_icon' => 'dashicons-book',
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
     ));
 }

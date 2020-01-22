@@ -28,9 +28,12 @@ get_header(); ?>
 			
 			<div class="wrapper-blog-list">
 				<?php
-					$args = array('post_type' => 'resource', 'posts_per_page' => 6, 'paged' => get_query_var('paged') ? get_query_var('paged') : 1);
+					$args = array('post_type' => 'resource', 'posts_per_page' => 6, 'tax_query' => array(), 'paged' => get_query_var('paged') ? get_query_var('paged') : 1);
 					if( isset($_GET['cat']) ){
-						$args['tax_query'] = array(array('taxonomy' => 'resource_cat', 'field' => 'slug', 'terms' => $_GET['cat'])); 
+						$args['tax_query'][] = array('taxonomy' => 'resource_cat', 'field' => 'slug', 'terms' => $_GET['cat']); 
+					}
+					if( isset($_GET['tag']) ){
+						$args['tax_query'][] = array('taxonomy' => 'resource_tag', 'field' => 'slug', 'terms' => $_GET['tag']); 
 					}
 				?>
 
@@ -60,7 +63,7 @@ get_header(); ?>
 											foreach( $cats as $cat ) :
 												$count ++;
 												if( $count > 1 ) echo ', ';
-												echo '<a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a>';
+												echo '<a href="' . get_field('link_resources', 'options') . '?tag=' . $cat->slug . '">' . $cat->name . '</a>';
 											endforeach;
 										endif; ?>
 									</div>
