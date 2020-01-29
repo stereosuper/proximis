@@ -8,28 +8,30 @@
     margin: 5em 0 0;
 
     h2,
+    h3,
     p {
         margin: 0;
     }
 
-    p+h2 {
-        margin-top: 60px;
+    h3 {
+        margin-top: 30px;
+        color: $text;
     }
 
-    >div {
+    .infos {
+        padding: 40px;
+    }
+
+    > div {
         margin: 0 0 $gutter;
         overflow: hidden;
         border-radius: 6px;
         background: #fff;
 
-        &:first-child {
-            padding: 40px;
-        }
-
         &:last-child {
             background: $primary;
 
-            >div {
+            > div {
                 padding: 40px;
             }
 
@@ -53,16 +55,15 @@
 }
 
 .contact-content {
-    margin: 0 0 #{$line-height*4};
+    margin: 0 0 #{$line-height * 4};
 }
-
 
 @media (min-width: $tablet) {
     .contact-infos {
         display: flex;
         justify-content: space-between;
 
-        >div {
+        > div {
             width: 48%;
         }
     }
@@ -72,7 +73,7 @@
     .contact-content {
         display: flex;
         justify-content: space-between;
-        margin-bottom: #{$line-height*6};
+        margin-bottom: #{$line-height * 6};
     }
 
     .contact-form {
@@ -84,7 +85,7 @@
         width: 36%;
         margin: 8.9em 0 0;
 
-        >div {
+        > div {
             width: 100%;
         }
     }
@@ -96,13 +97,12 @@
     }
 
     .contact-infos {
-        >div {
-            &:first-child {
-                padding: 60px;
-            }
-
+        .infos {
+            padding: 40px 60px;
+        }
+        > div {
             &:last-child {
-                >div {
+                > div {
                     padding: 60px;
                 }
             }
