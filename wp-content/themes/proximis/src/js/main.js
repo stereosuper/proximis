@@ -144,6 +144,24 @@ const loadCallback = () => {
             trackMailto(e, link[0].href);
         });
     }
+
+    const tels = query({ selector: '.display-tel' });
+    if (tels) {
+        let btn, num;
+        forEach(tels, tel => {
+            btn = tel.querySelector('.simple-link');
+            num = tel.querySelector('.tel');
+
+            btn.addEventListener('click', e => {
+                btn.classList.add('hidden');
+                num.classList.remove('hidden');
+                gtag('event', 'telephone', {
+                    event_category: 'contact',
+                    event_label: 'clic-telephone'
+                });
+            });
+        });
+    }
 };
 
 const animationsCallback = () => {

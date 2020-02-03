@@ -82,11 +82,18 @@ get_header(); ?>
 								<?php $infos = get_sub_field('infos'); if( $infos ) : ?>
 									<h3><?php echo $infos['title']; ?></h3>
 									<p>
-										<?php if( $infos['link_tel'] ) : ?>
-											<a href='<?php echo $infos['link_tel']; ?>'>
-												<?php echo $infos['tel']; ?>
-											</a>
-										<?php else : echo $infos['tel']; endif; ?>
+										<?php if( $infos['tel'] ) : ?>
+											<span class='display-tel'>
+												<button class='simple-link'>Afficher le n° de téléphone</button>
+												<span class='tel hidden'>
+													<?php if( $infos['link_tel'] ) : ?>
+														<a href='<?php echo $infos['link_tel']; ?>'>
+															<?php echo $infos['tel']; ?>
+														</a>
+													<?php else : echo $infos['tel']; endif; ?>
+												</span>
+											</span>
+										<?php endif; ?>
 										<br>
 										<?php if( $infos['link_mail'] ) : ?>
 											<a href='<?php echo $infos['link_mail']; ?>'>
