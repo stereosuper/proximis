@@ -3,6 +3,25 @@
     "title": "[page] Contact",
     "fields": [
         {
+            "key": "field_5e3ad2534d282",
+            "label": "Bouton tel",
+            "name": "tel_btn",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e31a6b9fe406",
             "label": "Coordonnées",
             "name": "contact_infos",
@@ -361,5 +380,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580313338
+    "modified": 1580913251
 }

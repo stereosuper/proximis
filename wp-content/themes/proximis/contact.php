@@ -84,7 +84,9 @@ get_header(); ?>
 									<p>
 										<?php if( $infos['tel'] ) : ?>
 											<span class='display-tel'>
-												<button class='simple-link'>Afficher le n° de téléphone</button>
+												<button class='simple-link'>
+													<?php the_field('tel_btn'); ?>
+												</button>
 												<span class='tel hidden'>
 													<?php if( $infos['link_tel'] ) : ?>
 														<a href='<?php echo $infos['link_tel']; ?>'>
