@@ -118,18 +118,20 @@
 
 .wrapper-data {
     position: relative;
+    padding: 1px 0;
 }
 
 .data-number {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
+    bottom: 0;
+    margin: auto;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 46px;
-    height: 46px;
-    margin-top: -23px;
+    width: 60px;
+    height: 60px;
     font-family: $recoleta-bold;
     color: $white;
     border-radius: 50%;
@@ -137,13 +139,14 @@
 
     > span {
         position: relative;
-        top: 0.15em;
+        top: 0.1em;
     }
 }
 
 .data-text {
-    padding-left: 61px;
-    margin-bottom: $line-height;
+    padding-left: 80px;
+    margin: 30px 0;
+    line-height: 1;
 }
 
 .awards {
@@ -451,9 +454,16 @@
         right: 0;
     }
 
+    .wrapper-data {
+        padding: 1px $gutter * 0.5;
+    }
+
+    .title-ref {
+        padding: 0 $gutter * 0.5;
+    }
+
     .title-ref,
     .wrapper-data {
-        padding: 0 $gutter * 0.5;
         margin-left: percentage(8/12);
         margin-right: percentage(1/12);
     }
