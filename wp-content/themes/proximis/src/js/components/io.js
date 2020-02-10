@@ -1,4 +1,4 @@
-import { query, superPolyfill } from '@stereorepo/sac';
+import { query, ioPolyfill } from '@stereorepo/sac';
 import { TweenMax, Power2 } from 'gsap';
 
 const io = function() {
@@ -7,7 +7,7 @@ const io = function() {
     this.resized = true;
 
     this.init = () => {
-        superPolyfill.initializeIntersectionObserver();
+        ioPolyfill();
 
         const objectsToIO = [...document.querySelectorAll('[data-io]')];
 

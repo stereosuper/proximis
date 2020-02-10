@@ -1,36 +1,47 @@
-import { superWindow } from '@stereorepo/sac';
-import { Collant } from '@stereorepo/collant';
 import { breakpoints } from '../global';
+import { query } from '@stereorepo/sac/src/core';
 
 const error404Handler = () => {
     const state = { sticky: false };
-
-    const imageCollant = new Collant({
-        selector: '.js-error-404-image-wrapper',
-        box: '.main',
-        offsetBottom: '0px'
+    const [imageContainer] = query({
+        selector: '.js-error-404-image-container'
     });
+    const [box] = query({ selector: '.main' });
+
+    let imageCollant = null;
+
+    if (!imageContainer || !box) return;
 
     const handleWindowSize = () => {
         if (
-            superWindow.windowWidth > breakpoints.horizontal.l &&
+            window.$stereorepo.superWindow.windowWidth >
+                breakpoints.horizontal.l &&
             !state.sticky
         ) {
-            imageCollant.stickIt();
+            imageCollant = window.$stereorepo.superScroll.watch({
+                element: imageContainer,
+                options: {
+                    collant: true,
+                    target: box,
+                    position: 'bottom'
+                }
+            });
             state.sticky = true;
         } else if (
-            superWindow.windowWidth <= breakpoints.horizontal.l &&
+            window.$stereorepo.superWindow.windowWidth <=
+                breakpoints.horizontal.l &&
             state.sticky
         ) {
-            imageCollant.ripIt();
+            if (imageCollant) imageCollant.forget();
             state.sticky = false;
         }
     };
 
     handleWindowSize();
 
-    superWindow.addResizeEndFunction(() => {
+    window.$stereorepo.superWindow.addResizeEndFunction(() => {
         handleWindowSize();
+        window.$stereorepo.superScroll.update();
     });
 };
 

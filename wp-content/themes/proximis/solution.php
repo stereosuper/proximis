@@ -37,7 +37,7 @@ get_header(); ?>
 					<h2 class='x-small'><?php the_sub_field('title'); ?></h2>
 					<div class='big-text'><?php the_sub_field('text'); ?></div>
 					<div class='schema-wrapper'>
-						<div class='schema'>
+						<div id='schema-wrapper' class='schema'>
 							<div class='schema-container'>
 								<div class='beyonce'><?php echo wp_get_attachment_image(get_sub_field('photo'), 'medium'); ?></div>
 								<svg width="518" viewBox="0 0 518 529" fill="none" xmlns="http://www.w3.org/2000/svg" class="schema-svg" id="schema">

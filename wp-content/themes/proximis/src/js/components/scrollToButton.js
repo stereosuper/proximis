@@ -1,4 +1,4 @@
-import { query, forEach, superScroll } from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 import { TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
@@ -22,7 +22,8 @@ const scrollToButtonHandler = () => {
                 if (!element) return;
 
                 const offset =
-                    superScroll.scrollTop + element.getBoundingClientRect().top;
+                    window.$stereorepo.superScroll.scrollTop +
+                    element.getBoundingClientRect().top;
 
                 TweenLite.to(window, 0.5, {
                     scrollTo: {

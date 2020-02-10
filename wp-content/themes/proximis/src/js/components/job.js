@@ -1,35 +1,37 @@
-import { Collant } from '@stereorepo/collant';
-import { query, superWindow } from '@stereorepo/sac';
+import { query } from '@stereorepo/sac';
 
 const jobHandler = () => {
-    const mail = query('#job-mail');
+    const mail = query({ selector: '#job-mail' });
 
     if (!mail) return;
 
-    let collant;
+    let collant = null;
+    let collantOffset = 0;
+
+    const [highlighted] = query({ selector: '.highlighted' });
+    const [main] = query({ selector: '.main' });
 
     const stickSidebar = () => {
-        if (superWindow.windowWidth < 1100) {
-            collant = new Collant({
-                selector: '.highlighted',
-                box: '.main',
-                offsetBottom: '1px'
-            });
-        } else {
-            collant = new Collant({
-                selector: '.highlighted',
-                box: '.main',
-                offsetTop: '200px'
-            });
-        }
+        collantOffset =
+            window.$stereorepo.superWindow.windowWidth < 1100 ? 1 : 200;
 
-        collant.stickIt();
+        collant = window.$stereorepo.superScroll.watch({
+            element: highlighted,
+            options: {
+                collant: true,
+                target: main,
+                collantOffset,
+                position: 'top'
+            }
+        });
+        window.$stereorepo.superScroll.update();
     };
 
     stickSidebar();
 
-    superWindow.addResizeEndFunction(() => {
-        collant.ripIt();
+    window.$stereorepo.superWindow.addResizeEndFunction(() => {
+        if (collant) collant.forget();
+        collant = null;
         stickSidebar();
     });
 };

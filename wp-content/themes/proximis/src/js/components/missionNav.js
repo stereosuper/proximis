@@ -1,7 +1,6 @@
-import { forEach, superScroll, superWindow } from '@stereorepo/sac';
+import { forEach, query } from '@stereorepo/sac';
 import { TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { Collant } from '@stereorepo/collant';
 
 import { easing } from '../global';
 
@@ -20,8 +19,7 @@ const navHandler = () => {
         offset,
         active,
         elts = [],
-        count = 0,
-        collant;
+        count = 0;
 
     const setActive = btn => {
         active = nav.querySelector('.active');
@@ -31,11 +29,11 @@ const navHandler = () => {
     };
 
     const scrollHandler = () => {
-        if (superWindow.windowWidth < 960) return;
+        if (window.$stereorepo.superWindow.windowWidth < 960) return;
 
         forEach(btns, btn => {
             if (
-                superScroll.scrollTop <=
+                window.$stereorepo.superScroll.scrollTop <=
                 elts[[].slice.call(btns).indexOf(btn)].offset
             )
                 return;
@@ -51,7 +49,9 @@ const navHandler = () => {
         if (elt) {
             elts[count] = {
                 id: href,
-                offset: superScroll.scrollTop + elt.getBoundingClientRect().top
+                offset:
+                    window.$stereorepo.superScroll.scrollTop +
+                    elt.getBoundingClientRect().top
             };
 
             btn.addEventListener(
@@ -74,16 +74,21 @@ const navHandler = () => {
         }
     });
 
-    superScroll.addScrollFunction(scrollHandler);
+    window.$stereorepo.superScroll.on('scroll', scrollHandler);
 
-    collant = new Collant({
-        selector: '.mission-nav',
-        box: '.mission',
-        offsetTop: superWindow.windowHeight / 2 - 78 + 'px'
-        // 78 = moitié de la hauteur de la nav
+    const [missionNavWrapper] = query({ selector: '.mission' });
+
+    window.$stereorepo.superScroll.watch({
+        element: nav,
+        options: {
+            collant: true,
+            target: missionNavWrapper,
+            position: 'top',
+            collantOffset:
+                window.$stereorepo.superWindow.windowHeight / 2 - 78 + 'px'
+            // 78 = moitié de la hauteur de la nav
+        }
     });
-
-    collant.stickIt();
 };
 
 export default navHandler;

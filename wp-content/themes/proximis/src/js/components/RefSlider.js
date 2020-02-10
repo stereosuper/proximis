@@ -1,7 +1,7 @@
-import { superPolyfill, query, forEach, superWindow } from '@stereorepo/sac';
-import { Collant } from '@stereorepo/collant';
+import { forEach, query } from '@stereorepo/sac';
 import { TweenMax, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import 'whatwg-fetch';
 
 import { easing, breakpoints } from '../global';
 
@@ -27,8 +27,6 @@ class ReferencesSlider {
 
         this.resetContext = this.resetContext.bind(this);
         this.resizeHandler = this.resizeHandler.bind(this);
-
-        superPolyfill.initializeWhatwgFetch();
     }
     getAllSlideIds(callback) {
         const action = 'get_references_ids';
@@ -51,15 +49,12 @@ class ReferencesSlider {
             });
     }
     checkAnyFollowing() {
-        if (this.idsList.length > 1) {
+        if (this.idsList.length <= 1) {
             const [navButtons] = query({
                 selector: '.js-nav-btn',
-                ctx: this.form
+                ctx: this.currentSlide
             });
-            TweenMax.to(navButtons, 0.3, {
-                autoAlpha: 1,
-                ease: easing.easeInOut
-            });
+            navButtons.style.display = 'none';
         }
     }
     selectFollowingElement({ id = null }) {
@@ -135,15 +130,103 @@ class ReferencesSlider {
     stickElements() {
         this.state.sticky = true;
 
-        forEach(this.collants, collant => {
-            collant.stickIt();
+        // navButtons collant init elements
+        const [navButtons] = query({
+            selector: '.js-nav-btn',
+            ctx: this.currentSlide
         });
-    }
-    unstickElements() {
-        forEach(this.collants, collant => {
-            collant.ripIt();
+        const [navButtonsBox] = query({
+            selector: '.js-content-btn-infos',
+            ctx: this.currentSlide
         });
 
+        // downloadButton collant init elements
+        const [downloadButton] = query({
+            selector: '.js-btn-download',
+            ctx: this.currentSlide
+        });
+        const [downloadButtonBox] = query({
+            selector: '.js-wrapper-btn-download',
+            ctx: this.currentSlide
+        });
+
+        // infoData collant init elements
+        const [infoData] = query({
+            selector: '.js-infos-data',
+            ctx: this.currentSlide
+        });
+        const [infoDataBox] = query({
+            selector: '.js-content-btn-infos',
+            ctx: this.currentSlide
+        });
+
+        if (this.idsList.length > 1) {
+            TweenMax.to(navButtons, 0.3, {
+                autoAlpha: 1,
+                ease: easing.easeInOut
+            });
+        }
+        TweenMax.to([downloadButton, infoData], 0.3, {
+            autoAlpha: 1,
+            ease: easing.easeInOut
+        });
+
+        this.collants = [
+            window.$stereorepo.superScroll.watch({
+                element: navButtons,
+                options: {
+                    collant: true,
+                    target: navButtonsBox,
+                    collantOffset: 25,
+                    position: 'top'
+                }
+            }),
+            window.$stereorepo.superScroll.watch({
+                element: downloadButton,
+                options: {
+                    collant: true,
+                    target: downloadButtonBox,
+                    collantOffset: 160,
+                    position: 'top'
+                }
+            }),
+            window.$stereorepo.superScroll.watch({
+                element: infoData,
+                options: {
+                    collant: true,
+                    target: infoDataBox,
+                    collantOffset: 25,
+                    position: 'top'
+                }
+            })
+        ];
+
+        window.$stereorepo.superScroll.update();
+    }
+    unstickElements() {
+        const [navButtons] = query({
+            selector: '.js-nav-btn',
+            ctx: this.currentSlide
+        });
+        const [downloadButton] = query({
+            selector: '.js-btn-download',
+            ctx: this.currentSlide
+        });
+        const [infoData] = query({
+            selector: '.js-infos-data',
+            ctx: this.currentSlide
+        });
+        TweenMax.to(navButtons, 0.3, {
+            autoAlpha: 0,
+            ease: easing.easeInOut
+        });
+        TweenMax.to([downloadButton, infoData], 0.3, {
+            autoAlpha: 0,
+            ease: easing.easeInOut
+        });
+
+        window.$stereorepo.superScroll.forgetMultiple(this.collants);
+        this.collants = [];
         this.state.sticky = false;
     }
     startLoadingAction() {
@@ -219,14 +302,16 @@ class ReferencesSlider {
         });
     }
     resetContext() {
-        const [oldSlide] = query(
-            { selector: '.js-ref-current-slide' },
-            this.referenceSlider
-        );
-        const [followingSlide] = query(
-            { selector: '.js-ref-following-slide' },
-            this.referenceSlider
-        );
+        this.unstickElements();
+
+        const [oldSlide] = query({
+            selector: '.js-ref-current-slide',
+            ctx: this.referenceSlider
+        });
+        const [followingSlide] = query({
+            selector: '.js-ref-following-slide',
+            ctx: this.referenceSlider
+        });
 
         oldSlide.classList.remove('js-ref-current-slide');
 
@@ -247,9 +332,6 @@ class ReferencesSlider {
     }
     setCurrentContext() {
         if (this.idsList.length < 1) return;
-
-        this.unstickElements();
-        this.collants = [];
 
         [this.currentSlide] = query({
             selector: '.js-ref-current-slide'
@@ -294,30 +376,9 @@ class ReferencesSlider {
 
         if (
             !this.state.sticky &&
-            superWindow.windowWidth > breakpoints.horizontal.xl
+            window.$stereorepo.superWindow.windowWidth >
+                breakpoints.horizontal.xl
         ) {
-            this.collants = [
-                ...this.collants,
-                new Collant({
-                    ctx: this.currentSlide,
-                    selector: '.js-nav-btn',
-                    box: '.js-ref-first-part',
-                    offsetTop: '100px'
-                }),
-                new Collant({
-                    ctx: this.currentSlide,
-                    selector: '.js-btn-download',
-                    box: '.js-ref-content-wrapper',
-                    offsetTop: '160px'
-                }),
-                new Collant({
-                    ctx: this.currentSlide,
-                    selector: '.js-infos-datas',
-                    box: '.js-content-btn-infos',
-                    offsetTop: '25px'
-                })
-            ];
-
             this.stickElements();
         }
     }
@@ -348,12 +409,14 @@ class ReferencesSlider {
     resizeHandler() {
         if (
             !this.state.sticky &&
-            superWindow.windowWidth > breakpoints.horizontal.xl
+            window.$stereorepo.superWindow.windowWidth >
+                breakpoints.horizontal.xl
         ) {
             this.stickElements();
         } else if (
             this.state.sticky &&
-            superWindow.windowWidth <= breakpoints.horizontal.xl
+            window.$stereorepo.superWindow.windowWidth <=
+                breakpoints.horizontal.xl
         ) {
             this.unstickElements();
         }
@@ -367,13 +430,13 @@ class ReferencesSlider {
         });
 
         this.getAllSlideIds(() => {
-            this.checkAnyFollowing();
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
+            this.checkAnyFollowing();
             this.checkLocationHash();
         });
 
-        superWindow.addResizeEndFunction(this.resizeHandler);
+        window.$stereorepo.superWindow.addResizeEndFunction(this.resizeHandler);
     }
 }
 
