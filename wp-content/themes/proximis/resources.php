@@ -44,7 +44,7 @@ get_header(); ?>
 								<?php if( get_field('logo') ) : ?>
 									<a href='<?php the_field('link'); ?>' target='_blank' rel='noopener noreferrer' class='post-logo' style='background-image:url(<?php the_field('logo'); ?>)'></a>
 								<?php elseif( has_post_thumbnail() ) : ?>
-									<a href='<?php the_field('link'); ?>' target='_blank' rel='noopener noreferrer' class='post-img' style='background-image:url(<?php the_post_thumbnail_url("medium"); ?>)'></a>
+									<a href='<?php the_field('link'); ?>' target='_blank' rel='noopener noreferrer' class='post-img' style='background-image:url(<?php the_post_thumbnail_url('large'); ?>)'></a>
 								<?php endif; ?>
 
 								<?php $cats = get_the_terms($post, 'resource_cat'); if( $cats ) :
