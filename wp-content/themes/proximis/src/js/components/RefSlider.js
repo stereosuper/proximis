@@ -130,6 +130,8 @@ class ReferencesSlider {
     stickElements() {
         this.state.sticky = true;
 
+        this.collants = [];
+
         // navButtons collant init elements
         const [navButtons] = query({
             selector: '.js-nav-btn',
@@ -139,6 +141,20 @@ class ReferencesSlider {
             selector: '.js-content-btn-infos',
             ctx: this.currentSlide
         });
+
+        if (navButtons && navButtonsBox) {
+            this.collants.push(
+                window.$stereorepo.superScroll.watch({
+                    element: navButtons,
+                    options: {
+                        collant: true,
+                        target: navButtonsBox,
+                        collantOffset: 25,
+                        position: 'top'
+                    }
+                })
+            );
+        }
 
         // downloadButton collant init elements
         const [downloadButton] = query({
@@ -150,6 +166,20 @@ class ReferencesSlider {
             ctx: this.currentSlide
         });
 
+        if (downloadButton && downloadButtonBox) {
+            this.collants.push(
+                window.$stereorepo.superScroll.watch({
+                    element: downloadButton,
+                    options: {
+                        collant: true,
+                        target: downloadButtonBox,
+                        collantOffset: 160,
+                        position: 'top'
+                    }
+                })
+            );
+        }
+
         // infoData collant init elements
         const [infoData] = query({
             selector: '.js-infos-data',
@@ -159,6 +189,22 @@ class ReferencesSlider {
             selector: '.js-content-btn-infos',
             ctx: this.currentSlide
         });
+
+        if (infoData && infoDataBox) {
+            this.collants.push(
+                window.$stereorepo.superScroll.watch({
+                    element: infoData,
+                    options: {
+                        collant: true,
+                        target: infoDataBox,
+                        collantOffset: 25,
+                        position: 'top'
+                    }
+                })
+            );
+        }
+
+        window.$stereorepo.superScroll.update();
 
         if (this.idsList.length > 1) {
             TweenMax.to(navButtons, 0.3, {
@@ -170,38 +216,6 @@ class ReferencesSlider {
             autoAlpha: 1,
             ease: easing.easeInOut
         });
-
-        this.collants = [
-            window.$stereorepo.superScroll.watch({
-                element: navButtons,
-                options: {
-                    collant: true,
-                    target: navButtonsBox,
-                    collantOffset: 25,
-                    position: 'top'
-                }
-            }),
-            window.$stereorepo.superScroll.watch({
-                element: downloadButton,
-                options: {
-                    collant: true,
-                    target: downloadButtonBox,
-                    collantOffset: 160,
-                    position: 'top'
-                }
-            }),
-            window.$stereorepo.superScroll.watch({
-                element: infoData,
-                options: {
-                    collant: true,
-                    target: infoDataBox,
-                    collantOffset: 25,
-                    position: 'top'
-                }
-            })
-        ];
-
-        window.$stereorepo.superScroll.update();
     }
     unstickElements() {
         const [navButtons] = query({
