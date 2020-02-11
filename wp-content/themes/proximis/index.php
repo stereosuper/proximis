@@ -29,7 +29,7 @@
 
 		<?php
 			$blog = get_option( 'page_for_posts' );
-			$book = get_field('book', $blog);
+			$books = get_field('book', $blog);
 			$newsletter = get_field('newsletter', $blog);
 			$current_category = get_queried_object();
 			$current_category_id = $current_category ? $current_category->term_id : null;
@@ -74,17 +74,20 @@
 
 					<?php while ( $wp_query->have_posts() ) : the_post(); $countPosts ++; ?>
 
-						<?php if( $book && $book['display'] && $countPosts == $book['pos'] ) : ?>
-							<li class='book'>
-								<?php echo wp_get_attachment_image($book['img'], 'medium'); ?>
-								<h2><?php echo $book['title']; ?></h2>
-								<p><?php echo $book['text']; ?></p>
-								<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
-							</li>
-						<?php 
-						$countPosts++;
-						endif; 
-						?>
+						<?php if($books) : foreach($books as $book) : ?>
+
+							<?php if( $book['display'] && $countPosts == $book['pos'] ) : ?>
+								<li class='book'>
+									<?php if($book['img']) echo wp_get_attachment_image($book['img'], 'medium'); ?>
+									<h2><?php echo $book['title']; ?></h2>
+									<p><?php echo $book['text']; ?></p>
+									<?php if($book['link']) : ?>
+										<a href='<?php echo $book['link']['url']; ?>' class='btn big'><?php echo $book['link']['title']; ?></a>
+									<?php endif; ?>
+								</li>
+							<?php $countPosts++; endif; ?>
+
+						<?php endforeach; endif; ?>
 
 						<?php if( $newsletter && $newsletter['display'] && $countPosts == $newsletter['pos'] ) : ?>
 							<li class="newsletter-in-list">

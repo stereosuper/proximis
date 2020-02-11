@@ -1,12 +1,12 @@
 {
-    "key": "group_5d3195703508c",
-    "title": "[block] Book",
+    "key": "group_5e42de0429b4f",
+    "title": "[blog] CTA",
     "fields": [
         {
-            "key": "field_5d319570460b5",
-            "label": "Livre blanc",
+            "key": "field_5e42de0430e9b",
+            "label": "CTA",
             "name": "book",
-            "type": "group",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,10 +15,14 @@
                 "class": "",
                 "id": ""
             },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
             "layout": "block",
+            "button_label": "Ajouter un cta",
             "sub_fields": [
                 {
-                    "key": "field_5d3195704bbb6",
+                    "key": "field_5e42de0432b95",
                     "label": "Afficher",
                     "name": "display",
                     "type": "true_false",
@@ -26,7 +30,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -37,7 +41,28 @@
                     "ui_off_text": ""
                 },
                 {
-                    "key": "field_5d3195704bbc9",
+                    "key": "field_5e42de0432b9e",
+                    "label": "Position",
+                    "name": "pos",
+                    "type": "number",
+                    "instructions": "Efficace uniquement sur la page de blog",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 0,
+                    "max": 10,
+                    "step": 1
+                },
+                {
+                    "key": "field_5e42de0432bb3",
                     "label": "Image",
                     "name": "img",
                     "type": "image",
@@ -61,7 +86,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5d3195704bbd1",
+                    "key": "field_5e42de0432bb8",
                     "label": "Titre",
                     "name": "title",
                     "type": "text",
@@ -80,7 +105,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d3195704bbd9",
+                    "key": "field_5e42de0432bbe",
                     "label": "Texte",
                     "name": "text",
                     "type": "textarea",
@@ -99,7 +124,7 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_5d3195704bbe1",
+                    "key": "field_5e42de0432bc4",
                     "label": "Lien",
                     "name": "link",
                     "type": "link",
@@ -119,9 +144,9 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "page_type",
                 "operator": "==",
-                "value": "acf\/book"
+                "value": "posts_page"
             }
         ]
     ],
@@ -133,5 +158,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581440883
+    "modified": 1581440985
 }
