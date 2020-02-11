@@ -1,6 +1,5 @@
 import { Linear, TweenMax } from 'gsap';
-import { Collant } from '@stereorepo/collant';
-import { superScroll, superWindow } from '@stereorepo/sac';
+import { query } from '@stereorepo/sac';
 
 const schemaHandler = () => {
     const schema = document.getElementById('schema');
@@ -16,7 +15,7 @@ const schemaHandler = () => {
     const bgLogo = schema.querySelectorAll('.logo-bg');
     const texts = schema.querySelectorAll('.btn-text');
 
-    let collant = undefined;
+    let collant = null;
 
     const schema2 = document.getElementById('schema2');
 
@@ -50,15 +49,19 @@ const schemaHandler = () => {
     };
 
     const stickSchema = () => {
-        if (superWindow.windowWidth < 1100) return;
+        if (window.$stereorepo.superWindow.windowWidth < 1100) return;
 
-        collant = new Collant({
-            selector: '.schema-container',
-            box: '.schema-wrapper',
-            offsetTop: '0px'
+        const [schemaContainer] = query({ selector: '.schema-container' });
+        const [schemaWrapper] = query({ selector: '#schema-wrapper' });
+
+        collant = window.$stereorepo.superScroll.watch({
+            element: schemaContainer,
+            options: {
+                collant: true,
+                target: schemaWrapper,
+                position: 'top'
+            }
         });
-
-        collant.stickIt();
     };
 
     const scrollHandler = () => {
@@ -103,13 +106,11 @@ const schemaHandler = () => {
 
     stickSchema();
 
-    superScroll.addScrollFunction(scrollHandler);
+    window.$stereorepo.superScroll.on('scroll', scrollHandler);
 
-    superWindow.addResizeEndFunction(() => {
-        if (collant) {
-            collant.ripIt();
-            collant = undefined;
-        }
+    window.$stereorepo.superWindow.addResizeEndFunction(() => {
+        if (collant) collant.forget();
+        collant = null;
 
         stickSchema();
     });

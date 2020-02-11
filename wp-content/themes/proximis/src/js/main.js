@@ -3,11 +3,12 @@ import '../scss/main.scss';
 // @babel/polyfill is necessary for async imports
 import '@babel/polyfill';
 import {
-    superLoad,
-    superWindow,
-    query,
+    bodyRouter,
     forEach,
-    bodyRouter
+    query,
+    useSacVanilla,
+    useSuperLoad,
+    useSuperScroll
 } from '@stereorepo/sac';
 import lottie from 'lottie-web';
 
@@ -66,8 +67,14 @@ const missionNav = dynamicLoading({
     name: 'missionNav'
 });
 
+// Initializing the SuperComponents
+useSacVanilla();
+useSuperLoad();
+useSuperScroll();
+
 const preloadCallback = () => {
-    superWindow.setBreakpoints(breakpoints);
+    window.$stereorepo.superWindow.setBreakpoints(breakpoints);
+    window.$stereorepo.superScroll.initializeScroll();
 
     // Stéréosuper js library init
     io.init();
@@ -193,7 +200,7 @@ const animationsCallback = () => {
     });
 };
 
-superLoad.initializeLoadingShit({
+window.$stereorepo.superLoad.initializeLoadingShit({
     preloadCallback,
     loadCallback,
     animationsCallback,

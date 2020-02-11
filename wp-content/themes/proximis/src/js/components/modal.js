@@ -1,4 +1,4 @@
-import { query, forEach } from '@stereorepo/sac';
+import { forEach, query } from '@stereorepo/sac';
 
 const modal = () => {
     const modalTriggers = query({
@@ -27,8 +27,11 @@ const modal = () => {
 
             if (hasClass) {
                 modal.classList.add('on');
-                if (form.classList.contains('sent')){
-                    gtag('event', 'newsletter', { 'event_category': 'inscription', 'event_label': 'footer' });
+                if (form.classList.contains('sent')) {
+                    gtag('event', 'newsletter', {
+                        event_category: 'inscription',
+                        event_label: 'footer'
+                    });
                 }
             }
         });
@@ -40,7 +43,7 @@ const modal = () => {
                 let modalData = e.target.dataset.modal;
 
                 [modalTarget] = query({
-                    selector: '#' + modalData
+                    selector: `#${modalData}`
                 });
                 modalTarget.classList.add('on');
 

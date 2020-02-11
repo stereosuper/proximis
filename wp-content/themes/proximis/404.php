@@ -13,12 +13,14 @@
 			<?php echo $e404['title_second_part']; ?>
 			<p class="title-part"><?php echo $e404['title_third_part']; ?></p>
 		</h1>
-		<div class="error-404-image-wrapper js-error-404-image-wrapper">
-		<?php 
-		echo wp_get_attachment_image($e404['img'], 'full', '', array(
-			'class' => 'error-404-image'
-		)); 
-		?>
+		<div class="error-404-image-container js-error-404-image-container">
+			<div class="error-404-image-wrapper">
+			<?php 
+			echo wp_get_attachment_image($e404['img'], 'full', '', array(
+				'class' => 'error-404-image'
+			)); 
+			?>
+			</div>
 		</div>
 	</div>
 	<div class="content">

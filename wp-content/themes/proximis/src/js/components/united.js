@@ -1,5 +1,4 @@
 import { TimelineMax, Linear } from 'gsap';
-import { superScroll, superWindow } from '@stereorepo/sac';
 
 const unitedAnimHandler = () => {
     const united = document.getElementById('united');
@@ -16,7 +15,8 @@ const unitedAnimHandler = () => {
 
     const scrollHandler = () => {
         const scrollOffset =
-            superScroll.scrollTop + superWindow.windowHeight * 0.75;
+            window.$stereorepo.superScroll.scrollTop +
+            window.$stereorepo.superWindow.windowHeight * 0.75;
         const scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
         if (scrollProgress < 0) return;
@@ -28,7 +28,7 @@ const unitedAnimHandler = () => {
     tl.staggerTo(words, 0.93, { x: 0, y: 0, ease: Linear.easeNone }, 0.07);
 
     scrollHandler();
-    superScroll.addScrollFunction(scrollHandler);
+    window.$stereorepo.superScroll.on('scroll', scrollHandler);
 };
 
 export default unitedAnimHandler;

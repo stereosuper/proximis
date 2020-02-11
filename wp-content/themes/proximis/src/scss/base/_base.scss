@@ -760,13 +760,12 @@ a,
 
     .highlighted {
         .single-job & {
-            padding: 40px;
             position: absolute;
-            top: 200px;
-            margin: 0;
+            top: 0;
             left: auto;
             bottom: auto;
-
+            padding: 40px;
+            margin: 200px 0 0 0;
             br {
                 display: block;
             }

@@ -1,4 +1,4 @@
-import { query, forEach, superWindow } from '@stereorepo/sac';
+import { forEach, query } from '@stereorepo/sac';
 
 import { TweenMax } from 'gsap';
 
@@ -42,7 +42,9 @@ function Slider({ selector = '#slider' }) {
 
     this.calculHeight(this);
 
-    superWindow.addResizeFunction(() => this.calculHeight(this));
+    window.$stereorepo.superWindow.addResizeFunction(() =>
+        this.calculHeight(this)
+    );
 }
 
 Slider.prototype.calculHeight = function calculHeight(self) {

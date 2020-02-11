@@ -1,7 +1,7 @@
 <article class="container-ref">
-    <div class="ref-content-wrapper js-ref-content-wrapper">
+    <div class="ref-content-wrapper">
         <?php if( get_field('pdf') ) : ?>
-            <div class="wrapper-btn-download">
+            <div class="wrapper-btn-download js-wrapper-btn-download">
                 <div class="content-btn-download">
                     <a class="btn-hexagon animated btn-download js-btn-download" href="<?php the_field('pdf'); ?>"">
                         <span class="hexagon"></span>
@@ -11,7 +11,7 @@
                 </div>
             </div>
         <?php endif; ?>
-        <div class="ref-first-part js-ref-first-part">
+        <div class="ref-first-part">
             <div class="wrapper-ref-illus">
                 <?php echo wp_get_attachment_image(get_field('img'), 'medium'); ?>
             </div>
@@ -27,7 +27,7 @@
                             <svg class="icon icon-small-arrow next"><use xlink:href="#icon-small-arrow"></use></svg>
                         </button>
                     </div>
-                    <div class="infos-datas js-infos-datas">
+                    <div class="infos-datas js-infos-data">
                         <h2 class="h1 title-ref"><?php the_title(); ?></h2>
                         <?php if( have_rows('datas') ) : ?>
                             <?php while( have_rows('datas') ) : the_row(); ?>

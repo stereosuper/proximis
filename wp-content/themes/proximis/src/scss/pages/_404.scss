@@ -26,9 +26,9 @@
     }
 }
 
-@media (min-width: $phone){
-    .error404{
-        .title-part{
+@media (min-width: $phone) {
+    .error404 {
+        .title-part {
             display: block;
         }
     }
@@ -39,17 +39,19 @@
         .title {
             width: percentage(7/12);
         }
-        .error-404-image-wrapper {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            width: 100%;
-            max-width: $container;
-            margin: 0 auto;
+        .error-404-image-container {
             position: fixed;
             left: 0;
             right: 0;
             bottom: 0;
+            width: 100%;
+        }
+        .error-404-image-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            max-width: $container;
+            margin: 0 auto;
         }
         .error-404-image {
             width: percentage(9/24);
