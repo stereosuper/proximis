@@ -6,21 +6,16 @@ const jobHandler = () => {
     if (!mail) return;
 
     let collant = null;
-    let collantOffset = 0;
 
     const [highlighted] = query({ selector: '.highlighted' });
     const [main] = query({ selector: '.main' });
 
     const stickSidebar = () => {
-        collantOffset =
-            window.$stereorepo.superWindow.windowWidth < 1100 ? 1 : 200;
-
         collant = window.$stereorepo.superScroll.watch({
             element: highlighted,
             options: {
                 collant: true,
                 target: main,
-                collantOffset,
                 position: 'top'
             }
         });
