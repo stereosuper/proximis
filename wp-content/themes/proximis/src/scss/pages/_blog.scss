@@ -198,6 +198,27 @@
     }
 }
 
+.logo-link-home {
+    display: flex;
+    width: 100%;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(#5c6370, 0.2);
+    img {
+        max-width: 80%;
+    }
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}
+
 .related-date {
     font-family: $ibm;
     font-size: 1.4rem;
@@ -375,6 +396,10 @@
             max-height: 200px;
         }
     }
+
+    .logo-link-home {
+        height: 200px;
+    }
 }
 
 @media (min-width: $phone) {
@@ -391,6 +416,10 @@
             max-height: 300px;
         }
     }
+
+    .logo-link-home {
+        height: 250px;
+    }
 }
 
 @media (min-width: $desktop-small) {
@@ -402,6 +431,10 @@
 
     .post-thumbnail {
         margin: 0 0 0 $col;
+    }
+
+    .logo-link-home {
+        height: 120px;
     }
 }
 

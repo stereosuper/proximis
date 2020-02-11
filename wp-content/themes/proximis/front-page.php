@@ -212,32 +212,26 @@
 	<section class="wrapper-related">
 		<div class="container">
 		<?php while (have_rows('they_talk_about_us')): the_row(); ?>
-			<?php if ($they_talk_about_us_title = get_sub_field('they_talk_about_us_title')): ?>
-				<h2 class="x-small alter-font"><?php echo $they_talk_about_us_title ?></h2>
+			<?php if ($title = get_sub_field('they_talk_about_us_title')): ?>
+				<h2 class="x-small alter-font"><?php echo $title ?></h2>
 				<?php if (have_rows('they_talk_about_us_items')): ?>
 				<ul class="related">
 				<?php while (have_rows('they_talk_about_us_items')): the_row();
 					$logo = get_sub_field('logo');
+					$cover = get_sub_field('cover');
 					$website_link = get_sub_field('website_link');
 					$title = get_sub_field('title');
 					$text = get_sub_field('text');
 					$post_reference_link = get_sub_field('post_reference_link');
-					$post_reference_date = get_sub_field('post_reference_date');
 				?>
 					<li>
 						<header class="post-head">
 							<?php if ($website_link): ?>
-								<a class="logo-link" href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-									<span class="img"><?php
-									if ($logo) {
-										echo wp_get_attachment_image($logo['ID'], 'full'); 
-									} 
-									?></span>
-									<span><?php echo $website_link['title'] ?></span>
+								<a class="logo-link-home" href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+									<?php if ($cover) : ?>
+										<div class='cover' style='background-image:url(<?php echo wp_get_attachment_image_url($cover, 'full'); ?>)'></div>
+									<?php elseif ($logo) : echo wp_get_attachment_image($logo['ID'], 'full'); endif; ?>
 								</a>
-							<?php endif; ?>
-							<?php if ($post_reference_date): ?>
-								<time class="related-date"><?php echo $post_reference_date ?></time>
 							<?php endif; ?>
 						</header>
 						<?php if ($title): ?>
@@ -250,9 +244,11 @@
 						<?php if ($text): ?>
 							<?php echo force_balance_tags(html_entity_decode(wp_trim_words(htmlentities(wpautop($text)), 17))) ?>
 						<?php endif; ?>
-						<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-							<span><?php echo $post_reference_link['title'] ?></span><i></i>
-						</a>
+						<?php if($post_reference_link) : ?>
+							<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+								<span><?php echo $post_reference_link['title'] ?></span><i></i>
+							</a>
+						<?php endif; ?>
 					</li>
 				<?php endwhile; ?>
 				</ul>

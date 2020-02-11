@@ -227,6 +227,25 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_5d49588542d3b",
+                    "label": "Customers page link",
+                    "name": "customers_page_link",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 1,
+                    "multiple": 0
+                },
+                {
                     "key": "field_5d0a47cde14b7",
                     "label": "Titre",
                     "name": "title",
@@ -263,25 +282,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_5d49588542d3b",
-                    "label": "Customers page link",
-                    "name": "customers_page_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": "",
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "allow_archives": 1,
-                    "multiple": 0
                 },
                 {
                     "key": "field_5d0a47dce14b9",
@@ -389,7 +389,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -405,19 +405,28 @@
                             "mime_types": ""
                         },
                         {
-                            "key": "field_5d39cbe7de2e8",
-                            "label": "Website link",
-                            "name": "website_link",
-                            "type": "link",
-                            "instructions": "",
+                            "key": "field_5e42f28f5d84a",
+                            "label": "Image de couverture",
+                            "name": "cover",
+                            "type": "image",
+                            "instructions": "Si ce champ est rempli, s'affichera à la place du logo",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
                         },
                         {
                             "key": "field_5d39cc20de2ea",
@@ -458,6 +467,21 @@
                             "delay": 0
                         },
                         {
+                            "key": "field_5d39cbe7de2e8",
+                            "label": "Website link",
+                            "name": "website_link",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
                             "key": "field_5d39d5bbcbe05",
                             "label": "Reference link",
                             "name": "post_reference_link",
@@ -466,30 +490,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
                             "return_format": "array"
-                        },
-                        {
-                            "key": "field_5d4afe1660a76",
-                            "label": "Reference date",
-                            "name": "post_reference_date",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         }
                     ]
                 }
@@ -513,5 +518,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565198368
+    "modified": 1581446442
 }
