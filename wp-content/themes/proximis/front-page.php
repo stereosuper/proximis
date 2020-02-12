@@ -225,15 +225,17 @@
 					$post_reference_link = get_sub_field('post_reference_link');
 				?>
 					<li>
-						<header class="post-head">
-							<?php if ($website_link): ?>
-								<a class="logo-link-home" href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
-									<?php if ($cover) : ?>
-										<div class='cover' style='background-image:url(<?php echo wp_get_attachment_image_url($cover, 'full'); ?>)'></div>
-									<?php elseif ($logo) : echo wp_get_attachment_image($logo['ID'], 'full'); endif; ?>
-								</a>
-							<?php endif; ?>
-						</header>
+						<?php if ($cover || $logo) : ?>
+							<header class="post-head">
+								<?php if ($website_link): ?>
+									<a class="logo-link-home" href="<?php echo $website_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($website_link['title']), ENT_QUOTES); ?>" target="<?php echo $website_link['target'] ?>" <?php echo $website_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+										<?php if ($cover) : ?>
+											<div class='cover' style='background-image:url(<?php echo wp_get_attachment_image_url($cover, 'full'); ?>)'></div>
+										<?php elseif ($logo) : echo wp_get_attachment_image($logo['ID'], 'full'); endif; ?>
+									</a>
+								<?php endif; ?>
+							</header>
+						<?php endif; ?>
 						<?php if ($title): ?>
 							<h3 class="related-title">
 								<a class="link" href="<?php echo $post_reference_link['url'] ?>" title="<?php echo htmlspecialchars(strip_tags($post_reference_link['title']), ENT_QUOTES); ?>" target="<?php echo $post_reference_link['target'] ?>" <?php echo $post_reference_link['target'] === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
