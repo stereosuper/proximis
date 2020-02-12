@@ -12,7 +12,7 @@
             </div>
         <?php endif; ?>
         <div class="ref-first-part">
-            <div class="wrapper-ref-illus">
+            <div class="wrapper-ref-illus <?php if(get_field('img')) echo 'has-img'; ?>">
                 <?php echo wp_get_attachment_image(get_field('img'), 'medium'); ?>
             </div>
             <div class="wrapper-btn-infos" id="btn-infos">
