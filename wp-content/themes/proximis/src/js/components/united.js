@@ -10,22 +10,25 @@ const unitedAnimHandler = () => {
     const unitedHeight = united.getBoundingClientRect().height;
     const unitedTop = united.offsetTop;
 
-    let progress = 0;
     const tl = new TimelineMax({ paused: true });
+    let progress = 0;
+    let scrollOffset = 0;
+    let scrollProgress = 0;
 
     const scrollHandler = () => {
-        const scrollOffset =
+        scrollOffset =
             window.$stereorepo.superScroll.scrollTop +
             window.$stereorepo.superWindow.windowHeight * 0.75;
-        const scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
-        if (scrollProgress < 0) return;
+        scrollProgress = scrollOffset - unitedTop - unitedHeight * 0.2;
 
-        progress = scrollProgress / (unitedHeight * 0.6);
+        progress =
+            scrollProgress < 0 ? 0 : scrollProgress / (unitedHeight * 0.6);
+
         tl.progress(progress);
     };
 
-    tl.staggerTo(words, 0.93, { x: 0, y: 0, ease: Linear.easeNone }, 0.07);
+    tl.staggerTo(words, 1, { x: 0, y: 0, ease: Linear.easeNone }, 0.07);
 
     scrollHandler();
     window.$stereorepo.superScroll.on('scroll', scrollHandler);
