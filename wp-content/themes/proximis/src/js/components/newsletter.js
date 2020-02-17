@@ -2,34 +2,36 @@ import { forEach, query } from '@stereorepo/sac';
 
 const newsHandler = () => {
     const newsletters = query({ selector: '.newsletter' });
-    let form, input, email;
+    let forms = [],
+        inputs = [],
+        emails = [];
 
     if (!newsletters.length) return;
 
-    forEach(newsletters, elt => {
-        [form] = query({ selector: '.wpcf7-form' });
+    forEach(newsletters, (elt, i) => {
+        [forms[i]] = query({ selector: '.wpcf7-form', ctx: elt });
 
-        if (!form) return;
+        if (!forms[i]) return;
 
-        [input] = query({
+        [inputs[i]] = query({
             selector: '.wpcf7-email',
             ctx: elt
         });
-        [email] = query({
+        [emails[i]] = query({
             selector: '.email',
             ctx: elt
         });
 
-        if (input) {
-            input.addEventListener('focus', () => {
-                email.classList.add('on');
+        if (inputs[i]) {
+            inputs[i].addEventListener('focus', () => {
+                emails[i].classList.add('on');
             });
-            input.addEventListener('blur', () => {
-                if (!input.value) email.classList.remove('on');
+            inputs[i].addEventListener('blur', () => {
+                if (!inputs[i].value) emails[i].classList.remove('on');
             });
         }
 
-        if (form.classList.contains('sent')) {
+        if (forms[i].classList.contains('sent')) {
             gtag('event', 'newsletter', {
                 event_category: 'inscription',
                 event_label: 'blog'
