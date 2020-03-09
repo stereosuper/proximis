@@ -40,12 +40,12 @@
         margin: 0;
 
         &.on {
-            +span {
+            + span {
                 opacity: 0;
             }
         }
 
-        +span {
+        + span {
             padding: 0 40px 0 20px;
             position: absolute;
             top: 0;
@@ -55,7 +55,7 @@
             white-space: nowrap;
             pointer-events: none;
             font-size: 1.4rem;
-            line-height: $line-height*2;
+            line-height: $line-height * 2;
         }
     }
 
@@ -65,7 +65,7 @@
         font-family: $ibm;
     }
 
-    input[type=email] {
+    input[type='email'] {
         max-width: 100%;
     }
 
@@ -79,6 +79,11 @@
     }
 }
 
+.leadinModal-reset {
+    a {
+        position: relative !important;
+    }
+}
 
 @media (min-width: $phone) {
     .newsletter {
@@ -90,7 +95,7 @@
                 display: flex;
                 flex-wrap: wrap;
 
-                >p {
+                > p {
                     &:first-of-type {
                         flex: 1 1 1px;
                     }
@@ -105,13 +110,13 @@
                 border-bottom-left-radius: 0;
             }
 
-            input[type=email] {
+            input[type='email'] {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
 
             .email {
-                +span {
+                + span {
                     font-size: inherit;
                 }
             }
