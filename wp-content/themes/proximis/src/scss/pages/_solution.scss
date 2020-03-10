@@ -1,5 +1,5 @@
 .wrapper-data-intro {
-    padding: #{$line-height*2} 0;
+    padding: #{$line-height * 2} 0;
     background: $white;
 }
 
@@ -9,18 +9,18 @@
     flex-direction: column;
 
     h2 {
-        margin: 0 0 #{2*$line-height};
+        margin: 0 0 #{2 * $line-height};
     }
 }
 
 .list-datas {
     margin: 0;
 
-    >li {
+    > li {
         position: relative;
         display: flex;
         align-items: center;
-        min-height: #{2*$line-height};
+        min-height: #{2 * $line-height};
         margin: 0 0 #{$line-height};
         padding: 0;
 
@@ -32,7 +32,6 @@
     .data-number {
         width: 64px;
         height: 64px;
-        margin-top: -32px;
     }
 
     .data-text {
@@ -42,11 +41,11 @@
 }
 
 .wrapper-quote-solution {
-    padding: #{2*$line-height} 0 #{2*$line-height};
+    padding: #{2 * $line-height} 0 #{2 * $line-height};
 
     blockquote {
         position: relative;
-        margin: 0 0 #{2*$line-height};
+        margin: 0 0 #{2 * $line-height};
         font-size: 2.2rem;
         text-align: center;
 
@@ -58,28 +57,28 @@
         }
 
         &::before {
-            content: "“";
+            content: '“';
             position: absolute;
             top: 0;
             transform: translate3d(calc(-100% - 3px), 0, 0);
         }
 
         &::after {
-            content: "”";
+            content: '”';
         }
     }
 
     h2 {
-        margin: 0 0 #{$line-height*2};
+        margin: 0 0 #{$line-height * 2};
     }
 }
 
 .wrapper-techno {
-    padding: #{2*$line-height} 0;
+    padding: #{2 * $line-height} 0;
     background: $white;
 
     h2 {
-        margin: 0 0 #{2*$line-height};
+        margin: 0 0 #{2 * $line-height};
     }
 }
 
@@ -88,7 +87,7 @@
     flex-direction: column;
     margin: 0;
 
-    >li {
+    > li {
         display: flex;
         align-items: center;
         margin: 0 0 #{$line-height};
@@ -131,25 +130,25 @@
 .schema-svg {
     max-width: 100%;
 
-    .ext{
+    .ext {
         transform-origin: 50% 50%;
     }
 }
 
-.schema-text{
-    .schema-title{
-        margin-top: $line-height*2;
+.schema-text {
+    .schema-title {
+        margin-top: $line-height * 2;
     }
 }
 
-.schema-title{
+.schema-title {
     font-family: $ibm;
     font-size: 1.8rem;
     color: $grey;
 }
 
-.schema-desc{
-    margin: 0 0 $line-height*2;
+.schema-desc {
+    margin: 0 0 $line-height * 2;
     p {
         margin: 0;
     }
@@ -159,16 +158,15 @@
     }
 }
 
-
 @media (min-width: $tablet) {
     .wrapper-data-intro {
-        padding: #{$line-height*4} 0;
+        padding: #{$line-height * 4} 0;
     }
 
     .data-intro {
         flex-direction: row;
 
-        >* {
+        > * {
             flex: 0 0 auto;
             width: 50%;
         }
@@ -183,10 +181,10 @@
     }
 
     .wrapper-quote-solution {
-        padding: #{4*$line-height} 0 #{3*$line-height};
+        padding: #{4 * $line-height} 0 #{3 * $line-height};
 
         blockquote {
-            margin-bottom: #{4*$line-height};
+            margin-bottom: #{4 * $line-height};
             font-size: 2.8rem;
 
             &::before,
@@ -197,14 +195,14 @@
     }
 
     .wrapper-techno {
-        padding: #{4*$line-height} 0;
+        padding: #{4 * $line-height} 0;
     }
 
-    .schema{
+    .schema {
         min-width: 490px;
     }
 
-    .schema-desc{
+    .schema-desc {
         h3 {
             font-size: 2.8rem;
         }
@@ -224,9 +222,8 @@
     }
 
     .list-datas {
-
-        >li {
-            margin-bottom: #{2*$line-height};
+        > li {
+            margin-bottom: #{2 * $line-height};
         }
 
         .data-number {
@@ -234,7 +231,6 @@
             right: auto;
             width: 84px;
             height: 84px;
-            margin-top: -42px;
             margin-right: 0;
             font-size: 2.3rem;
         }
@@ -247,7 +243,7 @@
     .wrapper-techno {
         h2 {
             width: 50%;
-            margin: 0 0 #{-3*$line-height};
+            margin: 0 0 #{-3 * $line-height};
             padding-left: percentage(1/12);
         }
     }
@@ -256,9 +252,9 @@
         flex-direction: row;
         flex-wrap: wrap;
 
-        >li {
+        > li {
             width: 50%;
-            margin: 0 0 #{2*$line-height};
+            margin: 0 0 #{2 * $line-height};
             padding-left: percentage(1/12);
 
             &:first-child {
@@ -277,9 +273,9 @@
     .schema-text {
         width: 50%;
         margin: 0 0 0 9.5%;
-        .intro{
-            padding: 12px $gutter*3 23px;
-            margin: 0 $gutter*-2 0 0;
+        .intro {
+            padding: 12px $gutter * 3 23px;
+            margin: 0 $gutter * -2 0 0;
             background: #fff;
         }
     }
@@ -287,6 +283,6 @@
     .schema {
         width: 520px;
         min-width: 520px;
-        margin: 0 0 0 $gutter*-2;
+        margin: 0 0 0 $gutter * -2;
     }
 }
