@@ -158,6 +158,14 @@
     }
 }
 
+.solution-offer-wrapper {
+    text-align: center;
+}
+
+.solution-offer {
+    padding-bottom: 80px;
+}
+
 @media (min-width: $tablet) {
     .wrapper-data-intro {
         padding: #{$line-height * 4} 0;
@@ -284,5 +292,17 @@
         width: 520px;
         min-width: 520px;
         margin: 0 0 0 $gutter * -2;
+    }
+
+    .solution-offer {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        > div {
+            width: 50%;
+        }
+        .txt {
+            padding: 0 0 0 $col;
+        }
     }
 }

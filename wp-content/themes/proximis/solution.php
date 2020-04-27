@@ -8,6 +8,27 @@ get_header(); ?>
 <?php if ( have_posts() ) : the_post(); ?>
 
 	<?php get_template_part('includes/header-page'); ?>
+
+	<?php $offer = get_field('offer'); if( $offer ) : ?>
+		<section class='container solution-offer-wrapper'>
+			<h2 class='h1'><?php echo $offer['title']; ?></h2>
+			<div class='solution-offer'>
+				<div class='img'>
+					<?php echo wp_get_attachment_image($offer['img'], 'full'); ?>
+				</div>
+				<div class='txt'>
+					<?php echo $offer['text']; ?>
+					<?php if( $offer['link'] ): ?>
+						<p>
+							<a href='<?php echo $offer['link']['url']; ?>' class='link'>
+								<span><?php echo $offer['link']['title']; ?></span><i></i>
+							</a>
+						</p>
+					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
 	
 	<?php if( have_rows('numbers') ) : while( have_rows('numbers') ) : the_row(); ?>
 		<section class='wrapper-data-intro'>
