@@ -110,6 +110,29 @@
 			<?php endwhile; endif; ?>
 		</div>
 	</section>
+
+	<?php $offer = get_field('offer'); if( $offer ) : ?>
+		<section class="home-offer">
+			<div class='container solution-offer-wrapper'>
+				<h2 class='h1'><?php echo $offer['title']; ?></h2>
+				<div class='solution-offer'>
+					<div class='img'>
+						<?php echo wp_get_attachment_image($offer['img'], 'full'); ?>
+					</div>
+					<div class='txt'>
+						<?php echo $offer['text']; ?>
+						<?php if( $offer['link'] ): ?>
+							<p>
+								<a href='<?php echo $offer['link']['url']; ?>' class='link'>
+									<span><?php echo $offer['link']['title']; ?></span><i></i>
+								</a>
+							</p>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
 	
 	<section class='home-solution'>
 		<div class='container'>

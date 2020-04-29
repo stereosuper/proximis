@@ -1,20 +1,19 @@
 .wrapper-related {
-    padding: 3*$line-height 0;
-    background: $white;
+    padding: 3 * $line-height 0;
 }
 
 .related-posts {
-    margin-top: 3*$line-height;
-    padding: 0 0 3*$line-height;
+    margin-top: 3 * $line-height;
+    padding: 0 0 3 * $line-height;
 }
 
 .related {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin: #{2*$line-height} 0 0;
+    margin: #{2 * $line-height} 0 0;
 
-    >li {
+    > li {
         width: 100%;
         margin-bottom: $line-height;
         padding: 0 0 $line-height;
@@ -28,13 +27,13 @@
 
 @media (min-width: $desktop-small) {
     .wrapper-related {
-        padding: 4*$line-height 0 6*$line-height;
+        padding: 4 * $line-height 0 6 * $line-height;
     }
 
     .related-posts {
         &.reversed {
             .related {
-                >li {
+                > li {
                     margin-right: 0;
                     margin-left: percentage(1/12);
                 }
@@ -47,12 +46,11 @@
     }
 
     .related-posts {
-        padding-bottom: 5*$line-height;
+        padding-bottom: 5 * $line-height;
     }
 
     .related {
-
-        >li {
+        > li {
             width: 25%;
             margin-right: percentage(1/12);
         }

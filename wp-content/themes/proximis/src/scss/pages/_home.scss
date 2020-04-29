@@ -170,6 +170,11 @@
     }
 }
 
+.home-offer {
+    padding-top: 60px;
+    background: #fff;
+}
+
 .home-united,
 .home-solution,
 .home-refs {
@@ -194,8 +199,6 @@
 }
 
 .home-solution {
-    background: #fff;
-
     p {
         margin: 0;
     }
@@ -237,7 +240,7 @@
 .home-refs {
     padding-bottom: 0;
     text-align: center;
-
+    background: #fff;
     h2 + p {
         margin-top: 0;
     }
