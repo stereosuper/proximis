@@ -28,6 +28,20 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-137362090-1');
 		</script>
+
+		<script type="text/javascript">
+		var webleads_site_ids = webleads_site_ids || [];
+		webleads_site_ids.push(100999361);
+		(function() {
+		var s = document.createElement("script");
+		s.type = "text/javascript";
+		s.async = true;
+		s.src = ( document.location.protocol == "https:" ? "https://stats.webleads-tracker.com/js" : "http://stats.webleads-tracker.com/js" );
+		( document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0] ).appendChild( s );
+		})();
+		</script>
+		<noscript><p><img alt="webleads-tracker" width="1" height="1" src="//stats.webleads-tracker.com/100999361ns.gif" /></p></noscript>
+		<script async defer src="//get.smart-data-systems.com/track?site_id=100999361"></script>
 	</head>
 
 	<body <?php body_class(); ?>>
