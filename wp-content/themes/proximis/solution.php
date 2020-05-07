@@ -10,7 +10,7 @@ get_header(); ?>
 	<?php get_template_part('includes/header-page'); ?>
 
 	<?php $offer = get_field('offer'); if( $offer ) : ?>
-		<section class='container solution-offer-wrapper'>
+		<section class='container solution-offer-wrapper' id='<?php echo $offer['anchor']; ?>'>
 			<h2 class='h1'><?php echo $offer['title']; ?></h2>
 			<div class='solution-offer'>
 				<div class='img'>

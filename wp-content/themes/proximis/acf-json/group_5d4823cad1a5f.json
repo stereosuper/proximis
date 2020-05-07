@@ -18,6 +18,25 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_5eb3d73f3563e",
+                    "label": "Ancre",
+                    "name": "anchor",
+                    "type": "text",
+                    "instructions": "Un mot clé sans accent et\/ou caractères spéciaux, qui pourra s'afficher dans l'url",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5e9eb5c6e0763",
                     "label": "Titre",
                     "name": "title",
@@ -588,5 +607,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587470961
+    "modified": 1588844396
 }
