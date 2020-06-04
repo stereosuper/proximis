@@ -31,13 +31,15 @@ class ReferencesSlider {
     getAllSlideIds(callback) {
         const action = 'get_references_ids';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
+        const currentBlogId = this.referenceSlider.dataset.blogId;
 
         fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
-            }
+            },
+            body: `current_blog_id=${currentBlogId}`
         })
             .then(res => {
                 return res.json();
@@ -76,7 +78,7 @@ class ReferencesSlider {
             this.newReferenceId =
                 idIndex - 1 < 0
                     ? this.idsList.slice(-1)
-                    : this.idsList.slice(idIndex - 1, idIndex - 2);
+                    : this.idsList.slice(idIndex - 1, idIndex);
         }
     }
     scrollToReference() {
@@ -249,13 +251,15 @@ class ReferencesSlider {
         const action = 'load_references';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
+        const currentBlogId = this.referenceSlider.dataset.blogId;
+
         fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: `new_reference_id=${this.newReferenceId}`
+            body: `new_reference_id=${this.newReferenceId}&current_blog_id=${currentBlogId}`
         })
             .then(res => res.text())
             .then(response => {
@@ -350,6 +354,9 @@ class ReferencesSlider {
         [this.currentSlide] = query({
             selector: '.js-ref-current-slide'
         });
+
+        if (!this.currentSlide) return;
+
         this.currentReferenceId = parseInt(this.currentSlide.dataset.refId, 10);
 
         const [prevButton, nextButton] = query({
@@ -446,6 +453,9 @@ class ReferencesSlider {
         this.getAllSlideIds(() => {
             this.initializeCaseStudyClickEvent();
             this.setCurrentContext();
+
+            if (!this.currentSlide) return;
+
             this.checkAnyFollowing();
             this.checkLocationHash();
         });
