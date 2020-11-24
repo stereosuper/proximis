@@ -1,6 +1,6 @@
 <?php
 
-define( 'PROXIMIS_VERSION', '2.1.6' );
+define( 'PROXIMIS_VERSION', '2.1.9' );
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -460,6 +460,10 @@ add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 /* Ajax
 /*-----------------------------------------------------------------------------------*/
 function get_references_ids() {
+    $current_blog_id = intval($_POST['current_blog_id']);
+    // Ensure that you'll get the post in the current language
+    switch_to_blog($current_blog_id);
+
     $query_args = array(
         'post_type' => 'reference',
         'posts_per_page' => -1,
@@ -490,6 +494,9 @@ function get_references_ids() {
     );
 
     echo json_encode($response);
+    
+    // Restore the initial blog context
+    restore_current_blog();
     wp_die();
 }
 
@@ -497,7 +504,11 @@ add_action( 'wp_ajax_get_references_ids', 'get_references_ids' );
 add_action( 'wp_ajax_nopriv_get_references_ids', 'get_references_ids' );
 
 function load_references() {
+    $current_blog_id = intval($_POST['current_blog_id']);
     $new_reference_id = intval($_POST['new_reference_id']);
+
+    // Ensure that you'll get the post in the current language
+    switch_to_blog($current_blog_id);
 
     $query_args = array(
         'post_type' => 'reference',
@@ -521,6 +532,8 @@ function load_references() {
         }
     }
     
+    // Restore the initial blog context
+    restore_current_blog();
 	wp_die();
 }
 add_action( 'wp_ajax_load_references', 'load_references' );
