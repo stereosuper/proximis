@@ -137,7 +137,52 @@
 						<span class='visually-hidden'><?php bloginfo( 'name' ); ?></span>
 					</a>
 
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
+					<?php //wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'menu-main' ) ); ?>
+
+					<?php
+						$menu = get_field('items', 'options');
+						if( $menu ):
+							echo '<ul>';
+							foreach( $menu as $item ):
+								echo '<li>';
+								echo '<a href="'.$item['link']['url'].'" target="'.$item['link']['target'].'">'.$item['link']['title'].'</a>';
+								
+								if( $item['submenus'] ):
+									echo '<div class="submenu">';
+
+										foreach( $item['submenus'] as $col ):
+											echo '<div>';
+											echo $col['title'];
+											foreach( $col['content'] as $content ):
+												
+												if( $content['acf_fc_layout'] == 'menu' ):
+													echo '<ul>';
+													foreach($content['links'] as $items):
+														print_r($items);
+														//echo '<li><a href="'.$link[0]['url'].'" target="'.$link[0]['target'].'">'.$link[0]['title'].'</a></li>';
+													endforeach;
+													echo '</ul>';
+
+												elseif( get_row_layout() == 'image' ): 
+													
+												elseif( get_row_layout() == 'text' ): 
+
+												elseif( get_row_layout() == 'button' ): 
+
+												endif;
+												
+											endforeach;
+											echo '</div>';
+										endforeach;
+
+									echo '</div>';
+								endif;
+
+								echo '</li>';
+							endforeach;
+							echo '</ul>';
+						endif;
+					?>
 
 					<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
 						<a href='<?php echo $btn['url'] ?>' onClick="ga('send', 'event', 'Contact', 'Click Header-button', 'proximis.com/.');" class='btn'><?php echo $btn['title']; ?></a>
