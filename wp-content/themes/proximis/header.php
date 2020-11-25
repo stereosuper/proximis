@@ -141,51 +141,70 @@
 
 					<?php
 						$menu = get_field('items', 'options');
-						if( $menu ):
-							echo '<ul>';
-							foreach( $menu as $item ):
-								echo '<li>';
-								echo '<a href="'.$item['link']['url'].'" target="'.$item['link']['target'].'">'.$item['link']['title'].'</a>';
+						if( have_rows('items', 'options') ):
+							echo '<ul class="menu-main">';
+							$currentPage = $post->ID;
+							while( have_rows('items', 'options') ): the_row();
+								$link = get_sub_field('link');
+								$classLi = get_sub_field('has_submenu') ? 'has-submenu' : '';
+								$class = url_to_postid($link['url']) === $currentPage ? 'active' : '';
+								echo '<li class="'.$classLi.'">';
+								echo '<a href="'.$link['url'].'" target="'.$link['target'].'" class="'.$class.'">'.$link['title'].'</a>';
 								
-								if( $item['submenus'] ):
-									echo '<div class="submenu">';
+								if( have_rows('submenus') ):
+									echo '<div class="submenu"><div class="menu-cols">';
+									
 
-										foreach( $item['submenus'] as $col ):
-											echo '<div>';
-											echo $col['title'];
-											foreach( $col['content'] as $content ):
-												
-												if( $content['acf_fc_layout'] == 'menu' ):
-													echo '<ul>';
-													foreach($content['links'] as $items):
-														print_r($items);
-														//echo '<li><a href="'.$link[0]['url'].'" target="'.$link[0]['target'].'">'.$link[0]['title'].'</a></li>';
-													endforeach;
-													echo '</ul>';
-
-												elseif( get_row_layout() == 'image' ): 
+										while( have_rows('submenus') ): the_row();
+											echo '<div class="col">';
+											$title = get_sub_field('title');
+											if($title) echo '<span class="menu-title">'.$title.'</span>';
+											
+											if( have_rows('content') ):
+												while( have_rows('content') ): the_row();
 													
-												elseif( get_row_layout() == 'text' ): 
+													if( get_row_layout() == 'menu' ):
+														$subtitle = get_sub_field('title');
+														if($subtitle) echo '<span class="menu-subtitle">'.$subtitle.'</span>';
+														if( have_rows('links') ):
+															echo '<ul>';
+															while( have_rows('links') ): the_row();
+																$sublink = get_sub_field('link');
+																echo '<li>';
+																echo '<a href="'.$sublink['url'].'" target="'.$sublink['target'].'">'.$sublink['title'].'</a>';
+																echo '</li>';
+															endwhile;
+															echo '</ul>';
+														endif;
 
-												elseif( get_row_layout() == 'button' ): 
+													elseif( get_row_layout() == 'image' ): 
+														echo '<div class="menu-img" style="background-image:url('.get_sub_field('img').')"></div>';
+														
+													elseif( get_row_layout() == 'text' ): 
+														echo '<p class="menu-text">' . get_sub_field('txt') . '</p>';
 
-												endif;
-												
-											endforeach;
+													elseif( get_row_layout() == 'button' ): 
+														$btn = get_sub_field('btn');
+														echo '<a href="'.$btn['url'].'" target="'.$btn['target'].'" class="btn">'.$btn['title'].'</a>';
+
+													endif;
+													
+												endwhile;
+											endif;
 											echo '</div>';
-										endforeach;
+										endwhile;
 
-									echo '</div>';
+									echo '</div></div>';
 								endif;
 
 								echo '</li>';
-							endforeach;
+							endwhile;
 							echo '</ul>';
 						endif;
 					?>
 
 					<?php $btn = get_field('contact', 'options'); if( $btn ) : ?>
-						<a href='<?php echo $btn['url'] ?>' onClick="ga('send', 'event', 'Contact', 'Click Header-button', 'proximis.com/.');" class='btn'><?php echo $btn['title']; ?></a>
+						<a href='<?php echo $btn['url'] ?>' onClick="ga('send', 'event', 'Contact', 'Click Header-button', 'proximis.com/.');" class='btn btn-contact'><?php echo $btn['title']; ?></a>
 					<?php endif; ?>
 
 					<?php echo mlp_navigation() ?>

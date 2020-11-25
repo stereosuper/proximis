@@ -37,13 +37,40 @@
                     "return_format": "array"
                 },
                 {
+                    "key": "field_5fbed881e1e4a",
+                    "label": "Sous-menu ?",
+                    "name": "has_submenu",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5fbd1ca5e24d0",
                     "label": "Sous-menus",
                     "name": "submenus",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5fbed881e1e4a",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -61,7 +88,7 @@
                             "name": "title",
                             "type": "text",
                             "instructions": "",
-                            "required": 0,
+                            "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
@@ -95,12 +122,31 @@
                                     "display": "block",
                                     "sub_fields": [
                                         {
+                                            "key": "field_5fbed280aab53",
+                                            "label": "Title",
+                                            "name": "title",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
                                             "key": "field_5fbd1d2be24d3",
                                             "label": "Liens",
                                             "name": "links",
                                             "type": "repeater",
                                             "instructions": "",
-                                            "required": 0,
+                                            "required": 1,
                                             "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
@@ -119,7 +165,7 @@
                                                     "name": "link",
                                                     "type": "link",
                                                     "instructions": "",
-                                                    "required": 0,
+                                                    "required": 1,
                                                     "conditional_logic": 0,
                                                     "wrapper": {
                                                         "width": "",
@@ -127,25 +173,6 @@
                                                         "id": ""
                                                     },
                                                     "return_format": "array"
-                                                },
-                                                {
-                                                    "key": "field_5fbd1d6ae24d5",
-                                                    "label": "Gras?",
-                                                    "name": "bold",
-                                                    "type": "true_false",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "message": "",
-                                                    "default_value": 0,
-                                                    "ui": 0,
-                                                    "ui_on_text": "",
-                                                    "ui_off_text": ""
                                                 }
                                             ]
                                         }
@@ -165,14 +192,14 @@
                                             "name": "img",
                                             "type": "image",
                                             "instructions": "",
-                                            "required": 0,
+                                            "required": 1,
                                             "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "id",
+                                            "return_format": "url",
                                             "preview_size": "medium",
                                             "library": "all",
                                             "min_width": "",
@@ -199,7 +226,7 @@
                                             "name": "txt",
                                             "type": "textarea",
                                             "instructions": "",
-                                            "required": 0,
+                                            "required": 1,
                                             "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
@@ -228,7 +255,7 @@
                                             "name": "btn",
                                             "type": "link",
                                             "instructions": "",
-                                            "required": 0,
+                                            "required": 1,
                                             "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
@@ -268,5 +295,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606230371
+    "modified": 1606342851
 }

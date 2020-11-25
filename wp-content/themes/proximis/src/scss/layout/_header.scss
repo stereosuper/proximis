@@ -119,7 +119,7 @@
         transform: translate3d(0, 0, 0);
     }
 
-    .btn {
+    .btn-contact {
         min-width: 200px;
     }
 }
@@ -169,18 +169,58 @@
                 border: 0;
             }
         }
-    }
 
-    a {
-        display: inline-block;
-        min-width: 200px;
-        padding: $gutter;
-        border-bottom: 1px solid rgba($grey, 0.15);
-        position: relative;
-        font-family: $ibm;
-        text-decoration: none;
-        color: $text;
+        > a {
+            display: inline-block;
+            min-width: 200px;
+            padding: $gutter;
+            border-bottom: 1px solid rgba($grey, 0.15);
+            position: relative;
+            font-family: $ibm;
+            text-decoration: none;
+            color: $text;
+        }
     }
+}
+
+.submenu {
+    line-height: 1.3;
+    ul {
+        padding: 0;
+        margin: 0 0 20px;
+    }
+    li {
+        padding: 0;
+        &:before {
+            content: none;
+        }
+        a {
+            font-family: $ibm;
+            font-size: 1.4rem;
+            line-height: 1;
+            color: $text;
+            text-decoration: none;
+        }
+    }
+}
+.menu-subtitle {
+    font-size: 1.4rem;
+    font-family: $ibm-bold;
+}
+.menu-title {
+    display: block;
+    margin: 0 0 10px;
+    font-family: $recoleta-bold;
+    font-size: 1.6rem;
+}
+.menu-text {
+    font-family: $ibm-it;
+    font-size: 1.4rem;
+}
+.menu-img {
+    height: 100px;
+    background-size: cover;
+    background-position: 50% 50%;
 }
 
 .lang-switcher {
@@ -261,9 +301,10 @@
         box-shadow: none;
         transform: none;
 
-        .btn {
+        .btn-contact {
             min-width: 0;
-            margin: 0 40px 0 auto;
+            margin: 0 40px 0 0;
+            flex-shrink: 0;
 
             .home &,
             .page-template-services &,
@@ -283,56 +324,89 @@
 
     .menu-main {
         display: flex;
+        width: 100%;
+        position: relative;
         align-items: center;
         margin: 0;
 
-        a {
-            min-width: 0;
-            border: 0;
-
-            &:before,
-            &:after {
-                content: '';
-                width: 1px;
-                position: absolute;
-                left: 0;
-                right: 0;
-                margin: auto;
-                background: $primary;
-                transform-origin: 0 0;
-                transform: scaleY(0);
-                transition: $transition;
-
-                .home &,
-                .page-template-services &,
-                .page-template-about &,
-                .page-template-customers &,
-                .page-template-solution &,
-                .page-template-mission &,
-                .error404 & {
-                    background: #fff;
+        > li {
+            position: static;
+            &:hover {
+                .submenu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &.has-submenu {
+                    > a {
+                        &:after {
+                            transform: scaleY(1);
+                        }
+                    }
+                }
+                > a {
+                    &:before {
+                        transform: scaleY(1);
+                    }
                 }
             }
 
-            &:before {
-                height: 60px;
-                top: -115px;
-            }
+            > a {
+                min-width: 0;
+                border: 0;
 
-            &:after {
-                height: 25px;
-                bottom: -15px;
-            }
+                &:before,
+                &:after {
+                    content: '';
+                    width: 1px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    background: $primary;
+                    transform-origin: 0 0;
+                    transform: scaleY(0);
+                    transition: $transition;
 
-            &:hover,
-            &:focus {
+                    .home &,
+                    .page-template-services &,
+                    .page-template-about &,
+                    .page-template-customers &,
+                    .page-template-solution &,
+                    .page-template-mission &,
+                    .error404 & {
+                        background: #fff;
+                    }
+                }
+
                 &:before {
-                    transform: scaleY(1);
+                    height: 60px;
+                    top: -115px;
+                }
+
+                &:after {
+                    height: 25px;
+                    bottom: -15px;
+                }
+
+                &:hover,
+                &:focus {
+                    &:before {
+                        transform: scaleY(1);
+                    }
+                }
+
+                &.active {
+                    font-family: $ibm-bold;
+
+                    &:before,
+                    &:after {
+                        transform: scaleY(1);
+                    }
                 }
             }
         }
 
-        .current-menu-item,
+        /* .current-menu-item,
         .current_page_parent {
             > a {
                 font-family: $ibm-bold;
@@ -342,7 +416,46 @@
                     transform: scaleY(1);
                 }
             }
+        }*/
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: -50px;
+        right: -50px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity $transition, 0.3s visibility 0s;
+        ul {
+            margin: 0 0 30px;
+            &:last-child {
+                margin: 0;
+            }
         }
+        a:not(.btn) {
+            &:hover,
+            &:focus {
+                color: $primary;
+            }
+            &:before {
+                top: 0;
+                bottom: 0;
+            }
+        }
+    }
+    .menu-cols {
+        display: flex;
+        padding: 20px;
+        margin: 15px 0 0;
+        background: #fff;
+        .col {
+            width: 33.33%;
+            padding: 25px;
+        }
+    }
+    .menu-title {
+        margin: 0 0 30px;
     }
 
     .lang-switcher {
@@ -409,7 +522,7 @@
 
 @media (min-width: $desktop-big) {
     .nav {
-        .btn {
+        .btn-contact {
             margin-right: 60px;
         }
     }
