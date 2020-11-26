@@ -146,10 +146,12 @@
 							$currentPage = $post->ID;
 							while( have_rows('items', 'options') ): the_row();
 								$link = get_sub_field('link');
-								$classLi = get_sub_field('has_submenu') ? 'has-submenu' : '';
+								$hasSubmenu = get_sub_field('has_submenu') ? 'has-submenu' : '';
 								$class = url_to_postid($link['url']) === $currentPage ? 'active' : '';
-								echo '<li class="'.$classLi.'">';
-								echo '<a href="'.$link['url'].'" target="'.$link['target'].'" class="'.$class.'">'.$link['title'].'</a>';
+								echo '<li class="'.$hasSubmenu.'">';
+								echo '<a href="'.$link['url'].'" target="'.$link['target'].'" class="js-main-link '.$class.'">'.$link['title'];
+								if($hasSubmenu) echo '<svg class="icon"><use xlink:href="#icon-down"></use></svg>';
+								echo '</a>';
 								
 								if( have_rows('submenus') ):
 									echo '<div class="submenu"><div class="menu-cols">';
