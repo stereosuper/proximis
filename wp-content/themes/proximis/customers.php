@@ -24,13 +24,6 @@ $caseStudyQuery = new WP_Query(array(
 
 		<section>
             <div class='container wrapper-customers'>
-                <?php
-					if( have_rows('numbers', 'options') ) : $numbers = [];
-						while( have_rows('numbers', 'options') ) : the_row();
-							$numbers[] = [get_sub_field('textBottom'), get_sub_field('text'), get_sub_field('number')];
-						endwhile;
-					endif;
-				?>
                 <?php if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
                     <h2 class='h1 small-margin-bottom'><?php the_title(); ?></h2>
                     <?php the_field('customersText'); ?>
@@ -52,21 +45,6 @@ $caseStudyQuery = new WP_Query(array(
                                     </div>
                                 <?php endif; ?>
                             </li>
-                            <?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
-                                <li>
-                                    <div class='ref number'>
-                                        <div>
-                                            <?php if( $numbers[$countNb][0] ) : ?>
-                                                <span><?php echo $numbers[$countNb][1]; ?></span>
-                                            <?php endif; ?>
-                                            <span class='nb'><?php echo $numbers[$countNb][2]; ?></span>
-                                            <?php if( !$numbers[$countNb][0] ) : ?>
-                                                <span><?php echo $numbers[$countNb][1]; ?></span>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                </li>
-                            <?php $countNb++; endif; ?>
                         <?php endwhile; ?>
                     </ul>
                 <?php wp_reset_postdata(); endif; ?>
