@@ -238,14 +238,13 @@
             color: $text;
             text-decoration: none;
         }
+        .menu-subtitle {
+            font-family: $ibm-bold;
+        }
     }
 }
 .menu-cols {
     padding: 20px 0 40px;
-}
-.menu-subtitle {
-    font-size: 1.4rem;
-    font-family: $ibm-bold;
 }
 .menu-title {
     display: block;

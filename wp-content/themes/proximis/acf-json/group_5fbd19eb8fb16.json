@@ -122,25 +122,6 @@
                                     "display": "block",
                                     "sub_fields": [
                                         {
-                                            "key": "field_5fbed280aab53",
-                                            "label": "Title",
-                                            "name": "title",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
                                             "key": "field_5fbd1d2be24d3",
                                             "label": "Liens",
                                             "name": "links",
@@ -168,11 +149,30 @@
                                                     "required": 1,
                                                     "conditional_logic": 0,
                                                     "wrapper": {
-                                                        "width": "",
+                                                        "width": "70",
                                                         "class": "",
                                                         "id": ""
                                                     },
                                                     "return_format": "array"
+                                                },
+                                                {
+                                                    "key": "field_5fda3eafb470a",
+                                                    "label": "Gras?",
+                                                    "name": "bold",
+                                                    "type": "true_false",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "30",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "message": "",
+                                                    "default_value": 0,
+                                                    "ui": 0,
+                                                    "ui_on_text": "",
+                                                    "ui_off_text": ""
                                                 }
                                             ]
                                         }
@@ -295,5 +295,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606342851
+    "modified": 1608139786
 }

@@ -166,14 +166,13 @@
 												while( have_rows('content') ): the_row();
 													
 													if( get_row_layout() == 'menu' ):
-														$subtitle = get_sub_field('title');
-														if($subtitle) echo '<span class="menu-subtitle">'.$subtitle.'</span>';
 														if( have_rows('links') ):
 															echo '<ul>';
 															while( have_rows('links') ): the_row();
 																$sublink = get_sub_field('link');
+																$class = get_sub_field('bold') ? 'menu-subtitle' : '';
 																echo '<li>';
-																echo '<a href="'.$sublink['url'].'" target="'.$sublink['target'].'">'.$sublink['title'].'</a>';
+																echo '<a href="'.$sublink['url'].'" target="'.$sublink['target'].'" class="'.$class.'">'.$sublink['title'].'</a>';
 																echo '</li>';
 															endwhile;
 															echo '</ul>';
