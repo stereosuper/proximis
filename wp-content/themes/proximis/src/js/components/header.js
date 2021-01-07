@@ -49,7 +49,7 @@ const headerHandler = () => {
                 if (window.$stereorepo.superWindow.windowWidth >= 1100) return;
                 
                 e.preventDefault();
-                link.parentNode.classList.toggle('open');
+                e.target.parentNode.classList.toggle('open');
             }, false);
         });
     }
