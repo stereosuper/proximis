@@ -22,7 +22,6 @@ import searchHandler from './components/searchHandler';
 import modal from './components/modal';
 import scrollToButton from './components/scrollToButton';
 import video from './components/video';
-//import missionNav from './components/missionNav';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
@@ -32,6 +31,7 @@ const dynamicLoading = ({ name, isClass = false }) => async () => {
         /* webpackChunkName: "[request]" */
         `./components/${name}`
     );
+
     if (isClass) {
         return defaultFunction;
     } else {
@@ -47,9 +47,6 @@ const referencesSliderImport = dynamicLoading({
 const sliderImport = dynamicLoading({
     name: 'Slider',
     isClass: true
-});
-const unitedHomeAnimation = dynamicLoading({
-    name: 'united'
 });
 const schemaAnimation = dynamicLoading({
     name: 'schema'
@@ -182,11 +179,6 @@ const animationsCallback = () => {
             autoplay: true,
             path: element.getAttribute('data-path')
         });
-    });
-
-    bodyRouter({
-        identifier: '.home',
-        callback: unitedHomeAnimation
     });
 
     bodyRouter({

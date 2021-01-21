@@ -254,17 +254,10 @@ get_header(); ?>
 			<h2 class='h1 small-margin-bottom'><?php the_sub_field('title'); ?></h2>
 			<p><?php the_sub_field('text'); ?></p>
 
-			<?php
-				$customer_page = get_sub_field('customers_page_link');
-				if( have_rows('numbers', 'options') ) : $numbers = [];
-					while( have_rows('numbers', 'options') ) : the_row();
-						$numbers[] = [get_sub_field('textBottom'), get_sub_field('text'), get_sub_field('number')];
-					endwhile;
-				endif;
-			?>
+			<?php $customer_page = get_sub_field('customers_page_link'); ?>
 
 			<?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => 10)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
-				<ul class='home-ref-list'>
+				<ul class='ref-list'>
 					<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
 						<li>
 							<?php 
@@ -287,22 +280,6 @@ get_header(); ?>
 								</div>
 							<?php endif; ?>
 						</li>
-
-						<?php if( ($count == 1 || ($count > 3 && ($count+2)%3 == 0)) && $count < 10 ) : ?>
-							<li>
-								<div class='ref number'>
-									<div>
-										<?php if( $numbers[$countNb][0] ) : ?>
-											<span><?php echo $numbers[$countNb][1]; ?></span>
-										<?php endif; ?>
-										<span class='nb'><?php echo $numbers[$countNb][2]; ?></span>
-										<?php if( !$numbers[$countNb][0] ) : ?>
-											<span><?php echo $numbers[$countNb][1]; ?></span>
-										<?php endif; ?>
-									</div>
-								</div>
-							</li>
-						<?php $countNb++; endif; ?>
 
 					<?php endwhile; ?>
 				</ul>
