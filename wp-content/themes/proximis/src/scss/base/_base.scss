@@ -75,6 +75,7 @@ h1 {
 }
 
 .h1 {
+    font-size: 3.4rem;
     margin-bottom: 0.8em;
 
     &.small-margin-bottom {
@@ -87,7 +88,7 @@ h1 {
 }
 
 h2,
-.home h3 {
+.h2 {
     font-size: 2.2rem;
 }
 
@@ -98,16 +99,9 @@ h2 {
         font-size: 2.4rem;
     }
 
-    .home &.x-small,
     &.x-small {
         font-size: 2rem;
         line-height: $line-height;
-    }
-
-    .home &.alter-font,
-    &.alter-font {
-        font-family: $ibm-bold;
-        color: $grey;
     }
 
     &:not(.title) {
@@ -622,18 +616,12 @@ a,
 
 @media (min-width: $tablet) {
     h1,
-    .home h1,
-    .home h2,
     .h1 {
         font-size: 5.4rem;
     }
 
-    .home .modal h2 {
-        font-size: 2.8rem;
-    }
-
     h2,
-    .home h3 {
+    .h2 {
         font-size: 2.8rem;
     }
 

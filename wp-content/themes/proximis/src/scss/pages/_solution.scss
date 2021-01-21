@@ -167,6 +167,23 @@
     padding-bottom: 80px;
 }
 
+.ref-list {
+    display: flex;
+    justify-content: center;
+    margin: 3em 0;
+    flex-wrap: wrap;
+
+    > li {
+        width: 14%;
+        min-width: 195px;
+        padding: 0 0 30px;
+
+        &:before {
+            content: none;
+        }
+    }
+}
+
 @media (min-width: $tablet) {
     .wrapper-data-intro {
         padding: #{$line-height * 4} 0;
@@ -305,5 +322,12 @@
         .txt {
             padding: 0 0 0 $col;
         }
+    }
+}
+
+@media (min-width: $desktop-big) {
+    .ref-list {
+        margin-left: -70px;
+        margin-right: -70px;
     }
 }

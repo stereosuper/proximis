@@ -1,5 +1,6 @@
 .wrapper-related {
     padding: 3 * $line-height 0;
+    background: #fff;
 }
 
 .related-posts {
@@ -17,7 +18,7 @@
         width: 100%;
         margin-bottom: $line-height;
         padding: 0 0 $line-height;
-        border-bottom: 1px solid $grey;
+        border-bottom: 1px solid rgba($grey, 0.2);
 
         &::before {
             content: none;
@@ -26,10 +27,6 @@
 }
 
 @media (min-width: $desktop-small) {
-    .wrapper-related {
-        padding: 4 * $line-height 0 6 * $line-height;
-    }
-
     .related-posts {
         &.reversed {
             .related {

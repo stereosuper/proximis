@@ -3,9 +3,9 @@
     "title": "[page] Home",
     "fields": [
         {
-            "key": "field_5d0a465ae14ad",
-            "label": "Première section",
-            "name": "section1",
+            "key": "field_6001bba5bd1ea",
+            "label": "Header",
+            "name": "header",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -18,10 +18,48 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5d0a4688e14ae",
-                    "label": "Texte avant le titre",
-                    "name": "text1",
-                    "type": "wysiwyg",
+                    "key": "field_6001c2a1bd1eb",
+                    "label": "Titre (blanc)",
+                    "name": "title1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c2bdbd1ec",
+                    "label": "Titre (noir)",
+                    "name": "title2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c2d0bd1ed",
+                    "label": "Texte",
+                    "name": "text",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -31,16 +69,16 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5d0a4699e14af",
-                    "label": "Texte sous le titre",
-                    "name": "text2",
-                    "type": "wysiwyg",
+                    "key": "field_6001c2dbbd1ee",
+                    "label": "Bouton",
+                    "name": "btn",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -49,58 +87,14 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
-                },
-                {
-                    "key": "field_5d0b4839a3824",
-                    "label": "Mots clés",
-                    "name": "keywords",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 8,
-                    "layout": "block",
-                    "button_label": "Ajouter un mot clé",
-                    "sub_fields": [
-                        {
-                            "key": "field_5d0b4883a3825",
-                            "label": "Mot",
-                            "name": "word",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    "return_format": "array"
                 }
             ]
         },
         {
-            "key": "field_5ea9644a5980f",
-            "label": "Offre",
-            "name": "offer",
+            "key": "field_6001c2f9bd1f0",
+            "label": "Bannière",
+            "name": "banner",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -113,7 +107,26 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5ea9646159810",
+                    "key": "field_6001c313bd1f1",
+                    "label": "Sous-titre",
+                    "name": "subtitle",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c320bd1f2",
                     "label": "Titre",
                     "name": "title",
                     "type": "text",
@@ -132,10 +145,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5ea9646b59811",
-                    "label": "Texte",
-                    "name": "text",
-                    "type": "wysiwyg",
+                    "key": "field_6001c32dbd1f3",
+                    "label": "Bouton",
+                    "name": "btn",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -144,22 +157,39 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
-                },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_6001c373bd1f4",
+            "label": "Logos",
+            "name": "logos",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Ajouter un logo",
+            "sub_fields": [
                 {
-                    "key": "field_5ea9647b59812",
-                    "label": "Image",
-                    "name": "img",
+                    "key": "field_6001c392bd1f5",
+                    "label": "Logo",
+                    "name": "logo",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -173,28 +203,13 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
-                },
-                {
-                    "key": "field_5ea9648959813",
-                    "label": "Lien",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
                 }
             ]
         },
         {
-            "key": "field_5d0a46b2e14b0",
-            "label": "Deuxième section",
-            "name": "section2",
+            "key": "field_6001c3c4bd1f6",
+            "label": "Slider",
+            "name": "slider",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -207,10 +222,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5d0a472be14b1",
-                    "label": "Texte",
-                    "name": "text",
-                    "type": "wysiwyg",
+                    "key": "field_6001c3e4bd1f7",
+                    "label": "Titre",
+                    "name": "title",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -220,15 +235,15 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5d0a473ce14b2",
-                    "label": "Avantages",
-                    "name": "benefits",
+                    "key": "field_6001c3eebd1f8",
+                    "label": "Slides",
+                    "name": "slides",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -242,13 +257,51 @@
                     "min": 0,
                     "max": 0,
                     "layout": "block",
-                    "button_label": "Ajouter un avantage",
+                    "button_label": "Ajouter une slide",
                     "sub_fields": [
                         {
-                            "key": "field_5d0a4766e14b3",
+                            "key": "field_6001c400bd1f9",
                             "label": "Titre",
                             "name": "title",
-                            "type": "text",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 2,
+                            "new_lines": "br"
+                        },
+                        {
+                            "key": "field_6001c410bd1fa",
+                            "label": "Texte",
+                            "name": "text",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_6001c429bd1fb",
+                            "label": "Premier bouton",
+                            "name": "btn1",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -257,17 +310,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "return_format": "array"
                         },
                         {
-                            "key": "field_5d0a4773e14b4",
-                            "label": "Animation",
-                            "name": "anim",
-                            "type": "text",
+                            "key": "field_6001c444bd1fc",
+                            "label": "Deuxième bouton",
+                            "name": "btn2",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -276,14 +325,110 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "return_format": "array"
                         },
                         {
-                            "key": "field_5d0a477be14b5",
+                            "key": "field_6001c464bd1fd",
+                            "label": "Image",
+                            "name": "img",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_6001c494bd1fe",
+            "label": "Benefits",
+            "name": "benefits",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6001c49fbd1ff",
+                    "label": "Titre",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c4abbd200",
+                    "label": "Texte",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c4bcbd201",
+                    "label": "Vignettes",
+                    "name": "cards",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 4,
+                    "layout": "block",
+                    "button_label": "Ajouter une vignette",
+                    "sub_fields": [
+                        {
+                            "key": "field_6001c4e8bd202",
                             "label": "Texte",
                             "name": "text",
                             "type": "text",
@@ -300,15 +445,94 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6001c508bd203",
+                            "label": "Lien",
+                            "name": "link",
+                            "type": "page_link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "page"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "allow_archives": 0,
+                            "multiple": 0
+                        },
+                        {
+                            "key": "field_6009e3e02f6e2",
+                            "label": "Image",
+                            "name": "img",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ]
+                },
+                {
+                    "key": "field_6001c689bd20c",
+                    "label": "Texte du lien",
+                    "name": "link_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6001c52bbd204",
+                    "label": "Bouton",
+                    "name": "btn",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
                 }
             ]
         },
         {
-            "key": "field_5d0a4787e14b6",
-            "label": "Troisième section",
-            "name": "section3",
+            "key": "field_6001c545bd205",
+            "label": "Clients",
+            "name": "clients",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -321,26 +545,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5d49588542d3b",
-                    "label": "Customers page link",
-                    "name": "customers_page_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": "",
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "allow_archives": 1,
-                    "multiple": 0
-                },
-                {
-                    "key": "field_5d0a47cde14b7",
+                    "key": "field_6001c556bd206",
                     "label": "Titre",
                     "name": "title",
                     "type": "text",
@@ -359,9 +564,99 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d0a47d4e14b8",
-                    "label": "Texte",
-                    "name": "text",
+                    "key": "field_6001c588bd207",
+                    "label": "Etudes de cas",
+                    "name": "studies",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 4,
+                    "layout": "block",
+                    "button_label": "Ajouter une étude de cas",
+                    "sub_fields": [
+                        {
+                            "key": "field_6001c5cfbd208",
+                            "label": "Citation",
+                            "name": "quote",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": 120,
+                            "rows": 2,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_6001c606bd209",
+                            "label": "Etude de cas",
+                            "name": "study",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "reference"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "taxonomy"
+                            ],
+                            "elements": "",
+                            "min": 1,
+                            "max": 1,
+                            "return_format": "id"
+                        },
+                        {
+                            "key": "field_6001c656bd20a",
+                            "label": "Image",
+                            "name": "img",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_6001c677bd20b",
+                    "label": "Texte du lien",
+                    "name": "link_text",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -378,9 +673,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d0a47dce14b9",
-                    "label": "Lien",
-                    "name": "link",
+                    "key": "field_60059fe8e91e4",
+                    "label": "Bouton",
+                    "name": "btn",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -393,25 +688,6 @@
                     "return_format": "array"
                 }
             ]
-        },
-        {
-            "key": "field_5d4b067b24a42",
-            "label": "Display They talk about us",
-            "name": "display_they_talk_about_us",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Display",
-            "ui_off_text": "Hide"
         },
         {
             "key": "field_5d39cb2f7a10d",
@@ -545,7 +821,7 @@
                             "key": "field_5d39cc9dde2eb",
                             "label": "Text",
                             "name": "text",
-                            "type": "wysiwyg",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -555,10 +831,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 2,
+                            "new_lines": "wpautop"
                         },
                         {
                             "key": "field_5d39cbe7de2e8",
@@ -610,7 +886,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1588159824
+    "modified": 1611267651
 }
