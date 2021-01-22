@@ -29,6 +29,14 @@
 			gtag('config', 'UA-137362090-1');
 		</script>
 
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-618697334"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'AW-618697334');
+		</script>
+
 		<script type="text/javascript">
 		var webleads_site_ids = webleads_site_ids || [];
 		webleads_site_ids.push(100999361);
