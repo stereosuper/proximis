@@ -40,6 +40,13 @@
         padding: 20px;
         text-align: center;
     }
+
+    &.white {
+        color: $text;
+        &:after {
+            background: #fff;
+        }
+    }
 }
 
 .btn-circle {

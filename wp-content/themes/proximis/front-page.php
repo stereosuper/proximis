@@ -41,7 +41,7 @@
 			</div>
 		</section>
 	<?php endif; ?>
-
+	
 	<?php if( have_rows('logos') ) : ?>
 		<section class="bg-white">
 			<ul class="home-logos">
@@ -121,9 +121,11 @@
 				<?php endif; ?>
 
 				<?php if($btn = get_sub_field('btn')): ?>
-					<a href="<?php echo $btn['url']; ?>" class="btn">
-						<?php echo $btn['title']; ?>
-					</a>
+					<div class="home-benefits-btn">
+						<a href="<?php echo $btn['url']; ?>" class="btn white">
+							<?php echo $btn['title']; ?>
+						</a>
+					</div>
 				<?php endif; ?>
 			</div>
 		</section>
