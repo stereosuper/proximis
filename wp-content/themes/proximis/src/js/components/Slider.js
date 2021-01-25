@@ -1,133 +1,17 @@
-import { forEach, query } from '@stereorepo/sac';
-
+import { forEach } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 
-function Slider({ selector = '#slider' }) {
-    const [wrapperSlider] = query({
-        selector
-    });
+const slider = () => {
+    const slider = document.getElementById('slider');
 
-    if (!wrapperSlider) return;
+    if(!slider) return;
 
-    this.wrapper = wrapperSlider;
-    this.slides = query({
-        selector: '.slide',
-        ctx: this.wrapper
-    });
-    this.dots = query({
-        selector: '.dot',
-        ctx: this.wrapper
-    });
-    this.activeSlide = 0;
-    this.nextSlide = 1;
-    this.nbSlides = this.slides.length;
-    forEach(this.dots, (dot, dotIndex) => {
-        dot.addEventListener('click', () => {
-            if (
-                !TweenMax.isTweening(this.slides) &&
-                this.activeSlide != dotIndex
-            ) {
-                this.kill();
-                this.nextIndex(this, dotIndex);
-            }
-        });
-    });
+    const slideDatas = slider.querySelectorAll('.js-slide');
+    const slide = slider.querySelector('#slide');
 
-    this.slides.forEach(el => {
-        TweenMax.set(el, {
-            display: 'block',
-            position: 'absolute'
-        });
-    });
-
-    this.calculHeight(this);
-
-    window.$stereorepo.superWindow.addResizeFunction(() =>
-        this.calculHeight(this)
-    );
-}
-
-Slider.prototype.calculHeight = function calculHeight(self) {
-    TweenMax.set(self.wrapper, {
-        height: 'auto'
-    });
-    self.maxHeight = 0;
-    self.slides.forEach(el => {
-        TweenMax.set(el, {
-            height: 'auto'
-        });
-        self.itemHeight = el.clientHeight;
-        self.maxHeight = Math.max(self.maxHeight, self.itemHeight);
-    });
-    TweenMax.set(self.wrapper, {
-        height: self.maxHeight
-    });
-    self.slides.forEach(el => {
-        TweenMax.set(el, {
-            height: self.maxHeight
-        });
-    });
+    slide.innerHTML = slideDatas[0].innerHTML;
+    slide.classList.remove('hidden');
+    slideDatas[0].classList.add('hidden');
 };
 
-Slider.prototype.play = function play() {
-    if (this.wrapper && this.nbSlides > 1) {
-        TweenMax.delayedCall(7, this.next, [this]);
-    }
-};
-
-Slider.prototype.pause = function pause() {};
-
-Slider.prototype.next = function next(self) {
-    if (self.activeSlide + 1 < self.nbSlides) {
-        self.nextSlide = self.activeSlide + 1;
-    } else {
-        self.nextSlide = 0;
-    }
-    self.animate(self);
-};
-
-Slider.prototype.nextIndex = function nextIndex(self, index) {
-    self.nextSlide = index;
-    self.animate(self);
-};
-
-Slider.prototype.animate = function animate(self) {
-    TweenMax.set(self.slides[self.nextSlide], {
-        zIndex: 3
-    });
-    TweenMax.set(self.slides[self.activeSlide], {
-        zIndex: 4
-    });
-    TweenMax.set(self.dots[self.activeSlide], {
-        css: {
-            className: '-=active'
-        }
-    });
-    TweenMax.set(self.dots[self.nextSlide], {
-        css: {
-            className: '+=active'
-        }
-    });
-    TweenMax.to(self.slides[self.activeSlide], 1, {
-        'clip-path': 'circle(0% at 75% 75%)',
-        '-webkit-clip-path': 'circle(0% at 75% 75%)',
-        onComplete: () => {
-            TweenMax.set(self.slides[self.nextSlide], {
-                zIndex: 4
-            });
-            TweenMax.set(self.slides[self.activeSlide], {
-                zIndex: 2,
-                'clip-path': 'circle(150% at 75% 75%)',
-                '-webkit-clip-path': 'circle(150% at 75% 75%)'
-            });
-            self.activeSlide = self.nextSlide;
-        }
-    });
-    self.play();
-};
-
-Slider.prototype.kill = function kill() {
-    TweenMax.killTweensOf(this.next);
-};
-
-export default Slider;
+export default slider;

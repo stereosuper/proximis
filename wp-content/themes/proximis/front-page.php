@@ -59,10 +59,10 @@
 			<div class="container">
 				<h2 class="h1"><?php the_sub_field('title'); ?></h2>
 
-				<?php if( have_rows('slides') ) : ?>
-					<ul class="carousel">
+				<?php if( have_rows('slides') ) : $count = 0; ?>
+					<div class="carousel" id="slider">
 						<?php while( have_rows('slides') ) : the_row(); ?>
-							<li class="slide">
+							<div class="slide js-slide <?php if($count) echo 'hidden'; ?>">
 								<div class="slide-text">
 									<h3 class="h2"><?php the_sub_field('title'); ?></h3>
 									<?php the_sub_field('text'); ?>
@@ -89,9 +89,20 @@
 										<span>Unified <strong>commerce</strong></span>
 									</div>
 								</div>
-							</li>
-						<?php endwhile; ?>
-					</ul>
+							</div>
+						<?php $count++; endwhile; ?>
+
+						<div id="slide" class="slide hidden">
+							<div class="slide-text" id="slide-text"></div>
+							<div class="slide-img" id="slide-img"></div>
+						</div>
+
+						<div class="carousel-nav">
+							<?php for($i = 0; $i < $count; $i++){ ?>
+								<li><button><?php echo $i+1; ?></button></li>
+							<?php } ?>
+						</div>
+					</div>
 				<?php endif; ?>
 			</div>
 		</section>

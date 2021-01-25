@@ -25,7 +25,7 @@ import video from './components/video';
 
 // ⚠️ DO NOT REMOVE ⚠️
 // Dynamic imports function
-const dynamicLoading = ({ name, isClass = false }) => async () => {
+const dynamicLoading = ({ name, isClass }) => async () => {
     // Do not use multiple variables for the import path, otherwise the chunck name will be composed of all the variables (and not the last one)
     const { default: defaultFunction } = await import(
         /* webpackChunkName: "[request]" */
@@ -44,9 +44,8 @@ const referencesSliderImport = dynamicLoading({
     name: 'RefSlider',
     isClass: true
 });
-const sliderImport = dynamicLoading({
-    name: 'Slider',
-    isClass: true
+const slider = dynamicLoading({
+    name: 'slider'
 });
 const schemaAnimation = dynamicLoading({
     name: 'schema'
@@ -87,13 +86,7 @@ const preloadCallback = () => {
 
     bodyRouter({
         identifier: '.home',
-        callback: () => {
-            const sliderPromise = sliderImport();
-            sliderPromise.then(Slider => {
-                const slider = new Slider({ selector: '#slider' });
-                slider.play();
-            });
-        }
+        callback: slider
     });
 
     bodyRouter({
