@@ -58,25 +58,60 @@
     padding: 1px 0;
 }
 
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    > li {
+        padding: 0;
+        margin: 0 10px;
+        &:before {
+            content: none;
+        }
+    }
+    button {
+        width: 40px;
+        height: 40px;
+        padding: 5px 0 0;
+        border-radius: 50%;
+        border: 1px solid rgba(24, 22, 43, 0.1);
+        overflow: hidden;
+        transform-origin: 50% 50%;
+        transition: $transition;
+        &:hover,
+        &:focus {
+            border-color: $primary;
+        }
+        &.on {
+            pointer-events: none;
+            transform: scale(1.4);
+        }
+    }
+    img {
+        pointer-events: none;
+    }
+}
+
 .slide {
     position: relative;
-    img,
     .badge {
         display: none;
     }
 }
 
-.slide-btn {
-    display: flex;
-    > .btn {
-        margin: 0 20px 0 0;
-        &:last-child {
-            margin: 0;
-        }
-    }
+.slide-img {
+    display: none;
 }
 
-.carousel-nav {
+.slide-btn {
+    display: flex;
+    flex-wrap: wrap;
+    > .btn {
+        margin: 0 20px 10px 0;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 }
 
 .home-benefits {
@@ -181,6 +216,16 @@
         }
     }
 
+    .carousel-nav {
+        justify-content: flex-start;
+        > li {
+            margin: 0 20px 0 0;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+
     .home-benefits {
         &:after {
             top: 350px;
@@ -279,7 +324,7 @@
             height: 1405px;
             position: absolute;
             left: 29%;
-            top: 35%;
+            top: 47%;
             z-index: -1;
             background: url(../../img/bg.svg) no-repeat 0 0 / 100% 100%;
         }
@@ -288,9 +333,6 @@
     .slide {
         display: flex;
         justify-content: space-between;
-        img {
-            display: block;
-        }
         .badge {
             flex: 0 0 auto;
             display: flex;
@@ -311,17 +353,14 @@
             color: $white;
             background: $text;
             transform: rotate(9deg);
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
-
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
             > *,
             strong {
                 display: block;
             }
-
             strong {
                 color: $primary;
             }
-
             .icon {
                 width: 15px;
                 height: 15px;
@@ -337,10 +376,11 @@
 
     .slide-img {
         display: flex;
-        max-width: 54%;
+        width: 54%;
         padding: 0 30px 0 50px;
         border-bottom: solid 6px #fff;
         align-items: flex-end;
+        overflow: hidden;
     }
 
     .home-carousel {
@@ -405,9 +445,16 @@
     }
 
     .home-carousel {
+        &:after {
+            top: 35%;
+        }
         .h1 {
             width: $col * 8.5;
         }
+    }
+
+    .carousel-nav {
+        margin: 50px 0 60px;
     }
 
     .slide-text {
@@ -416,7 +463,7 @@
     }
 
     .slide-img {
-        max-width: 48%;
+        width: 48%;
     }
 
     .home-benefits-btn {

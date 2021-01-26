@@ -59,7 +59,7 @@
 			<div class="container">
 				<h2 class="h1"><?php the_sub_field('title'); ?></h2>
 
-				<?php if( have_rows('slides') ) : $count = 0; ?>
+				<?php if( have_rows('slides') ) : $count = 0; $imgs = []; ?>
 					<div class="carousel" id="slider">
 						<?php while( have_rows('slides') ) : the_row(); ?>
 							<div class="slide js-slide <?php if($count) echo 'hidden'; ?>">
@@ -83,7 +83,7 @@
 								</div>
 								
 								<div class="slide-img">
-									<?php echo wp_get_attachment_image(get_sub_field('img'), 'large'); ?>
+									<?php $imgs[$count] = get_sub_field('img'); echo wp_get_attachment_image($imgs[$count], 'large'); ?>
 									<div class='badge'>
 										<svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg>
 										<span>Unified <strong>commerce</strong></span>
@@ -93,14 +93,15 @@
 						<?php $count++; endwhile; ?>
 
 						<div id="slide" class="slide hidden">
-							<div class="slide-text" id="slide-text"></div>
+							<div class="slide-text">
+								<div id="slide-text"></div>
+								<ul class="carousel-nav" id="slide-nav">
+									<?php for($i = 0; $i < $count; $i++){ ?>
+										<li><button type="button" data-slide="<?php echo $i; ?>"><?php echo wp_get_attachment_image($imgs[$i]); ?></button></li>
+									<?php } ?>
+								</ul>
+							</div>
 							<div class="slide-img" id="slide-img"></div>
-						</div>
-
-						<div class="carousel-nav">
-							<?php for($i = 0; $i < $count; $i++){ ?>
-								<li><button><?php echo $i+1; ?></button></li>
-							<?php } ?>
 						</div>
 					</div>
 				<?php endif; ?>
