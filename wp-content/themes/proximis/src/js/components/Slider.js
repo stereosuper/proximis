@@ -7,11 +7,14 @@ const slider = () => {
     if(!slider) return;
 
     const slideDatas = slider.querySelectorAll('.js-slide');
+
+    if (slideDatas.length < 2) return;
+
     const nav = slider.querySelector('#slide-nav');
     const btns = nav.querySelectorAll('button');
     const slide = slider.querySelector('#slide');
 
-    if (!slide || !slideDatas.length) return;
+    if (!slide) return;
 
     const text = slide.querySelector('#slide-text');
     const img = slide.querySelector('#slide-img');

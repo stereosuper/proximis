@@ -47,6 +47,9 @@ const referencesSliderImport = dynamicLoading({
 const slider = dynamicLoading({
     name: 'slider'
 });
+const infiniteLogos = dynamicLoading({
+    name: 'infiniteLogos'
+});
 const schemaAnimation = dynamicLoading({
     name: 'schema'
 });
@@ -87,6 +90,11 @@ const preloadCallback = () => {
     bodyRouter({
         identifier: '.home',
         callback: slider
+    });
+
+    bodyRouter({
+        identifier: '.home',
+        callback: infiniteLogos
     });
 
     bodyRouter({

@@ -43,14 +43,16 @@
 	<?php endif; ?>
 	
 	<?php if( have_rows('logos') ) : ?>
-		<section class="bg-white">
-			<ul class="home-logos">
-				<?php while( have_rows('logos') ) : the_row(); ?>
-					<li>
-						<?php echo wp_get_attachment_image(get_sub_field('logo'), 'medium'); ?>
-					</li>
-				<?php endwhile; ?>
-			</ul>
+		<section class="bg-white" id="infinite-logos">
+			<div class="home-logos-wrapper" id="logos-wrapper">
+				<ul class="home-logos" id="logos">
+					<?php while( have_rows('logos') ) : the_row(); ?>
+						<li>
+							<?php echo wp_get_attachment_image(get_sub_field('logo'), 'medium'); ?>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			</div>
 		</section>
 	<?php endif; ?>
 
