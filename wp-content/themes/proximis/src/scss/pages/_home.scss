@@ -39,6 +39,7 @@
 
 .home-logos-wrapper {
     display: flex;
+    filter: grayscale(100%);
     &.center {
         justify-content: center;
     }
@@ -158,12 +159,46 @@
     > a {
         display: block;
         padding: 40px;
-        border-radius: 6px;
+        position: relative;
+        z-index: 1;
         text-decoration: none;
-        background: #fff;
         &:before {
             content: none;
         }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 6px;
+            background: #fff;
+            transform-origin: 50% 50%;
+            transition: $transition;
+            transform: translate3d(0, 0, 0);
+        }
+        &:hover,
+        &:focus {
+            &:after {
+                transform: translate3d(0, 0, 0) scale(0.98);
+            }
+            img {
+                transform: translate3d(0, 0, 0) scale(1.1);
+            }
+            h3 {
+                transform: translate3d(0, 5px, 0);
+            }
+            .link {
+                @extend %link-hover;
+            }
+        }
+    }
+    h3,
+    img {
+        transform: translate3d(0, 0, 0);
+        transition: $transition;
     }
     h3 {
         margin-top: 20px;
@@ -172,6 +207,7 @@
     img {
         width: auto;
         height: auto;
+        transform-origin: 50% 50%;
     }
 }
 
@@ -191,9 +227,26 @@
         &:before {
             content: none;
         }
+        &:hover,
+        &:focus {
+            .link {
+                @extend %link-hover;
+            }
+            .home-study-img {
+                transform: translate3d(0, 0, 0) scale(0.98);
+            }
+            .home-study-logo {
+                transform: scale(1.1) translate3d(0, 0, 0);
+            }
+        }
     }
 }
-
+.home-study-img,
+.home-study-logo {
+    transform-origin: 50% 50%;
+    transition: $transition;
+    transform: translate3d(0, 0, 0);
+}
 .home-study-img {
     padding: 0 0 56%;
     margin: 0 0 30px;
@@ -441,6 +494,7 @@
             }
             .home-study-logo {
                 justify-content: flex-start;
+                transform-origin: 0 50%;
             }
         }
     }

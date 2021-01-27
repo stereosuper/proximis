@@ -1,5 +1,19 @@
 /* Buttons */
 
+%link-hover {
+    > i {
+        transform: scale(0.8) translate3d(10px, 0, 0);
+        &:before {
+            transform: scaleX(1.2);
+        }
+    }
+    > span {
+        &:after {
+            transform: scaleX(0.9);
+        }
+    }
+}
+
 .btn {
     display: inline-block;
     padding: 15px 25px;
@@ -175,17 +189,7 @@
     }
     &:hover,
     &:focus {
-        > i {
-            transform: scale(0.8) translate3d(10px, 0, 0);
-            &:before {
-                transform: scaleX(1.2);
-            }
-        }
-        > span {
-            &:after {
-                transform: scaleX(0.9);
-            }
-        }
+        @extend %link-hover;
     }
     &.small {
         > i {
