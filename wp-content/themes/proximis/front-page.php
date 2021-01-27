@@ -158,7 +158,7 @@
 									<div class="home-study-img" style="background-image:url(<?php the_sub_field('img'); ?>)"></div>
 									<div class="home-study-text">
 										<div class="home-study-logo">
-											<?php echo wp_get_attachment_image(get_field('logo', $study[0])); ?>
+											<?php echo wp_get_attachment_image(get_field('logo', $study[0]), 'medium'); ?>
 										</div>
 										<blockquote class="home-study-quote">
 											<p>
