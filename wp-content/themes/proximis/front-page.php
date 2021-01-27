@@ -85,7 +85,7 @@
 								</div>
 								
 								<div class="slide-img">
-									<?php $imgs[$count] = get_sub_field('img'); echo wp_get_attachment_image($imgs[$count], 'large'); ?>
+									<?php $imgs[$count] = get_sub_field('img'); echo wp_get_attachment_image($imgs[$count], 'large', false, array('class' => 'skip-lazy')); ?>
 									<div class='badge'>
 										<svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg>
 										<span>Unified <strong>commerce</strong></span>

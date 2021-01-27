@@ -378,6 +378,10 @@
         }
     }
 
+    .home-title {
+        max-width: $col * 8;
+    }
+
     .home-carousel {
         position: relative;
         z-index: 10;
@@ -506,6 +510,10 @@
     .home-header {
         margin: -250px 0 0;
         padding: 250px 0 200px;
+    }
+
+    .home-title {
+        max-width: $col * 7;
     }
 
     .home-carousel {
