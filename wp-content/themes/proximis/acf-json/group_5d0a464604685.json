@@ -21,7 +21,7 @@
                     "key": "field_6001c2a1bd1eb",
                     "label": "Titre (blanc)",
                     "name": "title1",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -32,15 +32,15 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
                 },
                 {
                     "key": "field_6001c2bdbd1ec",
                     "label": "Titre (noir)",
                     "name": "title2",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -51,9 +51,9 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
                 },
                 {
                     "key": "field_6001c2d0bd1ed",
@@ -88,6 +88,64 @@
                         "id": ""
                     },
                     "return_format": "array"
+                },
+                {
+                    "key": "field_60128f968cabc",
+                    "label": "Utiliser l'image à la une ?",
+                    "name": "visual",
+                    "type": "true_false",
+                    "instructions": "Si cette case est cochée c'est l'image à la une qui sera affichée. Sinon ce sera l'image uploadée ci-dessous!",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60128f588caba",
+                    "label": "Couleur de fond",
+                    "name": "bg_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": ""
+                },
+                {
+                    "key": "field_60128f748cabb",
+                    "label": "Visuel",
+                    "name": "img",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
@@ -888,5 +946,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611267651
+    "modified": 1611829406
 }

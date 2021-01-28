@@ -3,21 +3,29 @@
 <?php if ( have_posts() ) : the_post(); ?>
 
 	<?php $header = get_field('header'); if($header) : ?>
-		<header class="home-header" style="background-image:url(<?php the_post_thumbnail_url('full'); ?>)">
+		<?php $bg = $header['visual'] ? 'background-image:url(' . get_the_post_thumbnail_url($post, 'full') . ')' : 'background-color:' . $header['bg_color']; ?>
+		<header class="home-header <?php echo $header['visual'] ? 'home-header-visual' : 'home-header-illu'; ?>" style="<?php echo $bg; ?>">
 			<div class="container">
-				<h1 class="home-title">
-					<span><?php echo $header['title1']; ?></span>
-					<?php echo $header['title2']; ?>
-				</h1>
+				<div class="home-header-text">
+					<h1 class="home-title">
+						<span><?php echo $header['title1']; ?></span>
+						<?php echo $header['title2']; ?>
+					</h1>
 
-				<p><?php echo $header['text']; ?></p>
+					<p><?php echo $header['text']; ?></p>
 
-				<?php if($header['btn']): ?>
-					<p>
-						<a href="<?php echo $header['btn']['url']; ?>" class="btn">
-							<?php echo $header['btn']['title']; ?>
-						</a>
-					</p>
+					<?php if($header['btn']): ?>
+						<p>
+							<a href="<?php echo $header['btn']['url']; ?>" class="btn">
+								<?php echo $header['btn']['title']; ?>
+							</a>
+						</p>
+					<?php endif; ?>
+				</div>
+				<?php if(!$header['visual']) : ?>
+					<div class="home-header-img">
+						<?php echo wp_get_attachment_image($header['img'], 'large'); ?>
+					</div>
 				<?php endif; ?>
 			</div>
 		</header>
