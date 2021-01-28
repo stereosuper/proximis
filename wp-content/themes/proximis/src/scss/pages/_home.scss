@@ -221,6 +221,7 @@
         transition: $transition;
     }
     h3 {
+        width: 100%;
         margin-top: 20px;
         font-size: 2.2rem;
     }
@@ -619,6 +620,9 @@
     }
 
     .home-carousel {
+        &:after {
+            left: 35%;
+        }
         .h1 {
             width: $col * 7.5;
         }
