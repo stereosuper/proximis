@@ -19,8 +19,27 @@
             "sub_fields": [
                 {
                     "key": "field_6001c2a1bd1eb",
-                    "label": "Titre (blanc)",
+                    "label": "Titre (1ere partie)",
                     "name": "title1",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_6001c2bdbd1ec",
+                    "label": "Titre (2eme partie)",
+                    "name": "title2",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -37,10 +56,10 @@
                     "new_lines": "br"
                 },
                 {
-                    "key": "field_6001c2bdbd1ec",
-                    "label": "Titre (noir)",
-                    "name": "title2",
-                    "type": "textarea",
+                    "key": "field_6013db846a2b1",
+                    "label": "Couleur de la 2eme partie du titre",
+                    "name": "title2_color",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -49,11 +68,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": "br"
+                    "choices": {
+                        "#18162b": "Noir",
+                        "#fff": "Blanc"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_6001c2d0bd1ed",
@@ -946,5 +971,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611829406
+    "modified": 1611914342
 }

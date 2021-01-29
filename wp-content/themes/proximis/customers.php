@@ -27,7 +27,7 @@ $caseStudyQuery = new WP_Query(array(
                 <?php if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
                     <h2 class='h1 small-margin-bottom'><?php the_title(); ?></h2>
                     <?php the_field('customersText'); ?>
-                    <ul class='home-ref-list'>
+                    <ul class='ref-list'>
                         <?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
                             <li>
                                 <?php $img = wp_get_attachment_image(get_field('logo'), 'medium', '', array('alt' => get_the_title())); ?>

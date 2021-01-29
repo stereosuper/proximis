@@ -74,6 +74,7 @@
     margin: 0;
     li {
         display: flex;
+        align-items: center;
         max-width: 200px;
         padding: 0 40px;
         flex-shrink: 0;
@@ -441,7 +442,7 @@
             height: 1405px;
             position: absolute;
             left: 29%;
-            top: 47%;
+            top: 50%;
             z-index: -1;
             background: url(../../img/bg.svg) no-repeat 0 0 / 100% 100%;
         }
@@ -574,7 +575,7 @@
 
     .home-carousel {
         &:after {
-            top: 35%;
+            top: 42%;
         }
         .h1 {
             width: $col * 8.5;
@@ -622,6 +623,7 @@
     .home-carousel {
         &:after {
             left: 35%;
+            top: 45%;
         }
         .h1 {
             width: $col * 7.5;

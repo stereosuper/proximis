@@ -9,7 +9,7 @@
 				<div class="home-header-text">
 					<h1 class="home-title">
 						<span><?php echo $header['title1']; ?></span>
-						<?php echo $header['title2']; ?>
+						<span style="color:<?php echo $header['title2_color']; ?>"><?php echo $header['title2']; ?></span>
 					</h1>
 
 					<p><?php echo $header['text']; ?></p>
