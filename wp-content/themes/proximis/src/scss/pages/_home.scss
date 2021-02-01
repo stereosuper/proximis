@@ -442,7 +442,7 @@
             height: 1405px;
             position: absolute;
             left: 29%;
-            top: 50%;
+            top: 37%;
             z-index: -1;
             background: url(../../img/bg.svg) no-repeat 0 0 / 100% 100%;
         }
@@ -575,7 +575,7 @@
 
     .home-carousel {
         &:after {
-            top: 42%;
+            top: 18%;
         }
         .h1 {
             width: $col * 8.5;
@@ -623,7 +623,7 @@
     .home-carousel {
         &:after {
             left: 35%;
-            top: 45%;
+            top: 24%;
         }
         .h1 {
             width: $col * 7.5;
