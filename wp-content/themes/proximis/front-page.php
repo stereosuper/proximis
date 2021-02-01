@@ -158,11 +158,15 @@
 			<div class="container">
 				<h2 class="h1"><?php the_sub_field('title'); ?></h2>
 
-				<?php $linkText = get_sub_field('link_text'); if( have_rows('studies') ) : ?>
+				<?php
+				$linkText = get_sub_field('link_text');
+				$clientsUrl = get_field('link_clients', 'options');
+
+				if( have_rows('studies') ) : ?>
 					<ul class="home-studies">
 						<?php while( have_rows('studies') ) : the_row(); $study = get_sub_field('study'); ?>
 							<li class="home-study">
-								<a href="<?php echo get_the_permalink($study[0]); ?>" title="<?php echo get_the_title($study[0]); ?>">
+								<a href="<?php echo $clientsUrl . '#' . get_post_field('post_name', $study[0]); ?>" title="<?php echo get_the_title($study[0]); ?>">
 									<div class="home-study-img" style="background-image:url(<?php the_sub_field('img'); ?>)"></div>
 									<div class="home-study-text">
 										<div class="home-study-logo">
