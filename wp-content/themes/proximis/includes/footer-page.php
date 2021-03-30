@@ -1,4 +1,4 @@
-<?php $bottom = get_field('bottom'); if( $bottom ) : ?>
+<?php $bottom = get_field('bottom'); if( $bottom && !get_field('hideFooter') ) : ?>
     <footer class='footer-page'>
         <div class='container'>
             <h2 class='h1'><?php echo $bottom['title']; ?></h2>

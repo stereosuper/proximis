@@ -21,7 +21,7 @@
 
 		<script>document.getElementsByTagName('html')[0].className = 'js';</script>
 
-		<script async src='https://www.googletagmanager.com/gtag/js?id=UA-137362090-1'></script>
+		<!--<script async src='https://www.googletagmanager.com/gtag/js?id=UA-137362090-1'></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
@@ -49,7 +49,7 @@
 		})();
 		</script>
 		<noscript><p><img alt="webleads-tracker" width="1" height="1" src="//stats.webleads-tracker.com/100999361ns.gif" /></p></noscript>
-		<script async defer src="//get.smart-data-systems.com/track?site_id=100999361"></script>
+		<script async defer src="//get.smart-data-systems.com/track?site_id=100999361"></script>-->
 
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

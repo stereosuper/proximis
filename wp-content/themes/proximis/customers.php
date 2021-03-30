@@ -72,7 +72,7 @@ $caseStudyQuery = new WP_Query(array(
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
         </section>
-        <?php $map = get_field('map'); if( $map ) : ?>
+        <?php $map = get_field('map'); if( $map && !get_field('hideMap') ) : ?>
             <section class='container'>
                 <div class='wrapper-customers-map container-small'>
                     <?php echo wp_get_attachment_image($map['img'], 'full'); ?>

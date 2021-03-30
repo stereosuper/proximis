@@ -9,7 +9,7 @@ get_header(); ?>
 
 	<?php get_template_part('includes/header-page'); ?>
 
-	<?php $offer = get_field('offer'); if( $offer ) : ?>
+	<?php $offer = get_field('offer'); if( $offer && !get_field('hideBlockImgTxt') ) : ?>
 		<section class='container solution-offer-wrapper' id='<?php echo $offer['anchor']; ?>'>
 			<h2 class='h1'><?php echo $offer['title']; ?></h2>
 			<div class='solution-offer'>
@@ -30,7 +30,7 @@ get_header(); ?>
 		</section>
 	<?php endif; ?>
 	
-	<?php if( have_rows('numbers') ) : while( have_rows('numbers') ) : the_row(); ?>
+	<?php if( have_rows('numbers') && !get_field('hideNumbers') ) : while( have_rows('numbers') ) : the_row(); ?>
 		<section class='wrapper-data-intro'>
 			<div class='data-intro container'>
 				<h2><?php the_sub_field('title'); ?></h2>
@@ -48,15 +48,21 @@ get_header(); ?>
 		</section>
 	<?php endwhile; endif; ?>
 
-	<?php if( have_rows('testimony') ) : while( have_rows('testimony') ) : the_row(); ?>
+	<?php if( have_rows('testimony') && !get_field('hideSchema') ) : while( have_rows('testimony') ) : the_row(); ?>
 		<section class='wrapper-quote-solution'>
 			<div class='container'>
-				<div class='container-xsmall'>
-					<blockquote><?php the_sub_field('quote'); ?></blockquote>
-				</div>
+				<?php if( $quote = get_sub_field('quote') ): ?>
+					<div class='container-xsmall'>
+						<blockquote><?php echo $quote ?></blockquote>
+					</div>
+				<?php endif; ?>
 				<div class='container-small'>
-					<h2 class='x-small'><?php the_sub_field('title'); ?></h2>
-					<div class='big-text'><?php the_sub_field('text'); ?></div>
+					<?php if( $title = get_sub_field('title') ): ?>
+						<h2 class='x-small'><?php echo $title; ?></h2>
+					<?php endif; ?>
+					<?php if( $text = get_sub_field('text') ): ?>
+						<div class='big-text'><?php echo $text; ?></div>
+					<?php endif; ?>
 					<div class='schema-wrapper'>
 						<div id='schema-wrapper' class='schema'>
 							<div class='schema-container'>
@@ -214,8 +220,12 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class='schema-text big-text'>
-							<div class='intro'><?php the_sub_field('anim_text'); ?></div>
-							<h2 class='schema-title'><?php the_sub_field('schema_title'); ?></h2>
+							<?php if( $text = get_sub_field('anim_text') ): ?>
+								<div class='intro'><?php echo $text; ?></div>
+							<?php endif; ?>
+							<?php if( $title = get_sub_field('schema_title') ): ?>
+								<h2 class='schema-title'><?php echo $title; ?></h2>
+							<?php endif; ?>
 							<?php if( have_rows('schema_desc') ) : while( have_rows('schema_desc') ) : the_row(); ?>
 								<div class='schema-desc'>
 									<h3><?php the_sub_field('title'); ?></h3>
@@ -229,7 +239,7 @@ get_header(); ?>
 		</section>
 	<?php endwhile; endif; ?>
 
-	<?php if( have_rows('technos') ) : while( have_rows('technos') ) : the_row(); ?>
+	<?php if( have_rows('technos') && !get_field('hideTechnos') ) : while( have_rows('technos') ) : the_row(); ?>
 		<section class='wrapper-techno'>
 			<div class='container'>
 				<h2><?php the_sub_field('title'); ?></h2>
@@ -248,52 +258,54 @@ get_header(); ?>
 			</div>
 		</section>
 	<?php endwhile; endif; ?>
+	
+	<?php if( have_rows('customers') && !get_field('hideRefs') ) : ?>
+		<section class='container wrapper-customers'>
+			<?php while( have_rows('customers') ) : the_row(); ?>
+				<h2 class='h1 small-margin-bottom'><?php the_sub_field('title'); ?></h2>
+				<p><?php the_sub_field('text'); ?></p>
 
-	<section class='container wrapper-customers'>
-		<?php if( have_rows('customers') ) : while( have_rows('customers') ) : the_row(); ?>
-			<h2 class='h1 small-margin-bottom'><?php the_sub_field('title'); ?></h2>
-			<p><?php the_sub_field('text'); ?></p>
+				<?php $customer_page = get_sub_field('customers_page_link'); ?>
 
-			<?php $customer_page = get_sub_field('customers_page_link'); ?>
+				<?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => 10)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
+					<ul class='ref-list'>
+						<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
+							<li>
+								<?php 
+									$img = wp_get_attachment_image(get_field('logo'), 'medium', '', array('alt' => get_the_title()));
+									$post_slug = get_post_field('post_name', get_post());
+									$permalink = $customer_page .'#'. $post_slug;
+								?>
 
-			<?php $refQuery = new WP_Query(array('post_type' => 'reference', 'posts_per_page' => 10)); if( $refQuery->have_posts() ) : $count = 0; $countNb = 0; ?>
-				<ul class='ref-list'>
-					<?php while( $refQuery->have_posts() ) : $refQuery->the_post(); $count++; ?>
-						<li>
-							<?php 
-								$img = wp_get_attachment_image(get_field('logo'), 'medium', '', array('alt' => get_the_title()));
-								$post_slug = get_post_field('post_name', get_post());
-								$permalink = $customer_page .'#'. $post_slug;
-							?>
+								<?php if( get_field('studycase') ) : ?>
+									<a class="ref clickable" href="<?php echo $permalink ?>" title="<?php the_title(); ?>">
+										<span class="btn-hexagon small">
+											<span class="hexagon"></span>
+											<span class="plus"></span>
+										</span>
+										<?php echo $img; ?>
+									</a>
+								<?php else : ?>
+									<div class="ref">
+										<?php echo $img; ?>
+									</div>
+								<?php endif; ?>
+							</li>
 
-							<?php if( get_field('studycase') ) : ?>
-								<a class="ref clickable" href="<?php echo $permalink ?>" title="<?php the_title(); ?>">
-									<span class="btn-hexagon small">
-										<span class="hexagon"></span>
-										<span class="plus"></span>
-									</span>
-									<?php echo $img; ?>
-								</a>
-							<?php else : ?>
-								<div class="ref">
-									<?php echo $img; ?>
-								</div>
-							<?php endif; ?>
-						</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php wp_reset_postdata(); endif; ?>
 
-					<?php endwhile; ?>
-				</ul>
-			<?php wp_reset_postdata(); endif; ?>
+				<?php if( $link = get_sub_field('link') ) : ?>
+					<a href='<?php echo $link['url'] ?>' class='link'>
+						<span><?php echo $link['title']; ?></span><i></i>
+					</a>
+				<?php endif; ?>
+			<?php endwhile; ?>
+		</section>
+	<?php endif; ?>
 
-			<?php if( $link = get_sub_field('link') ) : ?>
-				<a href='<?php echo $link['url'] ?>' class='link'>
-					<span><?php echo $link['title']; ?></span><i></i>
-				</a>
-			<?php endif; ?>
-		<?php endwhile; endif; ?>
-	</section>
-
-	<?php $map = get_field('map'); if( $map ) : ?>
+	<?php $map = get_field('map'); if( $map && !get_field('hideMap') ) : ?>
         <section class='container'>
             <div class='wrapper-customers-map container-small'>
                 <?php echo wp_get_attachment_image($map['img'], 'full'); ?>
@@ -304,6 +316,15 @@ get_header(); ?>
             </div>
         </section>
     <?php endif; ?>
+
+	<?php $text = get_field('blockText'); if( $text && !get_field('hideBlockTxt') ) : ?>
+		<section class='container' id='<?php echo $text['anchor']; ?>'>
+			<div class='container-small'>
+				<h2 class='h1'><?php echo $text['title']; ?></h2>
+				<?php echo $text['text']; ?>
+			</div>
+		</section>
+	<?php endif; ?>
 
 	<?php get_template_part('includes/footer-page'); ?>
 		
