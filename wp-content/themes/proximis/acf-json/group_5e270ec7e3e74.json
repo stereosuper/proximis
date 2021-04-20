@@ -22,9 +22,11 @@
                 "studies": "Etudes de cas",
                 "datasheet": "Datasheets",
                 "podcasts": "Podcasts",
-                "infographics": "Infographie"
+                "infographics": "Infographie",
+                "press": "Presse",
+                "study": "Etude"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -48,7 +50,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1579772127
+    "modified": 1618910699
 }
