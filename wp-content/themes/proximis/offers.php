@@ -49,16 +49,18 @@ get_header(); ?>
 
 		<?php if( have_rows('video') ) : ?>
 			<?php while( have_rows('video') ) : the_row(); ?>
-				<div class='video js-video' data-id='<?php the_sub_field('video'); ?>'>
-					<div class='iframe'></div>
-					<div class='cover' style='background-image:url(<?php the_sub_field('img'); ?>)'>
-						<div class='play'></div>
-						<p>
-							<span class='video-title'><?php the_sub_field('title'); ?></span>
-							<?php the_sub_field('subtitle'); ?>
-						</p>
+				<?php if( $video = get_sub_field('video') ) : ?>
+					<div class='video js-video' data-id='<?php echo $video; ?>'>
+						<div class='iframe'></div>
+						<div class='cover' style='background-image:url(<?php the_sub_field('img'); ?>)'>
+							<div class='play'></div>
+							<p>
+								<span class='video-title'><?php the_sub_field('title'); ?></span>
+								<?php the_sub_field('subtitle'); ?>
+							</p>
+						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
