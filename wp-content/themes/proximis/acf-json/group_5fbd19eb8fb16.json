@@ -91,7 +91,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -100,6 +100,22 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_61545cae007bd",
+                            "label": "Lien du titre",
+                            "name": "title_link",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_5fbd1cf2e24d2",
@@ -295,5 +311,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608139786
+    "modified": 1632918753
 }

@@ -181,7 +181,12 @@
 										while( have_rows('submenus') ): the_row();
 											echo '<div class="col">';
 											$title = get_sub_field('title');
-											if($title) echo '<span class="menu-title">'.$title.'</span>';
+											$titlelink = get_sub_field('title_link');
+											if( $titlelink ){
+												echo '<a href='.$titlelink.' class="menu-title">'.$title.'</a>';
+											}else{
+												echo '<span class="menu-title">'.$title.'</span>';
+											}
 											
 											if( have_rows('content') ):
 												while( have_rows('content') ): the_row();
