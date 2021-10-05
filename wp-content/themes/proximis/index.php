@@ -39,15 +39,10 @@
 
 		<div class="wrapper-cat-search">
 			<div id="cats" class="blog-categories off">
-				<?php if (!$current_category_id): ?>
-					<button id="category-select-button" class="category-select-button js-category-select-button" type="button">
-						<?php _e('Display all posts', 'proximis'); ?>
-					</button>
-				<?php else: ?>
-					<button class="category-select-button js-category-select-button" type="button">
-						<?php echo $current_category->name ?>
-					</button>
-				<?php endif; ?>
+				<button id="category-select-button" class="category-select-button js-category-select-button" type="button">
+					<?php echo $current_category_id ? $current_category->name : __('Display all posts', 'proximis'); ?>
+				</button>
+				
 				<ul class="blog-cats-list">
 					<?php if ($current_category_id): ?>
 						<li>

@@ -24,16 +24,12 @@ const blogHandler = () => {
 
         if (!cats) return;
 
-        document.addEventListener('click', event => {
-            let { path } = event;
-
-            const isClicked = path.some(element => {
-                return element.id === 'cats';
-            });
-
-            if (isClicked) {
+        document.addEventListener('click', e => {
+            e.stopImmediatePropagation();
+            
+            if (e.target.id === 'category-select-button') {
                 // This is a click inside.
-                cats.classList.remove('off');
+                cats.classList.contains('off') ? cats.classList.remove('off') : cats.classList.add('off');
             } else {
                 cats.classList.add('off');
             }
