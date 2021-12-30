@@ -65,6 +65,9 @@ const error404 = dynamicLoading({
 const missionNav = dynamicLoading({
     name: 'missionNav'
 });
+const partnersCats = dynamicLoading({
+    name: 'partnersCats'
+});
 
 // Initializing the SuperComponents
 useSacVanilla();
@@ -98,7 +101,7 @@ const preloadCallback = () => {
     });
 
     bodyRouter({
-        identifier: '.page-template-customers',
+        identifier: '.page-template-customers, .page-template-partners',
         callback: () => {
             const referenceSliderPromise = referencesSliderImport();
             referenceSliderPromise.then(ReferenceSlider => {
@@ -106,6 +109,11 @@ const preloadCallback = () => {
                 referenceSlider.initialize();
             });
         }
+    });
+
+    bodyRouter({
+        identifier: '.page-template-partners',
+        callback: partnersCats
     });
 
     bodyRouter({

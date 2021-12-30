@@ -1,6 +1,6 @@
 {
     "key": "group_5d3ec12f9d372",
-    "title": "[block] Arrow button",
+    "title": "[block] Arrow button & Classic button",
     "fields": [
         {
             "key": "field_5d3eca67b8292",
@@ -25,6 +25,13 @@
                 "operator": "==",
                 "value": "acf\/arrow-button"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/proximis-button"
+            }
         ]
     ],
     "menu_order": 0,
@@ -33,7 +40,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1564398183
+    "modified": 1640625743
 }

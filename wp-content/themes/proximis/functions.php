@@ -221,6 +221,16 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'proximis-button',
+        'title'             => __("Proximis button"),
+        'description'       => __("Proximis button"),
+        'render_template'   => 'blocks/button.php',
+        'category'          => 'layout',
+        'icon'              => 'admin-comments',
+        'keywords'          => array( 'button' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'scroll-to-button',
         'title'             => __("Scroll to button"),
         'description'       => __("Scroll to button"),
@@ -404,6 +414,15 @@ function proximis_post_type(){
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
         'rewrite' => array('with_front' => false)
     ));
+    register_post_type( 'partner', array(
+        'label' => 'Partenaires',
+        'singular_label' => 'Partenaire',
+        'public' => true,
+        'menu_icon' => 'dashicons-portfolio',
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+        'rewrite' => array('with_front' => false)
+    ));
     register_post_type( 'job', array(
         'label' => 'Offres',
         'singular_label' => 'Offre',
@@ -436,6 +455,13 @@ function proximis_taxonomies(){
         'singular_label' => 'Etiquette',
         'show_admin_column' => true
     ) );
+    register_taxonomy( 'partner_cat', array('partner'), array(
+        'label' => 'Catégories',
+        'singular_label' => 'Catégorie',
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true
+    ) );
 }
 add_action( 'init', 'proximis_taxonomies' );
 
@@ -465,12 +491,12 @@ function get_references_ids() {
     switch_to_blog($current_blog_id);
 
     $query_args = array(
-        'post_type' => 'reference',
+        'post_type' => array('reference', 'partner'),
         'posts_per_page' => -1,
         'meta_key' => 'studycase',
         'meta_value' => true,
-        'orderby' => 'date',
-        'order'   => 'DESC',
+        'orderby' => 'title',
+        'order'   => 'ASC',
     );
     
     $query_all_references = new WP_Query($query_args);
@@ -511,7 +537,7 @@ function load_references() {
     switch_to_blog($current_blog_id);
 
     $query_args = array(
-        'post_type' => 'reference',
+        'post_type' => array('reference', 'partner'),
         'posts_per_page' => 1,
         'meta_key' => 'studycase',
         'meta_value' => true,

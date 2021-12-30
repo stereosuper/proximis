@@ -78,7 +78,7 @@
                     },
                     "collapsed": "",
                     "min": 0,
-                    "max": 3,
+                    "max": 4,
                     "layout": "block",
                     "button_label": "Ajouter une colonne de sous-menu",
                     "sub_fields": [
@@ -311,5 +311,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632918753
+    "modified": 1633533671
 }

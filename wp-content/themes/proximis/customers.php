@@ -7,7 +7,9 @@ get_header();
 
 $refQuery = new WP_Query(array(
     'post_type' => 'reference',
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+	'orderby' => 'title',
+	'order' => 'ASC'
 ));
 
 $caseStudyQuery = new WP_Query(array(
@@ -15,6 +17,8 @@ $caseStudyQuery = new WP_Query(array(
     'posts_per_page' => 1,
     'meta_key' => 'studycase',
     'meta_value' => true,
+	'orderby' => 'title',
+	'order' => 'ASC'
 ));
 ?>
 
@@ -50,6 +54,7 @@ $caseStudyQuery = new WP_Query(array(
                 <?php wp_reset_postdata(); endif; ?>
             </div>
         </section>
+
         <?php $current_blog_id = get_current_blog_id(); ?>
         <section class="ref-slider js-ref-slider" data-blog-id="<?php echo $current_blog_id ?>">
             <div class="hexagon-loader js-loader">
@@ -58,20 +63,18 @@ $caseStudyQuery = new WP_Query(array(
                     <span class="spinner"></span>
                 </div>
             </div>
+
             <?php if ($caseStudyQuery->have_posts()) :?>
-            <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
-                <?php
-                $post_slug = get_post_field('post_name', get_post());
-                ?>
-                <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>" data-ref-slug="<?php echo $post_slug ?>">
-                    <?php 
-                        get_template_part('/includes/reference');
-                    ?>
-                </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
+                <?php while ($caseStudyQuery->have_posts()) : $caseStudyQuery->the_post(); ?>
+                    <?php $post_slug = get_post_field('post_name', get_post()); ?>
+                    <div class="ref-slide ref-slide-init js-ref-current-slide js-ref-id-<?php the_ID() ?>" data-ref-id="<?php the_ID() ?>" data-ref-slug="<?php echo $post_slug ?>">
+                        <?php get_template_part('/includes/reference'); ?>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             <?php endif; ?>
         </section>
+
         <?php $map = get_field('map'); if( $map && !get_field('hideMap') ) : ?>
             <section class='container'>
                 <div class='wrapper-customers-map container-small'>

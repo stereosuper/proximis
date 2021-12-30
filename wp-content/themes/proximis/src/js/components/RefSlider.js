@@ -94,7 +94,6 @@ class ReferencesSlider {
     }
     changeLocationHash(followingSlide) {
         const slug = followingSlide.dataset.refSlug;
-
         window.location.hash = slug;
     }
     checkLocationHash() {
@@ -159,52 +158,52 @@ class ReferencesSlider {
         }
 
         // downloadButton collant init elements
-        const [downloadButton] = query({
-            selector: '.js-btn-download',
-            ctx: this.currentSlide
-        });
-        const [downloadButtonBox] = query({
-            selector: '.js-wrapper-btn-download',
-            ctx: this.currentSlide
-        });
+        // const [downloadButton] = query({
+        //     selector: '.js-btn-download',
+        //     ctx: this.currentSlide
+        // });
+        // const [downloadButtonBox] = query({
+        //     selector: '.js-wrapper-btn-download',
+        //     ctx: this.currentSlide
+        // });
 
-        if (downloadButton && downloadButtonBox) {
-            this.collants.push(
-                window.$stereorepo.superScroll.watch({
-                    element: downloadButton,
-                    options: {
-                        collant: true,
-                        target: downloadButtonBox,
-                        collantOffset: 160,
-                        position: 'top'
-                    }
-                })
-            );
-        }
+        // if (downloadButton && downloadButtonBox) {
+        //     this.collants.push(
+        //         window.$stereorepo.superScroll.watch({
+        //             element: downloadButton,
+        //             options: {
+        //                 collant: true,
+        //                 target: downloadButtonBox,
+        //                 collantOffset: 160,
+        //                 position: 'top'
+        //             }
+        //         })
+        //     );
+        // }
 
         // infoData collant init elements
-        const [infoData] = query({
-            selector: '.js-infos-data',
-            ctx: this.currentSlide
-        });
-        const [infoDataBox] = query({
-            selector: '.js-content-btn-infos',
-            ctx: this.currentSlide
-        });
+        // const [infoData] = query({
+        //     selector: '.js-infos-data',
+        //     ctx: this.currentSlide
+        // });
+        // const [infoDataBox] = query({
+        //     selector: '.js-content-btn-infos',
+        //     ctx: this.currentSlide
+        // });
 
-        if (infoData && infoDataBox) {
-            this.collants.push(
-                window.$stereorepo.superScroll.watch({
-                    element: infoData,
-                    options: {
-                        collant: true,
-                        target: infoDataBox,
-                        collantOffset: 25,
-                        position: 'top'
-                    }
-                })
-            );
-        }
+        // if (infoData && infoDataBox) {
+        //     this.collants.push(
+        //         window.$stereorepo.superScroll.watch({
+        //             element: infoData,
+        //             options: {
+        //                 collant: true,
+        //                 target: infoDataBox,
+        //                 collantOffset: 25,
+        //                 position: 'top'
+        //             }
+        //         })
+        //     );
+        // }
 
         window.$stereorepo.superScroll.update();
 
@@ -214,32 +213,32 @@ class ReferencesSlider {
                 ease: easing.easeInOut
             });
         }
-        TweenMax.to([downloadButton, infoData], 0.3, {
-            autoAlpha: 1,
-            ease: easing.easeInOut
-        });
+        // TweenMax.to([downloadButton, infoData], 0.3, {
+        //     autoAlpha: 1,
+        //     ease: easing.easeInOut
+        // });
     }
     unstickElements() {
         const [navButtons] = query({
             selector: '.js-nav-btn',
             ctx: this.currentSlide
         });
-        const [downloadButton] = query({
-            selector: '.js-btn-download',
-            ctx: this.currentSlide
-        });
-        const [infoData] = query({
-            selector: '.js-infos-data',
-            ctx: this.currentSlide
-        });
-        TweenMax.to(navButtons, 0.3, {
-            autoAlpha: 0,
-            ease: easing.easeInOut
-        });
-        TweenMax.to([downloadButton, infoData], 0.3, {
-            autoAlpha: 0,
-            ease: easing.easeInOut
-        });
+        // const [downloadButton] = query({
+        //     selector: '.js-btn-download',
+        //     ctx: this.currentSlide
+        // });
+        // const [infoData] = query({
+        //     selector: '.js-infos-data',
+        //     ctx: this.currentSlide
+        // });
+        // TweenMax.to(navButtons, 0.3, {
+        //     autoAlpha: 0,
+        //     ease: easing.easeInOut
+        // });
+        // TweenMax.to([downloadButton, infoData], 0.3, {
+        //     autoAlpha: 0,
+        //     ease: easing.easeInOut
+        // });
 
         window.$stereorepo.superScroll.forgetMultiple(this.collants);
         this.collants = [];

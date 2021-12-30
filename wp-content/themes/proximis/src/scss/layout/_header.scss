@@ -363,6 +363,7 @@
             .page-template-customers &,
             .page-template-solution &,
             .page-template-mission &,
+            .page-template-partners &,
             .error404 & {
                 color: $text;
 
@@ -428,6 +429,7 @@
                     .page-template-customers &,
                     .page-template-solution &,
                     .page-template-mission &,
+                    .page-template-partners &,
                     .error404 & {
                         background: #fff;
                     }
@@ -514,16 +516,8 @@
         margin: 10px 0 0;
         background: #fff;
         .col {
+            width: 100%;
             padding: 25px;
-            &:nth-child(1) {
-                width: 40%;
-            }
-            &:nth-child(2) {
-                width: 25%;
-            }
-            &:nth-child(3) {
-                width: 35%;
-            }
         }
     }
     .menu-title {

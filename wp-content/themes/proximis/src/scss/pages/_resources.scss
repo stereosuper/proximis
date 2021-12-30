@@ -14,7 +14,8 @@
             margin-right: 0;
         }
     }
-    a {
+    a,
+    button {
         display: block;
         min-width: 90px;
         font-family: $ibm;
@@ -52,7 +53,8 @@
             width: 60px;
             height: 60px;
         }
-        a {
+        a,
+        button {
             line-height: $line-height;
         }
     }
