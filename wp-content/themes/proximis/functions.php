@@ -486,17 +486,22 @@ add_action( 'wp_enqueue_scripts', 'proximis_scripts' );
 /* Ajax
 /*-----------------------------------------------------------------------------------*/
 function get_references_ids() {
+    $type = $_POST['type'];
+
+    if( !$type ) return;
+
     $current_blog_id = intval($_POST['current_blog_id']);
     // Ensure that you'll get the post in the current language
     switch_to_blog($current_blog_id);
 
     $query_args = array(
-        'post_type' => array('reference', 'partner'),
+        'post_type' => $type,
         'posts_per_page' => -1,
         'meta_key' => 'studycase',
         'meta_value' => true,
         'orderby' => 'title',
         'order'   => 'ASC',
+        'post_status' => 'publish'
     );
     
     $query_all_references = new WP_Query($query_args);
@@ -530,6 +535,10 @@ add_action( 'wp_ajax_get_references_ids', 'get_references_ids' );
 add_action( 'wp_ajax_nopriv_get_references_ids', 'get_references_ids' );
 
 function load_references() {
+    $type = $_POST['type'];
+
+    if( !$type ) return;
+
     $current_blog_id = intval($_POST['current_blog_id']);
     $new_reference_id = intval($_POST['new_reference_id']);
 
@@ -537,11 +546,12 @@ function load_references() {
     switch_to_blog($current_blog_id);
 
     $query_args = array(
-        'post_type' => array('reference', 'partner'),
+        'post_type' => $type,
         'posts_per_page' => 1,
         'meta_key' => 'studycase',
         'meta_value' => true,
-        'post__in' => array($new_reference_id)
+        'post__in' => array($new_reference_id),
+        'post_status' => 'publish'
     );
     
     $query_the_reference = new WP_Query($query_args);

@@ -56,7 +56,7 @@ $caseStudyQuery = new WP_Query(array(
         </section>
 
         <?php $current_blog_id = get_current_blog_id(); ?>
-        <section class="ref-slider js-ref-slider" data-blog-id="<?php echo $current_blog_id ?>">
+        <section class="ref-slider js-ref-slider" data-blog-id="<?php echo $current_blog_id ?>" data-type="reference">
             <div class="hexagon-loader js-loader">
                 <span class="hexagon"></span>
                 <div class="spinner-wrapper">

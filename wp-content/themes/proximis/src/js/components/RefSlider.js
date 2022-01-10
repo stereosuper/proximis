@@ -32,6 +32,7 @@ class ReferencesSlider {
         const action = 'get_references_ids';
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
         const currentBlogId = this.referenceSlider.dataset.blogId;
+        const type = this.referenceSlider.dataset.type;
 
         fetch(url, {
             method: 'POST',
@@ -39,7 +40,7 @@ class ReferencesSlider {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: `current_blog_id=${currentBlogId}`
+            body: `current_blog_id=${currentBlogId}&type=${type}`
         })
             .then(res => {
                 return res.json();
@@ -251,6 +252,7 @@ class ReferencesSlider {
         const url = `/wp-admin/admin-ajax.php?action=${action}`;
 
         const currentBlogId = this.referenceSlider.dataset.blogId;
+        const type = this.referenceSlider.dataset.type;
 
         fetch(url, {
             method: 'POST',
@@ -258,7 +260,7 @@ class ReferencesSlider {
                 'Content-Type':
                     'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body: `new_reference_id=${this.newReferenceId}&current_blog_id=${currentBlogId}`
+            body: `new_reference_id=${this.newReferenceId}&current_blog_id=${currentBlogId}&type=${type}`
         })
             .then(res => res.text())
             .then(response => {
