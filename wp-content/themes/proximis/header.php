@@ -17,6 +17,8 @@
 		<meta name="msapplication-TileColor" content="#55c4da">
 		<meta name="theme-color" content="#55c4da">
 
+		<meta name="google-site-verification" content="M1w1S-3fcIbyuSSW_yToTky5sJiYnje7bEaP-oDZzbI" />
+
 		<?php wp_head(); ?>
 
 		<script>document.getElementsByTagName('html')[0].className = 'js';</script>
